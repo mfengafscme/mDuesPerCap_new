@@ -1,0 +1,267 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Organization Detail</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align="center">
+			<H1>Organization Detail</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+</TABLE>
+<FORM action="OrganizationSearchResults.htm" name="form">
+	<SCRIPT language="JavaScript">
+		var screen = "OrganizationDetail";
+		var imageType = "top";
+	</SCRIPT>
+	<SCRIPT language="JavaScript" src="../js/organization_tabmenu.js"></SCRIPT>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				DC Public Library <BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD COLSPAN="2">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="50%">
+							Organization Name
+						</TH>
+						<TH>
+							Organization Type
+						</TH>
+					</TR>
+					<TR>
+						<TD ALIGN="center">
+							DC Public Library
+						</TD>
+						<TD ALIGN="center">
+							Library
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR VALIGN="top">
+			<TD>
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD WIDTH="20%" CLASS="ContentHeaderTD">Organization Website</TD>
+						<TD CLASS="ContentTD">&nbsp;</TD>
+					</TR>
+					<TR>
+						<TD CLASS="ContentHeaderTD">Marked for Deletion</TD>
+						<TD CLASS="ContentTD">
+							<INPUT type="Checkbox" name="Deletion" DISABLED>
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TH align="left" COLSPAN="2">
+				<A href="LocationMaintenance.htm" class="largeTH" title="Maintain Locations">Maintain Location Information</A> 
+			</TH>
+		</TR>
+		<TR valign="top">
+			<TD COLSPAN="2">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="6" align="left">
+							Primary Address 
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD" colspan="2">
+							Title of Location 
+						</TD>
+						<TD class="ContentTD" align="left" colspan="4">
+							Downtown Branch 
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="6">
+							<HR> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Attention
+						</TD>
+						<TD class="ContentTD" COLSPAN="5">
+							John Michael Doe
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Address 1 
+						</TD>
+						<TD class="ContentTD">
+							111 Some Street 
+						</TD>
+						<TD class="ContentHeaderTD">
+							Address 2 
+						</TD>
+						<TD class="ContentTD" colspan="3">
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD" width="11%">
+							City 
+						</TD>
+						<TD class="ContentTD" width="34%">
+							Washington 
+						</TD>
+						<TD class="ContentHeaderTD" width="14%">
+							State 
+						</TD>
+						<TD class="ContentTD" width="18%">
+							DC 
+						</TD>
+						<TD class="ContentHeaderTD" width="10%">
+							Zip/Postal Code 
+						</TD>
+						<TD class="ContentTD" width="13%">
+							22222-0000
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							County 
+						</TD>
+						<TD class="ContentTD">&nbsp;
+						</TD>
+						<TD class="ContentHeaderTD">
+							Province 
+						</TD>
+						<TD class="ContentTD">&nbsp;
+						</TD>
+						<TD class="ContentHeaderTD">
+							Country 
+						</TD>
+						<TD class="ContentTD">
+							USA 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Bad Address 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT name="BadAddress" type="checkbox" disabled> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							Date Marked Bad 
+						</TD>
+						<TD class="ContentTD" colspan="3">&nbsp;
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD COLSPAN="2">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH align="left" colspan="6">
+							Phone Numbers 
+						</TH>
+					</TR>
+					<TR>
+						<TH width="15%" class="small">
+							Code 
+						</TH>
+						<TH width="15%" class="small">
+							Country Code 
+						</TH>
+						<TH width="15%" class="small">
+							Area Code 
+						</TH>
+						<TH width="25%" class="small">
+							Number 
+						</TH>
+						<TH width="10%" class="small">
+							Bad 
+						</TH>
+						<TH width="20%" class="small">
+							Date Marked Bad 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center">
+							Office 
+						</TD>
+						<TD align="center">&nbsp;
+						</TD>
+						<TD align="center">
+							202 
+						</TD>
+						<TD align="center">
+							555-5555 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="checkbox" name="BadPhoneNumber_Main" disabled> 
+						</TD>
+						<TD align="center" class="ContentTD">&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center">
+							Fax 
+						</TD>
+						<TD align="center">&nbsp;
+						</TD>
+						<TD align="center">
+							202 
+						</TD>
+						<TD align="center">
+							555-5556 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="checkbox" name="BadPhoneNumber_Fax" disabled> 
+						</TD>
+						<TD align="center" class="ContentTD">&nbsp;
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				<BR>
+				DC Public Library 
+			</TD>
+		</TR>
+	</TABLE>
+	<SCRIPT language="JavaScript">
+				imageType = "bottom";
+		</SCRIPT>
+	<SCRIPT language="JavaScript" src="../js/organization_tabmenu.js">	</SCRIPT>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">				</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

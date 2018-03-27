@@ -1,0 +1,325 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <style type="text/css">
+	ol li {padding-top: 1em; padding-bottom: .1em}
+	pre {padding: .3em; border: thin #000000; background-color: #eeeeee}
+	.file { font-weight: bold; color: #000044 }
+	code {color: #884444}
+  </style>
+  <title>AFSCME Enterprise Application Installation</title>
+</head>
+<body>
+<h1> AFSCME Enterprise Application Installation </h1>
+<h2> 			Overview </h2>
+This document describes the procedure for installing the AFSCME Enteprise Application Project.
+<h2> 			Database Server </h2>
+<h3> System Requirements </h3>
+<ul>
+  <li> Windows 2000 </li>
+  <li> MS SQL Server 2000 </li>
+  <li> WinZip </li>
+</ul>
+<h3> Files needed </h3>
+<ul>
+  <li> <span class="file">eap_db_install.zip</span> </li>
+  <li> <span class="file">eap_db_migration.zip</span> (optional) </li>
+  <li> <span class="file">JMail.exe</span> </li>
+</ul>
+<h3> Preparation </h3>
+<ul>
+	<li>Create a SQL Server login that will be used to install the
+		application.  This login should have permission to <code>CREATE</code>
+		and <code>DROP</code> databases, and to run <code>sp_droptask</code> and <code>sp_addtask</code>
+		on msdb</li>
+	<li>Create a SQL Server login that will be used to access the database
+		from the application server.  This login should have permission to <code>SELECT</code>,<code>UPDATE</code>,<code>INSERT</code>
+		and <code>DELETE</code> on the application database.  The login created for the install can be used. </li>
+</ul>
+<h3> Steps </h3>
+		These steps are need to be performed on a machine that has the SQL
+Server client tools installed, specifically <span class="file">isql.exe</span>.
+This can be the SQL Server machine itself.
+<ol>
+	<li> Install JMail
+		<ul>
+			<li>Run <span class="file">JMail.exe</span> and follow the instructions. </li>
+		</ul>
+	</li>
+	<li>Ensure <span class="file">isql.exe</span> is in the path by running <code>isql -?</code> from a command 
+  		prompt.  If it is not found, add it to the path in Control Panel / System / Advanced / Environment
+		Variables.  <span class="file">(Not necessary if loading production database WITH Migrated Data)</span>
+	</li>
+	<li>Unzip <span class="file">eap_db_install.zip</span> to a directory on this machine.  
+		<span class="file">(Not necessary if loading production database WITH Migrated Data)</span>.  
+	    Please note that the <span class="file">eap_db_migration.zip</span> file is also being provided
+		and can be used in place of the <span class="file">eap_db_install.zip</span> to obtain the 
+		directories and source files for the Data Migration Objects.
+	</li>
+	<li>Prepare the environment to run install scripts  <span class="file">(Not necessary if loading production database WITH Migrated Data)</span>
+		<ul>
+      		<li>Open a command prompt to the directory where the install files were unzipped to. </li>
+			<li>Set local variables for the database server, name of the database, username, and password, like this:
+		        <pre>set AFSCME_DB_SERVER=theserver<br>set AFSCME_DB_USER=afscme<br>set AFSCME_DB_PASSWORD=emcsfa<br>set AFSCME_DB_NAME=afscme_oltp<br></pre>
+					These values should match the values used in configuring the <span class="file">mssql-ds.xml</span> file above.
+			</li>
+		</ul>
+	<li>Create the database using appropriate install process/script. 				
+		<ul>
+			<li>To create a production database WITH Migrated Data, follow these instructions:
+				<ul>
+					<li>Unzip the database to a directory on this machine.  This directory created by this unzip 
+						will be referred to as [jboss_dir]. 
+					</li>
+					<li>Create a database called <span class="file">afscme_oltp</span>.
+					</li>
+					<li>Restore the database using the From Device option, Select Device as the file created from the unzip
+						and set the Option to Force restore over existing database.
+					</li>
+					<li>Set the access to this database by granting permission for DB Owner to the user name the
+						application will use to access the OLTP database..
+					</li>
+					<li>Update the <span class="file">COM_App_Config_Data</span> table to change the 
+						<code>variable_value</code> to the name of the SMTP Server. 				
+					</li>
+				</ul>
+			</li>
+			<li style="list-style-type: none; list-style-position: outside; list-style-image: none;">
+						...OR... 	
+			</li>
+			<li>To create a production database, with no data (no members/affiliates etc..), follow these instructions:
+				<ul>
+					<li>In the <span class="file">insertCOMAppTables.sql</span> for section "INSERT MASS CHANGE CONFIG DATA RECORDS", change the <code>variable_value</code> to the name of the SMTP Server. 				
+					</li>
+					<li>Run <span class="file">installProductionDB.cmd</span>.
+					</li>
+				</ul>
+			</li>
+			<li style="list-style-type: none; list-style-position: outside; list-style-image: none;">
+						...OR... 					
+			</li>
+			<li>To create a testing database, with the test data used in development, follow these instructions:
+				<ul>
+					<li>In the <span class="file">insertCOMAppTables.sql</span> for section "INSERT MASS CHANGE CONFIG DATA RECORDS", change the <code>variable_value</code> to the name of the SMTP Server. 				
+					</li>
+					<li>Run <span class="file">installTestDB.cmd</span>.
+					</li>
+				</ul>
+			</li>
+			<li style="list-style-type: none; list-style-position: outside; list-style-image: none;">
+						...OR... 
+			</li>
+			<li>To create a testing database quickly, with only 4 states, follow these instructions:
+				<ul>
+					<li>In the <span class="file">insertCOMAppTables.sql</span> for section "INSERT MASS CHANGE CONFIG DATA RECORDS", change the <code>variable_value</code> to the name of the SMTP Server. 				
+					</li>
+					<li>Run <span class="file">installDB.cmd</span>.
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>Verify that <b>SQL Server Agent</b> is started automatically as a service. 				
+	</li>
+	<li>Adjust <b>tempdb</b> to 500 MB with a maximum of 1 GB and <b>templog</b> to 100 MB with a maximum of 500 MB. 				
+	</li>
+</ol>
+<h2>Application Server </h2>
+<h3> System Requirements </h3>
+<ul>
+	<li> Windows 2000 </li>
+	<li> WinZip </li>
+</ul>
+<h3> Files needed </h3>
+<ul>
+	<li><span class="file">j2sdk-1_4_1_03-windows-i586.exe</span> </li>
+	<li><span class="file">jboss-3.2.1_tomcat-4.1.24.zip<br>
+		<li> <span class="file">eap_app_install.zip</span></li>
+    </span></li>
+</ul>
+		
+<h3> Steps </h3>
+<ol>
+	<li> Install Java SDK
+		<ul>
+			<li>Run <span class="file">j2sdk-1_4_1_03-windows-i586.exe</span> and follow the instructions. </li>
+		</ul>
+	</li>
+	<li>Install JBoss/Tomcat</li>
+  	<ul>
+    	<li>For a clustered environment, unzip <span class="file">jboss-3.2.1_tomcat-4.1.24.zip </span>
+			to a directory on this machine.&nbsp; This directory created by this unzip will be referred to as 
+			<span style="file">[jboss_dir]</span>.  For the additional server, in the server\all\deploy\jbossweb-tomcat.sar\META-INF directory
+			the <span class="file">jboss-service.xml</span> file will need to be changed for the <span class="file">Engine</span> tag
+			 and change the jvmRoute attribute from <span class="file">jvmRoute="node1"</span> to <span class="file">jvmRoute="node2"</span>.
+		</li>
+		<li style="list-style-type: none; list-style-position: outside; list-style-image: none;">
+					...OR... 
+		</li>
+		<li>For a non-clustered environment	unzip <span class="file">jboss-3.2.1_tomcat-4.1.24 non-clustered.zip </span>  
+			to a directory on this machine.&nbsp; This directory created by this unzip will be referred to as 
+			<span style="file">[jboss_dir]</span>.  NOTE: This zip does not include cluster-service.xml. 
+		</li>
+		<li>For either environment, set up environment variables that allow Tomcat JSP compiler to find the JDK</li>
+			<ul>
+				<li>Set a system environment variable JAVA_HOME to point to the location of the installed JDK</li>
+				<li>Modify the PATH system environment variable, prepending %JAVA_HOME%\bin;</li>
+			</ul>
+    	</li>
+	</ul>
+	<li>Install EAP files
+    	<ul>
+			<li>From <span class="file">eap_app_install.zip</span>, extract the following files to  <span class="file"><i>[jboss_dir]</i>/server/all/deploy</span>
+				<ul><li><span class="file">eap.ear</span></li><li><span class="file">mssql-ds.xml</span></li></ul>
+			<li>From <span class="file">eap_app_install.zip</span>, extract the following files to  <span class="file"><i>[jboss_dir]</i>/server/all/lib</span>
+				<ul><li><span class="file">msbase.jar</span></li><li><span class="file">msutil.jar</span></li><li><span class="file">mssqlserver.jar</span></li></ul>
+			<li>From <span class="file">eap_app_install.zip</span>, extract the following files to  <span class="file"><i>[jboss_dir]</i>/bin</span>
+				<ul><li><span class="file">RunApplyUpdate.bat</span></li>
+					<li><span class="file">eap_util.jar</span></li>
+				</ul>
+    	</ul>
+  	</li>
+  	<li>Configure the MS SQL Server Data Source
+  		<ul>
+	  		<li>In <span class="file"><i>[jboss_dir]</i>/server/all/deploy/mssql-ds.xml</span>, find this line:
+        		<pre>&lt;connection-url&gt;jdbc:microsoft:sqlserver://vna016:1433;DatabaseName=your_dbname;SelectMethod=cursor&lt;/connection-url&gt;<br></pre>
+				Change <code>your_dbname</code> to the name of the EAP database.<br>
+				Change <code>vna016</code> to the name of the EAP database server. 
+			</li>
+      		<li>Find these 2 lines:
+        		<pre>&lt;user-name&gt;afscme&lt;/user-name&gt;<br>&lt;password&gt;emcsfa&lt;/password&gt;<br></pre>
+				Change the the user name and password to the user name and password the
+				application will use to access the OLTP database. 
+			</li>
+		</ul>
+	</li>
+	<li>Create storage folders</li>
+    	<ul>
+			<li>Add the following empty folders to <span class="file"><i>[jboss_dir]</i></span>
+				<ul>
+					<li><span class="file">tmp</span></li>
+					<li><span class="file">afscme_uploads</span> (must match where enterprise_config.xml <code>upload</code> attribute references.)</li>
+					<li><span class="file">affiliate_uploads</span> (must match where enterprise_config.xml <code>upload</code> attribute references.)</li>
+				</ul>
+			</li>
+    	</ul>
+  	</li>
+	<li>Create Windows Scheduled Tasks</li>
+    	<ul>
+			<li>From the Control Panel, select Scheduled Tasks</li>
+			<li>Select Add Scheduled Task  (the Scheduled Task Wizard popup window will display)</li>
+			<li>Select the Next button</li>
+			<li>Select the Browse button</li>
+			<li>Browse for RunApplyUpdate.bat under the <span class="file"><i>[jboss_dir]</i>/bin</span> directory</li>
+			<li>Select Daily radio button under "Perform this task:"</li>
+			<li>Select the Next button</li>
+			<li>If on first Application Server, under Start Time set the time to be 10:00 PM</li>
+			<li>If on second Application Server, under Start Time set the time to be 11:00 PM</li>
+			<li>Select the Next button</li>
+			<li>Verify that the Enter the user name is filled in with the domain and userid of the Administrator user account</li>
+			<li>Enter the password and confirm the password</li>
+			<li>Select the Next button</li>
+			<li>Select the Finish button	</li>
+    	</ul>
+  	</li>
+	<li>Custom configuration
+    	<ul>
+      		<li>Make any desired changes to <span class="file">enterprise_config.xml</span>, 
+				<span class="file">pdf_config.xml</span> and <span class="file">label_config.xml</span>.
+				These files are in <span class="file"><i>[jboss_dir]</i>server/all/deploy/eap.ear/eap_util.jar</span>.
+			</li>
+		<ul>
+			<li>In the <span class="file">enterprise_config.xml</span>, change <code>reportQueue</code> and <code>requestPassword</code> email account attributes to the name of the appropriate Email accounts.</li>
+			<li>In the <span class="file">enterprise_config.xml</span>, change <code>smtp</code> server attribute to the name of the SMTP Server.</li>
+			<li>In the <span class="file">enterprise_config.xml</span>, change the <code>upload</code> attribute <code>afscme_uploads</code> to point to the appropriate storage folder/location.</li>
+			<li>In the <span class="file">enterprise_config.xml</span>, change the <code>upload</code> attribute <code>affiliate_uploads</code> to point to the appropriate storage folder/location.</li>
+    	</ul>
+  	</li>
+</ol>
+<h3> Running the server </h3>
+<ol>
+	<li> From <span class="file"><i>[jboss_dir]</i>/bin</span>, execute <code>run.bat -c all</code></i>
+	<li> To stop the server, run <code>shutdown.bat -S</code></li>
+</ol>
+<h2>HTTP Server </h2>
+<h3>System Requirements </h3>
+<ul>
+	<li> Windows 2000 </li>
+  	<li> WinZip </li>
+</ul>
+<h3> Files needed </h3>
+<ul>
+  	<li> <span class="file">apache_2.0.47-win32-x86-no_ssl.msi</span> </li>
+  	<li> <span class="file">eap_web_install.zip</span> </li>
+</ul>
+<h3> Steps </h3>
+<ol>
+	<li> Install Apache
+    	<ul>
+      		<li> Run <span class="file">apache_2.0.47-win32-x86-no_ssl.msi</span> and follow the instructions. </li>
+		</ul>
+  	</li>
+  	<li> Add EAP files to Apache
+    	<ul>
+      		<li> Unzip <span class="file">eap_web_install.zip</span> to the directory where Apache is 
+				installed. (This directory is usually called 'Apache2' and has subdirectories named bin, logs, lib) </li>
+      		<li> Verify that there is now an 'afscme' folder under the Apache directory. </li>
+    	</ul>
+  	</li>
+  	<li> Create the SSL certificate
+    	<ul>
+      		<li> Generate a certificate request file by running 
+				<span class="file"><i>[apache_dir]</i>/afscme/ssl/makecsr.cmd</span>. You will be asked questions 
+				about your locality, and be prompted for a password. Give the appropriate responses, remember 
+				the password. At the end of this process, a file called <span class="file">server.csr</span>
+				will be created. 
+			</li>
+      		<li> Sign the Certificate Request
+        		<ul>
+					<li> Option 1: Run <span class="file"><i>[apache_dir]</i>/afscme/ssl/signcsr.cmd</span>.
+						Use the same password as above. This will create a file called 
+						<span class="file">server.crt</span> 
+					</li>
+          			<li style="list-style-type: none; list-style-position: outside; list-style-image: none;">
+								...OR... 
+					</li>
+          			<li> Option 2: Provide the <span class="file">server.csr</span>
+						file created above to a Root CA company, such as Verisign. They will provide back to 
+						you a certificate file, which you will place in this directory (rename the file 
+						to <span class="file">server.crt</span>, or modify <span class="file">ssl.conf</span> to 
+						use the file name given) 
+					</li>
+        		</ul>
+      		</li>
+   		</ul>
+  	</li>
+  	<li> Modify the Apache configuration file: <span class="file"><i>[apache_dir]</i>/conf/httpd.conf</span>
+    	<ul>
+      		<li> Add the following lines at the end of the file:
+        		<pre>LoadModule ssl_module afscme/ssl/mod_ssl.so<br>LoadModule jk_module afscme/jk/mod_jk_2.0.46.dll<br>Include afscme/ssl/ssl.conf<br>Include afscme/jk/jk.conf<br></pre>
+      		</li>
+      		<li> Find the <code>DocumentRoot</code> directive, change it&#8217;s
+				value to <code><i>[apache_dir]</i>/afscme/htdocs</code>. For example:
+        		<pre>DocumentRoot c:/Apache2/afscme/htdocs<br></pre>
+			</li>
+	  		<li> Find the <code>Listen</code> directive, change it from <code>80</code> to <code>443</code>.
+        		<pre>Listen 443<br></pre>
+      		</li>
+    	</ul>
+  	</li>
+  	<li> Modify the workers.properties file: <span class="file"><i>[apache_dir]</i>/afscme/jk/workers.properties</span>
+    	<ul>
+			<li>Change <code>testapp1</code> and <code>testapp2</code> to the name or IP address of the application 
+				servers that will run JBoss (from the perspective of this machine).  These files are set up to 
+				implement even load balancing with sticky sessions between 2 servers.  If a different 
+				configuration is desired, see JBoss documentation for details.
+			</li>
+			<li>For non-clustered environments, replace the <span class="file">workers.properties</span> with 
+				<span class="file">non clustered workers.properties</span> and rename as <span class="file">workers.properties</span>.  
+			</li>
+    	</ul>
+  	</li>
+  	<li>Restart Apache using the Apache Service Monitor, or by running <code>apache -k restart</code> from <span class="file"><i>[apache_dir]</i>/bin</span> </li>
+</ol>
+</body>
+</html>

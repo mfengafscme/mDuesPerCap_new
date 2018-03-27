@@ -1,0 +1,5309 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0201.0210"
+    charSet    	0)
+
+(object Class_Category "MaintainUsers"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3D19E4A3010D"
+    documentation 	"Package implementing maintainence of user data."
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"3D1A179F004C"
+	    supplier   	"Logical View::MaintainCodes"
+	    quidu      	"3D1908B303E0")
+	(object Visibility_Relationship
+	    quid       	"3D21FD2F00DF"
+	    supplier   	"Logical View::Common"
+	    quidu      	"3D21E67A0072")
+	(object Visibility_Relationship
+	    quid       	"3D21FD3C01D8"
+	    supplier   	"Logical View::Util"
+	    quidu      	"3D21D5F701B4")
+	(object Visibility_Relationship
+	    quid       	"3D21FD4C009A"
+	    supplier   	"Logical View::Logging"
+	    quidu      	"3D1A2E6D0047"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "UserData"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"BodyDanglingComment"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFinalizer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateStaticInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateInstanceInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateDefaultConstructor"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"ReadOnly"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Final"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Static"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Strictfp"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedExtends"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedImplements"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateCode"
+		    value      	TRUE))
+	    quid       	"3D19E4E401D9"
+	    documentation 	
+|Reporesents all the information directly related to a user.
+|Roughly, all the data that is on the 'edit user' screen.
+	    
+	    stereotype 	"Bean"
+	    exportControl 	"Implementation"
+	    operations 	(list Operations
+		(object Operation "getBadLoginAttemptCount"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B30393"
+		    documentation 	
+|Getter for property badLoginAttemptCount.
+|@return Value of property badLoginAttemptCount.
+|
+		    
+		    result     	"int"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setBadLoginAttemptCount"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B303A7"
+		    documentation 	
+|Setter for property badLoginAttemptCount.
+|@param badLoginAttemptCount New value of property badLoginAttemptCount.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "badLoginAttemptCount"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A760093"
+			    type       	"int"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getLockoutDate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B303CF"
+		    documentation 	
+|Getter for property badLoginAttemptDate.
+|@return Value of property badLoginAttemptDate.
+|
+		    
+		    result     	"Timestamp"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setLockoutDate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B40005"
+		    documentation 	
+|Setter for property badLoginAttemptDate.
+|@param badLoginAttemptDate New value of property badLoginAttemptDate.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "lockoutDate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7600D9"
+			    type       	"Timestamp"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getLastLoginDate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B400EB"
+		    documentation 	
+|Getter for property lastLoginDate.
+|@return Value of property lastLoginDate.
+|
+		    
+		    result     	"Timestamp"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setLastLoginDate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B40109"
+		    documentation 	
+|Setter for property lastLoginDate.
+|@param lastLoginDate New value of property lastLoginDate.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "lastLoginDate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A760205"
+			    type       	"Timestamp"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getPasswordExpirationDate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B40131"
+		    documentation 	
+|Getter for property passwordExpirationDate.
+|@return Value of property passwordExpirationDate.
+|
+		    
+		    result     	"Timestamp"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setPasswordExpirationDate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B4014F"
+		    documentation 	
+|Setter for property passwordExpirationDate.
+|@param passwordExpirationDate New value of property passwordExpirationDate.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "passwordExpirationDate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A76024B"
+			    type       	"Timestamp"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getStartPage"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B4025E"
+		    documentation 	
+|Getter for property startPage.
+|@return Value of property startPage.
+|
+		    
+		    result     	"char"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setStartPage"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B40272"
+		    documentation 	
+|Setter for property startPage.
+|@param startPage New value of property startPage.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "startPage"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A760378"
+			    type       	"char"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getChallengeQuestion"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7600F7"
+		    documentation 	
+|Getter for property challengeQuestion.
+|@return Value of property challengeQuestion.
+|
+		    
+		    result     	"Logical View::java::lang::Integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setChallengeQuestion"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A76010B"
+		    documentation 	
+|Setter for property challengeQuestion.
+|@param challengeQuestion New value of property challengeQuestion.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "challengeQuestion"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A76011F"
+			    type       	"Logical View::java::lang::Integer"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getChallengeResponse"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A76013D"
+		    documentation 	
+|Getter for property challengeResponse.
+|@return Value of property challengeResponse.
+|
+		    
+		    result     	"Logical View::java::lang::String"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setChallengeResponse"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A76015B"
+		    documentation 	
+|Setter for property challengeResponse.
+|@param challengeResponse New value of property challengeResponse.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "challengeResponse"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A76016F"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getDepartment"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A76018D"
+		    documentation 	
+|Getter for property department.
+|@return Value of property department.
+|
+		    
+		    result     	"Logical View::java::lang::Integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setDepartment"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7601AB"
+		    documentation 	
+|Setter for property department.
+|@param department New value of property department.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "department"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7601BF"
+			    type       	"Logical View::java::lang::Integer"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getPk"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A760269"
+		    documentation 	
+|Getter for property pk.
+|@return Value of property pk.
+|
+		    
+		    result     	"Logical View::java::lang::Integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setPk"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A760287"
+		    documentation 	
+|Setter for property pk.
+|@param pk New value of property pk.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "pk"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A76029B"
+			    type       	"Logical View::java::lang::Integer"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getRemarks"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7602B9"
+		    documentation 	
+|Getter for property remarks.
+|@return Value of property remarks.
+|
+		    
+		    result     	"Logical View::java::lang::String"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setRemarks"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7602D7"
+		    documentation 	
+|Setter for property remarks.
+|@param remarks New value of property remarks.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "remarks"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7602EB"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getUserId"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A76030A"
+		    documentation 	
+|Getter for property userId.
+|@return Value of property userId.
+|
+		    
+		    result     	"Logical View::java::lang::String"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setUserId"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A760328"
+		    documentation 	
+|Setter for property userId.
+|@param userId New value of property userId.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userId"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A76033C"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getPersonPk"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A760396"
+		    documentation 	
+|Getter for property personPk.
+|@return Value of property personPk.
+|
+		    
+		    result     	"Logical View::java::lang::Integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setPersonPk"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7603B4"
+		    documentation 	
+|Setter for property personPk.
+|@param personPk New value of property personPk.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "personPk"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7603C8"
+			    type       	"Logical View::java::lang::Integer"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "toString"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7603E6"
+		    result     	"Logical View::java::lang::String"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "START_PAGE_AFSCME"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D2610730007"
+		    documentation 	"Indicates the users's start page is the AFSCME main menu."
+		    type       	"char"
+		    initv      	"'A'"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "START_PAGE_AFFILIATE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D2610B302F8"
+		    documentation 	"Indicates the user's start page is tha affilaite data utility."
+		    type       	"char"
+		    initv      	"'D'"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "START_PAGE_MEMBER"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D2610B5002A"
+		    documentation 	"Indicates the users's start page is the My Member Detail screen."
+		    type       	"char"
+		    initv      	"'M'"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "pk"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19E4FD0257"
+		    documentation 	"primary key"
+		    type       	"Logical View::java::lang::Integer"
+		    exportControl 	"Protected")
+		(object ClassAttribute "challengeQuestion"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19F3D302C6"
+		    documentation 	"primary key of the user's challenge question"
+		    type       	"Logical View::java::lang::Integer"
+		    exportControl 	"Protected")
+		(object ClassAttribute "challengeResponse"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19F3ED009D"
+		    documentation 	"The user's answer to their challenge question."
+		    type       	"Logical View::java::lang::String"
+		    exportControl 	"Protected")
+		(object ClassAttribute "remarks"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19F6A400A6"
+		    documentation 	"Administrator entered remarks about this user account."
+		    type       	"Logical View::java::lang::String"
+		    exportControl 	"Protected")
+		(object ClassAttribute "department"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19F6B20164"
+		    documentation 	"Primary key of the user's department (or null for none)."
+		    type       	"Logical View::java::lang::Integer"
+		    exportControl 	"Protected")
+		(object ClassAttribute "badLoginAttemptCount"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19F457008B"
+		    documentation 	"The number of times in a row this user has logged in incorrectly."
+		    type       	"int"
+		    exportControl 	"Protected")
+		(object ClassAttribute "passwordExpirationDate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19E56D003B"
+		    documentation 	"The time that the user's password expires."
+		    type       	"Timestamp"
+		    exportControl 	"Protected")
+		(object ClassAttribute "lastLoginDate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19E57702F2"
+		    documentation 	"The time of the user's last login."
+		    type       	"Timestamp"
+		    exportControl 	"Protected")
+		(object ClassAttribute "startPage"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D260F1D0222"
+		    documentation 	
+|Indicates the initial page for the user.
+|Must be one of the values from the START_PAGE_XXX constants in this class.
+		    
+		    type       	"char"
+		    exportControl 	"Protected")
+		(object ClassAttribute "userId"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE65B302C1"
+		    documentation 	"The 'user id' used for login.  Initially the person_id"
+		    type       	"Logical View::java::lang::String"
+		    exportControl 	"Protected")
+		(object ClassAttribute "lockoutDate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE65B30325"
+		    documentation 	"The last time this user logged in incorrectly."
+		    type       	"Timestamp"
+		    exportControl 	"Protected")
+		(object ClassAttribute "personPk"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE65B30375"
+		    documentation 	"ID of the associated person"
+		    type       	"Logical View::java::lang::Integer"
+		    exportControl 	"Protected"))
+	    language   	"Java")
+	(object Class "AffiliateData"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"BodyDanglingComment"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFinalizer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateStaticInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateInstanceInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateDefaultConstructor"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"ReadOnly"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Final"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Static"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Strictfp"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedExtends"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedImplements"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateCode"
+		    value      	TRUE))
+	    quid       	"3D19E78E020B"
+	    documentation 	"Basic info about an affiilate."
+	    stereotype 	"Bean"
+	    exportControl 	"Implementation"
+	    operations 	(list Operations
+		(object Operation "copy"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B20193"
+		    result     	"Logical View::AffiliateData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getLocal"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A740234"
+		    documentation 	
+|Getter for property code.
+|@return Value of property code.
+|
+		    
+		    result     	"Logical View::java::lang::String"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setLocal"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A740248"
+		    documentation 	
+|Setter for property code.
+|@param code New value of property code.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "local"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A74025C"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getCouncil"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A740270"
+		    documentation 	
+|Getter for property council.
+|@return Value of property council.
+|
+		    
+		    result     	"Logical View::java::lang::String"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setCouncil"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A740284"
+		    documentation 	
+|Setter for property council.
+|@param council New value of property council.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "council"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A740298"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getPk"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7402AC"
+		    documentation 	
+|Getter for property pk.
+|@return Value of property pk.
+|
+		    
+		    result     	"Logical View::java::lang::Integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setPk"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7402C1"
+		    documentation 	
+|Setter for property pk.
+|@param pk New value of property pk.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "pk"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7402D5"
+			    type       	"Logical View::java::lang::Integer"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "isSelected"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7402E9"
+		    documentation 	
+|Getter for property selected.
+|@return Value of property selected.
+|
+		    
+		    result     	"Logical View::java::lang::Boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setSelected"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A740307"
+		    documentation 	
+|Setter for property selected.
+|@param selected New value of property selected.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "selected"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A74031B"
+			    type       	"Logical View::java::lang::Boolean"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getState"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A74032F"
+		    documentation 	
+|Getter for property state.
+|@return Value of property state.
+|
+		    
+		    result     	"Logical View::java::lang::String"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setState"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A740343"
+		    documentation 	
+|Setter for property state.
+|@param state New value of property state.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "state"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A740357"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getSubUnit"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A74036B"
+		    documentation 	
+|Getter for property subUnit.
+|@return Value of property subUnit.
+|
+		    
+		    result     	"Logical View::java::lang::String"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setSubUnit"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A740389"
+		    documentation 	
+|Setter for property subUnit.
+|@param subUnit New value of property subUnit.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "subUnit"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A74039D"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getType"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7403B1"
+		    documentation 	
+|Getter for property type.
+|@return Value of property type.
+|
+		    
+		    result     	"Logical View::java::lang::Character"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setType"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7403CF"
+		    documentation 	
+|Setter for property type.
+|@param type New value of property type.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "type"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7403D9"
+			    type       	"Logical View::java::lang::Character"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getName"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A750019"
+		    documentation 	
+|Getter for property name.
+|@return Value of property name.
+|
+|
+		    
+		    result     	"Logical View::java::lang::String"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setName"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"java.lang.String name"))
+		    quid       	"3DDE6A750037"
+		    documentation 	
+|Setter for property name.
+|@param name New value of property name.
+|
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A75004B"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "pk"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D1CE7D103CA"
+		    documentation 	"primary key"
+		    type       	"Logical View::java::lang::Integer"
+		    exportControl 	"Protected")
+		(object ClassAttribute "type"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19E7BA009C"
+		    documentation 	"Affiliate type code."
+		    type       	"Logical View::java::lang::Character"
+		    exportControl 	"Protected")
+		(object ClassAttribute "state"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19E7E400A6"
+		    documentation 	"primary key of the affiliate state code."
+		    type       	"Logical View::java::lang::String"
+		    exportControl 	"Protected")
+		(object ClassAttribute "council"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19E7EF0373"
+		    documentation 	"council number"
+		    type       	"Logical View::java::lang::String"
+		    exportControl 	"Protected")
+		(object ClassAttribute "selected"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19F2D80199"
+		    documentation 	"True iff the user can act as the 'affiliate user' for this affiliate."
+		    type       	"Logical View::java::lang::Boolean"
+		    exportControl 	"Protected")
+		(object ClassAttribute "local"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE65B10390"
+		    documentation 	"local number"
+		    type       	"Logical View::java::lang::String"
+		    exportControl 	"Protected")
+		(object ClassAttribute "subUnit"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE65B103AE"
+		    documentation 	"sub unit number."
+		    type       	"Logical View::java::lang::String"
+		    exportControl 	"Protected")
+		(object ClassAttribute "name"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE65B103E0"
+		    documentation 	"Abbreviated name of the affiliate"
+		    type       	"Logical View::java::lang::String"
+		    exportControl 	"Protected"))
+	    language   	"Java")
+	(object Class "AffiliateSortData"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"BodyDanglingComment"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFinalizer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateStaticInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateInstanceInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateDefaultConstructor"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"ReadOnly"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Final"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Static"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Strictfp"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedExtends"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedImplements"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateCode"
+		    value      	TRUE))
+	    quid       	"3D19E9680343"
+	    documentation 	"Used by MaintainUsersBean getAffiliates() to specify how the data should be sorted"
+	    stereotype 	"Bean"
+	    exportControl 	"Implementation"
+	    operations 	(list Operations
+		(object Operation "getPage"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B203E2"
+		    documentation 	
+|Getter for property page.
+|@return Value of property page.
+|
+		    
+		    result     	"int"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setPage"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B30018"
+		    documentation 	
+|Setter for property page.
+|@param page New value of property page.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "page"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A750218"
+			    type       	"int"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getPageSize"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B3004A"
+		    documentation 	
+|Getter for property pageSize.
+|@return Value of property pageSize.
+|
+		    
+		    result     	"int"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setPageSize"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B3005E"
+		    documentation 	
+|Setter for property pageSize.
+|@param pageSize New value of property pageSize.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "pageSize"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A750254"
+			    type       	"int"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getSortField"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B30090"
+		    documentation 	
+|Getter for property sortField.
+|@return Value of property sortField.
+|
+		    
+		    result     	"int"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setSortField"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B300A4"
+		    documentation 	
+|Setter for property sortField.
+|@param sortField New value of property sortField.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "sortField"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A750286"
+			    type       	"int"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getSortOrder"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B300E0"
+		    documentation 	
+|Getter for property sortOrder.
+|@return Value of property sortOrder.
+|
+		    
+		    result     	"int"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setSortOrder"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE65B300F4"
+		    documentation 	
+|Setter for property sortOrder.
+|@param sortOrder New value of property sortOrder.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "sortOrder"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7502B8"
+			    type       	"int"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "SORT_ASCENDING"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19E9A40141"
+		    documentation 	"Sort Directions"
+		    stereotype 	"const"
+		    type       	"int"
+		    initv      	"1"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "SORT_DESCENDING"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19E9DC00FB"
+		    stereotype 	"const"
+		    type       	"int"
+		    initv      	"- 1"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "SORT_NONE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19E9DD036A"
+		    stereotype 	"const"
+		    type       	"int"
+		    initv      	"0"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "FIELD_NONE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19F14C0135"
+		    documentation 	"Fields"
+		    stereotype 	"const"
+		    type       	"int"
+		    initv      	"0"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "FIELD_STATE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19F15900BC"
+		    stereotype 	"const"
+		    type       	"int"
+		    initv      	"4"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "FIELD_COUNCIL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19F169037C"
+		    stereotype 	"const"
+		    type       	"int"
+		    initv      	"5"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "FIELD_TYPE"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19F1EB022E"
+		    stereotype 	"const"
+		    type       	"int"
+		    initv      	"2"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "FIELD_SELECTED"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19F2F20377"
+		    stereotype 	"const"
+		    type       	"int"
+		    initv      	"7"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "sortField"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19E9770042"
+		    documentation 	
+|The field to sort on.  Must be one of the values in this class's FIELD_XXX 
+|constants.
+		    
+		    type       	"int"
+		    initv      	"FIELD_NONE"
+		    exportControl 	"Protected")
+		(object ClassAttribute "sortOrder"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19E97E00EC"
+		    documentation 	"The sort order.  Must be one of the values in this class's SORT_XXX constants."
+		    type       	"int"
+		    initv      	"SORT_NONE"
+		    exportControl 	"Protected")
+		(object ClassAttribute "page"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3D19E9850074"
+		    documentation 	
+|The page to search for.  e.g, if pageSize is 10 and the search is for page 3, 
+|records 20-29 will be returned.
+		    
+		    type       	"int"
+		    initv      	"0"
+		    exportControl 	"Protected")
+		(object ClassAttribute "FIELD_NAME"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE65B202E7"
+		    type       	"int"
+		    initv      	"1"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "FIELD_LOCAL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE65B20319"
+		    type       	"int"
+		    initv      	"3"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "FIELD_SUBUNIT"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE65B20355"
+		    type       	"int"
+		    initv      	"6"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "SORT_FIELD_IDS[]"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE65B20387"
+		    type       	"int"
+		    initv      	"new int [] {FIELD_NAME,FIELD_TYPE,FIELD_LOCAL,FIELD_STATE,FIELD_COUNCIL,FIELD_SUBUNIT,FIELD_SELECTED}"
+		    exportControl 	"Public"
+		    static     	TRUE))
+	    language   	"Java")
+	(object Class "MaintainUsersBean"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"BodyDanglingComment"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFinalizer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateStaticInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateInstanceInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateDefaultConstructor"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"ReadOnly"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Final"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Static"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Strictfp"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedExtends"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedImplements"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateCode"
+		    value      	TRUE))
+	    quid       	"3DDE6A7A03BA"
+	    documentation 	
+|Handles maintainence of user accounts, and association of users to roles.
+|
+	    
+	    stereotype 	"EJBSession"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    quid       	"3DDE73D7026C"
+		    label      	"uses"
+		    supplier   	"Logical View::MaintainUsers::UserData"
+		    quidu      	"3D19E4E401D9")
+		(object Uses_Relationship
+		    quid       	"3DDE73E7003E"
+		    label      	"uses"
+		    supplier   	"Logical View::MaintainUsers::AffiliateSortData"
+		    quidu      	"3D19E9680343")
+		(object Uses_Relationship
+		    quid       	"3DDE73E80375"
+		    label      	"uese"
+		    supplier   	"Logical View::MaintainUsers::AffiliateData"
+		    quidu      	"3D19E78E020B"))
+	    operations 	(list Operations
+		(object Operation "ejbCreate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7B01E4"
+		    documentation 	
+|Gets references to the dependent EJBs
+|
+		    
+		    result     	"void"
+		    exceptions 	"Logical View::javax::ejb::CreateException"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "ejbRemove"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7B025C"
+		    documentation 	
+|Removes references to the dependent EJBs
+|
+		    
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "addUser"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7B0266"
+		    documentation 	
+|Adds a user to the system.  Returns the UserData of the new user.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "personPk"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7B0299"
+			    type       	"Logical View::java::lang::Integer"))
+		    result     	"UserData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3D19E4E401D9")
+		(object Operation "getUser"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7B02A3"
+		    documentation 	
+|Gets user data by it's primary key.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7B02AD"
+			    type       	"Logical View::java::lang::Integer"))
+		    result     	"UserData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3D19E4E401D9")
+		(object Operation "getUser"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7B02B7"
+		    documentation 	
+|Gets user data by it's user id.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userId"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7B02C1"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"UserData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3D19E4E401D9")
+		(object Operation "getUser"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7B02CB"
+		    documentation 	
+|Runs a query for getting user data, either by primary key, or userId
+|@param key the user's primary key or userId
+|@param sql the SQL string to execute.
+|@return the loaded user data.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "key"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7B02D5"
+			    type       	"Logical View::java::lang::Object")
+			(object Parameter "sql"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7B02DF"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"UserData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Protected"
+		    uid        	0
+		    quidu      	"3D19E4E401D9")
+		(object Operation "readUserData"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7B02E0"
+		    documentation 	
+|Reads user data from the given result set and returns it as a {@link UserData UserData} object.
+|@param rs ResultSet to read user data from.
+|@return new UserData object with data from <code>rs</code>
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "rs"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7B0339"
+			    type       	"ResultSet"))
+		    result     	"UserData"
+		    exceptions 	"Logical View::java::sql::SQLException"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "updateUser"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7B0343"
+		    documentation 	
+|Updates user data.  Only updates editable data (doesn't update lastSession, badLoginAttempts etc...)
+|@param updatePassword Iff true, updates the password as well, otherwise password is unchanged
+|@return -1 if the userId provided is not unique.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userData"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7B034D"
+			    type       	"UserData"
+			    quidu      	"3D19E4E401D9"))
+		    result     	"int"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getRoles"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7B0357"
+		    documentation 	
+|Gets the roles for a particular user.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7B036B"
+			    type       	"Logical View::java::lang::Integer"))
+		    result     	"Set"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getAffiliates"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7B036C"
+		    documentation 	
+|Gets the affiliates associated with a a particular user.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7B037F"
+			    type       	"Logical View::java::lang::Integer"))
+		    result     	"Set"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getAffiliateCount"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7B0380"
+		    documentation 	
+|Gets the number affiliates associated with a particular user.
+|
+|@return the number of affiliates a user is associated with.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7B0389"
+			    type       	"Logical View::java::lang::Integer"))
+		    result     	"int"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getAffiliates"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7B0393"
+		    documentation 	
+|Searches for affiliates 
+|
+|@return the total number of affiliates that match the criteria.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7B039D"
+			    type       	"Logical View::java::lang::Integer")
+			(object Parameter "criteria"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7B03C5"
+			    type       	"AffiliateData"
+			    quidu      	"3D19E78E020B")
+			(object Parameter "sort"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C0005"
+			    type       	"AffiliateSortData"
+			    quidu      	"3D19E9680343")
+			(object Parameter "result"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C000F"
+			    type       	"List"))
+		    result     	"int"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setRoles"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7C0019"
+		    documentation 	
+|Sets the roles for a user.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C0023"
+			    type       	"Logical View::java::lang::Integer")
+			(object Parameter "roles"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C002D"
+			    type       	"Set"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setAffiliates"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7C0037"
+		    documentation 	
+|Associates or disassocates a set of affilaites with a user, based on a set of search
+|criteria.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C0041"
+			    type       	"Logical View::java::lang::Integer")
+			(object Parameter "criteria"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C0042"
+			    type       	"AffiliateData"
+			    quidu      	"3D19E78E020B")
+			(object Parameter "val"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C004B"
+			    type       	"boolean"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "addAffiliates"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7C0055"
+		    documentation 	"Adds a set of affiliates to a user"
+		    parameters 	(list Parameters
+			(object Parameter "userPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C005F"
+			    type       	"Logical View::java::lang::Integer")
+			(object Parameter "affiliates"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C0060"
+			    type       	"Set"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "removeAffiliates"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7C0073"
+		    documentation 	
+|Removes a set of affiliates from a user.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C007D"
+			    type       	"Logical View::java::lang::Integer")
+			(object Parameter "affiliates"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C0087"
+			    type       	"Set"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getContactPhone"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7C0091"
+		    documentation 	
+|Gets the contact phone for a user.  This is the affiliate's contact phone if available, or an AFSCME number otherwise.
+|
+|@param userPk primary key of the user to get the affiliate phone number for
+|@return The phone number of the affiliate, or null if not available.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userPk"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C009B"
+			    type       	"Logical View::java::lang::Integer"))
+		    result     	"Logical View::java::lang::String"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "calculatePassword"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7C00A5"
+		    documentation 	
+|Calculates the password for a person
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "personPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C0109"
+			    type       	"Logical View::java::lang::Integer"))
+		    result     	"PasswordData"
+		    exceptions 	"Logical View::java::sql::SQLException"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "isUserIdTaken"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE6A7C0113"
+		    documentation 	
+|Returns true iff the given userId is already being used by another user
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "userPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C011D"
+			    type       	"Logical View::java::lang::Integer")
+			(object Parameter "userId"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE6A7C0127"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Protected"
+		    uid        	0))
+	    language   	"Java"
+	    nestedClasses 	(list nestedClasses
+		(object Class "PasswordData"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"BodyDanglingComment"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFinalizer"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateStaticInitializer"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateInstanceInitializer"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateDefaultConstructor"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"ReadOnly"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedExtends"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedImplements"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateCode"
+			    value      	TRUE))
+		    quid       	"3DDE6A7C00AF"
+		    documentation 	"Strucuture returned by calculatePassword() method"
+		    exportControl 	"Private"
+		    class_attributes 	(list class_attribute_list
+			(object ClassAttribute "password"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Final"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Transient"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Volatile"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedTypes"
+				    value      	FALSE))
+			    quid       	"3DDE6A7C0131"
+			    documentation 	"The calculated password"
+			    type       	"Logical View::java::lang::String"
+			    exportControl 	"Implementation")
+			(object ClassAttribute "isMember"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Final"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Transient"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Volatile"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedTypes"
+				    value      	FALSE))
+			    quid       	"3DDE6A7C0145"
+			    documentation 	"True if the user was determined to be a member."
+			    type       	"boolean"
+			    exportControl 	"Implementation"))
+		    module     	"::org::afscme::enterprise::users::ejb::MaintainUsersBean"
+		    quidu      	"3DDE6A7A03AF"))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Participating Objects"
+	    quid       	"3D19E4B200E6"
+	    title      	"Participating Objects"
+	    zoom       	70
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	1474
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MaintainUsers::UserData" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(672, 1216)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(58, 96)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1228
+			justify    	0
+			label      	"UserData")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(58, 46)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1228
+			justify    	0
+			label      	"<<Bean>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3D19E4E401D9"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(58, 161)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	41
+			max_width  	1045)
+		    width      	1246
+		    height     	2364
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MaintainUsers::AffiliateData" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2256, 2976)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1740, 2265)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1032
+			justify    	0
+			label      	"AffiliateData")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@2
+			location   	(1740, 2211)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1032
+			justify    	0
+			label      	"<<Bean>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3D19E78E020B"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(1740, 2330)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	26
+			max_width  	880)
+		    width      	1050
+		    height     	1556
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MaintainUsers::AffiliateSortData" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2032, 1136)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1528, 484)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1009
+			justify    	0
+			label      	"AffiliateSortData")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@3
+			location   	(1528, 430)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	1009
+			justify    	0
+			label      	"<<Bean>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3D19E9680343"
+		    compartment 	(object Compartment
+			Parent_View 	@3
+			location   	(1528, 549)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	24
+			max_width  	2943)
+		    width      	1027
+		    height     	1438
+		    annotation 	8)
+		(object ClassView "Class" "Logical View::MaintainUsers::MaintainUsersBean" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(736, 3440)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(438, 2907)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	596
+			justify    	0
+			label      	"MaintainUsersBean")
+		    icon       	"EJBSession"
+		    icon_style 	"Decoration"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DDE6A7A03BA"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(438, 2972)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	20
+			max_width  	442)
+		    width      	614
+		    height     	1268
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object UsesView "uses" @5
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(711, 2601)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"uses")
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3DDE73D7026C"
+		    client     	@4
+		    supplier   	@1
+		    line_style 	0)
+		(object UsesView "uses" @6
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1335, 2374)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"uses")
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3DDE73E7003E"
+		    client     	@4
+		    supplier   	@3
+		    line_style 	0)
+		(object UsesView "uese" @7
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1386, 3240)
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"uese")
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3DDE73E80375"
+		    client     	@4
+		    supplier   	@2
+		    line_style 	0)))))

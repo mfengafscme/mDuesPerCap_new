@@ -1,0 +1,339 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+
+<TITLE>Edit Report Selection Criteria</TITLE>
+
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/checkbox.js"></SCRIPT>
+
+</HEAD>
+
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<!-- top table1 -->
+<TABLE align="center" valign=TOP cellpadding="0" cellspacing="3" border=0 class="ContentTable">
+  <TR>
+    <TD align="center">
+      <H2>Edit Selection Criteria</H2>
+    </TD>
+  </TR>
+  
+  
+  <TR>
+    <TD align="right"><B>
+      <A href="../Common/AfscmeMainMenu.htm" title="Return to AFSCME Main Menu">Main Menu</A>&nbsp;|&nbsp;
+      <a href="#">Need Help with this page?</A></B><BR><BR>
+    </TD>
+  </TR>
+</TABLE>
+	
+<form name="SelectionCriteria">
+<TABLE align="center" valign=TOP cellpadding="0" cellspacing="3" border=0 class="ContentTable">
+
+  <TR> 
+    <!-- Real data table begins -->
+    
+    <TD align="center" height="547"> <BR>
+      <!-- table2 -->
+      <TABLE width="75%" cellpadding="0" cellspacing="3" border=1 class="InnerContentTable">
+	<TR>
+	  <TD valign=top width="70%">
+	    <H2>Member</H2>
+	  </TD>
+	</TR>
+	
+	<TR>
+	  <TD valign=top>
+	    <TABLE >
+	      <TR> 
+		<TD width="208"><LABEL for="mLastName">Last Name</LABEL></TD>
+		<TD width="639">
+		  <INPUT type="text" name="mLastNameT" id="mLastName" size=30>
+		</TD>
+	      </TR>
+              
+	      <TR> 
+		<TD nowrap width="208"><LABEL for="mFirstName">First Name</LABEL></TD>
+		<TD width="639">
+		  <INPUT type="text" name="mFirstNameT" id="mFirstName" size=30>
+		</TD>
+	      </TR>
+	      
+	      <TR>
+		<TD width="208"><LABEL for="mNum">Member Number</LABEL></TD>
+		<TD width="639">
+		  <INPUT type="text" name="mNumT" id="mNum" size=30>
+		</TD>
+	      </TR>
+	      
+	      <TR> 
+		<TD width="208" ><LABEL for="mUnitCode">Unit Code</LABEL></TD>
+		<TD width="639">
+		  <INPUT type="text" name="mUnitCodeT" id="mUnitCode" size=30>
+		</TD>
+	      </TR>
+
+	      <TR> 
+		<TD width="208"><LABEL for="mStatusCode"><a href="javascript:toggleCheckBoxes('SelectionCriteria', 'status')">Member Status Code</a></LABEL></TD>
+		<TD width="639" >
+		  <table>
+		    <tr>
+		      <td nowrap>
+			<INPUT type="checkbox"  id="statusA" value="A">
+			<label for="statusA">Active&nbsp;Member</label>
+		      </td>
+		      <td nowrap>
+			<INPUT type="checkbox" id="statusN"  value="N">
+			<label for="statusN">NonMember&nbsp;</label>
+		      </td>
+		      <td nowrap>
+			<INPUT type="checkbox" id="statusX"  value="X">
+			<label for="statusX">Complimentary</label>
+		      </td>
+		      <td nowrap>
+			<INPUT type="checkbox" id="statusT"  value="T">
+			<label for="statusT">Temporary&nbsp;Record</label>
+		      </td>
+		      <td nowrap>
+			<INPUT type="checkbox" id="statusR"  value="R">
+			<label for="statusR">R/O&nbsp;or&nbsp;Admin</label>
+		      </td>
+		    </tr>
+
+		    <tr>
+		      <td nowrap>
+			<INPUT type="checkbox" id="statusO"  value="O">
+			<label for="statusO">Officer</label>
+		      </td>
+		      <td nowrap>
+			<INPUT type="checkbox" id="statusC"   value="C">
+			<label for="statusC">Union&nbsp;Shop&nbsp;Member</label>
+		      </td>
+		    </tr>
+		  </table>
+		</TD>
+	      </TR>
+	      
+	      <TR> 
+		<TD nowrap width="208"><LABEL for="mDateCardSent">Date Membership Card Sent</LABEL></TD>
+		<TD nowrap width="639">
+		  <SELECT name="mDateCardSentS1">
+		    <option value="=" selected>on</option>
+		    <option value="<">before</option>
+		    <option value="<=">on OR before</option>
+		    <option value=">">after</option>
+		    <option value=">=">on OR after</option>
+		  </SELECT>
+		  <INPUT type="text" id="mDateCardSent1" size="10">
+		  <A href="javascript:show_calendar('SelectionCriteria.mDateCardSent1');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"><IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></A>
+		  &nbsp;
+		  <select name="mDateCardSentS2">
+		    <option value="=" selected>on</option>
+		    <option value="<">before</option>
+		    <option value="<=">on OR before</option>
+		    <option value=">">after</option>
+		    <option value=">=">on OR after</option>
+		  </select>
+		  <input type="text" id="mDateCardSent2" size="10">
+		  <a href="javascript:show_calendar('SelectionCriteria.mDateCardSent2');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"><IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></a>
+		</TD>
+	      </TR>
+	      
+	      <TR>
+		<TD nowrap width="208"><LABEL for="mRegisteredVoterF"><a href="javascript:toggleCheckBoxes('SelectionCriteria', 'voterFlag')">Registered Voter Flag</a></LABEL></TD>
+		<TD nowrap width="639">
+		  <table>
+		    <tr>
+		      <td>
+			<input type="checkbox" id="voterFlagY" value="Y">
+			<label for="voterFlagY">YES</label>
+		      </td>
+		      <td>
+			<input type="checkbox" id="voterFlagN" value="N">
+			<label for="voterFlagN">NO</label>
+		      </td>
+		      <td>
+			<input type="checkbox" id="voterFlagU" value="U">
+			<label for="voterFlagU">Unknown</label></td>
+		      </tr>
+		    </table>
+		  </TD>
+		</TR>
+	      </TABLE>
+	    </TD>
+	  </TR>
+	  
+	  <TR>
+	    <TD valign=top width="70%" height="29">
+	      <H2>Officer</H2>
+	    </TD>
+	  </TR>
+	  
+	  <TR>
+	    <TD valign="top">
+	      <TABLE>
+		<TR>
+		  <TD width="180" ><LABEL for="mOfficerTitle"><a href="javascript:toggleCheckBoxes('SelectionCriteria', 'officerTitle')">Officer Title</a></LABEL></TD>
+		  <TD width="439" >
+		    <table>
+		      <tr>
+			<td nowrap>
+			  <input type="checkbox"  id="officerTitle1" value="1">
+			  <label for="officerTitle1">PRESIDENT</label></td>
+			<td nowrap>
+			  <input type="checkbox"  id="officerTitle2" value="2">
+			  <label for="officerTitle2">SECRETARY</label></td>
+			<td nowrap>
+			  <input type="checkbox"  id="officerTitle3" value="3">
+			  <label for="officerTitle3">TREASURER</label></td>
+			<td nowrap>
+			  <input type="checkbox"  id="officerTitle4" value="4">
+			  <label for="officerTitle4">FINAN&nbsp;R&nbsp;O</label></td>
+			<td nowrap>
+			  <input type="checkbox"  id="officerTitle5" value="5">
+			  <label for="officerTitle5">V&nbsp;PRES</label>
+			</td>
+		      </tr>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle6" value="6">
+		      <label for="officerTitle6">1ST&nbsp;V&nbsp;PRES</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle7" value="7">
+		      <label for="officerTitle7">2ND&nbsp;V&nbsp;PRES</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle8" value="8">
+		      <label for="officerTitle8">3RD&nbsp;V&nbsp;PRES</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle9" value="9">
+		      <label for="officerTitle9">4TH&nbsp;V&nbsp;PRES</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle10" value="10">
+		      <label for="officerTitle10">5TH&nbsp;V&nbsp;PRES</label>
+		    </td>
+		  </tr>
+		  
+		  <tr>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle11" value="11">
+		      <label for="officerTitle11">REC&nbsp;SECY</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle12" value="12">
+		      <label for="officerTitle12">CORR&nbsp;SECY</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle13" value="13">
+		      <label for="officerTitle13">ADMIN</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle14" value="14">
+		      <label for="officerTitle14">ASST&nbsp;SECY</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle15" value="15">
+		      <label for="officerTitle15">SECY&nbsp;TREAS</label>
+		    </td>
+		  </tr>
+		  
+		  <tr>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle16" value="16">
+		      <label for="officerTitle16">FIN&nbsp;SECY</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle17" value="17">
+		      <label for="officerTitle17">EX&nbsp;BD&nbsp;MBR</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle18" value="18">
+		      <label for="officerTitle18">RD&nbsp;DIR&nbsp;MBR</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle19" value="19">
+		      <label for="officerTitle19">TRUSTEE</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle20" value="20">
+		      <label for="officerTitle20">CHIEF&nbsp;STWD</label></td>
+		  </tr>
+
+		  <tr>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle21" value="23">
+		      <label for="officerTitle21">SGT&nbsp;ARMS</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle22" value="24">
+		      <label for="officerTitle22">BUS&nbsp;AGENT</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle23" value="25">
+		      <label for="officerTitle23">BUS&nbsp;REP</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle24" value="26">
+		      <label for="officerTitle24">EXEC&nbsp;DIR</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle25" value="28">
+		      <label for="officerTitle25">EXEC&nbsp;VP</label></td>
+		  </tr>
+		  
+		  <tr>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle26" value="29">
+		      <label for="officerTitle26">CO&nbsp;CHAIR</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle27" value="30">
+		      <label for="officerTitle27">CHAIR</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle28" value="31">
+		      <label for="officerTitle28">VICE&nbsp;CHAIR</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle29" value="90">
+		      <label for="officerTitle29">STEWARD</label></td>
+		    <td nowrap>
+		      <input type="checkbox"  id="officerTitle30" value="?">
+		      <label for="officerTitle30">DIR&nbsp;FINAN&nbsp;S/T</label></td>
+		    <td nowrap>
+		    </td>
+		  </tr>
+		</table>
+	      </TD>
+	    </TR>
+	  </TABLE>
+	</TD>
+      </TR>
+    </TABLE>
+    <!-- end of table2 -->
+  </TD>
+</TR>
+
+<TR>
+  <TD valign="top" align="center">
+  </TD>
+</TR>
+
+<TR>
+  <TD align="center">
+    <TABLE width="95%" valign=TOP cellspacing="3" border="0" class="InnerContentTable">
+      <TR>
+	<TD align="right"><BR>
+	  <input type="button" class="BUTTON" name="GenerateReport" value="Generate Report" onClick="window.location='MyReport1OnScreen.htm'">
+	  <input type="button" class="BUTTON" name="Submit" value="Cancel" onClick="window.location='GenerateReports.htm'">
+	</TD>
+      </TR>
+    </TABLE>
+  </TD>
+</TR> <!-- end of the second row of the ContentTable -->
+
+
+<BR>
+
+<TR> 
+  <TD valign="TOP" align="center"> 
+    <SCRIPT type="text/javascript" language="JavaScript" src="../js/footer.js">
+    </SCRIPT>
+  </TD>
+</TR>
+
+<TR>
+  <TD>&nbsp;</TD>
+</TR>
+
+</TABLE>
+</form>
+</BODY>
+</HTML>

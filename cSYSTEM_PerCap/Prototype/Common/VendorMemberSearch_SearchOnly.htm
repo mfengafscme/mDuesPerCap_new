@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Vendor Member Search</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Vendor Member Search</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			<BR> 
+		</TD>
+	</TR>
+	<TR>
+		<TD align="right" class="ContentHeaderTD">
+			<A href="#">Need Help with this page?</A><BR> <BR> 
+		</TD>
+	</TR>
+</TABLE>
+<FORM action="#" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR" colspan="3">
+				Fields to Search: 
+			</TD>
+		</TR>
+		<TR>
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="33%">
+							First Name 
+						</TH>
+						<TH width="33%">
+							Middle Name 
+						</TH>
+						<TH width="34%">
+							Last Name 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center">
+							<INPUT type="text" name="FirstName" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="MiddleName" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="LastName" value="" size="25" maxlength="25"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_memberNumber"> Member Number </LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="memberNumber" value="" id="label_memberNumber" size="6"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_ssn"> Social Security Number </LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="ssn1" value="" id="label_ssn" size="3" maxlength="3" onKeyUp="return autoTab(this, 3, event);">
+							- 
+							<INPUT type="text" name="ssn2" value="" size="2" maxlength="2" onKeyUp="return autoTab(this, 2, event);">
+							- 
+							<INPUT type="text" name="ssn3" value="" size="4" maxlength="4" onKeyUp="return autoTab(this, 4, event);"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="11%" class="ContentHeaderTD">
+							<LABEL for="label_city"> City</LABEL> 
+						</TD>
+						<TD width="29%">
+							<INPUT type="text" name="city" value="" id="label_city" size="25"> 
+						</TD>
+						<TD width="15%" class="ContentHeaderTD">
+							<LABEL for="label_state"> State </LABEL> 
+						</TD>
+						<TD width="20%">
+							<SELECT name="state" id="label_state">
+								<SCRIPT language="JavaScript" src="../js/state.js"></SCRIPT>
+							</SELECT> 
+						</TD>
+						<TD width="10%" class="ContentHeaderTD">
+							<LABEL for="label_zip"> Zip Code</LABEL> 
+						</TD>
+						<TD width="15%">
+							<INPUT type="text" name="zip" value="" id="label_zip" size="5" maxlength="5">
+							- 
+							<INPUT type="text" name="zip4" value="" id="label_zip" size="4" maxlength="4" onKeyUp="return autoTab(this, 4, event);"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="6" align="left">
+							Affiliate Identifier - <A href="javascript:showAffiliateIDResults(form.affiliateNumber, form.affiliateCode, form.affiliateState, form.affiliateSubCode, form.affiliateCouncilCode);" onClick="return validateAffiliateIDFinderFields(form);" class="TH" title="Retrieve your Affilitate Identifier">Finder</A> 
+						</TH>
+					</TR>
+					<TR>
+						<TH width="14%">
+							Type 
+						</TH>
+						<TH width="14%">
+							Local/Sub Chapter 
+						</TH>
+						<TH width="20%">
+							State/National Type 
+						</TH>
+						<TH width="14%">
+							Sub Unit 
+						</TH>
+						<TH width="29%">
+							Council/Retiree Chapter Number 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center" class="ContentTD">
+							<SELECT name="affiliateType">
+								<OPTION></OPTION>
+								<OPTION>C</OPTION>
+								<OPTION>L</OPTION>
+								<OPTION>U</OPTION>
+								<OPTION>R</OPTION>
+								<OPTION>S</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateNumber" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<SELECT name="AffiliateState">
+								<OPTION></OPTION>
+								<OPTION>DC</OPTION>
+								<OPTION>MD</OPTION>
+								<OPTION>NJ</OPTION>
+								<OPTION>NY</OPTION>
+								<OPTION>VA</OPTION>
+								<OPTION>NAT</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateSubCode" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateCouncilCode" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="reset" class="BUTTON" value="Reset" name="ResetButton"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" name="SubmitButton" value="Submit" onClick="parent.location='VendorMemberSearch.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<BR> <SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

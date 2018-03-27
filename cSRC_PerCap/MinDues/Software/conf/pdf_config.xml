@@ -1,0 +1,80 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE config [
+
+<!ELEMENT page (size,margin)>
+<!ELEMENT size EMPTY>
+<!ATTLIST size 
+	width CDATA #REQUIRED
+	height CDATA #REQUIRED>
+<!ELEMENT margin EMPTY>
+<!ATTLIST margin 
+	left CDATA #REQUIRED
+	right CDATA #REQUIRED
+	top CDATA #REQUIRED
+	bottom CDATA #REQUIRED>
+        
+<!ELEMENT header (font)>
+<!ATTLIST header 
+	topSize CDATA #REQUIRED
+	bottomSize CDATA #REQUIRED>
+<!ELEMENT font EMPTY>
+<!ATTLIST font 
+	family  (Helvetica|Times-Roman|Courier) #REQUIRED
+	size CDATA #REQUIRED>
+
+<!ELEMENT titlePage (title, titleContent)>
+<!ELEMENT title (font)>
+<!ELEMENT titleContent (font)>
+    
+<!ELEMENT columnHeader (font,padding)>
+        
+<!ELEMENT padding EMPTY>
+<!ATTLIST padding
+	size CDATA #REQUIRED>
+
+
+<!ELEMENT tableContent (font)>
+
+<!ELEMENT output EMPTY>
+<!ATTLIST output 
+	hyphenation  (on|off) #REQUIRED
+	maxRowsPerSequence CDATA #REQUIRED>
+
+
+<!ELEMENT config (page,header,titlePage,columnHeader,tableContent,output)>
+]>
+
+<config>
+    <page>
+        <size width="11" height="8.5"/>
+        <margin left="0.5" right="0.5" top="0.3" bottom="0.3"/>
+    </page>
+
+    <header topSize="0.5" bottomSize="0.5">
+        <font family="Helvetica" size="8pt"/>
+    </header>
+    
+    <titlePage>
+        <title>
+            <font family="Times-Roman" size="18pt"/>
+        </title>
+        <titleContent>
+            <font family="Helvetica" size="16pt"/>
+        </titleContent>
+    </titlePage>
+
+    <columnHeader>
+        <font family="Helvetica" size="11pt"/>
+        
+        <padding size="0.2"/>
+    </columnHeader>
+
+    <tableContent>
+        <font family="Helvetica" size="8pt"/>
+    </tableContent>
+
+    <output hyphenation="on" maxRowsPerSequence="100"/>
+
+</config>
+

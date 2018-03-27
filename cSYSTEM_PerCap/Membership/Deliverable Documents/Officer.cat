@@ -1,0 +1,3967 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0201.0210"
+    charSet    	0)
+
+(object Class_Category "Officer"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3DF77BD60264"
+    documentation 	"Contains the MaintainOfficersBean and supporting components"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "MaintainOfficersBean"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"cg_style"
+		    value      	"Default_EJB"))
+	    quid       	"3DF77BF503D2"
+	    documentation 	
+|Encapsulates operations against officer data
+|
+	    
+	    stereotype 	"EJBSession"
+	    operations 	(list Operations
+		(object Operation "addToWeeklyCardRun"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"addToWeeklyCardRun")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E4D34500163"
+		    documentation 	
+|Updates a table (COM_Officer_Card_Run) that gathers the officers that require a new officer card to be generated.  
+|
+|@param affPK The affiliate that officer belongs to
+|@param personPK The person that requires an officer card
+|@param officePK The office the person holds
+|
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89CF7C028B"
+			    type       	"Integer")
+			(object Parameter "officePK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89CF7C02DB"
+			    type       	"Integer")
+			(object Parameter "personPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89CF7C0321"
+			    type       	"Integer"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getAddressAssociations"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"getAddressAssociation")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E5A56CA0317"
+		    documentation 	
+|Calls the getPersonAddressesByDepartment and getPersonAddressByAffiliate 
+|methods in the Address Component to retrieve all the possible addresses for an 
+|Officer.
+|
+|@param personPK Person that the Addresses are associated with.
+|@param affPK Affiliate containing the Address Locations to be retrieved.
+|@param departmentPK Department containing the Addresses to be retrieved for
+|this Person.
+|@return a Collection of Addresses for a Person.
+|
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "personPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89D55E0060"
+			    documentation 	"Person that the Addresses are associated with."
+			    type       	"Integer")
+			(object Parameter "affPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89D55E00A6"
+			    documentation 	"Affiliate containing the Address Locations to be retrieved."
+			    type       	"Integer")
+			(object Parameter "departmentPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89D55E00F6"
+			    documentation 	"Department containing the Addresses to be retrieved for this Person."
+			    type       	"Integer"))
+		    result     	"LocationAddressAssociationData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3E89D5EC0154")
+		(object Operation "getCurrentAddressAssociation"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"getCurrentAddressAssociation")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E89DAA30312"
+		    documentation 	
+|Retrieves the pos_addr_from_person_pk from Officer_History.
+|
+|@param affiliatePk
+|@param personPk
+|@param officePk
+|@param officeGroupId
+|@param posStartDt
+|@return an Integer containing the value in the database or NULL.
+|
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affiliatePk"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89DC91002E"
+			    type       	"Integer")
+			(object Parameter "personPk"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89DC910074"
+			    type       	"Integer")
+			(object Parameter "officePk"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89DC9100C4"
+			    type       	"Integer")
+			(object Parameter "officeGroupId"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89DC910114"
+			    type       	"Integer")
+			(object Parameter "posStartDt"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89DC910164"
+			    type       	"Timestamp"))
+		    result     	"Integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getCurrentLocationAssociation"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"getCurrentLocationAssociation")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E89DA7F01C6"
+		    documentation 	
+|Retrieves the pos_addr_from_org_pk from Officer_History.
+|
+|@param affiliatePk
+|@param personPk
+|@param officePk
+|@param officeGroupId
+|@param posStartDt
+|@return an Integer containing the value in the database or NULL.
+|
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affiliatePk"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89DC9B0168"
+			    type       	"Integer")
+			(object Parameter "personPk"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89DC9B01B9"
+			    type       	"Integer")
+			(object Parameter "officePk"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89DC9B0209"
+			    type       	"Integer")
+			(object Parameter "officeGroupId"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89DC9B0259"
+			    type       	"Integer")
+			(object Parameter "posStartDt"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89DC9B02A9"
+			    type       	"Timestamp"))
+		    result     	"Integer"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getOfficerDetail"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"getOfficerDetail")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E480F950161"
+		    documentation 	
+|Retrieves Officer Detail data. This method will retrieve all the data required to render the Officer detail screen, making additional Person and Affiliate methods calls to retrieve, for example, address data and affiliate data.
+|
+|Calls getOfficeTitles to get other positions held.
+|
+|If pos_addr_from_person_pk is null and pos_addr_from_org_pk is NOTnull, then 
+|calls the getAddressLocation method from the Affiliate component
+|
+|If pos_addr_from_person_pk is NOTnull and pos_addr_from_org_pk is null, then 
+|calls the getPersonAddress method from the Address component
+|
+|SELECT executive_board_fg, reporting_officer_fg
+|FROM Aff_Offices JOIN Officer_History ON Aff_Offices.aff_pk = 
+|Officer_History.aff_pk, Aff_Offices.office_pk = Officer_History.office_pk, 
+|Aff_Offices.office_group_id = Officer_History.office_group_id
+|WHERE Officer_History.person_pk = @param personPK 
+|AND Aff_Offices.aff_pk = @param affPK
+|AND Aff_Offices.office_pk = @param officePK
+|AND Aff_Offices.office_group_id = @param officeGroupId
+|AND Officer_History.pos_start_dt = @param posStartDt
+|
+|SELECT mbrStatus, primary_information_source FROM Aff_Members
+|[OUTER] JOIN Officer_History ON Aff_Members.aff_pk = 
+|Officer_History.position_mbr_affiliation AND Aff_Members.person_pk = 
+|Officer_History.person_pk 
+|
+|SELECT comment_dt, comment_txt, created_user_pk
+|FROM Officer_Comments JOIN Officer_History ON Officer_Comments.aff_pk = 
+|Officer_History.aff_pk, Officer_Comments.office_pk = Officer_History.office_pk, 
+|Officer_Comments.office_group_id = Officer_History.office_group_id,
+|Officer_Comments.person_pk = Officer_History.person_pk,
+|Officer_Comments.pos_start_dt = Officer_History.pos_start_dt
+|WHERE Officer_Comments.person_pk = @param personPK 
+|AND Officer_Comments.aff_pk = @param affPK
+|AND Officer_Comments.office_pk = @param officePK
+|AND Officer_Comments.office_group_id = @param officeGroupId
+|AND Officer_Comments.pos_start_dt = @param posStartDt
+|AND Officer_Comments.comment_dt
+|
+|@param affPK Affiliate that contains the office.
+|@param officePK Constitutional Office within the Affiliate
+|@param officeGroupId The specific office for the Constitutional Office - an 
+|affiliate may have more than one office with the same constitutional title
+|@param personPK Person PK that holds the Office within the Affiliate.
+|@param posStartDt The date the officer first filled the office, helps to 
+|distinguish between the history of officers who have held or hold this office 
+|title.
+|@param officeGroupID
+|@return an OfficerData object with information for a specific office and the Person holding the office.
+|
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89CF180092"
+			    type       	"Integer")
+			(object Parameter "officePK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89CF1800ED"
+			    type       	"Integer")
+			(object Parameter "officeGroupID"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89CF180133"
+			    type       	"Integer")
+			(object Parameter "personPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89CF180183"
+			    type       	"Integer")
+			(object Parameter "posStartDt"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89CF1801D3"
+			    type       	"Timestamp"))
+		    result     	"OfficerData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3DF77C0900E1")
+		(object Operation "getOfficerHistory"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"getOfficerHistory")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E4D38AE016B"
+		    documentation 	
+|Retrieves a collection of officer data both past and present in descending order for a specific person.  
+|
+|@param personPK The reference to the person
+|@return a Collection of OfficerData
+|
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "personPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89CF890366"
+			    type       	"Integer"))
+		    result     	"Collection"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getOtherPositions"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"getOfficerTitles")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E4823C7007E"
+		    documentation 	
+|Returns a collection of all the current officer titles this person/member is holding.
+|
+|SELECT afscme_title_nm FROM AFSCME_Offices WHERE office_pk = officePK
+|
+|SELECT pos_start_dt, pos_end_dt FROM Officer_History WHERE person_pk = @param 
+|personPK
+|
+|@param personPK The Person for which the search is being conducted
+|@return a Collection of OfficeData
+|
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "personPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E8B403A0379"
+			    type       	"Integer"))
+		    result     	"Collection"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "searchOfficers"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"searchOfficers")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E480E4400C6"
+		    documentation 	
+|Searches for officers based on a given set of search criteria and returns the rows indicated. 
+|
+|@param officerCriteria Data object containing the search criteria provided by the user.
+|@return Collection of OfficerResult objects based on the search criteria and the assigned privliges.
+|
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "officerCriteria"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89CEAE01E4"
+			    type       	"OfficerCriteria"
+			    quidu      	"3DF7817E0108"))
+		    result     	"Collection"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setAddressAssociation"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"setAddressAssociation")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E4822D700B5"
+		    documentation 	
+|Assigns a mailing address to the officer.  This address can be either an affiliate location address or a personal address.  
+|
+|The posAddrFromPersonPK and posAddrFromOrgPK cannot both contain a value.
+|
+|@param affPK The affiliate for the office position
+|@param personPK The Person currently holding the office position
+|@param officerPK The office position
+|@param posAddrFromPersonPK If not null, contains the personal address that the person holding the office wants their mail to be sent to
+|@param posAddrFromOrgPK If not null, contains the Location address that the person holding the office wants their mail to be sent to
+|
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89C19203BF"
+			    type       	"Integer")
+			(object Parameter "personPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89C193001E"
+			    type       	"Integer")
+			(object Parameter "officerPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89C193006E"
+			    type       	"Integer")
+			(object Parameter "posAddrFromPersonPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89C19300B4"
+			    type       	"Integer")
+			(object Parameter "posAddrFromOrgPK"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E89C193010E"
+			    type       	"Integer"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "updateOfficerDetail"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"updateOfficerDetail")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E4D274A00B5"
+		    documentation 	
+|Updates the officer detail data for an officer.
+|
+|UPDATE Officer_History
+|SETsuspended_fg, suspended_dt 
+|WHERE aff_pk = affPK
+|AND office_pk = officePK
+|AND office_group_id = officeGroupId
+|AND person_pk = personPK 
+|AND pos_start_dt = posStartDt
+|
+|INSERT INTO Officer_Comments
+|(aff_pk, office_pk, office_group_id, person_pk, pos_start_dt , comment_dt, 
+|comment_txt, created_user_pk)
+|VALUES (affPK, officePK, officeGroupId, personPK, posStartDt, commentDt, 
+|commentTxt, createdUserPK)
+|
+|@param officerData the new OfficerData
+|
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "officerData"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E8B41560010"
+			    type       	"OfficerData"
+			    quidu      	"3DF77C0900E1"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    module     	"Component View::SessionBean"
+	    quidu      	"3DF76136014B"
+	    module     	"Component View::org::afscme::enterprise::officer::ejb::MaintainOfficersBean"
+	    quidu      	"3F1291D50151"
+	    language   	"Java")
+	(object Class "OfficerData"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"DisableAutoSync"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Final"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Static"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Strictfp"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateDefaultConstructor"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFinalizer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateStaticInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateInstanceInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateCode"
+		    value      	TRUE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"ReadOnly"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedExtends"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedImplements"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"ConstructorIs"
+		    value      	("Ctor_Set" 62)))
+	    quid       	"3DF77C0900E1"
+	    documentation 	
+|Represents an Officer holding an Office at an Affiliate.
+|
+	    
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    attributes 	(list Attribute_Set)
+		    quid       	"3DF7814F01E7"
+		    supplier   	"Logical View::Person::PersonData"
+		    quidu      	"3DF761C902D3"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "posAddrFromPersonPk"
+		    quid       	"3E77786F037D"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "posAddrFromOrgPk"
+		    quid       	"3E7779100389"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "posStartDt"
+		    quid       	"3E777955031A"
+		    type       	"Date"
+		    exportControl 	"Public")
+		(object ClassAttribute "posEndDt"
+		    quid       	"3E77851B02E2"
+		    type       	"Date"
+		    exportControl 	"Public")
+		(object ClassAttribute "suspendedFg"
+		    quid       	"3E778527027B"
+		    type       	"Boolean"
+		    exportControl 	"Public")
+		(object ClassAttribute "suspendedDt"
+		    quid       	"3E779EB90346"
+		    type       	"Date"
+		    exportControl 	"Public")
+		(object ClassAttribute "posStewardFg"
+		    quid       	"3E7B2E34024C"
+		    type       	"Boolean"
+		    exportControl 	"Public")
+		(object ClassAttribute "mbrStatusCodePk"
+		    quid       	"3E7B2E6002DC"
+		    documentation 	"Common Code Key for the Member Status if this Officer is a Member. Will be null if the Officer is not a Member."
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "positionAffiliation"
+		    quid       	"3E7B2E470145"
+		    type       	"Integer"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::officer::OfficerData"
+	    quidu      	"3EA6D4800287"
+	    language   	"Java")
+	(object Class "OfficerCriteria"
+	    quid       	"3DF7817E0108"
+	    documentation 	"Contains data used to query for officers.  Includes information about which result fields are desired, sort information and pagining information."
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3DF784500174"
+		    supplier   	"Logical View::Person::PersonCriteria"
+		    quidu      	"3DF763560298"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "affType"
+		    quid       	"3E4D3B27034C"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "affLocalSubChapter"
+		    quid       	"3E4D3B3000E2"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "affStateNatType"
+		    quid       	"3E4D3B60034E"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "affSubUnit"
+		    quid       	"3E4D3B6B0295"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "affCouncilRetireeChaper"
+		    quid       	"3E4D3B7C0159"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "affCode"
+		    quid       	"3E4D3B8F03AF"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "mbrNumber"
+		    quid       	"3E4D3B9C01D7"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "afscmeTitleNm"
+		    quid       	"3E5A65C8004F"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "suspendedFg"
+		    quid       	"3E5A672702D5"
+		    type       	"Boolean"
+		    exportControl 	"Public")
+		(object ClassAttribute "stewards"
+		    quid       	"3E5A673001A1"
+		    type       	"Boolean"
+		    exportControl 	"Public")
+		(object ClassAttribute "primaryInformationSource"
+		    quid       	"3E5A673C01B3"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "termBegin"
+		    quid       	"3E5A674D03D4"
+		    type       	"Date"
+		    exportControl 	"Public")
+		(object ClassAttribute "termEnd"
+		    quid       	"3E5A675302C4"
+		    type       	"Date"
+		    exportControl 	"Public")
+		(object ClassAttribute "lstModifiedDate"
+		    quid       	"3E5A675E00AD"
+		    type       	"Date"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::officer::OfficerCriteria"
+	    quidu      	"3F1291D50183"
+	    language   	"Java")
+	(object Class "OtherOfficeData"
+	    quid       	"3DF7B7AB033C"
+	    documentation 	
+|Represents info about a position held in another Affiliate.
+|
+|
+|
+	    
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "afscmeTitleNm"
+		    quid       	"3E774C1E029E"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "affId"
+		    quid       	"3E8B3B24029A"
+		    type       	"AffiliateIdentifier"
+		    quidu      	"3DF787790312"
+		    exportControl 	"Public")
+		(object ClassAttribute "officerMailTo"
+		    quid       	"3E8B3B3502E5"
+		    documentation 	"This is a String instead of a codePk because it represents either one of the Person/Member record's address, which is a common code, but it also could be 'Affiliate', which is NOT a common code."
+		    type       	"String"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::officer::OtherOfficeData"
+	    quidu      	"3F1291D50241"
+	    language   	"Java")
+	(object Class "OfficerResult"
+	    quid       	"3E480FE2016B"
+	    documentation 	"Represents a single result returned by an Officer search."
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "firstNm"
+		    quid       	"3E7640A803B5"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "middleNm"
+		    quid       	"3E7640D00268"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "lastNm"
+		    quid       	"3E7640DB0263"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "suffixNm"
+		    quid       	"3E7640E40234"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "affType"
+		    quid       	"3E76433F0213"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "affLocalSubChapter"
+		    quid       	"3E76434801F8"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "affStateNatType"
+		    quid       	"3E7643540097"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "affCouncilRetireeChapter"
+		    quid       	"3E76435E01A0"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "affCode"
+		    quid       	"3E76436D03C8"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "afscmeTitleNm"
+		    quid       	"3E7644E30055"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "termEnd"
+		    quid       	"3E7644F20165"
+		    type       	"Timestamp"
+		    exportControl 	"Public")
+		(object ClassAttribute "reportingOfficerFg"
+		    quid       	"3E765E3C0204"
+		    type       	"Boolean"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::officer::OfficerResult"
+	    quidu      	"3F1291D501B5"
+	    language   	"Java")
+	(object Class "LocationAddressAssociationData"
+	    quid       	"3E89D5EC0154"
+	    operations 	(list Operations
+		(object Operation "setCurrentAddressAssociation"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E89D8C602F8"
+		    documentation 	"Sets the currentAssociation with the addressPk parameter. Also sets the associationType = ASSOCIATION_TYPE_ADDRESS."
+		    parameters 	(list Parameters
+			(object Parameter "addressPk"
+			    quid       	"3E89D8DE0086"
+			    type       	"Integer"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setCurrentLocationAssociation"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E89D8A000EB"
+		    documentation 	"Sets the currentAssociation with the locationPk parameter. Also sets the associationType = ASSOCIATION_TYPE_LOCATION."
+		    parameters 	(list Parameters
+			(object Parameter "locationPk"
+			    quid       	"3E89D98B0085"
+			    type       	"Integer"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "personAddresses"
+		    quid       	"3E89D758031A"
+		    type       	"Collection"
+		    exportControl 	"Public")
+		(object ClassAttribute "affiliateLocations"
+		    quid       	"3E89D7670091"
+		    type       	"Collection"
+		    exportControl 	"Public")
+		(object ClassAttribute "currentAssociation"
+		    quid       	"3E89D77503A8"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "associationType"
+		    quid       	"3E89D78603A3"
+		    documentation 	"Indicates if the current association is a Person Address or an Affiliate Location. Uses the ASSOCIATION_TYPE_XXX constants to set this."
+		    type       	"int"
+		    exportControl 	"Public")
+		(object ClassAttribute "ASSOCIATION_TYPE_ADDRESS"
+		    quid       	"3E89D7C2004C"
+		    type       	"int"
+		    initv      	"1"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "ASSOCIATION_TYPE_LOCATION"
+		    quid       	"3E89D7A201AE"
+		    type       	"int"
+		    initv      	"2"
+		    exportControl 	"Public"
+		    static     	TRUE))
+	    module     	"Component View::org::afscme::enterprise::officer::LocationAddressAssociationData"
+	    quidu      	"3F1291D50114"
+	    language   	"Java")
+	(object Association "$UNNAMED$0"
+	    quid       	"3E8B3C0C003B"
+	    roles      	(list role_list
+		(object Role "theOtherOfficeData"
+		    quid       	"3E8B3C0D02BD"
+		    label      	"theOtherOfficeData"
+		    supplier   	"Logical View::Officer::OtherOfficeData"
+		    quidu      	"3DF7B7AB033C"
+		    client_cardinality 	(value cardinality "0..n")
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"3E8B3C0D02C8"
+		    supplier   	"Logical View::Officer::OfficerData"
+		    quidu      	"3DF77C0900E1"
+		    is_aggregate 	TRUE)))
+	(object Association "positionAffiliationId"
+	    quid       	"3E92DBCA02AC"
+	    roles      	(list role_list
+		(object Role "theAffiliateIdentifier"
+		    quid       	"3E92DBCB0203"
+		    label      	"theAffiliateIdentifier"
+		    supplier   	"Logical View::Affiliate::AffiliateIdentifier"
+		    quidu      	"3DF787790312"
+		    client_cardinality 	(value cardinality "1")
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$2"
+		    quid       	"3E92DBCB0249"
+		    supplier   	"Logical View::Officer::OfficerData"
+		    quidu      	"3DF77C0900E1"
+		    is_aggregate 	TRUE)))
+	(object Association "$UNNAMED$3"
+	    quid       	"3EA6D610028B"
+	    roles      	(list role_list
+		(object Role "theOfficeData"
+		    quid       	"3EA6D6110160"
+		    label      	"theOfficeData"
+		    supplier   	"Logical View::Affiliate::OfficeData"
+		    quidu      	"3DF7BE2003C5"
+		    client_cardinality 	(value cardinality "1")
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$4"
+		    quid       	"3EA6D611017E"
+		    supplier   	"Logical View::Officer::OfficerData"
+		    quidu      	"3DF77C0900E1"
+		    is_aggregate 	TRUE)))
+	(object Mechanism @1
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$5"
+		    quid       	"3E89CE200399"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E89CE5103AD"
+			    supplier   	"$UNNAMED$6"
+			    quidu      	"3E89CE3A013D"
+			    messages   	(list Messages
+				(object Message "getAddressAssociations(Integer, Integer, Integer)"
+				    quid       	"3E89CE5103AE"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"3E5A56CA0317"
+				    creation   	FALSE)
+				(object Message "LocationAddressAssociationData object"
+				    quid       	"3E89D35F008D"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.6"
+				    ordinal    	10
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::3rd Party::Struts::Action"
+		    quidu      	"3E1B0B53038F"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$7"
+		    quid       	"3E89CE2A028F"
+		    class      	"Logical View::3rd Party::JDBC::JDBC"
+		    quidu      	"3E1B3DBC02F5"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$8"
+		    quid       	"3E89CE3402CF"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E89D1120267"
+			    supplier   	"$UNNAMED$7"
+			    quidu      	"3E89CE2A028F"
+			    messages   	(list Messages
+				(object Message "SELECT From Person_Address"
+				    quid       	"3E89D1120268"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.1.1"
+				    ordinal    	2
+				    quidu      	"000000000000"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E89D1D000ED"
+			    supplier   	"$UNNAMED$6"
+			    quidu      	"3E89CE3A013D"
+			    messages   	(list Messages
+				(object Message ""
+				    quid       	"3E89D1D000EE"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.1.2"
+				    ordinal    	3
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::Address::SystemAddressBean"
+		    quidu      	"3E1F21C8015B"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$6"
+		    quid       	"3E89CE3A013D"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E89D0CF00A8"
+			    supplier   	"$UNNAMED$8"
+			    quidu      	"3E89CE3402CF"
+			    messages   	(list Messages
+				(object Message "getPersonAddressesByDepartment(Integer, Integer)"
+				    quid       	"3E89D0CF00A9"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.1"
+				    ordinal    	1
+				    quidu      	"3E2C04E8029F"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E89D1B002A0"
+			    supplier   	"$UNNAMED$9"
+			    quidu      	"3E89D1A101E0"
+			    messages   	(list Messages
+				(object Message "getOrgLocations(Integer)"
+				    quid       	"3E89D10800D2"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.2"
+				    ordinal    	4
+				    quidu      	"3E7F8B280316"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E89D2670054"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.2.2"
+				    ordinal    	6
+				    quidu      	"000000000000"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E89D407002A"
+			    supplier   	"$UNNAMED$7"
+			    quidu      	"3E89CE2A028F")
+			(object Link
+			    quid       	"3E89DA2401BB"
+			    supplier   	"$UNNAMED$6"
+			    quidu      	"3E89CE3A013D"
+			    messages   	(list Messages
+				(object Message "getCurrentAddressAssociation(Integer, Integer, Integer, Integer, Timestamp)"
+				    quid       	"3E89DA2401BC"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.3"
+				    ordinal    	7
+				    quidu      	"3E89DAA30312"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E89DD6E0086"
+			    supplier   	"$UNNAMED$10"
+			    quidu      	"3E89DA090054"
+			    messages   	(list Messages
+				(object Message "setCurrentAddressAssociation(Integer)"
+				    quid       	"3E89DD6E0087"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.5"
+				    ordinal    	9
+				    quidu      	"3E89D8C602F8"
+				    creation   	FALSE)
+				(object Message "SET Collections as Properties"
+				    quid       	"3E89DFC500D7"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.4"
+				    ordinal    	8
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::Officer::MaintainOfficersBean"
+		    quidu      	"3DF77BF503D2"
+		    persistence 	"Transient"
+		    creationObj 	TRUE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$9"
+		    quid       	"3E89D1A101E0"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E89D1DC004A"
+			    supplier   	"$UNNAMED$7"
+			    quidu      	"3E89CE2A028F"
+			    messages   	(list Messages
+				(object Message "SELECT From Org_Locations"
+				    quid       	"3E89D1DC004B"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.2.1"
+				    ordinal    	5
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::Organization::MaintainOrgLocationsBean"
+		    quidu      	"3E7E0E32030E"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$10"
+		    quid       	"3E89DA090054"
+		    class      	"Logical View::Officer::LocationAddressAssociationData"
+		    quidu      	"3E89D5EC0154"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)))
+	(object Mechanism @2
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$11"
+		    quid       	"3E89DE4103E6"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E89DE4103E7"
+			    supplier   	"$UNNAMED$12"
+			    quidu      	"3E89DE4103EF"
+			    messages   	(list Messages
+				(object Message "getAddressAssociations(Integer, Integer, Integer)"
+				    quid       	"3E89DE4103E8"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"3E5A56CA0317"
+				    creation   	FALSE)
+				(object Message "LocationAddressAssociationData object"
+				    quid       	"3E89DE4103E9"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.7"
+				    ordinal    	11
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::3rd Party::Struts::Action"
+		    quidu      	"3E1B0B53038F"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$12"
+		    quid       	"3E89DE4103EF"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E89DE4103EE"
+			    supplier   	"$UNNAMED$13"
+			    quidu      	"3E89DE4103FC"
+			    messages   	(list Messages
+				(object Message "getPersonAddressesByDepartment(Integer, Integer)"
+				    quid       	"3E89DE4103ED"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.1"
+				    ordinal    	1
+				    quidu      	"3E2C04E8029F"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E89DE4103F0"
+			    supplier   	"$UNNAMED$14"
+			    quidu      	"3E89DE410404"
+			    messages   	(list Messages
+				(object Message "getOrgLocations(Integer)"
+				    quid       	"3E89DE4103F1"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.2"
+				    ordinal    	4
+				    quidu      	"3E7F8B280316"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E89DE4103F2"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.2.2"
+				    ordinal    	6
+				    quidu      	"000000000000"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E89DE4103F3"
+			    supplier   	"$UNNAMED$15"
+			    quidu      	"3E89DE410400")
+			(object Link
+			    quid       	"3E89DE4103F5"
+			    supplier   	"$UNNAMED$12"
+			    quidu      	"3E89DE4103EF"
+			    messages   	(list Messages
+				(object Message "getCurrentAddressAssociation(Integer, Integer, Integer, Integer, Timestamp)"
+				    quid       	"3E89DE4103F6"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.3"
+				    ordinal    	7
+				    quidu      	"3E89DAA30312"
+				    creation   	FALSE)
+				(object Message "getCurrentLocationAssociation(Integer, Integer, Integer, Integer, Timestamp)"
+				    quid       	"3E89DE6C02DA"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.4"
+				    ordinal    	8
+				    quidu      	"3E89DA7F01C6"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E89DE4103F7"
+			    supplier   	"$UNNAMED$16"
+			    quidu      	"3E89DE420013"
+			    messages   	(list Messages
+				(object Message "SET Collections as Properties"
+				    quid       	"3E89DE4103F8"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.5"
+				    ordinal    	9
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "setCurrentLocationAssociation(Integer)"
+				    quid       	"3E89DF930193"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.6"
+				    ordinal    	10
+				    quidu      	"3E89D8A000EB"
+				    creation   	FALSE))))
+		    class      	"Logical View::Officer::MaintainOfficersBean"
+		    quidu      	"3DF77BF503D2"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$13"
+		    quid       	"3E89DE4103FC"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E89DE4103FB"
+			    supplier   	"$UNNAMED$15"
+			    quidu      	"3E89DE410400"
+			    messages   	(list Messages
+				(object Message "SELECT From Person_Address"
+				    quid       	"3E89DE4103FA"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.1.1"
+				    ordinal    	2
+				    quidu      	"000000000000"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E89DE4103FD"
+			    supplier   	"$UNNAMED$12"
+			    quidu      	"3E89DE4103EF"
+			    messages   	(list Messages
+				(object Message ""
+				    quid       	"3E89DE4103FE"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.1.2"
+				    ordinal    	3
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::Address::SystemAddressBean"
+		    quidu      	"3E1F21C8015B"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$14"
+		    quid       	"3E89DE410404"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E89DE410403"
+			    supplier   	"$UNNAMED$15"
+			    quidu      	"3E89DE410400"
+			    messages   	(list Messages
+				(object Message "SELECT From Org_Locations"
+				    quid       	"3E89DE410402"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.2.1"
+				    ordinal    	5
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::Organization::MaintainOrgLocationsBean"
+		    quidu      	"3E7E0E32030E"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$15"
+		    quid       	"3E89DE410400"
+		    class      	"Logical View::3rd Party::JDBC::JDBC"
+		    quidu      	"3E1B3DBC02F5"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$16"
+		    quid       	"3E89DE420013"
+		    class      	"Logical View::Officer::LocationAddressAssociationData"
+		    quidu      	"3E89D5EC0154"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "OfficerClassDiag"
+	    quid       	"3DF77BEF0383"
+	    title      	"OfficerClassDiag"
+	    documentation 	"Data directly releated to an 'officer'"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Officer::MaintainOfficersBean" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(432, 416)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(4, 104)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	856
+			justify    	0
+			label      	"MaintainOfficersBean")
+		    icon_style 	"Decoration"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DF77BF503D2"
+		    width      	874
+		    height     	824
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Officer::OfficerCriteria" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(432, 1360)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(4, 925)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	856
+			justify    	0
+			label      	"OfficerCriteria")
+		    icon_style 	"Decoration"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DF7817E0108"
+		    width      	874
+		    height     	894
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Officer::OfficerResult" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(448, 2336)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(38, 1954)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	820
+			justify    	0
+			label      	"OfficerResult")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E480FE2016B"
+		    width      	838
+		    height     	788
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Person::PersonCriteria" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1376, 2112)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1078, 1483)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	596
+			justify    	0
+			label      	"PersonCriteria")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DF763560298"
+		    width      	614
+		    height     	1282
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Person::PersonData" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2048, 2288)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1770, 1884)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	556
+			justify    	0
+			label      	"PersonData")
+		    icon_style 	"Decoration"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DF761C902D3"
+		    width      	574
+		    height     	832
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Officer::LocationAddressAssociationData" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1392, 352)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(881, 78)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	1022
+			justify    	0
+			label      	"LocationAddressAssociationData")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89D5EC0154"
+		    width      	1040
+		    height     	572
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @9
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3DF784500174"
+		    client     	@4
+		    supplier   	@6
+		    line_style 	3
+		    origin_attachment 	(869, 1634)
+		    terminal_attachment 	(1069, 1634))
+		(object ClassView "Class" "Logical View::Officer::OtherOfficeData" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1184, 1104)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(910, 973)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	548
+			justify    	0
+			label      	"OtherOfficeData")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DF7B7AB033C"
+		    width      	566
+		    height     	286
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Affiliate::AffiliateIdentifier" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2608, 2208)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(2394, 1963)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	428
+			justify    	0
+			label      	"AffiliateIdentifier")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DF787790312"
+		    width      	446
+		    height     	514
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Affiliate::OfficeData" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2304, 416)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(1978, 63)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	652
+			justify    	0
+			label      	"OfficeData")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DF7BE2003C5"
+		    width      	670
+		    height     	730
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Officer::OfficerData" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(2336, 1328)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(1964, 1047)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	744
+			justify    	0
+			label      	"OfficerData")
+		    icon_style 	"Decoration"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DF77C0900E1"
+		    width      	762
+		    height     	586
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @14
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3DF7814F01E7"
+		    client     	@13
+		    supplier   	@7
+		    line_style 	3
+		    origin_attachment 	(2146, 1620)
+		    terminal_attachment 	(2146, 1872))
+		(object AssociationViewNew "$UNNAMED$0" @15
+		    location   	(1711, 1147)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @16
+			Parent_View 	@15
+			location   	(1711, 1088)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			hidden     	TRUE
+			anchor     	1
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	60
+			orientation 	0)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3E8B3C0C003B"
+		    roleview_list 	(list RoleViews
+			(object RoleView "theOtherOfficeData" @17
+			    Parent_View 	@15
+			    location   	(-449, -293)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @18
+				Parent_View 	@17
+				location   	(1643, 1106)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	418
+				justify    	0
+				label      	"+theOtherOfficeData"
+				pctDist    	0.278689
+				height     	41
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3E8B3C0D02BD"
+			    client     	@15
+			    supplier   	@10
+			    line_style 	3
+			    origin_attachment 	(1711, 1147)
+			    terminal_attachment 	(1467, 1147)
+			    label      	(object SegLabel @19
+				Parent_View 	@17
+				location   	(1518, 1182)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	2
+				anchor_loc 	1
+				nlines     	1
+				max_width  	15
+				justify    	0
+				label      	"0..n"
+				pctDist    	0.789157
+				height     	35
+				orientation 	0))
+			(object RoleView "$UNNAMED$1" @20
+			    Parent_View 	@15
+			    location   	(-449, -293)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3E8B3C0D02C8"
+			    client     	@15
+			    supplier   	@13
+			    line_style 	3
+			    origin_attachment 	(1711, 1147)
+			    terminal_attachment 	(1955, 1147))))
+		(object AssociationViewNew "positionAffiliationId" @21
+		    location   	(2554, 1785)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @22
+			Parent_View 	@21
+			location   	(2554, 1726)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	1
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"positionAffiliationId"
+			pctDist    	0.500000
+			height     	60
+			orientation 	0)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3E92DBCA02AC"
+		    roleview_list 	(list RoleViews
+			(object RoleView "theAffiliateIdentifier" @23
+			    Parent_View 	@21
+			    location   	(218, 457)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @24
+				Parent_View 	@23
+				location   	(2513, 1917)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	427
+				justify    	0
+				label      	"+theAffiliateIdentifier"
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3E92DBCB0203"
+			    client     	@21
+			    supplier   	@11
+			    line_style 	3
+			    origin_attachment 	(2554, 1785)
+			    terminal_attachment 	(2554, 1950)
+			    label      	(object SegLabel @25
+				Parent_View 	@23
+				location   	(2608, 1932)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	2
+				anchor_loc 	1
+				nlines     	1
+				max_width  	15
+				justify    	0
+				label      	"1"
+				pctDist    	0.900000
+				height     	54
+				orientation 	0))
+			(object RoleView "$UNNAMED$2" @26
+			    Parent_View 	@21
+			    location   	(218, 457)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3E92DBCB0249"
+			    client     	@21
+			    supplier   	@13
+			    line_style 	3
+			    origin_attachment 	(2554, 1785)
+			    terminal_attachment 	(2554, 1621))))
+		(object AssociationViewNew "$UNNAMED$3" @27
+		    location   	(2304, 908)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3EA6D610028B"
+		    roleview_list 	(list RoleViews
+			(object RoleView "theOfficeData" @28
+			    Parent_View 	@27
+			    location   	(-32, -420)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @29
+				Parent_View 	@28
+				location   	(2263, 807)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	282
+				justify    	0
+				label      	"+theOfficeData"
+				pctDist    	0.800000
+				height     	42
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3EA6D6110160"
+			    client     	@27
+			    supplier   	@12
+			    line_style 	3
+			    origin_attachment 	(2304, 908)
+			    terminal_attachment 	(2304, 781)
+			    label      	(object SegLabel @30
+				Parent_View 	@28
+				location   	(2358, 795)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	2
+				anchor_loc 	1
+				nlines     	1
+				max_width  	15
+				justify    	0
+				label      	"1"
+				pctDist    	0.900000
+				height     	54
+				orientation 	1))
+			(object RoleView "$UNNAMED$4" @31
+			    Parent_View 	@27
+			    location   	(-32, -420)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3EA6D611017E"
+			    client     	@27
+			    supplier   	@13
+			    line_style 	3
+			    origin_attachment 	(2304, 908)
+			    terminal_attachment 	(2304, 1035))))))
+	(object InteractionDiagram "GetAddressesAndLocationsforAddressSelectionScreen_Current_Association_Is_Address"
+	    mechanism_ref 	@1
+	    quid       	"3E89C25E0052"
+	    title      	"GetAddressesAndLocationsforAddressSelectionScreen_Current_Association_Is_Address"
+	    zoom       	70
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	2066
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$5" @32
+		    location   	(384, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@32
+			location   	(384, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89CE200399"
+		    width      	662
+		    height     	1694
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @33
+			location   	(384, 464)
+			line_color 	3342489
+			InterObjView 	@32
+			height     	1364
+			y_coord    	1304
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @34
+			location   	(384, 1648)
+			line_color 	3342489
+			InterObjView 	@32
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$6" @35
+		    location   	(1472, 240)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@35
+			location   	(1472, 240)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	418
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89CE3A013D"
+		    width      	436
+		    height     	1678
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @36
+			location   	(1472, 300)
+			InterObjView 	@35
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @37
+			location   	(1472, 464)
+			line_color 	3342489
+			InterObjView 	@35
+			height     	1304
+			y_coord    	1244
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @38
+			location   	(1472, 608)
+			line_color 	3342489
+			InterObjView 	@35
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @39
+			location   	(1472, 896)
+			line_color 	3342489
+			InterObjView 	@35
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @40
+			location   	(1472, 1024)
+			line_color 	3342489
+			InterObjView 	@35
+			height     	60
+			y_coord    	0
+			Nested     	TRUE))
+		(object InterObjView "$UNNAMED$8" @41
+		    location   	(2528, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@41
+			location   	(2528, 224)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	412
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89CE3402CF"
+		    width      	430
+		    height     	1694
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @42
+			location   	(2528, 512)
+			line_color 	3342489
+			InterObjView 	@41
+			height     	216
+			y_coord    	156
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$9" @43
+		    location   	(3024, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@43
+			location   	(3024, 224)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	496
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89D1A101E0"
+		    width      	514
+		    height     	1694
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @44
+			location   	(3024, 832)
+			line_color 	3342489
+			InterObjView 	@43
+			height     	184
+			y_coord    	124
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$7" @45
+		    location   	(4160, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@45
+			location   	(4160, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89CE2A028F"
+		    width      	662
+		    height     	1694
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @46
+			location   	(4160, 576)
+			line_color 	3342489
+			InterObjView 	@45
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @47
+			location   	(4160, 864)
+			line_color 	3342489
+			InterObjView 	@45
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$10" @48
+		    location   	(3632, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@48
+			location   	(3632, 224)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	624
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89DA090054"
+		    width      	642
+		    height     	1694
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @49
+			location   	(3632, 1344)
+			line_color 	3342489
+			InterObjView 	@48
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @50
+			location   	(3632, 1472)
+			line_color 	3342489
+			InterObjView 	@48
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object NoteView @51
+		    location   	(192, 1664)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@51
+			location   	(25, 1492)
+			fill_color 	13434879
+			nlines     	6
+			max_width  	298
+			label      	"Show Address Selection screen")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	358
+		    height     	357)
+		(object InterMessView "" @52
+		    location   	(16, 464)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @53
+			Parent_View 	@52
+			location   	(927, 420)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89CE5103AE"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	925
+			justify    	0
+			label      	"getAddressAssociations(Integer, Integer, Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@32
+		    supplier   	@35
+		    Focus_Src  	@33
+		    Focus_Entry 	@37
+		    origin     	(399, 464)
+		    terminus   	(1456, 464)
+		    ordinal    	0)
+		(object NoteView @54
+		    location   	(192, 656)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@54
+			location   	(46, 429)
+			fill_color 	13434879
+			nlines     	8
+			max_width  	257
+			label      	"From the Officer Detail screen, choose Maintain Address Association action")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	317
+		    height     	467)
+		(object InterMessView "" @55
+		    location   	(2000, 512)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @56
+			Parent_View 	@55
+			location   	(1999, 468)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89D0CF00A9"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1002
+			justify    	0
+			label      	"getPersonAddressesByDepartment(Integer, Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@35
+		    supplier   	@41
+		    Focus_Src  	@37
+		    Focus_Entry 	@42
+		    origin     	(1487, 512)
+		    terminus   	(2512, 512)
+		    ordinal    	1)
+		(object InterMessView "" @57
+		    location   	(16, 576)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @58
+			Parent_View 	@57
+			location   	(3343, 532)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89D1120268"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	595
+			justify    	0
+			label      	"SELECT From Person_Address"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@41
+		    supplier   	@45
+		    Focus_Src  	@42
+		    Focus_Entry 	@46
+		    origin     	(2543, 576)
+		    terminus   	(4144, 576)
+		    ordinal    	2)
+		(object InterMessView "" @59
+		    location   	(2352, 832)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @60
+			Parent_View 	@59
+			location   	(2247, 788)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89D10800D2"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	493
+			justify    	0
+			label      	"getOrgLocations(Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@35
+		    supplier   	@43
+		    Focus_Src  	@37
+		    Focus_Entry 	@44
+		    origin     	(1487, 832)
+		    terminus   	(3008, 832)
+		    ordinal    	4)
+		(object InterMessView "" @61
+		    location   	(2000, 608)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @62
+			Parent_View 	@61
+			location   	(2000, 564)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89D1D000EE"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@41
+		    supplier   	@35
+		    Focus_Src  	@42
+		    Focus_Entry 	@38
+		    origin     	(2512, 608)
+		    terminus   	(1488, 608)
+		    ordinal    	3)
+		(object InterMessView "" @63
+		    location   	(16, 864)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @64
+			Parent_View 	@63
+			location   	(3591, 820)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89D1DC004B"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	559
+			justify    	0
+			label      	"SELECT From Org_Locations"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@43
+		    supplier   	@45
+		    Focus_Src  	@44
+		    Focus_Entry 	@47
+		    origin     	(3039, 864)
+		    terminus   	(4144, 864)
+		    ordinal    	5)
+		(object InterMessView "" @65
+		    location   	(16, 896)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @66
+			Parent_View 	@65
+			location   	(2248, 852)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89D2670054"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@43
+		    supplier   	@35
+		    Focus_Src  	@44
+		    Focus_Entry 	@39
+		    origin     	(3008, 896)
+		    terminus   	(1488, 896)
+		    ordinal    	6)
+		(object InterMessView "" @67
+		    location   	(1024, 1648)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @68
+			Parent_View 	@67
+			location   	(928, 1604)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89D35F008D"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	739
+			justify    	0
+			label      	"LocationAddressAssociationData object"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@35
+		    supplier   	@32
+		    Focus_Src  	@37
+		    Focus_Entry 	@34
+		    origin     	(1456, 1648)
+		    terminus   	(400, 1648)
+		    ordinal    	10)
+		(object SelfMessView "" @69
+		    location   	(16, 1024)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @70
+			Parent_View 	@69
+			location   	(2224, 996)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DA2401BC"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1430
+			justify    	0
+			label      	"getCurrentAddressAssociation(Integer, Integer, Integer, Integer, Timestamp)"
+			pctDist    	4.906667
+			height     	29
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@35
+		    supplier   	@35
+		    Focus_Src  	@37
+		    Focus_Entry 	@40
+		    origin     	(1488, 1024)
+		    terminus   	(1638, 1024)
+		    ordinal    	7)
+		(object NoteView @71
+		    location   	(2368, 1088)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@71
+			location   	(2153, 1027)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	395
+			label      	"Returns a value.")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	455
+		    height     	134)
+		(object AttachView "" @72
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@71
+		    supplier   	@69
+		    line_style 	0)
+		(object InterMessView "" @73
+		    location   	(2560, 1472)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @74
+			Parent_View 	@73
+			location   	(2551, 1428)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DD6E0087"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	729
+			justify    	0
+			label      	"setCurrentAddressAssociation(Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@35
+		    supplier   	@48
+		    Focus_Src  	@37
+		    Focus_Entry 	@50
+		    origin     	(1487, 1472)
+		    terminus   	(3616, 1472)
+		    ordinal    	9)
+		(object InterMessView "" @75
+		    location   	(2560, 1344)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @76
+			Parent_View 	@75
+			location   	(2551, 1300)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DFC500D7"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	563
+			justify    	0
+			label      	"SET Collections as Properties"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@35
+		    supplier   	@48
+		    Focus_Src  	@37
+		    Focus_Entry 	@49
+		    origin     	(1487, 1344)
+		    terminus   	(3616, 1344)
+		    ordinal    	8)))
+	(object InteractionDiagram "GetAddressesAndLocationsforAddressSelectionScreen_Current_Association_Is_Location"
+	    mechanism_ref 	@2
+	    quid       	"3E89DE2E0082"
+	    title      	"GetAddressesAndLocationsforAddressSelectionScreen_Current_Association_Is_Location"
+	    zoom       	70
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	1228
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$11" @77
+		    location   	(384, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@77
+			location   	(384, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89DE4103E6"
+		    width      	662
+		    height     	1854
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @78
+			location   	(384, 464)
+			line_color 	3342489
+			InterObjView 	@77
+			height     	1524
+			y_coord    	1464
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @79
+			location   	(384, 1808)
+			line_color 	3342489
+			InterObjView 	@77
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$12" @80
+		    location   	(1440, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@80
+			location   	(1440, 224)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	418
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89DE4103EF"
+		    width      	436
+		    height     	1854
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @81
+			location   	(1440, 464)
+			line_color 	3342489
+			InterObjView 	@80
+			height     	1464
+			y_coord    	1404
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @82
+			location   	(1440, 608)
+			line_color 	3342489
+			InterObjView 	@80
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @83
+			location   	(1440, 896)
+			line_color 	3342489
+			InterObjView 	@80
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @84
+			location   	(1440, 1024)
+			line_color 	3342489
+			InterObjView 	@80
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @85
+			location   	(1440, 1232)
+			line_color 	3342489
+			InterObjView 	@80
+			height     	60
+			y_coord    	0
+			Nested     	TRUE))
+		(object InterObjView "$UNNAMED$13" @86
+		    location   	(2544, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@86
+			location   	(2544, 224)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	412
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89DE4103FC"
+		    width      	430
+		    height     	1854
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @87
+			location   	(2544, 512)
+			line_color 	3342489
+			InterObjView 	@86
+			height     	216
+			y_coord    	156
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$14" @88
+		    location   	(3072, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@88
+			location   	(3072, 224)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	496
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89DE410404"
+		    width      	514
+		    height     	1854
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @89
+			location   	(3072, 832)
+			line_color 	3342489
+			InterObjView 	@88
+			height     	184
+			y_coord    	124
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$15" @90
+		    location   	(4176, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@90
+			location   	(4176, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89DE410400"
+		    width      	662
+		    height     	1854
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @91
+			location   	(4176, 576)
+			line_color 	3342489
+			InterObjView 	@90
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @92
+			location   	(4176, 864)
+			line_color 	3342489
+			InterObjView 	@90
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$16" @93
+		    location   	(3664, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@93
+			location   	(3664, 224)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	624
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E89DE420013"
+		    width      	642
+		    height     	1854
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @94
+			location   	(3664, 1552)
+			line_color 	3342489
+			InterObjView 	@93
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @95
+			location   	(3664, 1680)
+			line_color 	3342489
+			InterObjView 	@93
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object NoteView @96
+		    location   	(192, 1664)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@96
+			location   	(25, 1492)
+			fill_color 	13434879
+			nlines     	6
+			max_width  	298
+			label      	"Show Address Selection screen")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	358
+		    height     	357)
+		(object NoteView @97
+		    location   	(192, 656)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@97
+			location   	(46, 429)
+			fill_color 	13434879
+			nlines     	8
+			max_width  	257
+			label      	"From the Officer Detail screen, choose Maintain Address Association action")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	317
+		    height     	467)
+		(object NoteView @98
+		    location   	(2368, 1088)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@98
+			location   	(2153, 1027)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	395
+			label      	"Returns NULL.")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	455
+		    height     	134)
+		(object InterMessView "" @99
+		    location   	(16, 464)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @100
+			Parent_View 	@99
+			location   	(911, 420)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DE4103E8"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	986
+			justify    	0
+			label      	"getAddressAssociations(Integer, Integer, Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@77
+		    supplier   	@80
+		    Focus_Src  	@78
+		    Focus_Entry 	@81
+		    origin     	(399, 464)
+		    terminus   	(1424, 464)
+		    ordinal    	0)
+		(object InterMessView "" @101
+		    location   	(1024, 1808)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @102
+			Parent_View 	@101
+			location   	(912, 1764)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DE4103E9"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	805
+			justify    	0
+			label      	"LocationAddressAssociationData object"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@80
+		    supplier   	@77
+		    Focus_Src  	@81
+		    Focus_Entry 	@79
+		    origin     	(1424, 1808)
+		    terminus   	(400, 1808)
+		    ordinal    	11)
+		(object SelfMessView "" @103
+		    location   	(16, 1024)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @104
+			Parent_View 	@103
+			location   	(2192, 996)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DE4103F6"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1526
+			justify    	0
+			label      	"getCurrentAddressAssociation(Integer, Integer, Integer, Integer, Timestamp)"
+			pctDist    	4.906667
+			height     	29
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@80
+		    supplier   	@80
+		    Focus_Src  	@81
+		    Focus_Entry 	@84
+		    origin     	(1456, 1024)
+		    terminus   	(1606, 1024)
+		    ordinal    	7)
+		(object InterMessView "" @105
+		    location   	(2000, 512)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @106
+			Parent_View 	@105
+			location   	(1991, 468)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DE4103ED"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1048
+			justify    	0
+			label      	"getPersonAddressesByDepartment(Integer, Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@80
+		    supplier   	@86
+		    Focus_Src  	@81
+		    Focus_Entry 	@87
+		    origin     	(1455, 512)
+		    terminus   	(2528, 512)
+		    ordinal    	1)
+		(object InterMessView "" @107
+		    location   	(2000, 608)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @108
+			Parent_View 	@107
+			location   	(1992, 564)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DE4103FE"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@86
+		    supplier   	@80
+		    Focus_Src  	@87
+		    Focus_Entry 	@82
+		    origin     	(2528, 608)
+		    terminus   	(1456, 608)
+		    ordinal    	3)
+		(object InterMessView "" @109
+		    location   	(2352, 832)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @110
+			Parent_View 	@109
+			location   	(2255, 788)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DE4103F1"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	504
+			justify    	0
+			label      	"getOrgLocations(Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@80
+		    supplier   	@88
+		    Focus_Src  	@81
+		    Focus_Entry 	@89
+		    origin     	(1455, 832)
+		    terminus   	(3056, 832)
+		    ordinal    	4)
+		(object InterMessView "" @111
+		    location   	(16, 896)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @112
+			Parent_View 	@111
+			location   	(2256, 852)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DE4103F2"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@88
+		    supplier   	@80
+		    Focus_Src  	@89
+		    Focus_Entry 	@83
+		    origin     	(3056, 896)
+		    terminus   	(1456, 896)
+		    ordinal    	6)
+		(object InterMessView "" @113
+		    location   	(16, 576)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @114
+			Parent_View 	@113
+			location   	(3359, 532)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DE4103FA"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	644
+			justify    	0
+			label      	"SELECT From Person_Address"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@86
+		    supplier   	@90
+		    Focus_Src  	@87
+		    Focus_Entry 	@91
+		    origin     	(2559, 576)
+		    terminus   	(4160, 576)
+		    ordinal    	2)
+		(object InterMessView "" @115
+		    location   	(16, 864)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @116
+			Parent_View 	@115
+			location   	(3623, 820)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DE410402"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	599
+			justify    	0
+			label      	"SELECT From Org_Locations"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@88
+		    supplier   	@90
+		    Focus_Src  	@89
+		    Focus_Entry 	@92
+		    origin     	(3087, 864)
+		    terminus   	(4160, 864)
+		    ordinal    	5)
+		(object InterMessView "" @117
+		    location   	(2832, 1552)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @118
+			Parent_View 	@117
+			location   	(2551, 1508)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DE4103F8"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	556
+			justify    	0
+			label      	"SET Collections as Properties"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@80
+		    supplier   	@93
+		    Focus_Src  	@81
+		    Focus_Entry 	@94
+		    origin     	(1455, 1552)
+		    terminus   	(3648, 1552)
+		    ordinal    	9)
+		(object AttachView "" @119
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@98
+		    supplier   	@103
+		    line_style 	0)
+		(object SelfMessView "" @120
+		    location   	(16, 1232)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @121
+			Parent_View 	@120
+			location   	(2186, 1198)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DE6C02DA"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1435
+			justify    	0
+			label      	"getCurrentLocationAssociation(Integer, Integer, Integer, Integer, Timestamp)"
+			pctDist    	4.873333
+			height     	35
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@80
+		    supplier   	@80
+		    Focus_Src  	@81
+		    Focus_Entry 	@85
+		    origin     	(1456, 1232)
+		    terminus   	(1606, 1232)
+		    ordinal    	8)
+		(object NoteView @122
+		    location   	(2384, 1360)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@122
+			location   	(2169, 1299)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	395
+			label      	"Returns a value.")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	455
+		    height     	134)
+		(object AttachView "" @123
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@122
+		    supplier   	@120
+		    line_style 	0)
+		(object InterMessView "" @124
+		    location   	(2560, 1680)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @125
+			Parent_View 	@124
+			location   	(2551, 1636)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E89DF930193"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	733
+			justify    	0
+			label      	"setCurrentLocationAssociation(Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@80
+		    supplier   	@93
+		    Focus_Src  	@81
+		    Focus_Entry 	@95
+		    origin     	(1455, 1680)
+		    terminus   	(3648, 1680)
+		    ordinal    	10)))))

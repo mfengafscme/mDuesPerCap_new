@@ -1,0 +1,393 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Officer Titles - Edit</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Officer Titles - Edit</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="OfficerTitles.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR>
+				<INPUT type="button" class="BUTTON" value="Submit" onClick="parent.location='OfficerTitles.htm'" name="SubmitButton"> 
+				<BR><BR> 
+			</TD>
+			<TD align="right">
+				<BR>
+				<INPUT type="reset"  name="ResetButton"  class="BUTTON" value="Reset">
+				<INPUT type="button" name="CancelButton" class="BUTTON" value="Cancel" onClick="parent.location='OfficerTitles.htm'"> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				Virginia - PD Local 100 - Council 10 <BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD width="50%">
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD class="ContentHeaderTD" width="25%">
+							<LABEL for="label_ApprovedConstitutionFlag"> Approved Constitution</LABEL> 
+						</TD>
+						<TD width="25%">
+							<INPUT type="checkbox" name="ApprovedConstitutionFlag" value="" id="label_ApprovedConstitutionFlag" checked disabled> 
+						</TD>
+						<TD class="ContentHeaderTD" width="25%">
+							<LABEL for="label_AutomaticDelegateProvision"> Automatic Delegate Provision</LABEL> 
+						</TD>
+						<TD width="25%">
+							<INPUT type="checkbox" name="AutomaticDelegateProvision" id="label_AutomaticDelegateProvision" checked> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE align="center" cellpadding="0" cellspacing="0" border="1" class="BodyContent">
+		<TR>
+			<TD colspan="10" class="ContentHeaderTR">
+				Offices 
+			</TD>
+		</TR>
+		<TR>
+			<TH>Constitutional Title</TH>
+			<TH>Affiliate Title</TH>
+			<TH width="7%">* # with Title</TH>
+			<TH width="7%">* Month of Election</TH>
+			<TH width="7%">* Length of Term</TH>
+			<TH width="7%">Term End</TH>
+			<TH width="7%">Delegate Priority</TH>
+			<TH width="2%">RO</TH>
+			<TH width="5%">E-Bd</TH>
+		</TR>
+		<TR>
+			<TD align="center">
+				President 
+			</TD>
+			<TD align="center">
+				<INPUT type="text" name="AffiliateTitle_1" value="Grand Poobah" size="30" MAXLENGTH="30">
+			</TD>
+			<SCRIPT language="JavaScript">var NumberOfOfficers_1JS;</SCRIPT>
+			<TD align="center" class="smallFONT">
+				<INPUT type="text" name="NumberOfOfficers_1" value="1" size="2" maxlength="2">
+			</TD>
+			<TD align="center">
+				<SELECT name="Month_1">
+					<OPTION value=""></OPTION>
+					<OPTION value="0" selected>January</OPTION>
+					<OPTION value="1">February</OPTION>
+					<OPTION value="2">March</OPTION>
+					<OPTION value="3">April</OPTION>
+					<OPTION value="4">May</OPTION>
+					<OPTION value="5">June</OPTION>
+					<OPTION value="6">July</OPTION>
+					<OPTION value="7">August</OPTION>
+					<OPTION value="8">September</OPTION>
+					<OPTION value="9">October</OPTION>
+					<OPTION value="10">November</OPTION>
+					<OPTION value="11">December</OPTION>
+					<OPTION value="12">1st Qtr.</OPTION>
+					<OPTION value="13">2nd Qtr.</OPTION>
+					<OPTION value="14">3rd Qtr.</OPTION>
+					<OPTION value="15">4th Qtr.</OPTION>
+				</SELECT> 
+			</TD>
+			<TD align="center">
+				<SELECT name="TermLength_1">
+					<OPTION value="-1"></OPTION>
+					<OPTION value="1">1 year</OPTION>
+					<OPTION value="2" selected>2 years</OPTION>
+					<OPTION value="3">3 years</OPTION>
+					<OPTION value="4">4 years</OPTION>
+					<OPTION value="5">Indefinite</OPTION>
+					<OPTION value="6">Temporary</OPTION>
+				</SELECT> 
+			</TD>
+			<TD align="center">
+				<INPUT type="text" name="TermEnd_1" value="2004" size="4" maxlength="4"> 
+			</TD>
+			<TD align="center">
+				<INPUT type="text" name="DelegatePriority_1" value="1" size="2" maxlength="2"> 
+			</TD>
+			<TD align="center">
+				<INPUT type="radio" name="RO" checked> 
+			</TD>
+			<TD align="center">
+				<INPUT type="checkbox" name="XB_1" checked> 
+			</TD>
+		</TR>
+		<TR>
+			<TD align="center">
+				Vice President 
+			</TD>
+			<TD align="center">
+				<INPUT type="text" name="AffiliateTitle2" value="Great Gazoo" size="30" MAXLENGTH="30"> 
+			</TD>
+			<SCRIPT language="JavaScript">var NumberOfOfficers_2JS;</SCRIPT>
+			<TD align="center" class="smallFONT">
+				<INPUT type="text" name="NumberOfOfficers_2" value="5" size="2" maxlength="2">
+			</TD>
+			<TD align="center">
+				<SELECT name="Month_2">
+					<OPTION value=""></OPTION>
+					<OPTION value="0" selected>January</OPTION>
+					<OPTION value="1">February</OPTION>
+					<OPTION value="2">March</OPTION>
+					<OPTION value="3">April</OPTION>
+					<OPTION value="4">May</OPTION>
+					<OPTION value="5">June</OPTION>
+					<OPTION value="6">July</OPTION>
+					<OPTION value="7">August</OPTION>
+					<OPTION value="8">September</OPTION>
+					<OPTION value="9">October</OPTION>
+					<OPTION value="10">November</OPTION>
+					<OPTION value="11">December</OPTION>
+					<OPTION value="12">1st Qtr.</OPTION>
+					<OPTION value="13">2nd Qtr.</OPTION>
+					<OPTION value="14">3rd Qtr.</OPTION>
+					<OPTION value="15">4th Qtr.</OPTION>
+				</SELECT> 
+			</TD>
+			<TD align="center">
+				<SELECT name="TermLength_2">
+					<OPTION value="-1"></OPTION>
+					<OPTION value="1">1 year</OPTION>
+					<OPTION value="2" selected>2 years</OPTION>
+					<OPTION value="3">3 years</OPTION>
+					<OPTION value="4">4 years</OPTION>
+					<OPTION value="5">Indefinite</OPTION>
+					<OPTION value="6">Temporary</OPTION>
+				</SELECT> 
+			</TD>
+			<TD align="center">
+				<INPUT type="text" name="TermEnd_2" value="2004" size="4" maxlength="4"> 
+			</TD>
+			<TD align="center">
+				<INPUT type="text" name="DelegatePriority_2" value="2" size="2" maxlength="2"> 
+			</TD>
+			<TD align="center">
+				<INPUT type="radio" name="RO"> 
+			</TD>
+			<TD align="center">
+				<INPUT type="checkbox" name="XB_2" checked> 
+			</TD>
+		</TR>
+		<TR>
+			<TD align="center">
+				Board Member 
+			</TD>
+			<TD align="center">
+				<INPUT type="text" name="AffiliateTitle_3" value="Board Member" size="30" MAXLENGTH="30">
+			</TD>
+			<TD align="center" class="smallFONT">
+				<INPUT type="text" name="NumberOfOfficers_3" value="3" size="2" maxlength="2"> 
+			</TD>
+			<TD align="center">
+				<SELECT name="Month_3">
+					<OPTION value=""></OPTION>
+					<OPTION value="0" selected>January</OPTION>
+					<OPTION value="1">February</OPTION>
+					<OPTION value="2">March</OPTION>
+					<OPTION value="3">April</OPTION>
+					<OPTION value="4">May</OPTION>
+					<OPTION value="5">June</OPTION>
+					<OPTION value="6">July</OPTION>
+					<OPTION value="7">August</OPTION>
+					<OPTION value="8">September</OPTION>
+					<OPTION value="9">October</OPTION>
+					<OPTION value="10">November</OPTION>
+					<OPTION value="11">December</OPTION>
+					<OPTION value="12">1st Qtr.</OPTION>
+					<OPTION value="13">2nd Qtr.</OPTION>
+					<OPTION value="14">3rd Qtr.</OPTION>
+					<OPTION value="15">4th Qtr.</OPTION>
+				</SELECT> 
+			</TD>
+			<TD align="center">
+				<SELECT name="TermLength_3">
+					<OPTION value="-1"></OPTION>
+					<OPTION value="1">1 year</OPTION>
+					<OPTION value="2" selected>2 years</OPTION>
+					<OPTION value="3">3 years</OPTION>
+					<OPTION value="4">4 years</OPTION>
+					<OPTION value="5">Indefinite</OPTION>
+					<OPTION value="6">Temporary</OPTION>
+				</SELECT> 
+			</TD>
+			<TD align="center">
+				<INPUT type="text" name="TermEnd_3" value="2004" size="4" maxlength="4"> 
+			</TD>
+			<TD align="center">
+				<INPUT type="text" name="DelegatePriority_3" value="3" size="2" maxlength="2"> 
+			</TD>
+			<TD align="center">
+				<INPUT type="radio" name="RO"> 
+			</TD>
+			<TD align="center">
+				<INPUT type="checkbox" name="XB_3" checked> 
+			</TD>
+		</TR>
+		<TR>
+			<TD align="center">Steward </TD>
+			<TD align="center">
+				<INPUT type="text" name="AffiliateTitle_4" value="Steward" size="30" MAXLENGTH="30">
+			</TD>
+			<TD align="center" class="smallFONT">
+				<INPUT type="text" name="NumberOfOfficers_4" value="1" size="2" maxlength="2">
+			</TD>
+			<TD align="center">
+				<SELECT name="Month_4">
+					<OPTION value=""></OPTION>
+					<OPTION value="0" selected>January</OPTION>
+					<OPTION value="1">February</OPTION>
+					<OPTION value="2">March</OPTION>
+					<OPTION value="3">April</OPTION>
+					<OPTION value="4">May</OPTION>
+					<OPTION value="5">June</OPTION>
+					<OPTION value="6">July</OPTION>
+					<OPTION value="7">August</OPTION>
+					<OPTION value="8">September</OPTION>
+					<OPTION value="9">October</OPTION>
+					<OPTION value="10">November</OPTION>
+					<OPTION value="11">December</OPTION>
+					<OPTION value="12">1st Qtr.</OPTION>
+					<OPTION value="13">2nd Qtr.</OPTION>
+					<OPTION value="14">3rd Qtr.</OPTION>
+					<OPTION value="15">4th Qtr.</OPTION>
+				</SELECT> 
+			</TD>
+			<TD align="center">
+				<SELECT name="TermLength_4">
+					<OPTION value="-1"></OPTION>
+					<OPTION value="1">1 year</OPTION>
+					<OPTION value="2">2 years</OPTION>
+					<OPTION value="3">3 years</OPTION>
+					<OPTION value="4">4 years</OPTION>
+					<OPTION value="5" selected>Indefinite</OPTION>
+					<OPTION value="6">Temporary</OPTION>
+				</SELECT> 
+			</TD>
+			<TD align="center">
+				<INPUT type="text" name="TermEnd_4" value="" size="4" maxlength="4"> 
+			</TD>
+			<TD align="center">
+				<INPUT type="text" name="DelegatePriority4" value="" size="2" maxlength="2"> 
+			</TD>
+			<TD align="center">
+				<INPUT type="radio" name="RO" DISABLED> 
+			</TD>
+			<TD align="center">
+				<INPUT type="checkbox" name="XB_4" DISABLED> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD colspan="3" class="ContentHeaderTR">
+				Auto Executive Board Members 
+			</TD>
+		</TR>
+		<TR>
+			<TH width="15%">
+				<A href="#" title="Sort By" class="TH">Affiliate Title</A> 
+			</TH>
+			<TH width="15%">
+				<A href="#" title="Sort By" class="TH">Sub-Affiliate Title</A> 
+			</TH>
+			<TH width="8%">
+				# with Title 
+			</TH>
+		</TR>
+		<TR align="center">
+			<TD>
+				<SELECT name="SubTitles">
+					<OPTION value="">[Select]</OPTION>
+					<OPTION>Excecutive Board Member</OPTION>
+					<OPTION selected>Vice President</OPTION>
+				</SELECT> 
+			</TD>
+			<TD>
+				<SELECT name="SubTitles">
+					<SCRIPT language="JavaScript">var selected = "President";</SCRIPT>
+					<SCRIPT language="JavaScript" src="../js/officer_title-codes_select.js"></SCRIPT>
+				</SELECT> 
+			</TD>
+			<TD>
+				Variable 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TH align="left" colspan="10">
+				Enter New Comments
+			</TH>
+		</TR>
+		<TR>
+			<TD colspan="10">
+				<TEXTAREA name="comments" cols="115" rows="3" onKeyUp="validateComments(this);"></TEXTAREA> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE align="center" cellpadding="0" cellspacing="0" border="1" class="BodyContent">
+		<TR>
+			<TD class="ContentHeaderTR">
+				<BR>
+				Virginia - PD Local 100 - Council 10 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR>
+				<INPUT type="button" class="BUTTON" value="Submit" onClick="parent.location='OfficerTitles.htm'" name="SubmitButton"> 
+				<BR><BR> 
+			</TD>
+			<TD align="right">
+				<BR>
+				<INPUT type="reset"  name="ResetButton"  class="BUTTON" value="Reset">
+				<INPUT type="button" name="CancelButton" class="BUTTON" value="Cancel" onClick="parent.location='OfficerTitles.htm'"> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR><B><I>* Indicates Required Fields</I></B>
+				<BR>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

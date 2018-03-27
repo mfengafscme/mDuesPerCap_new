@@ -1,0 +1,42 @@
+<global-forwards>
+    <forward name="ListRoles" path="/listRoles.action"/>
+    <forward name="Logout" path="/logout.action"/>
+    <forward name="Login" path="/mdu/login.action"/>
+    <forward name="EditAccountInfo" path="/editAccountInfo.action"/>
+    <forward name="ForceChangePassword" path="/editAccountInfo.action?forceChangePassword=true"/>
+    <forward name="ForceToChangePassword" path="/editAccountInfo.action?forceChangePassword=true"/>
+    <forward name="ListCodeTypes" path="/listCodeTypes.action"/>
+    <forward name="GenerateReportList" path="/generateReportList.action"/>
+    <forward name="MainMenu" path="/showMain.action" redirect="true"/>
+    <forward name="MinimumDuesMainMenu" path="/showMain.action" redirect="true"/>
+    <forward name="LeaveDataUtility" path="/leaveDataUtility.action"/>
+    <forward name="Welcome" path="/" redirect="true"/>
+    <forward name="SwitchAffiliate" path="/switchAffiliate.action"/>
+    <forward name="AffiliateDataUtility" path="/selectAffiliateSearch.action?new="/>
+    <forward name="VendorMemberSearch" path="/viewVendorMemberCriteria.action"/>
+    <forward name="EditMemberPrivileges" path="/editMemberPrivileges.action"/>
+    <forward name="ShowLogin" path="/Common/Login.jsp"/>
+    <forward name="ErrorNoPrivileges" path="/Error/NoPrivileges.jsp"/>
+    <forward name="ErrorNoAccess" path="/Error/NoAccess.jsp"/>
+    <forward name="Error" path="/Error/General.jsp"/>
+    <forward name="Message" path="/Common/Message.jsp"/>
+    <forward name="ViewBasicAffiliateSearch" path="/viewBasicAffiliateCriteria.action"/>
+    <forward name="ViewAffiliateDetail" path="/viewAffiliateDetail.action" redirect="true"/>
+    <forward name="ViewCharter"  path="/viewCharterInformation.action" redirect="true"/>
+    <forward name="ViewConstitution"  path="/viewConstitutionInformation.action" redirect="true"/>
+    <forward name="ViewFinancial" path="/viewFinancialInformation.action" redirect="true"/>
+    <forward name="ViewMembershipReporting" path="/viewMembershipReportingInformation.action" redirect="true"/>
+    <forward name="ViewCommentHistory" path="/Membership/CommentHistory.jsp"/>
+    <forward name="SearchOrganizations" path="/searchOrganizations.action?new"/>
+    <forward name="ViewOrganizationCriteria" path="/viewOrganizationCriteria.action"/>
+    <forward name="VerifyOrganization" path="/verifyOrganization.action?new"/>
+    <forward name="ViewVerifyOrganization" path="/viewVerifyOrganization.action"/>
+    <forward name="ViewOrganizationDetail" path="/viewOrganizationDetail.action"/>
+    <forward name="ViewLocationInformation" path="/viewLocationInformation.action"/>    
+    <forward name="ViewOrganizationAssociateList" path="/viewOrganizationAssociateList.action"/>
+    <forward name="ViewParticipationGroupMaintenance" path="/viewParticipationGroupMaintenance.action"/>
+    <forward name="SearchAffiliateFinder" path="/searchAffiliateFinder.action"/>
+    <forward name="SearchAffiliateFinderRedirect" path="/searchAffiliateFinder.action?new" redirect="true"/>
+    <forward name="ViewPersonalInformation" path="/viewMyInfo.action" redirect="true"/>
+</global-forwards>
+

@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+
+<TITLE>Edit Sort Criteria</TITLE>
+
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+
+</HEAD>
+
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<form action="#">
+
+<!-- top table1 -->
+<TABLE align="center" valign=TOP cellpadding="0" cellspacing="3" border=0 class="ContentTable">
+  <TR>
+    <TD align="center">
+      <H2>Edit Sort Criteria</H2>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD align="right">
+      <B><A href="../Common/AfscmeMainMenu.htm" title="Return to AFSCME Main Menu">Main Menu</A>&nbsp;|&nbsp;
+	<a href="#">Need Help with this page?</A></B><BR><BR>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE align="center" valign=TOP cellpadding="0" cellspacing="3" border=0 class="ContentTable">
+  <TR>
+            <!-- Bread crumb Header -->
+                  <td align = "center" >           
+            <h4>       
+            	<a href="OutputFields.htm">Output Fields</a> >> 
+		<a href="OutputFieldsOrder.htm">Output Fields Order</a> >>
+	            <a href="SelectionCriteriaFields.htm">Selection Criteria Fields</a> >> 
+	            <a href="SelectionCriteria.htm">Selection Criteria</a> >>
+		<a href="SortCriteriaFields.htm">Sort Criteria Fields</a> >>
+    	        <span class="CurrentWizardPage">Sort Criteria</span> >>
+	            <a href="PreviewQuery.htm">Preview Query</a>
+            </h4>
+			</td>
+  </TR>
+  </TR>
+        <TR> 
+          <TD align="right"><BR>
+	    <INPUT type="button" class="BUTTON" name="Cancel" value="Cancel" onClick="window.location='MaintainQueries.htm'">
+	  </TD>
+	</TR>
+
+  <TR> <!-- Real data table begins -->  
+    <TD align="center"> <BR>
+      <!-- table2 -->
+      <TABLE width="75%" cellpadding="0" cellspacing="3" border=1 class="InnerContentTable">
+        <TR>
+	  <TD valign=top width="70%">
+	    <H2>Member Fields</H2>
+	  </TD>
+	</TR>
+
+	<TR>
+	  <TD valign=top width="70%">
+	    <TABLE width="70%" align="left">
+	      <TR>
+	        <td nowrap><b>Field</b></td>
+		<td nowrap><b>Sort Order</b></td>
+		<td colspan=2 nowrap align="center"><b>&nbsp;</b></td>
+	      </TR>
+	
+	      <TR><TD colspan=4><BR></TD></TR>
+
+	      <TR> 
+	        <td nowrap>Last Name</td>
+		<td>
+		  <select name="mLastNameS">
+		    <option value="null"></option>
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		  </select>
+		</td>
+        	<td>
+		  <input type="radio" name="order1" id="order1L1" value="asc" checked>&nbsp;
+		  <label class="OPTION" for="order1L1">Ascending</label>
+		</td>
+		<td>
+		  <input type="radio" name="order1" id="order1L2" value="desc">&nbsp;
+		  <label class="OPTION" for="order1L2">Descending</label>
+		</td>
+	      </TR>
+              
+	      <TR>
+	        <td nowrap>First Name</td>
+		<td>
+		  <select name="mFirstNameS">
+		    <option value="null"></option>
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		  </select>
+		</td>
+		<td>
+		  <input type="radio" name="order2" value="asc" id="order2L1" checked>&nbsp;
+		  <label class="OPTION" for="order2L1">Ascending</label>
+		</td>
+		<td>
+		  <input type="radio" name="order2" value="desc" id="order2L2">&nbsp;
+		  <label class="OPTION" for="order2L2">Descending</label>
+		</td>
+	      </TR>
+
+	      <TR>
+	        <td nowrap>Member Number</td>
+		<td>
+		  <select name="mNumS" id="mMemberNumber">
+		    <option value="null"></option>
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		  </select>
+		</td>
+		<td>
+		  <input type="radio" name="order3" value="asc" id="order3L1" checked>&nbsp;
+		  <label class="OPTION" for="order3L1">Ascending</label>
+		</td>
+		<td>
+		  <input type="radio" name="order3" value="desc" id="order3L2">&nbsp;
+		  <label class="OPTION" for="order3L2">Descending</label>
+		</td>
+	      </TR>
+
+	      <TR>
+	        <td nowrap>Unit Code</td>
+		<td>
+		  <select name="mUnitCode" id="mUnitCode">
+		    <option value="null"></option>
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		  </select>
+		</td>
+		<td>
+		  <input type="radio" name="order4" value="asc" id="order4L1" checked>&nbsp;
+		  <label class="OPTION" for="order4L1">Ascending</label>
+		</td>
+		<td>
+		  <input type="radio" name="order4" value="desc" id="order4L2">&nbsp;
+		  <label class="OPTION" for="order4L2">Descending</label>
+		</td>
+	      </TR>
+
+	      <TR> 
+	        <td nowrap>Member Status Code</td>
+		<td>
+		  <select name="mStatusCode" id="mStatusCode">
+		    <option value="null"></option>
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		  </select>
+		</td>
+		<td>
+		  <input type="radio" name="order5" value="asc" id="order5L1" checked>&nbsp;
+		  <label class="OPTION" for="order5L1">Ascending</label>
+		</td>
+		<td>
+		  <input type="radio" name="order5" value="desc" id="order5L2">&nbsp;
+		  <label class="OPTION" for="order5L2">Descending</label>
+		</td>
+	      </TR>
+
+	      <TR> 
+	        <td nowrap>Date Joined</td>
+		<td>
+		  <select name="mDateJoined" id="mDateJoined">
+		    <option value="null"></option>
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		  </select>
+		</td>
+		<td>
+		  <input type="radio" name="order6" value="asc" id="order6L1" checked>&nbsp;
+		  <label class="OPTION" for="order6L1">Ascending</label>
+		</td>
+		<td>
+		  <input type="radio" name="order6" value="desc" id="order6L2">&nbsp;
+		  <label class="OPTION" for="order6L2">Descending</label>
+		</td>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	</TR>
+     </TABLE> <!-- end of table2 -->
+    </TD>
+  </TR>
+
+
+  <BR>
+
+  <TR> <!-- fifth row of the light-yellow table -->
+    <TD valign="TOP" align="center"> 
+      <SCRIPT type="text/javascript" language="JavaScript" src="../js/footer.js">
+      </SCRIPT>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD>&nbsp;</TD>
+  </TR>
+
+</TABLE>
+
+</form>
+
+</BODY>
+</HTML>

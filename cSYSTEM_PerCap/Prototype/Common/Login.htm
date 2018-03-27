@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>AFSCME Enterprise Application</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Login</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			<BR>
+		</TD>
+	</TR>
+	<TR>
+		<TD align="right" class="ContentHeaderTD">
+			<A href="#">Need Help with this page?</A><BR>
+			<BR>
+		</TD>
+	</TR>
+</TABLE>
+<FORM action="AfscmeMainMenu.htm" name="form" onload="document.forms[0].elements[0].focus()">
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContentNoWidth" width="40%" align="center">
+					<TR>
+						<TD align="center" colspan=2>
+							Please enter your user ID and password below, then click the &quot;Login&quot; 
+							button to access the AFSCME Enterprise Application. 
+						</TD>
+					</TR>
+					<TR>
+						<TD align="left">
+							<B>Enter user ID</B> 
+						</TD>
+						<TD align="left">
+							<LABEL for="label_for_userID" name="userID"> 
+							<INPUT type="text" id="label_for_userID" size=10>
+							</LABEL>
+						</TD>
+					</TR>
+					<TR>
+						<TD align="left">
+							<B>Enter password</B> 
+						</TD>
+						<TD align="left">
+							<LABEL for="label_for_password"> 
+							<INPUT type="password" id="label_for_password" size=10 name="password">
+							</LABEL>
+						</TD>
+					</TR>
+					<TR>
+						<TD class="FieldCaptionTD" align=center colspan=2>
+							<BR>
+							<INPUT type="button" class="BUTTON" value="ForgotPassword" onClick="javascript:window.location = 'RequestPassword.htm'">
+							<INPUT type="submit" class="BUTTON" value="Login">
+						</TD>
+					</TR>
+				</TABLE>
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="ContentTable" width="40%" align="center">
+		<TR>
+			<TD class="FieldCaptionTD" align=center colspan=2>
+				<BR>
+				<INPUT type="button" class="BUTTON" value="Login as Member" onClick="window.location='../Membership/MyPersonalInformation_MembersOnly.htm'">
+				<INPUT type="button" class="BUTTON" value="Login as Vendor" onClick="window.location='VendorMemberSearch_SearchOnly.htm'">
+				<INPUT type="button" class="BUTTON" value="Login as Affiliate" onClick="window.location='DataUtilityMainMenu.htm'">
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD valign="top" align="center">
+			<SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT>
+		</TD>
+	</TR>
+</TABLE>
+</BODY>
+</HTML>

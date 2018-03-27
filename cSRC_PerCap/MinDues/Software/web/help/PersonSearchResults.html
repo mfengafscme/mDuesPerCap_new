@@ -1,0 +1,147 @@
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_header.js"></script>
+
+<TITLE>Help: Person Search Results</TITLE>
+
+<H1>
+Person Search Results Help 
+</H1>
+
+
+<TABLE class="DataFONT" align="center" width="100%">
+<TR>
+<BR/><BR/>
+
+<!-- BEGIN CHANGE -->
+ 
+This screen displays the results of a Person Search.  Each row in the results represents a person
+that matched the Person Search Criteria.  Basic information is displayed in the result list for 
+each Person record represented in the result.<BR/><BR/>
+
+This screen supports paging, for result sets that are too large to conveniently fit on one screen. 
+If the result set is too large to fit on one screen, additional information and links will be displayed 
+in order to identify which rows are being displayed and to allow the user to page forward and backwards
+in the result set.<BR/><BR/>
+
+Some of the fields in the result set will not contain data, if the data does not exist for that person. 
+For example, if the person is not a member of an affiliate, affiliate identifier fields will not be 
+displayed.  If the Enterprise Application system does not have an Address or Social Security Number(SSN) 
+for that person, Address or SSN will not be displayed for that person in the result set.<BR/><BR/>
+
+The initial <U><I>Sort</U></I> sequence for records in the result set is (first to last):
+<UL>
+<LI>Name(Last Name then First Name), ascending alphabetically</LI>
+<LI>State/Nat'l, ascending alphabetically</LI>
+<LI>CN/Ret Chap, ascending numerically</LI>
+<LI>Local/Sub Chap, ascending numerically </LI>
+</UL>
+	
+
+The screen displays the following <U>Fields</U> for the rows in the result set:<BR/>
+
+<TABLE class="DataFONT" align="center" width="95%">
+    <TR valign="top">
+        <TD width="14%">Select</TD>
+	<TD width="81%">Column contains the view link if the user has the necessary privilege</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">Name</TD>
+	<TD width="81%">Concatenation of the person's name fields</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="24%">Affiliate Identifier</TD>
+	<TD width="71%">&nbsp;</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">Type</TD>
+	<TD width="81%">The affiliate type</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">Local/Sub Chap</TD>
+	<TD width="81%">The local of a regular affiliate or Sub Chapter of a Retiree Chapter</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">State/Nat'l</TD>
+	<TD width="81%">The two character abbreviation of the state of the affiliate or the national indicator</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">Sub Unit</TD>
+	<TD width="81%">The sub unit designator of the affiliate, if the affiliate is a sub unit</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">CN/Ret Chap</TD>
+	<TD width="81%">The council of a regular affiliate or the Retiree Chapter designation of a Retiree Chapter</TD>
+    </TR>		                          
+    <TR valign="top">
+        <TD width="14%">Address</TD>
+	<TD width="81%">Street address information</TD>
+    </TR>						
+    <TR valign="top">
+        <TD width="14%">City</TD>
+	<TD width="81%">The city of the address</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">State</TD>
+	<TD width="81%">The two digit state abbreviation</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">Zip/Postal Code</TD>
+	<TD width="81%">The United States zip code or Postal Code for a foreign country</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">SSN</TD>
+	<TD width="81%">The United States Social Security Number for that person, if available</TD>
+    </TR>					   
+    <TR valign="top">
+        <TD width="14%">Userid</TD>
+	<TD width="81%">The userid of the person in the AFSCME Enterprise Application</TD>
+    </TR>					   					
+</TABLE>
+<BR/><BR/>			
+		
+The screen also displays the text <U>"Total Number of Matches:"</U> and a value 
+representing the number of records that matched the search criteria entered by the user. 
+The text and value are displayed after the search results are displayed.  
+This will be towards the bottom of the screen.<BR/><BR/>
+
+The following <U>Actions (links or buttons)</U> may be available from this screen. 
+<U>The actions available to the user will depend on the privileges that the user has 
+and whether the result set contains enough records for paging to be enabled.</U><BR/><BR/>
+ 			
+<TABLE class="DataFONT" align="center" width="95%">
+    <TR valign="top">
+        <TD width="34%"><B><U>Previous (link)</U></B></TD>
+        <TD width="51%">If paging is enabled, then selecting this link will display the previous set 
+			of results.  The link will not be active if the screen is displaying the 
+			first set of records in the results.</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="34%"><B><U>Next (link)</U></B></TD>
+        <TD width="51%">If paging is enabled, then selecting this link will display the next set of 
+			results.  This link will not be active if the screen is displaying the last 
+                        set of records in the results.</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="34%"><B><U>Add New Person (button)</U></B></TD>
+        <TD width="51%">Displays the Verify Person screen.</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="34%"><B><U>New Search (button)</U></B></TD>
+        <TD width="51%">Displays the Basic Person Search screen.</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="34%"><B><U>View (link) (By Row)</U></B></TD>
+        <TD width="51%">Clicking on this link takes the user to the Person Detail 
+                        screen for the selected person.</TD>
+    </TR>
+</TABLE>
+<BR/><BR/>
+
+This screen contains column oriented actions for sorting the result set.  
+<U>Certain column headers display as links.  Clicking on the link will sort 
+the entire result set on that column.</U>  Clicking on the column header the 
+first time will sort the results in ascending order based on the column, 
+clicking on the same column again sort the results in descending order.  
+When sorted in ascending order, a (+) plus sign will appear by the column. 
+When sorted in descending order, a (-) minus sign will appear.<BR/>
+
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_footer.js"></script>

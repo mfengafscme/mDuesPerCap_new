@@ -1,0 +1,286 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Apply Update - Process Log</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align="center">
+			<H1>Apply Update - Process Log</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+</TABLE>
+<FORM action="#" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD>
+				<BR> <INPUT type="button" name="ViewQueueButton" class="BUTTON" value="Return" onClick="parent.location='ApplyUpdate.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="2">
+							Processed 
+						</TH>
+						<TH colspan="5">
+							Affiliate Identifier - <A href="javascript:showAffiliateIDResults(form.affiliateType, form.affiliateLocal, form.affiliateState, form.affiliateSubunit, form.affiliateCouncil);" class="TH" title="Retrieve your Affilitate Identifier">Finder</A> 
+						</TH>
+						<TH>
+							Update Type 
+						</TH>
+					</TR>
+					<TR>
+						<TH class="small">
+							From Date 
+						</TH>
+						<TH class="small">
+							To Date 
+						</TH>
+						<TH class="small">
+							Type 
+						</TH>
+						<TH class="small">
+							Loc/Sub Chap 
+						</TH>
+						<TH class="small">
+							State/Nat'l 
+						</TH>
+						<TH class="small">
+							Sub Unit 
+						</TH>
+						<TH class="small">
+							CN/Ret Chap 
+						</TH>
+						<TD>&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center">
+							<INPUT type="text" name="FromDate" value="" size="10" maxlength="10"> <A href="javascript:show_calendar('form.FromDate');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;">
+									<IMG src="../images/calendar.gif" width="24" height="22" border="0" alt="Calendar"></A> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ToDate" value="" size="10" maxlength="10"> <A href="javascript:show_calendar('form.ToDate');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;">
+									<IMG src="../images/calendar.gif" width="24" height="22" border="0" alt="Calendar"></A> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<SELECT name="affiliateType" onBlur="lockAffiliateIDFields(this.form);" onChange="lockAffiliateIDFields(this.form);">
+								<OPTION></OPTION>
+								<OPTION>C</OPTION>
+								<OPTION>L</OPTION>
+								<OPTION>U</OPTION>
+								<OPTION>R</OPTION>
+								<OPTION>S</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateLocal" value="" size="4" maxlength="4"> 
+							<INPUT type="hidden" name="affiliateCode" value=""> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<SELECT name="affiliateState">
+								<SCRIPT language="JavaScript" src="../js/state.js"></SCRIPT>
+								<OPTION value="98">NT</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateSubunit" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateCouncil" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center">
+							<SELECT name="Type">
+								<OPTION></OPTION>
+								<OPTION>Full</OPTION>
+								<OPTION selected>Partial</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="reset" class="BUTTON" name="ResetButton" value="Reset" onClick="parent.location='ApplyUpdateProcessLog.htm'"> 
+			</TD>
+			<TD align="center" class="DataFontI">
+				<BR>
+				To show the entire log, press the Submit button without entering any search criteria. 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" name="SubmitButton" value="Submit" onClick="parent.location='ApplyUpdateProcessLog.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD>
+				<BR>
+				<HR>
+				<BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TH width="7%">
+				Select 
+			</TH>
+			<TH width="30%" colspan="5">
+				Source of Update 
+			</TH>
+			<TH width="8%">
+				<A href="#" class="TH" title="Sort By">Description</A> 
+			</TH>
+			<TH width="7%">
+				<A href="#" class="TH" title="Sort By">Received</A> 
+			</TH>
+			<TH width="7%">
+				<A href="#" class="TH" title="Sort By">Valid As Of</A> 
+			</TH>
+			<TH width="7%">
+				<A href="#" class="TH" title="Sort By">Processed</A> 
+			</TH>
+			<TH width="6%">
+				<A href="#" class="TH" title="Sort By">Update Type</A> 
+			</TH>
+			<TH>
+				<A href="#" class="TH" title="Sort By">Comments</A> 
+			</TH>
+		</TR>
+		<TR>
+			<TD>&nbsp;
+			</TD>
+			<TH class="small">
+				<A href="#" class="smallTH" title="Sort By">Type</A> 
+			</TH>
+			<TH class="small">
+				<A href="#" class="smallTH" title="Sort By">Loc/Sub Chap</A> 
+			</TH>
+			<TH class="small">
+				<A href="#" class="smallTH" title="Sort By">State/Nat'l</A> 
+			</TH>
+			<TH class="small">
+				<A href="#" class="smallTH" title="Sort By">Sub Unit</A> 
+			</TH>
+			<TH class="small">
+				<A href="#" class="smallTH" title="Sort By">CN/Ret Chap</A> 
+			</TH>
+			<TD colspan="6">&nbsp;
+			</TD>
+		</TR>
+		<TR>
+			<TD align="center" class="ContentTD">
+				<A href="ApplyUpdateMemberReviewSummary.htm" class="action" title="Review update results">Processed</A> 
+			</TD>
+			<TD align="center" class="ContentTD">
+				C 
+			</TD>
+			<TD align="center" class="ContentTD">
+				&nbsp;
+			</TD>
+			<TD align="center" class="ContentTD">
+				NY 
+			</TD>
+			<TD align="center" class="ContentTD">
+				&nbsp;
+			</TD>
+			<TD align="center" class="ContentTD">
+				566 
+			</TD>
+			<TD align="center" class="ContentTD">
+				Member
+			</TD>
+			<TD align="center" class="ContentTD">
+				07/30/2002 
+			</TD>
+			<TD align="center" class="ContentTD">
+				08/01/2002 
+			</TD>
+			<TD align="center" class="ContentTD">
+				08/01/2002 
+			</TD>
+			<TD align="center" class="ContentTD">
+				Partial 
+			</TD>
+			<TD>&nbsp;
+			</TD>
+		</TR>
+		<TR>
+			<TD align="center" class="DataFontBI">
+				<A href="ApplyUpdateMemberEditSummary_Rejected.htm" class="action" title="View Preprocessing Report">Rejected</A> 
+			</TD>
+			<TD align="center" class="ContentTD">
+				C 
+			</TD>
+			<TD align="center" class="ContentTD">
+				&nbsp;
+			</TD>
+			<TD align="center" class="ContentTD">
+				WI 
+			</TD>
+			<TD align="center" class="ContentTD">
+				&nbsp;
+			</TD>
+			<TD align="center" class="ContentTD">
+				423 
+			</TD>
+			<TD align="center" class="ContentTD">
+				Member
+			</TD>
+			<TD align="center" class="ContentTD">
+				07/30/2002 
+			</TD>
+			<TD align="center" class="ContentTD">
+				05/01/2010 
+			</TD>
+			<TD align="center" class="ContentTD">
+				08/01/2002 
+			</TD>
+			<TD align="center" class="ContentTD">
+				Partial 
+			</TD>
+			<TD>
+				Affiliate too good at projecting membership data. 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD>
+				<BR> <INPUT type="button" name="ViewQueueButton" class="BUTTON" value="Return" onClick="parent.location='ApplyUpdate.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<BR> <SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

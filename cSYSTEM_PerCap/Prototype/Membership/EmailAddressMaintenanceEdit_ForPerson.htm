@@ -1,0 +1,203 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Email Address Maintenance - Edit</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Email Address Maintenance - Edit</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="#" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				John Michael Doe<BR><BR>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TH align="left" colspan="8">
+				Primary 
+			</TH>
+		</TR>
+		<TR valign="top">
+			<TD>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="10%">
+							Primary
+						</TH>
+						<TH width="60%">
+							Email Address
+						</TH>
+						<TH WIDTH="15%">
+							Bad
+						</TH>
+						<TH WIDTH="15%">
+							Date Marked Bad
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center">
+							<INPUT type="radio" name="PrimaryAddress" checked>
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="EmailAddress_1" value="John.Doe@home.com" size="50" maxlength="50"> 
+						</TD>
+						<TD align="center">
+							<INPUT name="BadAddress" type="checkbox" id="label_BadAddressFlag">
+						</TD>
+						<TD align="center">&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="4">
+							<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TD colspan="8">
+										<HR>
+									</TD>
+								</TR>
+								<TR>
+									<TD class="ContentHeaderTD">
+										Date Created
+									</TD>
+									<TD class="ContentTD">
+										01/01/2000
+									</TD>
+									<TD class="ContentHeaderTD">
+										<LABEL for="label_CreatedByID_1">Created By</LABEL>
+									</TD>
+									<TD class="ContentTD">
+										staff1111
+									</TD>
+									<TD class="ContentHeaderTD">
+										<LABEL for="label_LastUpdate_1">Last Updated</LABEL>
+									</TD>
+									<TD class="ContentTD">&nbsp;
+									</TD>
+									<TD class="ContentHeaderTD">
+										<LABEL for="label_LastUpdateUserID_1">Updated By</LABEL>
+									</TD>
+									<TD class="ContentTD">&nbsp;
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TH align="left" colspan="8">
+				Alternate 
+			</TH>
+		</TR>
+		<TR valign="top">
+			<TD>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="10%">
+							Primary
+						</TH>
+						<TH width="60%">
+							Email Address
+						</TH>
+						<TH WIDTH="15%">
+							Bad
+						</TH>
+						<TH WIDTH="15%">
+							Date Marked Bad
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center">
+							<INPUT type="radio" name="PrimaryAddress">
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="EmailAddress_2" value="John.Doe@work.com" size="50" maxlength="50"> 
+						</TD>
+						<TD align="center">
+							<INPUT name="BadAddress" type="checkbox" id="label_BadAddressFlag">
+						</TD>
+						<TD align="center">&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="5">
+							<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TD colspan="8">
+										<HR>
+									</TD>
+								</TR>
+								<TR>
+									<TD class="ContentHeaderTD">
+										Date Created
+									</TD>
+									<TD class="ContentTD">
+										01/01/2000
+									</TD>
+									<TD class="ContentHeaderTD">
+										<LABEL for="label_CreatedByID_1">Created By</LABEL>
+									</TD>
+									<TD class="ContentTD">
+										staff1111
+									</TD>
+									<TD class="ContentHeaderTD">
+										<LABEL for="label_LastUpdate_1">Last Updated</LABEL>
+									</TD>
+									<TD class="ContentTD">&nbsp;
+									</TD>
+									<TD class="ContentHeaderTD">
+										<LABEL for="label_LastUpdateUserID_1">Updated By</LABEL>
+									</TD>
+									<TD class="ContentTD">&nbsp;
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT name="reset" type="reset" class="BUTTON" value="Reset"> <INPUT type="button" class="BUTTON" value="Cancel" onClick="parent.location='EmailAddressMaintenance_ForPerson.htm'" name="CancelButton"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" value="Submit" onClick="parent.location='EmailAddressMaintenance_ForPerson.htm'" name="SubmitButton"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

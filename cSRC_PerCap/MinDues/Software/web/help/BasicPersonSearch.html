@@ -1,0 +1,100 @@
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_header.js"></script>
+
+<!-- BEGIN CHANGE -->
+<TITLE>Help: Basic Person Search</TITLE>
+<!-- END CHANGE -->
+
+<H1>
+<!-- BEGIN CHANGE -->
+Basic Person Search Help
+<!-- END CHANGE -->
+</H1>
+
+<TABLE class="DataFONT" align="center" width="100%">
+<TR>
+<BR/><BR/>
+
+<!-- BEGIN CHANGE -->
+
+The Basic Person Search screen allows the user to enter common search criteria to retrieve matching 
+Person records.  If the search returns more than one row, the results of the search will be 
+displayed on the Person Search Results screen.  If there is only one matching record, the 
+system will take the user directly to the Person Detail screen.  If no record matches the search 
+criteria, the Verify Person screen will display to start the process of adding 
+a Person to the system.<BR/><BR/>
+
+There are a number of important things to note about this screen.<BR/><BR/>
+<ul>
+	<li>At least one search criteria must be entered before a search is allowed.</li><BR/><BR/>
+	<li>Entering search values in multiple fields will narrow the search.  
+		For example, entering only the value "Jefferson" in the Last Name field will return 
+		all persons in the system with the last name of Jefferson.  <U>NOTE</U>: The quote marks 
+		displayed around "Jefferson" are for emphasis only.  In the application, enter text 
+		values without the surrounding quotes.  Entering "Thomas" in the First Name field 
+		and "Jefferson" in the Last Name field, will return only those persons whose first 
+		name is Thomas and whose last name is Jefferson.</li><BR/><BR/>  
+	<li><U><I>Wildcard searches</I></U> are 
+		allowed only in the Last Name and First Name fields. Wildcard searches are allowed on 
+		Last Name by entering a % at the end (and only the end) of a partial name. For example, 
+		entering "Jeffer%" would return all persons whose last name began with Jeffer. This 
+		might include last names such as Jeffers, Jefferson, Jeffersons, Jefferman. <U>A wild card 
+		can be used at the end of a partial name in the First Name field, but must be used in 
+		conjunction with another search criteria</U>.  For example, if "Sam%" is entered in the 
+		First Name field, and "Hoffman" in the Last Name field, the return displays results for 
+		all persons in the system with a Last Name of Hoffman and a First Name that starts with 
+		Sam, i.e. Sam Hoffman, Sammie Hoffman, Samuel Hoffman.<BR/><BR/>  </li>
+</ul>
+
+The screen contains the following <U>Fields</U> for entering search criteria:<BR/>
+
+<TABLE class="DataFONT" align="center" width="95%">
+    <TR valign="top">
+        <TD width="14%">First Name</TD>
+	<TD width="81%">The first name of the Person(s) to search for</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">Middle Name</TD>
+	<TD width="81%">The middle name of the Person(s) to search for</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">Last Name</TD>
+	<TD width="81%">The last name of the Person(s) to search for</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">Suffix</TD>
+	<TD width="81%">The suffix of the Person(s) to search for.  Suffix values are selected from a drop down.</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="14%">State</TD>
+	<TD width="81%">The abbreviation of the state within the System Mailing Address 
+                        of the Person(s) to search for such as VA(Virginia), 
+                        (UT)Utah, (OR)Oregon, (DC)District of Columbia or MD(Maryland)</TD>
+    </TR>				
+</TABLE>
+<BR/><BR/>			
+		
+The following <U>Actions (links or buttons)</U> may be available from this screen.  
+<U>Actions are available based on the privileges assigned to the user.</U><BR/>
+		  
+<TABLE class="DataFONT" align="center" width="95%">
+    <TR valign="top">
+        <TD width="24%"><B><U>Power Search (button)</U></B></TD>
+        <TD width="61%">Displays the Power Person Search Screen</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="24%"><B><U>Reset (button)</U></B></TD>
+        <TD>Resets the data on the screen to the same values as when the screen was entered</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="24%"><B><U>Submit (button)</U></B></TD>
+        <TD width="61%">Using the criteria entered by the user, the application will search
+			for matching persons in the database and will display a screen
+			based on the rules described above, the Person Search Results,
+                        Person Detail or Person Detail - Add screen. </TD>
+    </TR>
+</TABLE>
+<BR/><BR/>
+
+<!-- END CHANGE -->
+
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_footer.js"></script>

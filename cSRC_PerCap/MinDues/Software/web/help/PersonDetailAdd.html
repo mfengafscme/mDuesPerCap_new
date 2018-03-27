@@ -1,0 +1,47 @@
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_header.js"></script>
+
+<TITLE>Help: Person Add Edit</TITLE>
+
+<H1>
+Person Detail Add Help 
+</H1>
+
+<BR/><BR/>
+This screen provides the user the ability to add a new Person.
+
+<p>Data that was entered on the Verify Person screen will be prepopulated in their respective fields on this screen.
+<p>If the Person being added has a value entered for Social Security Number, the system will check if that Social Security Number already exists. If it does already exist, the system will show the Duplicate SSN Notifier screen before performing the requested action, thus allowing the user to continue or cancel the action. If the user elects to continue the action, the records that match are flagged as duplicates.
+<p>If one of the Address fields is populated, the following rules will be validated:
+<LI>If Country is Canada, the City and Province are required.</LI>
+<LI>If one of the Phone fields is populated, then all of the remaining Phone fields are required.</LI>
+
+
+<BR/><BR/><BR/>
+The following <U>Actions (links or buttons)</U> are available from this screen <U>depending on the 
+privileges set by the Admin functionality for the user</U>.
+
+<BR/>
+<TABLE class="DataFONT" align="center" width="95%">
+    <TR valign="top">
+            <TD WIDTH="34%"><B><U>Submit (button) </U></B></TD>
+            <TD width="51%">The system validates and saves new person data.</TD>
+    </TR>            
+
+    <TR valign="top">
+            <TD WIDTH="34%"><B><U>Submit & Add Another (button) </U></B></TD>
+            <TD width="51%">The system validates and saves new Person data and allows the user to enter another Person.</TD>
+    </TR>            
+
+    <TR valign="top">
+            <TD WIDTH="34%"><B><U>Reset (button) </U></B></TD>
+            <TD width="51%">The system clears any changes made to the screen returning it to its original content.</TD>
+    </TR>               
+
+    <TR valign="top">
+            <TD WIDTH="34%"><B><U>Cancel (button) </U></B></TD>
+            <TD width="51%">The system returns to the Main Menu.</TD>
+    </TR>               
+</TABLE>
+
+<BR/><BR/>
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_footer.js"></script>

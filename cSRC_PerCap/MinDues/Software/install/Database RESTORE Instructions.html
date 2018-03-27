@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <style type="text/css">
+	ol li {padding-top: 1em; padding-bottom: .1em}
+	pre {padding: .3em; border: thin #000000; background-color: #eeeeee}
+	.file { font-weight: bold; color: #000044 }
+	code {color: #884444}
+  </style>
+  <title>AFSCME Enterprise Database Restore</title>
+</head>
+<body>
+<h1> AFSCME Enterprise Database Restore </h1>
+<h2>Overview </h2>
+This document describes the procedure for restoring the AFSCME Enteprise Application Database.
+<h2>Database Server </h2>
+<h3> System Requirements </h3>
+<ul>
+  <li> Windows 2000 </li>
+  <li> MS SQL Server 2000 </li>
+  <li> WinZip </li>
+</ul>
+<h3> Files needed </h3>
+<ul>
+  <li><span class="file">afscme_oltp AT1.zip</span> </li>
+  <li><span class="file">AFSCMEPatchAT1.2.sql</span> </li>
+</ul>
+<h3> Steps </h3>
+		These steps are need to be performed on a machine that has the SQL
+Server client tools installed, specifically <span class="file">isql.exe</span>.
+This can be the SQL Server machine itself.
+<ol>
+	<li>Create the database using appropriate install process/script. 				
+		<ul>
+			<li>To create a production database WITH Migrated Data, follow these instructions:
+				<ul>
+					<li>Unzip the database to a directory on this machine. 
+					</li>
+					<li>Create a database called <span class="file">afscme_oltp</span>.
+					</li>
+					<li>Restore the database using the From Device option, Select Device as the file created from the unzip
+						and set the Option to Force restore over existing database.
+					</li>
+					<li>Set the access to this database by granting permission for DB Owner to the user name the
+						application will use to access the OLTP database..
+					</li>
+					<li>Update the <span class="file">COM_App_Config_Data</span> table to change the 
+						<code>variable_value</code> to the name of the SMTP Server. 				
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>Verify that <b>SQL Server Agent</b> is started automatically as a service. 				
+	</li>
+	<li>Run patch to create the scheduled tasks and set configurable timeframes for Acceptance Testing. 
+		<ul>	
+			<li>Open SQL Query Analyzer and log in </li>
+			<li>Change to the application database </li>
+			<li>Open the file <span class="file">AFSCMEPatchAT1.2.sql</span> </li>
+			<li>Only execute the Query for creating the Mass Change and NCOA jobs, the setting of the 
+				configurable timeframes	was only required for Acceptance Testing</li>
+		</ul>
+	</li>
+</ol>
+</body>
+</html>

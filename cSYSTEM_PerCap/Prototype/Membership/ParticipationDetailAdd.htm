@@ -1,0 +1,145 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Participation Detail - Add</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align="center">
+			<H1>Participation Detail - Add</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+</TABLE>
+<FORM action="#" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				John Michael Doe - 12345678 <BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD colspan="2">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="10%">
+							Shortcut
+						</TH>
+						<TH width="30%">
+							* Group
+						</TH>
+						<TH width="30%">
+							* Type
+						</TH>
+						<TH width="30%">
+							* Detail
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentTD" align="center">
+							<INPUT type="Text" name="DetailShortCut" value="" id="label_ParticipationDetailShortCut" SIZE="5" MAXLENGTH="6"> 
+						</TD>
+						<TD class="ContentTD" align="center">
+							<SELECT name="ParticipationGroupCode" id="label_ParticipationGroupCode">
+								<OPTION></OPTION>
+								<OPTION>Convention</OPTION>
+								<OPTION>Education</OPTION>
+								<OPTION>Political</OPTION>
+							</SELECT> 
+						</TD>
+						<TD class="ContentTD" align="center">
+							<SELECT name="ParticipationType" id="label_ParticipationType">
+								<OPTION></OPTION>
+								<OPTION>General</OPTION>
+								<OPTION>Phone Bank</OPTION>
+							</SELECT> 
+						</TD>
+						<TD class="ContentTD" align="center">
+							<SELECT name="ParticipationDetail" id="label_ParticipationDetail">
+								<OPTION></OPTION>
+								<OPTION>Congressional Poll</OPTION>
+								<OPTION>NRA Survey</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR align="center">
+			<TD>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD class="ContentHeaderTD" width="10%">
+							<LABEL for="label_ParticipationOutcome">* Outcome</LABEL> 
+						</TD>
+						<TD class="ContentTD" width="40%">
+							<SELECT name="ParticipationOutcome" id="label_ParticipationOutcome">
+								<OPTION></OPTION>
+								<OPTION>Will Contact</OPTION>
+								<OPTION>Will Not Contact</OPTION>
+								<OPTION>Connection Made</OPTION>
+							</SELECT> 
+						</TD>
+						<TD class="ContentHeaderTD" width="10%">
+							<LABEL for="label_ParticipationDate">* Date</LABEL> 
+						</TD>
+						<TD class="ContentTD" width="40%">
+							<INPUT type="text" name="ParticipationDate" value="" id="ParticipationDate" size="10"> 
+							<A href="javascript:show_calendar('form.ParticipationDate');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;">
+								<IMG src="../images/calendar.gif" width="24" height="22" border="0" alt="Calendar"></A> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD" colspan="4">
+							<LABEL for="label_Comments">Enter New Comments</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentTD" colspan="4">
+							<TEXTAREA name="comments" cols="115" rows="3" onKeyUp="validateComments(this);"></TEXTAREA> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT name="ResetButton" type="reset" class="BUTTON" value="Reset"> <INPUT name="CancelButton" type="button" class="BUTTON" onClick="parent.location='ParticipationSummary.htm'" value="Cancel"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT name="SubmitButton" type="button" class="BUTTON" onClick="parent.location='ParticipationDetail.htm'" value="Submit"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR><B><I>* Indicates Required Fields</I></B>
+				<BR>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

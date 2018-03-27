@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <style type="text/css">
+	ol li {padding-top: 1em; padding-bottom: .1em}
+	pre {padding: .3em; border: thin #000000; background-color: #eeeeee}
+	.file { font-weight: bold; color: #000044 }
+	code {color: #884444}
+  </style>
+  <title>AFSCME Enterprise Application Patch Installation</title>
+</head>
+<body>
+<h1> AFSCME Enterprise Application Patch Installation </h1>
+
+<h2>Overview </h2>
+	This document describes the procedure for installing patches to the AFSCME Enteprise Application Project.
+<h3>Preparation </h3>
+<ul>
+  <li>Stop the Web Server(s) </li>
+  <li>Stop the Application Server(s)<br>(From <span class="file"><i>[jboss_dir]</i>/bin</span>, run <code>shutdown.bat -S</code>) </li>
+</ul>
+
+<h2>Database Server </h2>
+<h3> Files needed </h3>
+<ul>
+  <li> <span class="file">eap_db_install.zip</span> </li>
+</ul>
+
+<h3> Steps </h3>
+These steps are need to be performed on a machine that has the SQL
+Server client tools installed, specifically <span class="file">isql.exe</span>.
+This can be the SQL Server machine itself.
+<ol>
+	<li>Remove all the files previously loaded into the database directory (<span class="file"><i>software</i></span>)</li>
+	<li>Unzip <span class="file">eap_db_install.zip</span> to a directory (<span class="file"><i>software</i></span>) on this machine. 			</li>
+	<li>Prepare the environment to run install scripts <span class="file">(Not necessary if loading production database WITH Migrated Data)</span>
+    	<ul>
+      		<li>Open a command prompt to the directory (<span class="file"><i>software</i></span>) where the install files were unzipped to. </li>
+			<li>Set local variables for the database server like this:
+        		<pre>set AFSCME_DB_SERVER=testdb1<br></pre>
+				This value should match the value used in configuring the <span class="file">mssql-ds.xml</span> file above. 					</li>
+		</ul>
+	</li>	
+	<li>In the <span class="file">insertCOMAppTables.sql</span> for section "INSERT MASS CHANGE CONFIG DATA RECORDS", 
+		change the <code>variable_value</code> to the name of the SMTP Server. 				
+        <pre>192.168.1.14<br></pre>
+	</li>
+	<li>Create the database using appropriate install process/script.  				
+    	<ul>
+			<li>To create a production database WITH Migrated Data, follow these instructions:
+				<ul>
+					<li>Unzip the database to a directory on this machine.  This directory created by this unzip 
+						will be referred to as [jboss_dir]. 
+					</li>
+					<li>Create a database called <span class="file">afscme_oltp</span>.
+					</li>
+					<li>Restore the database using the From Device option, Select Device as the file created from the unzip
+						and set the Option to Force restore over existing database.
+					</li>
+					<li>Set the access to this database by granting permission for DB Owner to the user name the
+						application will use to access the OLTP database..
+					</li>
+					<li>Update the <span class="file">COM_App_Config_Data</span> table to change the 
+						<code>variable_value</code> to the name of the SMTP Server. 				
+					    <pre>192.168.1.14<br></pre>
+					</li>
+				</ul>
+			</li>
+			<li>To create a production database, with no data (no members/affiliates etc..), 
+				run <span class="file">installProductionDB.cmd</span>.
+			</li>
+			<li style="list-style-type: none; list-style-position: outside; list-style-image: none;">
+				...OR...
+			</li>
+			<li>To create a testing database, with the test data used in development, 
+				run <span class="file">installTestDB.cmd</span>. 					</li>
+			<li style="list-style-type: none; list-style-position: outside; list-style-image: none;">
+				...OR...
+			</li>
+			<li>There is a third option to create a testing database quickly, with only 4 states.  
+				To do this, run <span class="file">installDB.cmd</span>.
+			</li>
+		</ul>
+	</li>
+	<li>Verify that <b>SQL Server Agent</b> is started automatically as a service.</li>
+	<li>Adjust <b>tempdb</b> to 500 MB with a maximum of 1 GB and <b>templog</b> to 100 MB with a maximum of 500 MB. 				
+	</li>
+</ol><br>
+
+<h2>Application Server </h2>
+<h3> Files needed </h3>
+<ul>
+  <li><span class="file">eap_app_install.zip</span></li>
+</ul>
+		
+<h3> Steps </h3>
+<ol>
+	<li>Install EAP files
+    	<ul>
+			<li>From <span class="file">eap_app_install.zip</span>, extract the following files to  <span class="file"><i>[jboss_dir]</i>/server/all/deploy</span>
+				<ul><li><span class="file">eap.ear</span></li><li><span class="file">mssql-ds.xml</span></li></ul>
+			<li>From <span class="file">eap_app_install.zip</span>, extract the following files to  <span class="file"><i>[jboss_dir]</i>/server/all/lib</span>
+				<ul><li><span class="file">msbase.jar</span></li><li><span class="file">msutil.jar</span></li><li><span class="file">mssqlserver.jar</span></li></ul>
+    	</ul>
+  	</li>
+	<li>Configure the MS SQL Server Data Source
+  		<ul>
+	  		<li>In <span class="file"><i>[jboss_dir]</i>/server/all/deploy/mssql-ds.xml</span>, find this line:
+        		<pre>&lt;connection-url&gt;jdbc:microsoft:sqlserver://vna016:1433;DatabaseName=your_dbname;SelectMethod=cursor&lt;/connection-url&gt;<br></pre>
+					Change <code>your_dbname</code> to the name of the EAP database. (<code>afscme_oltp</code>)<br>
+					Change <code>vna016</code> to the name of the EAP database server. (<code>testdb1</code>)</li>
+    	</ul>
+	</li>
+	<li>Storage folders</li>
+    	<ul>
+			<li>If the database is being reloaded, empty the following folders in the <span class="file"><i>[jboss_dir]</i></span></li>
+			<ul>
+				<li><span class="file">afscme_uploads</span> (must match where enterprise_config.xml <code>upload</code> attribute references.)</li>
+				<li><span class="file">affiliate_uploads</span> (must match where enterprise_config.xml <code>upload</code> attribute references.)</li>
+			</ul>
+    	</ul>
+  	</li>
+	<li>Custom configuration
+    	<ul>
+      		<li>Made any desired changes to <span class="file">enterprise_config.xml</span>, 
+				<span class="file">pdf_config.xml</span> and <span class="file">label_config.xml</span>.
+				These files are in <span class="file"><i>[jboss_dir]</i>server/all/deploy/eap.ear/eap_util.jar</span>.</li>
+				<ul><li>In the <span class="file">enterprise_config.xml</span>, change <code>reportQueue</code> and <code>requestPassword</code> email account attributes to the name of the appropriate Email accounts.</li>
+					<li>In the <span class="file">enterprise_config.xml</span>, change <code>smtp</code> server attribute to the name of the SMTP Server.</li>
+				        <pre>192.168.1.14<br></pre>
+    			</ul>
+  			</li>
+    	</ul>
+	</li>
+</ol>
+
+<h3> Running the server </h3>
+<ol>
+	<li> From <span class="file"><i>[jboss_dir]</i>/bin</span>, execute <code>run.bat -c all</code></i>
+	<li> To stop the server, run <code>shutdown.bat -S</code></li>
+</ol>
+
+<h2>HTTP Server </h2>
+<h3> Files needed </h3>
+<ul>
+  <li> <span class="file">eap_web_install.zip</span> </li>
+</ul>
+
+<h3> Steps </h3>
+<ol>
+	<li> Add EAP files to Apache
+    	<ul>
+      		<li> Unzip <span class="file">eap_web_install.zip</span> to the directory where Apache is installed. 
+				(This directory is usually called 'Apache2' and has subdirectories named bin, logs, lib) </li>
+      		<li> Verify that there is now an 'afscme' folder under the Apache directory. </li>
+		</ul>
+	</li>
+  	<li> 			Restart Apache using the Apache Service Monitor, or by running <code>apache -k restart</code> from <span class="file"><i>[apache_dir]</i>/bin</span> </li>
+</ol>
+</body>
+</html>

@@ -1,0 +1,5978 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0201.0210"
+    charSet    	0)
+
+(object Class_Category "MassChange"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"sc"
+	    name       	"SourceControlSpec"
+	    value      	"Framework"))
+    quid       	"3DF8B9580173"
+    documentation 	"Components that handle the 'Apply Mass Update' specification"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "MassChangeBean"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"cg_style"
+		    value      	"Default_EJB"))
+	    quid       	"3E773A8901F7"
+	    documentation 	"Manages all Affiliate Mass Change processing."
+	    stereotype 	"EJBSession"
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    quid       	"3E7776CC024A"
+		    label      	"uses"
+		    supplier   	"Logical View::MassChange::MassChangeRequest"
+		    quidu      	"3E7774B80079"))
+	    operations 	(list Operations
+		(object Operation "scheduleMassChange"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"scheduleMassChange")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E773AD7024A"
+		    documentation 	
+|Updates the nightly run table for the Mass Change Request that is being made.
+|@param request
+|
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "request"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3E7798D70382"
+			    type       	"MassChangeRequest"
+			    quidu      	"3E7774B80079"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    module     	"Component View::org::afscme::enterprise::masschange::ejb::MassChangeBean"
+	    quidu      	"3F13FC8B0079"
+	    language   	"Java")
+	(object Class "StoredProcMassChange"
+	    quid       	"3E773B0F0087"
+	    documentation 	"Stored Procedures that will handle the background processing of mass change requests at a scheduled time."
+	    stereotype 	"boundary"
+	    operations 	(list Operations
+		(object Operation "addChangeToHistory"
+		    quid       	"3E92F3AE004D"
+		    documentation 	
+|Used to log Affiliate Changes to the Aff_Chng_History and Aff_Chng_History_Dtl tables.
+|
+|@param affPk The Affiliate Primary Key
+|@param sectionCodePk The Code Primary Key of the section was changed
+|@param userPk The Primary Key of the User that requested the change
+|@param fieldCodePk The Code Primary Key of the field that was changed
+|@param oldValue The field value prior to the change
+|@param newValue The field value after to the change
+|
+|@return 0 if logging was successful, or Error Code if logging failed.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affPk"
+			    quid       	"3E92F4190169"
+			    type       	"Integer")
+			(object Parameter "sectionCodePk"
+			    quid       	"3E92F4240165"
+			    type       	"Integer")
+			(object Parameter "userPk"
+			    quid       	"3E92F43F02A4"
+			    type       	"Integer")
+			(object Parameter "fieldCodePk"
+			    quid       	"3E92F4600270"
+			    type       	"Integer")
+			(object Parameter "oldValue"
+			    quid       	"3E92F46C024F"
+			    type       	"String")
+			(object Parameter "newValue"
+			    quid       	"3E92F47300DD"
+			    type       	"String"))
+		    result     	"int"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "changeAffiliateIdentifier"
+		    quid       	"3E8DF6A401DD"
+		    documentation 	
+|Updates the appropriate affiliate identifier field for the Affiliate and all it's Sub Affiliates with the new value based on the parent Affiliate's Type.
+|
+|For Councils, this will update the aff_councilRetiree_chap for itself and all of the Locals and Sub Locals.
+|
+|For Locals, this will update the aff_localSubChapter for itself and all of the Sub Locals.
+|
+|For Retiree Chapters, this will update the aff_councilRetiree_chap for itself and all of the Sub Chapters.
+|
+|For Sub Chapters, this will update the aff_localSubChapter for itself only (does not effect any other Affiliates.)
+|
+|For Sub Locals, this will set the aff_subUnit for itself only (does not effect any other Affiliates.)
+|
+|@param Primary Key of the Affiliate at the top of the hierarchy.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affPk"
+			    quid       	"3E8DF73102B2"
+			    type       	"Integer")
+			(object Parameter "affType"
+			    quid       	"3E8DF73B0357"
+			    type       	"char")
+			(object Parameter "localNumber"
+			    quid       	"3E8DF749005E"
+			    type       	"String"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "changeAffiliateStatusDeactivated"
+		    quid       	"3E8DF43E0176"
+		    documentation 	
+|For Council's it deactives the Council and disassociates all the Sub Affiliates. For all other Affiliate Types, it deactivates all Affiliates and inactivates the Members.
+|
+|Call inactivateMembers
+|
+|@param affPk the Affiliate's Primary Key
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affPk"
+			    quid       	"3E8DF4520265"
+			    type       	"Integer"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "changeAffiliateStatusMerged"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"changeAffiliate")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E778DCA0031"
+		    documentation 	
+|"Moves" all members from the old Local to the new Affiliate and changes the old Affiliate's status to 'Merged'.  Members are deactivated in the old Affiliate and new records will be created in the new Affiliate.
+|
+|Only valid for Locals.
+|
+|Call moveMembers from the old Local to the new Local.
+|Update RPT_Aff_Mbr_Activity table for the newly added members
+|
+|@param oldAffPk Old Affiliate's Primary Key
+|@param newAffPk New Affiliate's Primary Key
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "oldAffPk"
+			    quid       	"3E8DEF5200AC"
+			    type       	"Integer")
+			(object Parameter "newAffPk"
+			    quid       	"3E8DF0C601E7"
+			    type       	"Integer"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "changeAffiliateStatusSplit"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"changeSubAffiliates")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E778DB30327"
+		    documentation 	
+|"Moves" all members from the old Sub Local to the new Local and changes the old Affiliate's status to 'Split'.
+|
+|Only valid for a Sub Local.  
+|
+|Call moveMembers from the old Local to the new Local.
+|Update RPT_Aff_Mbr_Activity table for the newly added members to the Local
+|
+|@param oldAffPk Old Affiliate's Primary Key
+|@param newAffPk New Affiliate's Primary Key
+		    
+		    parameters 	(list Parameters
+			(object Parameter "oldAffPk"
+			    quid       	"3E8DEF69036C"
+			    type       	"Integer")
+			(object Parameter "newAffPk"
+			    quid       	"3E8DF31F0245"
+			    type       	"Integer"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "disassociateSubAffiliatesFromCouncil"
+		    quid       	"3E91C2C5010B"
+		    documentation 	
+|Removes the parent_aff_fk association setting it to null and updates the appropriate affiliate identifier field with a '0' value.
+|
+|For Councils, this will set the parent_aff_fk to NULL for all Locals, and set the aff_councilRetiree_chap to '0000' for all Locals and Sub Locals.
+|
+|For Locals, this will set the parent_aff_fk to NULL and the aff_localSubChapter to '0000' for all Sub Locals.
+|
+|For Retiree Chapters, this will set the parent_aff_fk to NULL and the aff_councilRetiree_chap to '0000' for all Sub Chapters. 
+|
+|For Sub Chapters, this will set the aff_localSubChapter to '0000' for the Sub Chapter only (does not effect any other Affiliates.)
+|
+|For Sub Locals, this will set the aff_subUnit to '0000' for the Sub Local only (does not effect any other Affiliates.)
+|
+|@param Primary Key of the Affiliate at the top of the hierarchy.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affPk"
+			    quid       	"3E91C2F003A2"
+			    type       	"Integer"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "inactivateMembers"
+		    quid       	"3E91A404022D"
+		    documentation 	
+|Inactivates all the Members in the associated Affiliate.
+|
+|Update RPT_Aff_Mbr_Activity table for the deactivated members
+|
+|@param affPk Affiliate from which to inactivate all Members
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affPk"
+			    quid       	"3E91A412007E"
+			    type       	"Integer"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "initiateMassChange"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"initiateMassChange")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E773B3E0189"
+		    documentation 	
+|The main method that is called to start the integration process. This method will check if there is an entry in the nightly run table. If there is, it calls the performMassChange method to process the mass change requests. 
+|
+|Once mass change processes are completed, it uses the values in the mass_chng_error_fg and the mass_chng_completed_dt fields to determine what type of email to send to the user if the user provided a valid email address.
+		    
+		    result     	"Boolean"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "moveMembers"
+		    quid       	"3E93311E02F2"
+		    documentation 	
+|Moves Members from one Affiliate to another. The system must inactivate the Member from one affiliate, and add that Member to another Affiliate.
+|
+|Update RPT_Aff_Mbr_Activity table for the added members
+|
+|@param currentAffPk Primary Key of the Affiliate from which Members are moving.
+|@param newAffPk Primary Key of the Affiliate to which Members are being moved.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "currentAffPk"
+			    quid       	"3E9331630142"
+			    type       	"Integer")
+			(object Parameter "newAffPk"
+			    quid       	"3E93316E0397"
+			    type       	"Integer"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "performMassChange"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"OpFormerName"
+			    value      	"performMassChange")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE))
+		    quid       	"3E778DA402CC"
+		    documentation 	
+|Loops on all the Mass Change requests, and calls other Stored Procedures to perform each individual mass change.
+|
+|changeAffiliateIdentifier
+|changeAffiliateStatusDeactivated
+|changeAffiliateStatusMerged
+|changeAffiliateStatusSplit
+|setMemberRenewal
+|setMembershipInfoReportingSource
+|setUnitWideNoPEMail
+|setUnitWideNoCards
+|
+|For each mass change, it sets the the mass_chng_completed_dt and the mass_chng_error_fg (if an error occurred) for that entry.
+|
+|For each mass change, it calls addChangeToHistory
+		    
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setMemberRenewal"
+		    quid       	"3E91C8EC03C3"
+		    documentation 	
+|Updates the Member Renewal field for the Affiliate and all of it's sub Affiliates.
+|
+|@param affPk Primary Key of the Affiliate at the top of the hierarchy.
+|@param mbrRenewal TRUE if set and FALSE if not set
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affPk"
+			    quid       	"3E91C91B038E"
+			    type       	"Integer")
+			(object Parameter "mbrRenewal"
+			    quid       	"3E91C92102BA"
+			    type       	"Boolean"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setMembershipInfoReportingSource"
+		    quid       	"3E91C75201E2"
+		    documentation 	
+|Updates the Membership Information Reporting Source field for the Affiliate and all of it's sub Affiliates.
+|
+|@param affPk Primary Key of the Affiliate at the top of the hierarchy.
+|@param infoRptgSrc common code key of the new Information Source
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affPk"
+			    quid       	"3E91C7A003CF"
+			    type       	"Integer")
+			(object Parameter "infoRptgSrc"
+			    quid       	"3E91C7A501CE"
+			    type       	"Integer"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setUnitWideNoCards"
+		    quid       	"3E91C86301A9"
+		    documentation 	
+|Updates the Unit Wide No Card field for the Affiliate and all of it's sub Affiliates.
+|
+|@param affPk Primary Key of the Affiliate at the top of the hierarchy.
+|@param unitWideNoCard TRUE if set and FALSE if not set
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affPk"
+			    quid       	"3E91C954003D"
+			    type       	"Integer")
+			(object Parameter "unitWideNoCard"
+			    quid       	"3E91C95D0158"
+			    type       	"Boolean"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setUnitWideNoPEMail"
+		    quid       	"3E91C8C001A3"
+		    documentation 	
+|Updates the Unit Wide No PE Mail field for the Affiliate and all of it's sub Affiliates.
+|
+|@param affPk Primary Key of the Affiliate at the top of the hierarchy.
+|@param unitWideNoPE TRUE if set and FALSE if not set
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affPk"
+			    quid       	"3E91C92D0145"
+			    type       	"Integer")
+			(object Parameter "unitWideNoPE"
+			    quid       	"3E91C93701EA"
+			    type       	"Boolean"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    language   	"Java")
+	(object Class "MassChangeData"
+	    quid       	"3E776D7800CA"
+	    documentation 	"Data needed to perform a Mass Change."
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "massChangeType"
+		    quid       	"3E776E7F00AA"
+		    documentation 	"Indicates the type of Mass Change."
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "statusChangeType"
+		    quid       	"3E776ECF0218"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "newAffiliateID"
+		    quid       	"3E776ED703D2"
+		    documentation 	"Used in the case of a Mass Change involving an Affiliate Identifier value. Currently used for 'New Affiliate Identifier', 'Set to Merged', and 'Set to Split' changes."
+		    type       	"AffiliateIdentifier"
+		    quidu      	"3DF787790312"
+		    exportControl 	"Public")
+		(object ClassAttribute "newFlag"
+		    quid       	"3E776FF4006A"
+		    documentation 	"Used in the case of a Mass Change involving a checkbox value. True means checked, and false means unchecked. Currently used for 'Unit Wide No Member Cards', 'Unit Wide No PE Mail', and 'Member Renewal' changes."
+		    type       	"Boolean"
+		    exportControl 	"Public")
+		(object ClassAttribute "newSelect"
+		    quid       	"3E7770B60236"
+		    documentation 	"Used in the case of a Mass Change involving a dropdown value. Int is the key to the common code. Currently only used for Membership Information Reporting Source change."
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "CHANGE_TYPE_STATUS_DEACTIVATED"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"IndividualChangeMgt"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"PropertyType"
+			    value      	("BeanProperty_Set" 71))
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Read/Write"
+			    value      	("Read/Write_Set" 81)))
+		    quid       	"3E78BD7F0238"
+		    stereotype 	"const"
+		    type       	"Logical View::java::lang::String"
+		    initv      	"SD"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "CHANGE_TYPE_STATUS_MERGED"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"IndividualChangeMgt"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"PropertyType"
+			    value      	("BeanProperty_Set" 71))
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Read/Write"
+			    value      	("Read/Write_Set" 81)))
+		    quid       	"3E79D74202E8"
+		    stereotype 	"const"
+		    type       	"Logical View::java::lang::String"
+		    initv      	"SM"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "CHANGE_TYPE_STATUS_SPLIT"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"IndividualChangeMgt"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"PropertyType"
+			    value      	("BeanProperty_Set" 71))
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Read/Write"
+			    value      	("Read/Write_Set" 81)))
+		    quid       	"3E79D77A0004"
+		    stereotype 	"const"
+		    type       	"Logical View::java::lang::String"
+		    initv      	"SP"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "CHANGE_TYPE_NEW_AFFILIATE_ID"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"IndividualChangeMgt"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"PropertyType"
+			    value      	("BeanProperty_Set" 71))
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Read/Write"
+			    value      	("Read/Write_Set" 81)))
+		    quid       	"3E79D794005B"
+		    stereotype 	"const"
+		    type       	"Logical View::java::lang::String"
+		    initv      	"NA"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "CHANGE_TYPE_MEMBER_RENEWAL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"IndividualChangeMgt"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"PropertyType"
+			    value      	("BeanProperty_Set" 71))
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Read/Write"
+			    value      	("Read/Write_Set" 81)))
+		    quid       	"3E79D7B20325"
+		    stereotype 	"const"
+		    type       	"Logical View::java::lang::String"
+		    initv      	"MR"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "CHANGE_TYPE_UNIT_WIDE_NO_CARDS"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"IndividualChangeMgt"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"PropertyType"
+			    value      	("BeanProperty_Set" 71))
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Read/Write"
+			    value      	("Read/Write_Set" 81)))
+		    quid       	"3E79D7C402D1"
+		    stereotype 	"const"
+		    type       	"Logical View::java::lang::String"
+		    initv      	"NC"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "CHANGE_TYPE_UNIT_WIDE_NO_PE_MAIL"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"IndividualChangeMgt"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"PropertyType"
+			    value      	("BeanProperty_Set" 71))
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Read/Write"
+			    value      	("Read/Write_Set" 81)))
+		    quid       	"3E79D7D502EA"
+		    stereotype 	"const"
+		    type       	"Logical View::java::lang::String"
+		    initv      	"NP"
+		    exportControl 	"Public"
+		    static     	TRUE)
+		(object ClassAttribute "CHANGE_TYPE_MBRSP_INFO_RPT_SRC"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"IndividualChangeMgt"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"PropertyType"
+			    value      	("BeanProperty_Set" 71))
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Read/Write"
+			    value      	("Read/Write_Set" 81)))
+		    quid       	"3E79D80A0386"
+		    stereotype 	"const"
+		    type       	"Logical View::java::lang::String"
+		    initv      	"IS"
+		    exportControl 	"Public"
+		    static     	TRUE))
+	    module     	"Component View::org::afscme::enterprise::masschange::MassChangeData"
+	    quidu      	"3F13FC3C02E2"
+	    language   	"Java")
+	(object Class "MassChangeRequest"
+	    quid       	"3E7774B80079"
+	    documentation 	"Contains data about a requested set of mass changes for an affiliate."
+	    used_nodes 	(list uses_relationship_list
+		(object Uses_Relationship
+		    quid       	"3E77762C031D"
+		    supplier   	"Logical View::MassChange::MassChangeData"
+		    quidu      	"3E776D7800CA"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "userID"
+		    quid       	"3E7774D10006"
+		    documentation 	"User ID of the user that requested a group of changes."
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "affPK"
+		    quid       	"3E77838C023A"
+		    documentation 	"Primary Key of the Affiliate."
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "changePriorityList"
+		    quid       	"3E7774EA0016"
+		    documentation 	"Ordered List of MassChangeData objects requested by a user. Use this ordering to determine the priority for the processing of the Mass Changes."
+		    type       	"Collection"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::masschange::MassChangeRequest"
+	    quidu      	"3EA6D4800359"
+	    language   	"Java")
+	(object Association "massChangePriority"
+	    quid       	"3E777661012E"
+	    roles      	(list role_list
+		(object Role "theMassChangeData"
+		    quid       	"3E777661032D"
+		    label      	"theMassChangeData"
+		    supplier   	"Logical View::MassChange::MassChangeData"
+		    quidu      	"3E776D7800CA"
+		    client_cardinality 	(value cardinality "1..n")
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$0"
+		    quid       	"3E7776610337"
+		    supplier   	"Logical View::MassChange::MassChangeRequest"
+		    quidu      	"3E7774B80079"
+		    is_aggregate 	TRUE)))
+	(object Mechanism @1
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$1"
+		    quid       	"3E774EBF0201"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E774EF901AA"
+			    supplier   	"$UNNAMED$2"
+			    quidu      	"3E774ECA0103"
+			    messages   	(list Messages
+				(object Message "Request a Mass Change"
+				    quid       	"3E774EF901AB"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Display a confirmation"
+				    quid       	"3E775C730241"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.1.1.1.1.1"
+				    ordinal    	5
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Use Case View::User"
+		    quidu      	"3E1B076E007E"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$2"
+		    quid       	"3E774ECA0103"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E774F1502F5"
+			    supplier   	"$UNNAMED$3"
+			    quidu      	"3E774ED60088"
+			    messages   	(list Messages
+				(object Message "scheduleMassChange(MassChangeRequest)"
+				    quid       	"3E775B86009C"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.1"
+				    ordinal    	1
+				    quidu      	"3E773AD7024A"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E775C6C0255"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.1.1.1.1"
+				    ordinal    	4
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::3rd Party::Struts::Action"
+		    quidu      	"3E1B0B53038F"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$3"
+		    quid       	"3E774ED60088"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E775C4C006F"
+			    supplier   	"$UNNAMED$4"
+			    quidu      	"3E775C420237"
+			    messages   	(list Messages
+				(object Message "INSERT INTO Mass_Change_Batch_Control"
+				    quid       	"3E775C4C0070"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.1.1"
+				    ordinal    	2
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E775C6700AA"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.1.1.1"
+				    ordinal    	3
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::MassChange::MassChangeBean"
+		    quidu      	"3E773A8901F7"
+		    persistence 	"Transient"
+		    creationObj 	TRUE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$4"
+		    quid       	"3E775C420237"
+		    class      	"Logical View::3rd Party::JDBC::JDBC"
+		    quidu      	"3E1B3DBC02F5"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)))
+	(object Mechanism @2
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$5"
+		    quid       	"3E77786C031B"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E77788C02E5"
+			    supplier   	"$UNNAMED$6"
+			    quidu      	"3E77788602B4"
+			    messages   	(list Messages
+				(object Message "initiateMassChange( )"
+				    quid       	"3E77788C02E6"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2"
+				    ordinal    	1
+				    quidu      	"3E773B3E0189"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E77970003DF"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"2.2"
+				    ordinal    	3
+				    quidu      	"000000000000"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E77901B011A"
+			    supplier   	"SQL Server Mail Utility"
+			    quidu      	"3E7782DF01CD"
+			    messages   	(list Messages
+				(object Message "Send Email to User that requested the process indicating completion or failure"
+				    quid       	"3E7796E70343"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3"
+				    ordinal    	4
+				    quidu      	"000000000000"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E8DED0B0252"
+			    supplier   	"$UNNAMED$7"
+			    quidu      	"3E8DED07022E"
+			    messages   	(list Messages
+				(object Message "SELECT FROM Mass_Change_Batch_Control WHERE mass_chng_request_dt = GETDATE()"
+				    quid       	"3E8DED0B0253"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::3rd Party::Database::SQL Server Scheduler"
+		    quidu      	"3E763F4903B2"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$6"
+		    quid       	"3E77788602B4"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E778BCC0150"
+			    supplier   	"$UNNAMED$6"
+			    quidu      	"3E77788602B4"
+			    messages   	(list Messages
+				(object Message "performMassChange( )"
+				    quid       	"3E778CDC018D"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2.1"
+				    ordinal    	2
+				    quidu      	"3E778DA402CC"
+				    creation   	FALSE))))
+		    class      	"Logical View::MassChange::StoredProcMassChange"
+		    quidu      	"3E773B0F0087"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "SQL Server Mail Utility"
+		    quid       	"3E7782DF01CD"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$7"
+		    quid       	"3E8DED07022E"
+		    class      	"Logical View::3rd Party::Database::Database"
+		    quidu      	"3E778D0F0191"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)))
+	(object Mechanism @3
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$8"
+		    quid       	"3E778F470224"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E778F470225"
+			    supplier   	"$UNNAMED$8"
+			    quidu      	"3E778F470224"
+			    messages   	(list Messages
+				(object Message "changeAffiliateStatusMerged(Integer, Integer)"
+				    quid       	"3E778F530362"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"3E778DCA0031"
+				    creation   	FALSE)
+				(object Message "addChangeToHistory(Integer, Integer, Integer, Integer, String, String)"
+				    quid       	"3E92F58F03A2"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"6"
+				    ordinal    	5
+				    quidu      	"3E92F3AE004D"
+				    creation   	FALSE)
+				(object Message "moveMembers(Integer, Integer)"
+				    quid       	"3E93314E008E"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3"
+				    ordinal    	2
+				    quidu      	"3E93311E02F2"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E8DF17D01C2"
+			    supplier   	"$UNNAMED$9"
+			    quidu      	"3E8DF15D0018"
+			    messages   	(list Messages
+				(object Message "Update oldAff Status to 'Merged'"
+				    quid       	"3E8DF1A403E5"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"5"
+				    ordinal    	4
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Check in Aff_Organizations that oldAff and newAff don't have Sub Affiliates"
+				    quid       	"3E8DF1EA022D"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2"
+				    ordinal    	1
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Retrieve the current Affiliate Status"
+				    quid       	"3E92F5D203C6"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"4"
+				    ordinal    	3
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::MassChange::StoredProcMassChange"
+		    quidu      	"3E773B0F0087"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$9"
+		    quid       	"3E8DF15D0018"
+		    class      	"Logical View::3rd Party::Database::Database"
+		    quidu      	"3E778D0F0191"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)))
+	(object Mechanism @4
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$10"
+		    quid       	"3E8DF2F102F4"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E8DF2F102F5"
+			    supplier   	"$UNNAMED$10"
+			    quidu      	"3E8DF2F102F4"
+			    messages   	(list Messages
+				(object Message "changeAffiliateStatusSplit(Integer, Integer)"
+				    quid       	"3E8DF2F102F6"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"3E778DB30327"
+				    creation   	FALSE)
+				(object Message "moveMembers(Integer, Integer)"
+				    quid       	"3E9332F5017D"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"4"
+				    ordinal    	3
+				    quidu      	"3E93311E02F2"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E8DF2F102F7"
+			    supplier   	"$UNNAMED$11"
+			    quidu      	"3E8DF2F102FE"
+			    messages   	(list Messages
+				(object Message "Update oldAff Status to 'Split'"
+				    quid       	"3E8DF2F102F9"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"5"
+				    ordinal    	4
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Check Aff_Organizations that oldAff is a Sub Local"
+				    quid       	"3E8DF2F102FA"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2"
+				    ordinal    	1
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Check Aff_Organizations that newAff is a Local with no Sub Locals"
+				    quid       	"3E8DF35200E0"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3"
+				    ordinal    	2
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::MassChange::StoredProcMassChange"
+		    quidu      	"3E773B0F0087"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$11"
+		    quid       	"3E8DF2F102FE"
+		    class      	"Logical View::3rd Party::Database::Database"
+		    quidu      	"3E778D0F0191"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)))
+	(object Mechanism @5
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$12"
+		    quid       	"3E8DF42B010A"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E8DF42B010B"
+			    supplier   	"$UNNAMED$12"
+			    quidu      	"3E8DF42B010A"
+			    messages   	(list Messages
+				(object Message "changeAffiliateStatusDeactivated(Integer)"
+				    quid       	"3E8DF42B010C"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"3E8DF43E0176"
+				    creation   	FALSE)
+				(object Message "changeAffiliateStatusDeactivated(Integer)"
+				    quid       	"3E8DF50203A9"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3"
+				    ordinal    	3
+				    quidu      	"3E8DF43E0176"
+				    creation   	FALSE)
+				(object Message "inactivateMembers(Integer)"
+				    quid       	"3E91A53A0015"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"4"
+				    ordinal    	4
+				    quidu      	"3E91A404022D"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E8DF42B010D"
+			    supplier   	"$UNNAMED$13"
+			    quidu      	"3E8DF42B0115"
+			    messages   	(list Messages
+				(object Message "Update Affiliate Status to 'Deactivated'"
+				    quid       	"3E8DF42B010F"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"5"
+				    ordinal    	5
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Check Aff_Organizations for Affiliate Type"
+				    quid       	"3E8DF42B0110"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2"
+				    ordinal    	1
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Type = 'L'"
+				    quid       	"3E8DF48900C9"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"2.1"
+				    ordinal    	2
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::MassChange::StoredProcMassChange"
+		    quidu      	"3E773B0F0087"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$13"
+		    quid       	"3E8DF42B0115"
+		    class      	"Logical View::3rd Party::Database::Database"
+		    quidu      	"3E778D0F0191"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)))
+	(object Mechanism @6
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$14"
+		    quid       	"3E8DF630006E"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E8DF630006F"
+			    supplier   	"$UNNAMED$14"
+			    quidu      	"3E8DF630006E"
+			    supplier_containment 	"By Value"
+			    client_containment 	"By Value"
+			    messages   	(list Messages
+				(object Message "disassociateSubAffiliatesFromCouncil(Integer)"
+				    quid       	"3E8DF6300071"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2"
+				    ordinal    	2
+				    quidu      	"3E91C2C5010B"
+				    creation   	FALSE)
+				(object Message "inactivateMembers(Integer)"
+				    quid       	"3E91A4580089"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3"
+				    ordinal    	3
+				    quidu      	"3E91A404022D"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E8DF6300072"
+			    supplier   	"$UNNAMED$15"
+			    quidu      	"3E8DF630007A"
+			    messages   	(list Messages
+				(object Message "Update Affiliate Status to 'Deactivated'"
+				    quid       	"3E8DF6300074"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"4"
+				    ordinal    	4
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Check Aff_Organizations for Affiliate Type"
+				    quid       	"3E8DF6300075"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Type = 'C'"
+				    quid       	"3E8DF6300076"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.1"
+				    ordinal    	1
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::MassChange::StoredProcMassChange"
+		    quidu      	"3E773B0F0087"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$15"
+		    quid       	"3E8DF630007A"
+		    class      	"Logical View::3rd Party::Database::Database"
+		    quidu      	"3E778D0F0191"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)))
+	(object Mechanism @7
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$16"
+		    quid       	"3E8DF5CB03E4"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E8DF5CB03E5"
+			    supplier   	"$UNNAMED$16"
+			    quidu      	"3E8DF5CB03E4"
+			    messages   	(list Messages
+				(object Message "changeAffiliateStatusDeactivated(Integer)"
+				    quid       	"3E8DF5CB03E6"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"3E8DF43E0176"
+				    creation   	FALSE)
+				(object Message "inactivateMembers(Integer)"
+				    quid       	"3E91A56F033D"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3"
+				    ordinal    	3
+				    quidu      	"3E91A404022D"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E8DF5CB03E8"
+			    supplier   	"$UNNAMED$17"
+			    quidu      	"3E8DF5CB03F0"
+			    messages   	(list Messages
+				(object Message "Update Affiliate Status to 'Deactivated'"
+				    quid       	"3E8DF5CB03EA"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"4"
+				    ordinal    	4
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Check Aff_Organizations for Affiliate Type"
+				    quid       	"3E8DF5CB03EB"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2"
+				    ordinal    	1
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Type = 'U'"
+				    quid       	"3E8DF5CB03EC"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"2.1"
+				    ordinal    	2
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::MassChange::StoredProcMassChange"
+		    quidu      	"3E773B0F0087"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$17"
+		    quid       	"3E8DF5CB03F0"
+		    class      	"Logical View::3rd Party::Database::Database"
+		    quidu      	"3E778D0F0191"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)))
+	(object Mechanism @8
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$18"
+		    quid       	"3E92F6A10085"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E92F6A10086"
+			    supplier   	"$UNNAMED$18"
+			    quidu      	"3E92F6A10085"
+			    supplier_containment 	"By Value"
+			    client_containment 	"By Value"
+			    messages   	(list Messages
+				(object Message "addChangeToHistory(Integer, Integer, Integer, Integer, String, String)"
+				    quid       	"3E93072701B4"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"4"
+				    ordinal    	6
+				    quidu      	"3E92F3AE004D"
+				    creation   	FALSE)
+				(object Message "addChangeToHistory(Integer, Integer, Integer, Integer, String, String)"
+				    quid       	"3E9307530171"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"5.1.2"
+				    ordinal    	11
+				    quidu      	"3E92F3AE004D"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E92F6A10089"
+			    supplier   	"$UNNAMED$19"
+			    quidu      	"3E92F6A10090"
+			    messages   	(list Messages
+				(object Message "Check Aff_Organizations for Affiliate Type"
+				    quid       	"3E92F6A1008B"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Type = 'C'"
+				    quid       	"3E92F6A1008C"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.1"
+				    ordinal    	1
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "SELECT * FROM Aff_Organizations WHERE parent_aff_fk = affPk param"
+				    quid       	"3E92FDE202FC"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2"
+				    ordinal    	2
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "Locals = ResultSet"
+				    quid       	"3E92FE4E01C1"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"2.1"
+				    ordinal    	3
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "UPDATE Aff_Organization SET parent_aff_pk = '0', aff_councilRetiree_chap = '0000' WHERE aff_pk = Local.aff_pk"
+				    quid       	"3E92FE640349"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3"
+				    ordinal    	4
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E92FEDC000C"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"3.1"
+				    ordinal    	5
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "SELECT * FROM Aff_Organizations WHERE parent_aff_fk = Local.aff_pk"
+				    quid       	"3E9300A10235"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"5"
+				    ordinal    	7
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "SubLocals = ResultSet"
+				    quid       	"3E9300B70069"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"5.1"
+				    ordinal    	8
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "UPDATE Aff_Organization SET aff_councilRetiree_chap = '0000' WHERE aff_pk = SubLocal.aff_pk"
+				    quid       	"3E93015B005B"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"5.1.1"
+				    ordinal    	9
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E93016603A0"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"5.1.1.1"
+				    ordinal    	10
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::MassChange::StoredProcMassChange"
+		    quidu      	"3E773B0F0087"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$19"
+		    quid       	"3E92F6A10090"
+		    class      	"Logical View::3rd Party::Database::Database"
+		    quidu      	"3E778D0F0191"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)))
+	(object Mechanism @9
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$20"
+		    quid       	"3E933E34029F"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E933E3402A0"
+			    supplier   	"$UNNAMED$20"
+			    quidu      	"3E933E34029F"
+			    messages   	(list Messages
+				(object Message "inactivateMembers(Integer)"
+				    quid       	"3E93408B021E"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3"
+				    ordinal    	2
+				    quidu      	"3E91A404022D"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E933E3402A3"
+			    supplier   	"$UNNAMED$21"
+			    quidu      	"3E933E3402AA"
+			    messages   	(list Messages
+				(object Message "Insert Members into new Affiliate"
+				    quid       	"3E933E8203CD"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "UPDATE RPT_Aff_Mbr_Activity for added Members"
+				    quid       	"3E9341DF02F9"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2"
+				    ordinal    	1
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::MassChange::StoredProcMassChange"
+		    quidu      	"3E773B0F0087"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$21"
+		    quid       	"3E933E3402AA"
+		    class      	"Logical View::3rd Party::Database::Database"
+		    quidu      	"3E778D0F0191"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Mass Change Classes"
+	    quid       	"3E7640060043"
+	    title      	"Mass Change Classes"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::MassChange::MassChangeBean" @10
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(448, 208)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@10
+			location   	(131, 168)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	634
+			justify    	0
+			label      	"MassChangeBean")
+		    icon_style 	"Decoration"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E773A8901F7"
+		    compartment 	(object Compartment
+			Parent_View 	@10
+			location   	(131, 229)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	2
+			max_width  	484)
+		    width      	652
+		    height     	280
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MassChange::StoredProcMassChange" @11
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1456, 160)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(1455, 316)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	1037
+			justify    	0
+			label      	"StoredProcMassChange")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E773B0F0087"
+		    compartment 	(object Compartment
+			Parent_View 	@11
+			location   	(1071, 357)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			anchor     	2
+			nlines     	15
+			max_width  	841
+			justify    	0)
+		    width      	230
+		    height     	154
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MassChange::MassChangeData" @12
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1056, 1584)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@12
+			location   	(17, 1203)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	2078
+			justify    	0
+			label      	"MassChangeData")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E776D7800CA"
+		    compartment 	(object Compartment
+			Parent_View 	@12
+			location   	(17, 1264)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	14
+			max_width  	1789)
+		    width      	2096
+		    height     	786
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::MassChange::MassChangeRequest" @13
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(640, 688)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@13
+			location   	(291, 557)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	698
+			justify    	0
+			label      	"MassChangeRequest")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E7774B80079"
+		    compartment 	(object Compartment
+			Parent_View 	@13
+			location   	(291, 618)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	591)
+		    width      	716
+		    height     	286
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "massChangePriority" @14
+		    location   	(641, 1010)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @15
+			Parent_View 	@14
+			location   	(786, 999)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	TRUE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			anchor     	1
+			anchor_loc 	1
+			nlines     	1
+			max_width  	450
+			justify    	0
+			label      	"massChangePriority"
+			pctDist    	2.916667
+			height     	12
+			orientation 	0)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3E777661012E"
+		    roleview_list 	(list RoleViews
+			(object RoleView "theMassChangeData" @16
+			    Parent_View 	@14
+			    location   	(-655, 130)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @17
+				Parent_View 	@16
+				location   	(830, 1160)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	403
+				justify    	0
+				label      	"+theMassChangeData"
+				pctDist    	0.837283
+				height     	189
+				orientation 	0)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3E777661032D"
+			    client     	@14
+			    supplier   	@12
+			    line_style 	3
+			    origin_attachment 	(641, 1010)
+			    terminal_attachment 	(673, 1190)
+			    label      	(object SegLabel @18
+				Parent_View 	@16
+				location   	(591, 1162)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	2
+				anchor_loc 	1
+				nlines     	1
+				max_width  	15
+				justify    	0
+				label      	"1..n"
+				pctDist    	0.843642
+				height     	51
+				orientation 	1))
+			(object RoleView "$UNNAMED$0" @19
+			    Parent_View 	@14
+			    location   	(-655, 130)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3E7776610337"
+			    client     	@14
+			    supplier   	@13
+			    line_style 	3
+			    origin_attachment 	(641, 1010)
+			    terminal_attachment 	(641, 831))))))
+	(object InteractionDiagram "1: User initiates a Mass Change Process"
+	    mechanism_ref 	@1
+	    quid       	"3E774E8A03C8"
+	    title      	"1: User initiates a Mass Change Process"
+	    documentation 	"Shows the initial steps by a user to initiate a Mass Change."
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$1" @20
+		    location   	(64, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@20
+			location   	(64, 249)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	360
+			justify    	0
+			label      	"")
+		    icon       	"Actor"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E774EBF0201"
+		    width      	336
+		    height     	1326
+		    icon_height 	162
+		    icon_width 	120
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @21
+			location   	(64, 816)
+			line_color 	3342489
+			InterObjView 	@20
+			height     	644
+			y_coord    	584
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @22
+			location   	(64, 1040)
+			line_color 	3342489
+			InterObjView 	@20
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$2" @23
+		    location   	(576, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(576, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E774ECA0103"
+		    width      	662
+		    height     	1326
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @24
+			location   	(576, 816)
+			line_color 	3342489
+			InterObjView 	@23
+			height     	584
+			y_coord    	524
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @25
+			location   	(576, 992)
+			line_color 	3342489
+			InterObjView 	@23
+			height     	168
+			y_coord    	108
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$3" @26
+		    location   	(1664, 512)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@26
+			location   	(1664, 512)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	350
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E774ED60088"
+		    width      	368
+		    height     	1038
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @27
+			location   	(1664, 572)
+			InterObjView 	@26
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @28
+			location   	(1664, 880)
+			line_color 	3342489
+			InterObjView 	@26
+			height     	460
+			y_coord    	400
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @29
+			location   	(1664, 960)
+			line_color 	3342489
+			InterObjView 	@26
+			height     	260
+			y_coord    	200
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$4" @30
+		    location   	(2608, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@30
+			location   	(2608, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E775C420237"
+		    width      	662
+		    height     	1326
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @31
+			location   	(2608, 912)
+			line_color 	3342489
+			InterObjView 	@30
+			height     	368
+			y_coord    	308
+			Nested     	FALSE))
+		(object InterMessView "" @32
+		    location   	(16, 816)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @33
+			Parent_View 	@32
+			location   	(319, 772)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E774EF901AB"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	504
+			justify    	0
+			label      	"Request a Mass Change"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@20
+		    supplier   	@23
+		    Focus_Src  	@21
+		    Focus_Entry 	@24
+		    origin     	(79, 816)
+		    terminus   	(560, 816)
+		    ordinal    	0)
+		(object InterMessView "" @34
+		    location   	(1264, 880)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @35
+			Parent_View 	@34
+			location   	(1119, 836)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E775B86009C"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	934
+			justify    	0
+			label      	"scheduleMassChange(MassChangeRequest)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@23
+		    supplier   	@26
+		    Focus_Src  	@24
+		    Focus_Entry 	@28
+		    origin     	(591, 880)
+		    terminus   	(1648, 880)
+		    ordinal    	1)
+		(object InterMessView "" @36
+		    location   	(16, 912)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @37
+			Parent_View 	@36
+			location   	(2135, 868)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E775C4C0070"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	897
+			justify    	0
+			label      	"INSERT INTO Mass_Change_Batch_Control"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@26
+		    supplier   	@30
+		    Focus_Src  	@28
+		    Focus_Entry 	@31
+		    origin     	(1679, 912)
+		    terminus   	(2592, 912)
+		    ordinal    	2)
+		(object InterMessView "" @38
+		    location   	(16, 960)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @39
+			Parent_View 	@38
+			location   	(2136, 916)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E775C6700AA"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@30
+		    supplier   	@26
+		    Focus_Src  	@31
+		    Focus_Entry 	@29
+		    origin     	(2592, 960)
+		    terminus   	(1680, 960)
+		    ordinal    	3)
+		(object InterMessView "" @40
+		    location   	(1248, 992)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @41
+			Parent_View 	@40
+			location   	(1120, 948)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E775C6C0255"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@26
+		    supplier   	@23
+		    Focus_Src  	@29
+		    Focus_Entry 	@25
+		    origin     	(1648, 992)
+		    terminus   	(592, 992)
+		    ordinal    	4)
+		(object InterMessView "" @42
+		    location   	(16, 1040)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @43
+			Parent_View 	@42
+			location   	(320, 996)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E775C730241"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	449
+			justify    	0
+			label      	"Display a confirmation"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@23
+		    supplier   	@20
+		    Focus_Src  	@25
+		    Focus_Entry 	@22
+		    origin     	(560, 1040)
+		    terminus   	(80, 1040)
+		    ordinal    	5)
+		(object NoteView @44
+		    location   	(2336, 2304)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@44
+			location   	(2001, 2123)
+			fill_color 	13434879
+			nlines     	7
+			max_width  	635
+			label      	"This is performed for each mass change in the request, using the same date and time stamp. This will uniquely identify a group in the db along with the affPK, userID, and priority.")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	695
+		    height     	375)
+		(object AttachView "" @45
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@44
+		    supplier   	@36
+		    line_style 	0)
+		(object Label @46
+		    location   	(96, 1792)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    nlines     	1
+		    max_width  	1148
+		    label      	"Shows the initial steps by a user to initiate a Mass Change.")))
+	(object InteractionDiagram "2: System processes the Mass Change requests"
+	    mechanism_ref 	@2
+	    quid       	"3E776A0103AA"
+	    title      	"2: System processes the Mass Change requests"
+	    documentation 	"Shows the background process performed by the SQL Scheduler to process Mass Change requests."
+	    zoom       	85
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$5" @47
+		    location   	(224, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@47
+			location   	(224, 249)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	471
+			justify    	0
+			label      	"")
+		    icon       	"business worker"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E77786C031B"
+		    width      	446
+		    height     	1250
+		    icon_height 	164
+		    icon_width 	157
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @48
+			location   	(224, 528)
+			line_color 	3342489
+			InterObjView 	@47
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @49
+			location   	(224, 800)
+			line_color 	3342489
+			InterObjView 	@47
+			height     	356
+			y_coord    	296
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @50
+			location   	(224, 976)
+			line_color 	3342489
+			InterObjView 	@47
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @51
+			location   	(224, 1264)
+			line_color 	3342489
+			InterObjView 	@47
+			height     	120
+			y_coord    	60
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$6" @52
+		    location   	(944, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@52
+			location   	(944, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E77788602B4"
+		    width      	662
+		    height     	1250
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @53
+			location   	(944, 800)
+			line_color 	3342489
+			InterObjView 	@52
+			height     	296
+			y_coord    	236
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @54
+			location   	(944, 848)
+			line_color 	3342489
+			InterObjView 	@52
+			height     	60
+			y_coord    	0
+			Nested     	TRUE))
+		(object InterObjView "SQL Server Mail Utility" @55
+		    location   	(1808, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@55
+			location   	(1808, 224)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	282
+			justify    	0
+			label      	"SQL Server Mail Utility")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E7782DF01CD"
+		    width      	300
+		    height     	1250
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @56
+			location   	(1808, 1264)
+			line_color 	3342489
+			InterObjView 	@55
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$7" @57
+		    location   	(2256, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@57
+			location   	(2256, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E8DED07022E"
+		    width      	662
+		    height     	1250
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @58
+			location   	(2256, 528)
+			line_color 	3342489
+			InterObjView 	@57
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterMessView "" @59
+		    location   	(592, 800)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @60
+			Parent_View 	@59
+			location   	(583, 756)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E77788C02E6"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	455
+			justify    	0
+			label      	"initiateMassChange( )"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@47
+		    supplier   	@52
+		    Focus_Src  	@49
+		    Focus_Entry 	@53
+		    origin     	(239, 800)
+		    terminus   	(928, 800)
+		    ordinal    	1)
+		(object SelfMessView "" @61
+		    location   	(16, 848)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @62
+			Parent_View 	@61
+			location   	(1218, 816)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E778CDC018D"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	481
+			justify    	0
+			label      	"performMassChange( )"
+			pctDist    	1.720000
+			height     	33
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@52
+		    supplier   	@52
+		    Focus_Src  	@53
+		    Focus_Entry 	@54
+		    origin     	(960, 848)
+		    terminus   	(1110, 848)
+		    ordinal    	2)
+		(object NoteView @63
+		    location   	(2000, 864)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@63
+			location   	(1810, 734)
+			fill_color 	13434879
+			nlines     	4
+			max_width  	345
+			label      	"This is done for each request made against an Affiliate.")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	405
+		    height     	272)
+		(object AttachView "" @64
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@61
+		    supplier   	@63
+		    line_style 	0)
+		(object InterMessView "" @65
+		    location   	(960, 1264)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @66
+			Parent_View 	@65
+			location   	(1015, 1220)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E7796E70343"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1583
+			justify    	0
+			label      	"Send Email to User that requested the process indicating completion or failure"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@47
+		    supplier   	@55
+		    Focus_Src  	@51
+		    Focus_Entry 	@56
+		    origin     	(239, 1264)
+		    terminus   	(1792, 1264)
+		    ordinal    	4)
+		(object InterMessView "" @67
+		    location   	(592, 976)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @68
+			Parent_View 	@67
+			location   	(584, 932)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E77970003DF"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@52
+		    supplier   	@47
+		    Focus_Src  	@53
+		    Focus_Entry 	@50
+		    origin     	(928, 976)
+		    terminus   	(240, 976)
+		    ordinal    	3)
+		(object InterMessView "" @69
+		    location   	(1264, 528)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @70
+			Parent_View 	@69
+			location   	(1239, 484)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DED0B0253"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1892
+			justify    	0
+			label      	"SELECT FROM Mass_Change_Batch_Control WHERE mass_chng_request_dt = GETDATE()"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@47
+		    supplier   	@57
+		    Focus_Src  	@48
+		    Focus_Entry 	@58
+		    origin     	(239, 528)
+		    terminus   	(2240, 528)
+		    ordinal    	0)
+		(object NoteView @71
+		    location   	(1440, 1664)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@71
+			location   	(1254, 1571)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	337
+			label      	"Only if user has a valid email")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	397
+		    height     	198)
+		(object AttachView "" @72
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@71
+		    supplier   	@65
+		    line_style 	0)
+		(object Label @73
+		    location   	(32, 1856)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    nlines     	2
+		    max_width  	1118
+		    label      	"Shows the background process performed by the SQL Scheduler to process Mass Change requests.")))
+	(object InteractionDiagram "3a: System performs a Merge Request"
+	    mechanism_ref 	@3
+	    quid       	"3E778E0D03B3"
+	    title      	"3a: System performs a Merge Request"
+	    documentation 	"Shows the processing for changing the Affiliate Status to Merged."
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	116
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$8" @74
+		    location   	(224, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@74
+			location   	(224, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E778F470224"
+		    width      	662
+		    height     	1922
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @75
+			location   	(224, 608)
+			line_color 	3342489
+			InterObjView 	@74
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @76
+			location   	(224, 608)
+			line_color 	3342489
+			InterObjView 	@74
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @77
+			location   	(224, 880)
+			line_color 	3342489
+			InterObjView 	@74
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @78
+			location   	(224, 1152)
+			line_color 	3342489
+			InterObjView 	@74
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @79
+			location   	(224, 1152)
+			line_color 	3342489
+			InterObjView 	@74
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @80
+			location   	(224, 1344)
+			line_color 	3342489
+			InterObjView 	@74
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @81
+			location   	(224, 1744)
+			line_color 	3342489
+			InterObjView 	@74
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @82
+			location   	(224, 1936)
+			line_color 	3342489
+			InterObjView 	@74
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @83
+			location   	(224, 1936)
+			line_color 	3342489
+			InterObjView 	@74
+			height     	60
+			y_coord    	0
+			Nested     	TRUE))
+		(object InterObjView "$UNNAMED$9" @84
+		    location   	(1712, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@84
+			location   	(1712, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E8DF15D0018"
+		    width      	662
+		    height     	1922
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @85
+			location   	(1712, 880)
+			line_color 	3342489
+			InterObjView 	@84
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @86
+			location   	(1712, 1344)
+			line_color 	3342489
+			InterObjView 	@84
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @87
+			location   	(1712, 1744)
+			line_color 	3342489
+			InterObjView 	@84
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object SelfMessView "" @88
+		    location   	(16, 608)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @89
+			Parent_View 	@88
+			location   	(704, 577)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E778F530362"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	855
+			justify    	0
+			label      	"changeAffiliateStatusMerged(Integer, Integer)"
+			pctDist    	3.100000
+			height     	32
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@74
+		    supplier   	@74
+		    Focus_Src  	@75
+		    Focus_Entry 	@76
+		    origin     	(240, 608)
+		    terminus   	(390, 608)
+		    ordinal    	0)
+		(object Label @90
+		    location   	(112, 2064)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    nlines     	3
+		    max_width  	1305
+		    label      	"Shows the processing for changing the Affiliate Status to Merged.")
+		(object InterMessView "" @91
+		    location   	(960, 1744)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @92
+			Parent_View 	@91
+			location   	(967, 1700)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF1A403E5"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	607
+			justify    	0
+			label      	"Update oldAff Status to 'Merged'"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@74
+		    supplier   	@84
+		    Focus_Src  	@81
+		    Focus_Entry 	@87
+		    origin     	(239, 1744)
+		    terminus   	(1696, 1744)
+		    ordinal    	4)
+		(object InterMessView "" @93
+		    location   	(960, 880)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @94
+			Parent_View 	@93
+			location   	(967, 836)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF1EA022D"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1399
+			justify    	0
+			label      	"Check in Aff_Organizations that oldAff and newAff don't have Sub Affiliates"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@74
+		    supplier   	@84
+		    Focus_Src  	@77
+		    Focus_Entry 	@85
+		    origin     	(239, 880)
+		    terminus   	(1696, 880)
+		    ordinal    	1)
+		(object SelfMessView "" @95
+		    location   	(16, 1936)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @96
+			Parent_View 	@95
+			location   	(943, 1903)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E92F58F03A2"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1298
+			justify    	0
+			label      	"addChangeToHistory(Integer, Integer, Integer, Integer, String, String)"
+			pctDist    	4.693333
+			height     	34
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@74
+		    supplier   	@74
+		    Focus_Src  	@82
+		    Focus_Entry 	@83
+		    origin     	(240, 1936)
+		    terminus   	(390, 1936)
+		    ordinal    	5)
+		(object InterMessView "" @97
+		    location   	(960, 1344)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @98
+			Parent_View 	@97
+			location   	(967, 1300)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E92F5D203C6"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	656
+			justify    	0
+			label      	"Retrieve the current Affiliate Status"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@74
+		    supplier   	@84
+		    Focus_Src  	@80
+		    Focus_Entry 	@86
+		    origin     	(239, 1344)
+		    terminus   	(1696, 1344)
+		    ordinal    	3)
+		(object SelfMessView "" @99
+		    location   	(16, 1152)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @100
+			Parent_View 	@99
+			location   	(542, 1121)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E93314E008E"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	607
+			justify    	0
+			label      	"moveMembers(Integer, Integer)"
+			pctDist    	2.020000
+			height     	32
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@74
+		    supplier   	@74
+		    Focus_Src  	@78
+		    Focus_Entry 	@79
+		    origin     	(240, 1152)
+		    terminus   	(390, 1152)
+		    ordinal    	2)))
+	(object InteractionDiagram "3b: System performs a Split Request"
+	    mechanism_ref 	@4
+	    quid       	"3E8DF2D701DE"
+	    title      	"3b: System performs a Split Request"
+	    documentation 	"Shows the processing for changing the Affiliate Status to Split."
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$10" @101
+		    location   	(224, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@101
+			location   	(224, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E8DF2F102F4"
+		    width      	662
+		    height     	1570
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @102
+			location   	(224, 688)
+			line_color 	3342489
+			InterObjView 	@101
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @103
+			location   	(224, 688)
+			line_color 	3342489
+			InterObjView 	@101
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @104
+			location   	(224, 928)
+			line_color 	3342489
+			InterObjView 	@101
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @105
+			location   	(224, 1136)
+			line_color 	3342489
+			InterObjView 	@101
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @106
+			location   	(224, 1376)
+			line_color 	3342489
+			InterObjView 	@101
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @107
+			location   	(224, 1376)
+			line_color 	3342489
+			InterObjView 	@101
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @108
+			location   	(224, 1584)
+			line_color 	3342489
+			InterObjView 	@101
+			height     	120
+			y_coord    	60
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$11" @109
+		    location   	(1712, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@109
+			location   	(1712, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E8DF2F102FE"
+		    width      	662
+		    height     	1570
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @110
+			location   	(1712, 928)
+			line_color 	3342489
+			InterObjView 	@109
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @111
+			location   	(1712, 1136)
+			line_color 	3342489
+			InterObjView 	@109
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @112
+			location   	(1712, 1584)
+			line_color 	3342489
+			InterObjView 	@109
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object Label @113
+		    location   	(96, 1968)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    nlines     	3
+		    max_width  	1305
+		    label      	"Shows the processing for changing the Affiliate Status to Split.")
+		(object SelfMessView "" @114
+		    location   	(16, 688)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @115
+			Parent_View 	@114
+			location   	(704, 657)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF2F102F6"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	796
+			justify    	0
+			label      	"changeAffiliateStatusSplit(Integer, Integer)"
+			pctDist    	3.100000
+			height     	32
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@101
+		    supplier   	@101
+		    Focus_Src  	@102
+		    Focus_Entry 	@103
+		    origin     	(240, 688)
+		    terminus   	(390, 688)
+		    ordinal    	0)
+		(object InterMessView "" @116
+		    location   	(960, 1584)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @117
+			Parent_View 	@116
+			location   	(967, 1540)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF2F102F9"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	543
+			justify    	0
+			label      	"Update oldAff Status to 'Split'"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@101
+		    supplier   	@109
+		    Focus_Src  	@108
+		    Focus_Entry 	@112
+		    origin     	(239, 1584)
+		    terminus   	(1696, 1584)
+		    ordinal    	4)
+		(object InterMessView "" @118
+		    location   	(1088, 928)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @119
+			Parent_View 	@118
+			location   	(967, 884)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF2F102FA"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	944
+			justify    	0
+			label      	"Check Aff_Organizations that oldAff is a Sub Local"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@101
+		    supplier   	@109
+		    Focus_Src  	@104
+		    Focus_Entry 	@110
+		    origin     	(239, 928)
+		    terminus   	(1696, 928)
+		    ordinal    	1)
+		(object InterMessView "" @120
+		    location   	(960, 1136)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @121
+			Parent_View 	@120
+			location   	(967, 1092)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF35200E0"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1248
+			justify    	0
+			label      	"Check Aff_Organizations that newAff is a Local with no Sub Locals"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@101
+		    supplier   	@109
+		    Focus_Src  	@105
+		    Focus_Entry 	@111
+		    origin     	(239, 1136)
+		    terminus   	(1696, 1136)
+		    ordinal    	2)
+		(object SelfMessView "" @122
+		    location   	(16, 1376)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @123
+			Parent_View 	@122
+			location   	(559, 1344)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9332F5017D"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	608
+			justify    	0
+			label      	"moveMembers(Integer, Integer)"
+			pctDist    	2.133333
+			height     	33
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@101
+		    supplier   	@101
+		    Focus_Src  	@106
+		    Focus_Entry 	@107
+		    origin     	(240, 1376)
+		    terminus   	(390, 1376)
+		    ordinal    	3)))
+	(object InteractionDiagram "3c_2: System performs a Deactivate Request_For Local"
+	    mechanism_ref 	@5
+	    quid       	"3E8DF399034F"
+	    title      	"3c_2: System performs a Deactivate Request_For Local"
+	    documentation 	"Shows the processing for changing the Affiliate Status to 'Deactivated' for a Local."
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$12" @124
+		    location   	(224, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@124
+			location   	(224, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E8DF42B010A"
+		    width      	662
+		    height     	1698
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @125
+			location   	(224, 528)
+			line_color 	3342489
+			InterObjView 	@124
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @126
+			location   	(224, 528)
+			line_color 	3342489
+			InterObjView 	@124
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @127
+			location   	(224, 736)
+			line_color 	3342489
+			InterObjView 	@124
+			height     	260
+			y_coord    	200
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @128
+			location   	(224, 816)
+			line_color 	3342489
+			InterObjView 	@124
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @129
+			location   	(224, 1136)
+			line_color 	3342489
+			InterObjView 	@124
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @130
+			location   	(224, 1136)
+			line_color 	3342489
+			InterObjView 	@124
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @131
+			location   	(224, 1424)
+			line_color 	3342489
+			InterObjView 	@124
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @132
+			location   	(224, 1424)
+			line_color 	3342489
+			InterObjView 	@124
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @133
+			location   	(224, 1712)
+			line_color 	3342489
+			InterObjView 	@124
+			height     	120
+			y_coord    	60
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$13" @134
+		    location   	(1712, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@134
+			location   	(1712, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E8DF42B0115"
+		    width      	662
+		    height     	1698
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @135
+			location   	(1712, 736)
+			line_color 	3342489
+			InterObjView 	@134
+			height     	200
+			y_coord    	140
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @136
+			location   	(1712, 1712)
+			line_color 	3342489
+			InterObjView 	@134
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object Label @137
+		    location   	(16, 2128)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    nlines     	3
+		    max_width  	1305
+		    label      	"Shows the processing for changing the Affiliate Status to 'Deactivated' for a Local.")
+		(object SelfMessView "" @138
+		    location   	(16, 528)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @139
+			Parent_View 	@138
+			location   	(704, 497)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF42B010C"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	827
+			justify    	0
+			label      	"changeAffiliateStatusDeactivated(Integer)"
+			pctDist    	3.100000
+			height     	32
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@124
+		    supplier   	@124
+		    Focus_Src  	@125
+		    Focus_Entry 	@126
+		    origin     	(240, 528)
+		    terminus   	(390, 528)
+		    ordinal    	0)
+		(object InterMessView "" @140
+		    location   	(960, 1712)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @141
+			Parent_View 	@140
+			location   	(967, 1668)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF42B010F"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	750
+			justify    	0
+			label      	"Update Affiliate Status to 'Deactivated'"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@124
+		    supplier   	@134
+		    Focus_Src  	@133
+		    Focus_Entry 	@136
+		    origin     	(239, 1712)
+		    terminus   	(1696, 1712)
+		    ordinal    	5)
+		(object InterMessView "" @142
+		    location   	(960, 736)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @143
+			Parent_View 	@142
+			location   	(967, 692)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF42B0110"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	816
+			justify    	0
+			label      	"Check Aff_Organizations for Affiliate Type"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@124
+		    supplier   	@134
+		    Focus_Src  	@127
+		    Focus_Entry 	@135
+		    origin     	(239, 736)
+		    terminus   	(1696, 736)
+		    ordinal    	1)
+		(object InterMessView "" @144
+		    location   	(960, 816)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @145
+			Parent_View 	@144
+			location   	(968, 772)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF48900C9"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	184
+			justify    	0
+			label      	"Type = 'L'"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@134
+		    supplier   	@124
+		    Focus_Src  	@135
+		    Focus_Entry 	@128
+		    origin     	(1696, 816)
+		    terminus   	(240, 816)
+		    ordinal    	2)
+		(object SelfMessView "" @146
+		    location   	(16, 1136)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @147
+			Parent_View 	@146
+			location   	(640, 1105)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF50203A9"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	827
+			justify    	0
+			label      	"changeAffiliateStatusDeactivated(Integer)"
+			pctDist    	2.673333
+			height     	32
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@124
+		    supplier   	@124
+		    Focus_Src  	@129
+		    Focus_Entry 	@130
+		    origin     	(240, 1136)
+		    terminus   	(390, 1136)
+		    ordinal    	3)
+		(object NoteView @148
+		    location   	(1488, 1216)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@148
+			location   	(1125, 1125)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	691
+			label      	
+|Recursively call for each Sub Local. 
+|
+|See Sequence Diagram - 3c_3
+			)
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	751
+		    height     	195)
+		(object AttachView "" @149
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@148
+		    supplier   	@146
+		    line_style 	0)
+		(object SelfMessView "" @150
+		    location   	(16, 1424)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @151
+			Parent_View 	@150
+			location   	(495, 1392)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E91A53A0015"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	515
+			justify    	0
+			label      	"inactivateMembers(Integer)"
+			pctDist    	1.700000
+			height     	33
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@124
+		    supplier   	@124
+		    Focus_Src  	@131
+		    Focus_Entry 	@132
+		    origin     	(240, 1424)
+		    terminus   	(390, 1424)
+		    ordinal    	4)))
+	(object InteractionDiagram "3c_1: System performs a Deactivate Request_For Council_Retiree Chap"
+	    mechanism_ref 	@6
+	    quid       	"3E8DF3F9036B"
+	    title      	"3c_1: System performs a Deactivate Request_For Council_Retiree Chap"
+	    documentation 	"Shows the processing for changing the Affiliate Status to 'Deactivated' for a Council/Retiree Chapter."
+	    zoom       	75
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$14" @152
+		    location   	(224, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@152
+			location   	(224, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E8DF630006E"
+		    width      	662
+		    height     	1970
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @153
+			location   	(224, 672)
+			line_color 	3342489
+			InterObjView 	@152
+			height     	260
+			y_coord    	200
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @154
+			location   	(224, 752)
+			line_color 	3342489
+			InterObjView 	@152
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @155
+			location   	(224, 1120)
+			line_color 	3342489
+			InterObjView 	@152
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @156
+			location   	(224, 1120)
+			line_color 	3342489
+			InterObjView 	@152
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @157
+			location   	(224, 1488)
+			line_color 	3342489
+			InterObjView 	@152
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @158
+			location   	(224, 1488)
+			line_color 	3342489
+			InterObjView 	@152
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @159
+			location   	(224, 1984)
+			line_color 	3342489
+			InterObjView 	@152
+			height     	120
+			y_coord    	60
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$15" @160
+		    location   	(1712, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@160
+			location   	(1712, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E8DF630007A"
+		    width      	662
+		    height     	1970
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @161
+			location   	(1712, 672)
+			line_color 	3342489
+			InterObjView 	@160
+			height     	200
+			y_coord    	140
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @162
+			location   	(1712, 1984)
+			line_color 	3342489
+			InterObjView 	@160
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object Label @163
+		    location   	(80, 2335)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    nlines     	3
+		    max_width  	1198
+		    label      	"Shows the processing for changing the Affiliate Status to 'Deactivated' for a Council/Retiree Chapter.")
+		(object SelfMessView "" @164
+		    location   	(16, 1120)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @165
+			Parent_View 	@164
+			location   	(700, 1090)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF6300071"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	906
+			justify    	0
+			label      	"disassociateSubAffiliatesFromCouncil(Integer)"
+			pctDist    	3.066667
+			height     	31
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@152
+		    supplier   	@152
+		    Focus_Src  	@155
+		    Focus_Entry 	@156
+		    origin     	(240, 1120)
+		    terminus   	(390, 1120)
+		    ordinal    	2)
+		(object InterMessView "" @166
+		    location   	(960, 1984)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @167
+			Parent_View 	@166
+			location   	(967, 1940)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF6300074"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	755
+			justify    	0
+			label      	"Update Affiliate Status to 'Deactivated'"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@152
+		    supplier   	@160
+		    Focus_Src  	@159
+		    Focus_Entry 	@162
+		    origin     	(239, 1984)
+		    terminus   	(1696, 1984)
+		    ordinal    	4)
+		(object InterMessView "" @168
+		    location   	(960, 672)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @169
+			Parent_View 	@168
+			location   	(967, 628)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF6300075"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	822
+			justify    	0
+			label      	"Check Aff_Organizations for Affiliate Type"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@152
+		    supplier   	@160
+		    Focus_Src  	@153
+		    Focus_Entry 	@161
+		    origin     	(239, 672)
+		    terminus   	(1696, 672)
+		    ordinal    	0)
+		(object InterMessView "" @170
+		    location   	(960, 752)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @171
+			Parent_View 	@170
+			location   	(968, 708)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF6300076"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	196
+			justify    	0
+			label      	"Type = 'C'"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@160
+		    supplier   	@152
+		    Focus_Src  	@161
+		    Focus_Entry 	@154
+		    origin     	(1696, 752)
+		    terminus   	(240, 752)
+		    ordinal    	1)
+		(object NoteView @172
+		    location   	(928, 1664)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@172
+			location   	(650, 1573)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	521
+			label      	"For Retiree Chapter only. Councils don't have Members.")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	581
+		    height     	194)
+		(object SelfMessView "" @173
+		    location   	(16, 1488)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @174
+			Parent_View 	@173
+			location   	(511, 1457)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E91A4580089"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	544
+			justify    	0
+			label      	"inactivateMembers(Integer)"
+			pctDist    	1.806667
+			height     	32
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@152
+		    supplier   	@152
+		    Focus_Src  	@157
+		    Focus_Entry 	@158
+		    origin     	(240, 1488)
+		    terminus   	(390, 1488)
+		    ordinal    	3)
+		(object AttachView "" @175
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@172
+		    supplier   	@173
+		    line_style 	0)
+		(object NoteView @176
+		    location   	(1600, 1328)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@176
+			location   	(1154, 1226)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	857
+			label      	"See Sequence Diagram: S_DisassociateSubAffiliatesFromCouncil")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	917
+		    height     	216)
+		(object AttachView "" @177
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@176
+		    supplier   	@164
+		    line_style 	0)))
+	(object InteractionDiagram "3c_3: System performs a Deactivate Request_For Sub Local_Sub Chapter"
+	    mechanism_ref 	@7
+	    quid       	"3E8DF51E02F5"
+	    title      	"3c_3: System performs a Deactivate Request_For Sub Local_Sub Chapter"
+	    documentation 	"Shows the processing for changing the Affiliate Status to 'Deactivated' for a Sub Local."
+	    zoom       	85
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	15
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$16" @178
+		    location   	(224, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@178
+			location   	(224, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E8DF5CB03E4"
+		    width      	662
+		    height     	1458
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @179
+			location   	(224, 496)
+			line_color 	3342489
+			InterObjView 	@178
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @180
+			location   	(224, 496)
+			line_color 	3342489
+			InterObjView 	@178
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @181
+			location   	(224, 752)
+			line_color 	3342489
+			InterObjView 	@178
+			height     	260
+			y_coord    	200
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @182
+			location   	(224, 832)
+			line_color 	3342489
+			InterObjView 	@178
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @183
+			location   	(224, 1136)
+			line_color 	3342489
+			InterObjView 	@178
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @184
+			location   	(224, 1136)
+			line_color 	3342489
+			InterObjView 	@178
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @185
+			location   	(224, 1472)
+			line_color 	3342489
+			InterObjView 	@178
+			height     	120
+			y_coord    	60
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$17" @186
+		    location   	(1712, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@186
+			location   	(1712, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E8DF5CB03F0"
+		    width      	662
+		    height     	1458
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @187
+			location   	(1712, 752)
+			line_color 	3342489
+			InterObjView 	@186
+			height     	200
+			y_coord    	140
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @188
+			location   	(1712, 1472)
+			line_color 	3342489
+			InterObjView 	@186
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object Label @189
+		    location   	(96, 1872)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    nlines     	3
+		    max_width  	1305
+		    label      	"Shows the processing for changing the Affiliate Status to 'Deactivated' for a Sub Local.")
+		(object SelfMessView "" @190
+		    location   	(16, 496)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @191
+			Parent_View 	@190
+			location   	(704, 465)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF5CB03E6"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	827
+			justify    	0
+			label      	"changeAffiliateStatusDeactivated(Integer)"
+			pctDist    	3.100000
+			height     	32
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@178
+		    supplier   	@178
+		    Focus_Src  	@179
+		    Focus_Entry 	@180
+		    origin     	(240, 496)
+		    terminus   	(390, 496)
+		    ordinal    	0)
+		(object InterMessView "" @192
+		    location   	(960, 1472)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @193
+			Parent_View 	@192
+			location   	(967, 1428)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF5CB03EA"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	750
+			justify    	0
+			label      	"Update Affiliate Status to 'Deactivated'"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@178
+		    supplier   	@186
+		    Focus_Src  	@185
+		    Focus_Entry 	@188
+		    origin     	(239, 1472)
+		    terminus   	(1696, 1472)
+		    ordinal    	4)
+		(object InterMessView "" @194
+		    location   	(960, 752)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @195
+			Parent_View 	@194
+			location   	(967, 708)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF5CB03EB"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	816
+			justify    	0
+			label      	"Check Aff_Organizations for Affiliate Type"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@178
+		    supplier   	@186
+		    Focus_Src  	@181
+		    Focus_Entry 	@187
+		    origin     	(239, 752)
+		    terminus   	(1696, 752)
+		    ordinal    	1)
+		(object InterMessView "" @196
+		    location   	(960, 832)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @197
+			Parent_View 	@196
+			location   	(968, 788)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E8DF5CB03EC"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	191
+			justify    	0
+			label      	"Type = 'U'"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@186
+		    supplier   	@178
+		    Focus_Src  	@187
+		    Focus_Entry 	@182
+		    origin     	(1696, 832)
+		    terminus   	(240, 832)
+		    ordinal    	2)
+		(object SelfMessView "" @198
+		    location   	(16, 1136)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @199
+			Parent_View 	@198
+			location   	(544, 1088)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E91A56F033D"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	558
+			justify    	0
+			label      	"inactivateMembers(Integer)"
+			pctDist    	2.026667
+			height     	49
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@178
+		    supplier   	@178
+		    Focus_Src  	@183
+		    Focus_Entry 	@184
+		    origin     	(240, 1136)
+		    terminus   	(390, 1136)
+		    ordinal    	3)))
+	(object InteractionDiagram "S_DisassociateSubAffiliatesFromCouncil"
+	    mechanism_ref 	@8
+	    quid       	"3E92F64000CB"
+	    title      	"S_DisassociateSubAffiliatesFromCouncil"
+	    documentation 	"Shows the processing for disassociating Locals and Sub Locals from a Council."
+	    zoom       	80
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$18" @200
+		    location   	(432, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@200
+			location   	(432, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E92F6A10085"
+		    width      	662
+		    height     	1962
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @201
+			location   	(432, 320)
+			line_color 	3342489
+			InterObjView 	@200
+			height     	260
+			y_coord    	200
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @202
+			location   	(432, 400)
+			line_color 	3342489
+			InterObjView 	@200
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @203
+			location   	(432, 736)
+			line_color 	3342489
+			InterObjView 	@200
+			height     	276
+			y_coord    	216
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @204
+			location   	(432, 832)
+			line_color 	3342489
+			InterObjView 	@200
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @205
+			location   	(432, 1136)
+			line_color 	3342489
+			InterObjView 	@200
+			height     	960
+			y_coord    	900
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @206
+			location   	(432, 1168)
+			line_color 	3342489
+			InterObjView 	@200
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @207
+			location   	(432, 1296)
+			line_color 	3342489
+			InterObjView 	@200
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @208
+			location   	(432, 1536)
+			line_color 	3342489
+			InterObjView 	@200
+			height     	440
+			y_coord    	380
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @209
+			location   	(432, 1744)
+			line_color 	3342489
+			InterObjView 	@200
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @210
+			location   	(432, 1856)
+			line_color 	3342489
+			InterObjView 	@200
+			height     	60
+			y_coord    	0
+			Nested     	TRUE))
+		(object InterObjView "$UNNAMED$19" @211
+		    location   	(2304, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@211
+			location   	(2304, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E92F6A10090"
+		    width      	662
+		    height     	1962
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @212
+			location   	(2304, 320)
+			line_color 	3342489
+			InterObjView 	@211
+			height     	200
+			y_coord    	140
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @213
+			location   	(2304, 736)
+			line_color 	3342489
+			InterObjView 	@211
+			height     	216
+			y_coord    	156
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @214
+			location   	(2304, 1136)
+			line_color 	3342489
+			InterObjView 	@211
+			height     	152
+			y_coord    	92
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @215
+			location   	(2304, 1456)
+			line_color 	3342489
+			InterObjView 	@211
+			height     	580
+			y_coord    	520
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @216
+			location   	(2304, 1712)
+			line_color 	3342489
+			InterObjView 	@211
+			height     	152
+			y_coord    	92
+			Nested     	TRUE))
+		(object Label @217
+		    location   	(96, 2256)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    nlines     	1
+		    max_width  	1868
+		    label      	"Shows the processing for disassociating Locals and Sub Locals from a Council.")
+		(object InterMessView "" @218
+		    location   	(928, 320)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @219
+			Parent_View 	@218
+			location   	(1367, 276)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E92F6A1008B"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	822
+			justify    	0
+			label      	"Check Aff_Organizations for Affiliate Type"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@200
+		    supplier   	@211
+		    Focus_Src  	@201
+		    Focus_Entry 	@212
+		    origin     	(447, 320)
+		    terminus   	(2288, 320)
+		    ordinal    	0)
+		(object InterMessView "" @220
+		    location   	(960, 400)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @221
+			Parent_View 	@220
+			location   	(1368, 356)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E92F6A1008C"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	196
+			justify    	0
+			label      	"Type = 'C'"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@211
+		    supplier   	@200
+		    Focus_Src  	@212
+		    Focus_Entry 	@202
+		    origin     	(2288, 400)
+		    terminus   	(448, 400)
+		    ordinal    	1)
+		(object InterMessView "" @222
+		    location   	(928, 736)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @223
+			Parent_View 	@222
+			location   	(1367, 692)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E92FDE202FC"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1441
+			justify    	0
+			label      	"SELECT * FROM Aff_Organizations WHERE parent_aff_fk = affPk param"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@200
+		    supplier   	@211
+		    Focus_Src  	@203
+		    Focus_Entry 	@213
+		    origin     	(447, 736)
+		    terminus   	(2288, 736)
+		    ordinal    	2)
+		(object InterMessView "" @224
+		    location   	(1360, 832)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @225
+			Parent_View 	@224
+			location   	(1368, 788)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E92FE4E01C1"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	350
+			justify    	0
+			label      	"Locals = ResultSet"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@211
+		    supplier   	@200
+		    Focus_Src  	@213
+		    Focus_Entry 	@204
+		    origin     	(2288, 832)
+		    terminus   	(448, 832)
+		    ordinal    	3)
+		(object InterMessView "" @226
+		    location   	(1360, 1136)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @227
+			Parent_View 	@226
+			location   	(1367, 1092)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E92FE640349"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	2127
+			justify    	0
+			label      	"UPDATE Aff_Organization SET parent_aff_pk = '0', aff_councilRetiree_chap = '0000' WHERE aff_pk = Local.aff_pk"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@200
+		    supplier   	@211
+		    Focus_Src  	@205
+		    Focus_Entry 	@214
+		    origin     	(447, 1136)
+		    terminus   	(2288, 1136)
+		    ordinal    	4)
+		(object NoteView @228
+		    location   	(240, 912)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@228
+			location   	(100, 840)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	245
+			label      	"Get all the Locals.")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	305
+		    height     	157)
+		(object NoteView @229
+		    location   	(176, 1456)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@229
+			location   	(36, 1365)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	245
+			label      	"For each Local in the ResultSet:")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	305
+		    height     	194)
+		(object InterMessView "" @230
+		    location   	(1056, 1168)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @231
+			Parent_View 	@230
+			location   	(1368, 1124)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E92FEDC000C"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@211
+		    supplier   	@200
+		    Focus_Src  	@214
+		    Focus_Entry 	@206
+		    origin     	(2288, 1168)
+		    terminus   	(448, 1168)
+		    ordinal    	5)
+		(object InterMessView "" @232
+		    location   	(1360, 1456)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @233
+			Parent_View 	@232
+			location   	(1367, 1412)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9300A10235"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1360
+			justify    	0
+			label      	"SELECT * FROM Aff_Organizations WHERE parent_aff_fk = Local.aff_pk"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@200
+		    supplier   	@211
+		    Focus_Src  	@205
+		    Focus_Entry 	@215
+		    origin     	(447, 1456)
+		    terminus   	(2288, 1456)
+		    ordinal    	7)
+		(object InterMessView "" @234
+		    location   	(1376, 1536)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @235
+			Parent_View 	@234
+			location   	(1368, 1492)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9300B70069"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	473
+			justify    	0
+			label      	"SubLocals = ResultSet"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@211
+		    supplier   	@200
+		    Focus_Src  	@215
+		    Focus_Entry 	@208
+		    origin     	(2288, 1536)
+		    terminus   	(448, 1536)
+		    ordinal    	8)
+		(object NoteView @236
+		    location   	(2688, 2032)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@236
+			location   	(2517, 1944)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	307
+			label      	"For each SubLocal in the ResultSet:")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	367
+		    height     	188)
+		(object InterMessView "" @237
+		    location   	(1376, 1712)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @238
+			Parent_View 	@237
+			location   	(1367, 1668)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E93015B005B"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1837
+			justify    	0
+			label      	"UPDATE Aff_Organization SET aff_councilRetiree_chap = '0000' WHERE aff_pk = SubLocal.aff_pk"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@200
+		    supplier   	@211
+		    Focus_Src  	@208
+		    Focus_Entry 	@216
+		    origin     	(447, 1712)
+		    terminus   	(2288, 1712)
+		    ordinal    	9)
+		(object InterMessView "" @239
+		    location   	(1360, 1744)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @240
+			Parent_View 	@239
+			location   	(1377, 1742)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E93016603A0"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.495109
+			height     	3
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@211
+		    supplier   	@200
+		    Focus_Src  	@216
+		    Focus_Entry 	@209
+		    origin     	(2288, 1744)
+		    terminus   	(448, 1744)
+		    ordinal    	10)
+		(object NoteView @241
+		    location   	(2848, 1536)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@241
+			location   	(2696, 1472)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	268
+			label      	"Get all the Sub Locals.")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	328
+		    height     	141)
+		(object SelfMessView "" @242
+		    location   	(16, 1296)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @243
+			Parent_View 	@242
+			location   	(1105, 1263)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E93072701B4"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1272
+			justify    	0
+			label      	"addChangeToHistory(Integer, Integer, Integer, Integer, String, String)"
+			pctDist    	4.380000
+			height     	34
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@200
+		    supplier   	@200
+		    Focus_Src  	@205
+		    Focus_Entry 	@207
+		    origin     	(448, 1296)
+		    terminus   	(598, 1296)
+		    ordinal    	6)
+		(object SelfMessView "" @244
+		    location   	(16, 1856)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @245
+			Parent_View 	@244
+			location   	(1100, 1810)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9307530171"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1272
+			justify    	0
+			label      	"addChangeToHistory(Integer, Integer, Integer, Integer, String, String)"
+			pctDist    	4.353333
+			height     	47
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@200
+		    supplier   	@200
+		    Focus_Src  	@208
+		    Focus_Entry 	@210
+		    origin     	(448, 1856)
+		    terminus   	(598, 1856)
+		    ordinal    	11)
+		(object AttachView "" @246
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@236
+		    supplier   	@237
+		    vertices   	(list Points
+			(2636, 1937)
+			(2636, 1807)
+			(2171, 1807)
+			(2171, 1745))
+		    line_style 	3
+		    origin_attachment 	(2636, 1937)
+		    terminal_attachment 	(2171, 1745))
+		(object AttachView "" @247
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@236
+		    supplier   	@244
+		    vertices   	(list Points
+			(2504, 2057)
+			(554, 2057)
+			(554, 1901))
+		    line_style 	3
+		    origin_attachment 	(2504, 2057)
+		    terminal_attachment 	(554, 1901))
+		(object AttachView "" @248
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@241
+		    supplier   	@232
+		    vertices   	(list Points
+			(2722, 1465)
+			(2722, 1374)
+			(1882, 1374)
+			(1882, 1422))
+		    line_style 	3
+		    origin_attachment 	(2722, 1465)
+		    terminal_attachment 	(1882, 1422))
+		(object AttachView "" @249
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@229
+		    supplier   	@226
+		    vertices   	(list Points
+			(191, 1358)
+			(191, 1038)
+			(814, 1038)
+			(814, 1102))
+		    line_style 	3
+		    origin_attachment 	(191, 1358)
+		    terminal_attachment 	(814, 1102))
+		(object AttachView "" @250
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@229
+		    supplier   	@244
+		    vertices   	(list Points
+			(195, 1553)
+			(195, 1960)
+			(476, 1960)
+			(476, 1901))
+		    line_style 	3
+		    origin_attachment 	(195, 1553)
+		    terminal_attachment 	(476, 1901))))
+	(object InteractionDiagram "S_moveMembers"
+	    mechanism_ref 	@9
+	    quid       	"3E933E090243"
+	    title      	"S_moveMembers"
+	    zoom       	90
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$20" @251
+		    location   	(224, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@251
+			location   	(224, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E933E34029F"
+		    width      	662
+		    height     	834
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @252
+			location   	(224, 448)
+			line_color 	3342489
+			InterObjView 	@251
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @253
+			location   	(224, 672)
+			line_color 	3342489
+			InterObjView 	@251
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @254
+			location   	(224, 848)
+			line_color 	3342489
+			InterObjView 	@251
+			height     	120
+			y_coord    	60
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @255
+			location   	(224, 848)
+			line_color 	3342489
+			InterObjView 	@251
+			height     	60
+			y_coord    	0
+			Nested     	TRUE))
+		(object InterObjView "$UNNAMED$21" @256
+		    location   	(1728, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@256
+			location   	(1728, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E933E3402AA"
+		    width      	662
+		    height     	834
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @257
+			location   	(1728, 448)
+			line_color 	3342489
+			InterObjView 	@256
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @258
+			location   	(1728, 672)
+			line_color 	3342489
+			InterObjView 	@256
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object Label @259
+		    location   	(96, 1760)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    nlines     	3
+		    max_width  	1305
+		    label      	"Shows the processing for moving Members from one Affiliate to another, and inactivating the Members in the original.")
+		(object InterMessView "" @260
+		    location   	(16, 448)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @261
+			Parent_View 	@260
+			location   	(975, 404)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E933E8203CD"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	651
+			justify    	0
+			label      	"Insert Members into new Affiliate"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@251
+		    supplier   	@256
+		    Focus_Src  	@252
+		    Focus_Entry 	@257
+		    origin     	(239, 448)
+		    terminus   	(1712, 448)
+		    ordinal    	0)
+		(object NoteView @262
+		    location   	(1760, 1424)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@262
+			location   	(1354, 1278)
+			fill_color 	13434879
+			nlines     	5
+			max_width  	776
+			label      	
+|INSERT INTO Aff_Members ... 
+|WHERE person_pk IN (
+|  SELECT FROM Aff_Members 
+|  WHERE aff_pk = currentAffPk 
+|      AND mbr_status='Active')
+			)
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	836
+		    height     	305)
+		(object AttachView "" @263
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@262
+		    supplier   	@260
+		    line_style 	0)
+		(object SelfMessView "" @264
+		    location   	(16, 848)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @265
+			Parent_View 	@264
+			location   	(493, 817)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E93408B021E"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	548
+			justify    	0
+			label      	"inactivateMembers(Integer)"
+			pctDist    	1.693333
+			height     	32
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@251
+		    supplier   	@251
+		    Focus_Src  	@254
+		    Focus_Entry 	@255
+		    origin     	(240, 848)
+		    terminus   	(390, 848)
+		    ordinal    	2)
+		(object InterMessView "" @266
+		    location   	(16, 672)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @267
+			Parent_View 	@266
+			location   	(975, 628)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9341DF02F9"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1008
+			justify    	0
+			label      	"UPDATE RPT_Aff_Mbr_Activity for added Members"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@251
+		    supplier   	@256
+		    Focus_Src  	@253
+		    Focus_Entry 	@258
+		    origin     	(239, 672)
+		    terminus   	(1712, 672)
+		    ordinal    	1)))))

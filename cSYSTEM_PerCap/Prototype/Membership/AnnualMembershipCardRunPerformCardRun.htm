@@ -1,0 +1,94 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Annual Membership Card Run - Perform Card Run</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/checkbox.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align="center"> 
+			<H1>Annual Membership Card Run - Perform Card Run</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+</TABLE>
+<FORM action="#" name="form">
+	<SCRIPT language="JavaScript">	
+			var screen = "PerformCardRun";
+			var imageType = "top";
+		</SCRIPT>
+	<SCRIPT language="JavaScript" src="../js/annualcardrun_tabmenu.js">	</SCRIPT>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR> 
+			<TH width="25%">
+				* <A href="javascript:toggleCheckBoxes('form', 'runtype_')" class="TH">Select</A>
+			</TH>
+			<TH width="75%"> Annual Card Run Type</TH>
+		</TR>
+		<TR> 
+			<TD align="center"> 
+				<INPUT type="Checkbox" name="runtype_1">
+			</TD>
+			<TD align="center">Regular Members</TD>
+		</TR>
+		<TR> 
+			<TD align="center"> 
+				<INPUT type="Checkbox" name="runtype_2">
+			</TD>
+			<TD align="center">Retiree Members</TD>
+		</TR>
+		<TR> 
+			<TD align="center"> 
+				<INPUT type="Checkbox" name="runtype_3">
+			</TD>
+			<TD align="center">CSEA Regular Members</TD>
+		</TR>
+		<TR> 
+			<TD align="center"> 
+				<INPUT type="Checkbox" name="runtype_4">
+			</TD>
+			<TD align="center">CSEA Retiree Members</TD>
+		</TR>
+		<TR> 
+			<TD align="center"> 
+				<INPUT type="Checkbox" name="runtype_5">
+			</TD>
+			<TD align="center">Puerto Rico Members</TD>
+		</TR>
+		<TR> 
+			<TD align="center"> <A href="AnnualMembershipCardRunCompleted.htm" title="Generate Membership Cards" class="action" onClick="return confirm('Are you sure you want to start the Card Run? Run files will be created for the chosen Run Types, and the associated Affiliates will appear on the Completed screen as they finish.');">Perform 
+				Run</A> </TD>
+			<TD align="center">&nbsp;</TD>
+		</TR>
+	</TABLE>
+	<SCRIPT language="JavaScript">	
+			var imageType = "bottom";
+		</SCRIPT>
+	<SCRIPT language="JavaScript" src="../js/annualcardrun_tabmenu.js">	</SCRIPT>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR><B><I>* Indicates Required Fields</I></B>
+				<BR>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

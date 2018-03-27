@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Organization Associate Detail - Add</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Organization Associate Detail - Add</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="#" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR align="center">
+			<TD >
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="14%">
+							Prefix 
+						</TH>
+						<TH width="24%">
+							* First Name 
+						</TH>
+						<TH width="24%">
+							Middle Name 
+						</TH>
+						<TH width="24%">
+							* Last Name 
+						</TH>
+						<TH width="14%">
+							Suffix 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center">&nbsp;</TD>
+						<TD align="center">Robert</TD>
+						<TD align="center">&nbsp;</TD>
+						<TD align="center">Doe</TD>
+						<TD align="center">III</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR align="center">
+			<TD>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="20%" class="ContentHeaderTD">Nickname</TD>
+						<TD width="25%" class="ContentTD">Rob</TD>
+						<TD width="10%" class="ContentHeaderTD">SSN</TD>
+						<TD width="20%" class="ContentTD">&nbsp;</TD>
+						<TD width="15%" class="ContentHeaderTD">Valid SSN</TD>
+						<TD width="5%">
+							<INPUT type="checkbox" name="ValidSSN" id="label_ValidSSN" DISABLED> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">Alt Mail Name</TD>
+						<TD class="ContentTD" colspan="5">Robert Doe</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR valign="top">
+						<TH WIDTH="50%">Organization Name</TH>
+						<TH>Organization Title</TH>
+					</TR>
+					<TR>
+						<TD class="ContentTD" align="center">
+							DC Public Library 
+						</TD>
+						<TD align="center">
+							<SELECT name="OrganizationTitle">
+								<SCRIPT LANGUAGE="JavaScript" SRC="../js/organization_titles_options.js"></SCRIPT>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="top">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH align="left">
+							Enter New Comments 
+						</TH>
+					</TR>
+					<TR>
+						<TD>
+							<TEXTAREA name="comments" cols="115" rows="3" onKeyUp="validateComments(this);"></TEXTAREA> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD>
+				<BR>
+				<INPUT type="button" name="SubmitButton" value="Submit" class="BUTTON" onClick="parent.location='OrganizationAssociateDetail.htm'">
+				<BR><BR> 
+			</TD>
+			<TD align="right">
+				<BR>
+				<INPUT type="reset" class="BUTTON" name="ResetButton" value="Reset">
+				<INPUT type="button" class="BUTTON" name="CancelButton" value="Cancel" onClick="history.go(-1);"> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<B><I>* Indicates Required Fields</I></B><BR> 
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

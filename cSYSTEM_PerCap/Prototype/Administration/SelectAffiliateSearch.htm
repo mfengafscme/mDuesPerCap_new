@@ -1,0 +1,132 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<META name="generator" content="HTML Tidy, see www.w3.org">
+<TITLE>AFSCME Enterprise Application - Select Affiliate</TITLE><LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT type="text/javascript" language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT type="text/javascript" language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT type="text/javascript" language="JavaScript" src="../js/header.js"></SCRIPT>
+	<TABLE valign="TOP" cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="Center">
+		<TBODY>
+			<TR>
+				<TD align="Center">
+					<H1>Select Affiliates</H1>
+				</TD>
+			</TR>
+			<TR>
+				<TD>
+					<BR>
+				</TD>
+			</TR>
+			<TR>
+				<TD align="Right" class="ContentHeaderTD">
+				<A href="#">Need Help with this page?</A>
+					<BR>
+					<BR>
+				</TD>
+			</TR>
+		</TBODY>
+	</TABLE>
+	<FORM action="SelectAffiliateResults.htm" name="form" method="Post">
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContentNoWidth" WIDTH="40%" align="center">
+			<TBODY>
+				<TR align="Center">
+					<TD colspan="2">
+						<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+							<TBODY>
+								<TR>
+									<TD class="ContentHeaderTD">
+										<LABEL for="label_affiliateType">Type</LABEL>
+									</TD>
+									<TD>
+										<SELECT name="affiliateType" id="label_affiliateType">
+											<OPTION selected="">[ANY]</OPTION>
+											<OPTION>C - Council</OPTION>
+											<OPTION>L - Local</OPTION>
+											<OPTION>R - Retiree Chapter</OPTION>
+											<OPTION>S - Retiree Sub-Chapter</OPTION>
+										</SELECT>
+									</TD>
+								</TR>
+								<TR>
+									<TD class="ContentHeaderTD">
+										<LABEL for="label_affiliateCode">Local/Sub Chapter</LABEL>
+									</TD>
+									<TD>
+										<INPUT type="text" name="affiliateCode" id="label_affiliateCode" value="" size="4" maxlength="4">
+									</TD>
+								</TR>
+								<TR>
+									<TD class="ContentHeaderTD">
+										State/National Type
+									</TD>
+									<TD>
+										<SELECT name="AffiliateState" id="label_AffiliateState">
+											<OPTION selected="">[ANY]</OPTION>
+											<OPTION>DC - District of Columbia</OPTION>
+											<OPTION>MD - Maryland</OPTION>
+											<OPTION>NJ - New Jersey</OPTION>
+											<OPTION>NY - New York</OPTION>
+											<OPTION>VA - Virginia</OPTION>
+											<OPTION>NAT - National</OPTION>
+										</SELECT>
+									</TD>
+								</TR>
+								<TR>
+									<TD class="ContentHeaderTD">
+										<LABEL for="label_affiliateSubCode">Sub Unit</LABEL>
+									</TD>
+									<TD>
+										<INPUT type="text" name="affiliateSubCode" id="label_affiliateSubCode" value="" size="4" maxlength="4">
+									</TD>
+								</TR>
+								<TR>
+									<TD class="ContentHeaderTD">
+										<LABEL for="label_affiliateCouncilCode">Council/Retiree Chapter</LABEL>
+									</TD>
+									<TD>
+										<INPUT type="text" name="affiliateCouncilCode" id="label_affiliateCouncilCode" value="" size="4" maxlength="4">
+									</TD>
+								</TR>
+								<TR>
+									<TD>
+										<LABEL>Selected</LABEL>
+									</TD>
+									<TD>
+										<SELECT>
+											<OPTION>[ANY]</OPTION>
+											<OPTION>Yes</OPTION>
+											<OPTION>No</OPTION>
+										</SELECT>
+									</TD>
+								</TR>
+							</TBODY>
+						</TABLE>
+					</TD>
+				</TR>
+			</TBODY>
+		</TABLE>
+		<TABLE valign="TOP" cellpadding="0" cellspacing="0" border="0" class="ContentTableNoWidth" WIDTH="40%" align="Center">
+				<TR valign="Top">
+					<TD>
+						<BR>
+						<INPUT type="button" class="BUTTON" value="Cancel" onClick="window.location='User.htm'">
+					</TD>
+					<TD align="Right">
+						<BR>
+						<INPUT type="button" onClick="window.location='SelectAffiliateResults.htm'" class="BUTTON" value="Submit">
+					</TD>
+				</TR>
+				<TR>
+					<TD colspan="2" valign="Top" align="Center">
+						<BR>					
+					<SCRIPT type="text/javascript" language="JavaScript" src="../js/footer.js">					</SCRIPT>
+					</TD>
+				</TR>
+		</TABLE>
+	</FORM>
+</BODY>
+</HTML>

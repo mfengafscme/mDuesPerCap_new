@@ -1,0 +1,200 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0201.0210"
+    charSet    	0)
+
+(object Class_Category "3rd Party"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"sc"
+	    name       	"SourceControlSpec"
+	    value      	"Framework"))
+    quid       	"3E1B32E60332"
+    documentation 	"Package for third party componenets.  These are included to show interfaces classes are implemented and classes they are extending.  In some cases entities are included so they can be included in sequence diagrams."
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class_Category "JMS"
+	    quid       	"3E1B332A0330"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "JMS Queue"
+		    quid       	"3E1B0BBC017D"
+		    documentation 	"Business worker representing the JMS Queue."
+		    stereotype 	"business worker"
+		    operations 	(list Operations
+			(object Operation "sendMessage"
+			    quid       	"3E1B0BCF0383"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0))))
+	    logical_presentations 	(list unit_reference_list))
+	(object Class_Category "Struts"
+	    quid       	"3E1B336B038E"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "Action"
+		    quid       	"3E1B0B53038F"
+		    documentation 	"Boundary classes representing a struts Action"
+		    stereotype 	"boundary")
+		(object Class "ActionServlet"
+		    quid       	"3E1B32F201AB"
+		    documentation 	"The struts controller servlet."))
+	    logical_presentations 	(list unit_reference_list))
+	(object Class_Category "Log4j"
+	    quid       	"3E1B33970020"
+	    documentation 	"Represents the Jakarta Log 4 J package"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "Logger"
+		    quid       	"3E1B32F2019F"
+		    documentation 	"Represents the Log4j logger interface"
+		    operations 	(list Operations
+			(object Operation "info"
+			    quid       	"3E1B32F201A0"
+			    documentation 	"Logs an informational message."
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0))))
+	    logical_presentations 	(list unit_reference_list))
+	(object Class_Category "IO"
+	    quid       	"3E1B355600E1"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "FileSystem"
+		    quid       	"3E1B32F201B3"
+		    documentation 	"Boundary class representing the filesystem."
+		    stereotype 	"boundary"
+		    operations 	(list Operations
+			(object Operation "write"
+			    quid       	"3E1B32F201B4"
+			    documentation 	"Writes to the filesystem"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0))))
+	    logical_presentations 	(list unit_reference_list))
+	(object Class_Category "JDBC"
+	    quid       	"3E1B3DB4036C"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "JDBC"
+		    quid       	"3E1B3DBC02F5"
+		    documentation 	"Boundary class representing the JDBC interface to the SQL Server Database"
+		    stereotype 	"boundary"))
+	    logical_presentations 	(list unit_reference_list))
+	(object Class_Category "JSP"
+	    quid       	"3E1B3F510199"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "JSP Page"
+		    quid       	"3E1B32F201BD"
+		    documentation 	"A Java Server Page"
+		    operations 	(list Operations
+			(object Operation "_jspService"
+			    quid       	"3E1B32F201BE"
+			    documentation 	"Called by the container to handle a HTTP request"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0))))
+	    logical_presentations 	(list unit_reference_list))
+	(object Class_Category "XML"
+	    quid       	"3E2C6F3F014F"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "ContentHandler"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"BodyDanglingComment"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFinalizer"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateStaticInitializer"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateInstanceInitializer"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateDefaultConstructor"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"ReadOnly"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedExtends"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateCode"
+			    value      	TRUE))
+		    quid       	"3E2C6FB900DE"
+		    documentation 	"The org.xml.sax.ContentHandler interface."
+		    stereotype 	"Interface"
+		    operations 	(list Operations
+			(object Operation "startElement"
+			    quid       	"3E2C7116020B"
+			    parameters 	(list Parameters
+				(object Parameter "namespaceURI"
+				    quid       	"3E2C712A0065"
+				    type       	"String")
+				(object Parameter "localName"
+				    quid       	"3E2C713B02C2"
+				    type       	"String")
+				(object Parameter "qName"
+				    quid       	"3E2C714A01FC"
+				    type       	"String")
+				(object Parameter "attrs"
+				    quid       	"3E2C7150020E"
+				    type       	"Attributes"))
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0))
+		    language   	"Java")
+		(object Class "SAXParser"
+		    quid       	"3E2C717C017B"
+		    documentation 	"javax.xml.parsers.SAXParser"
+		    operations 	(list Operations
+			(object Operation "parse"
+			    quid       	"3E359BDD021E"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0))))
+	    logical_presentations 	(list unit_reference_list))
+	(object Class_Category "Database"
+	    quid       	"3E763F220320"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "SQL Server Scheduler"
+		    quid       	"3E763F4903B2"
+		    documentation 	"The SQL Server task scheduler."
+		    stereotype 	"business worker"
+		    language   	"Java")
+		(object Class "Database"
+		    quid       	"3E778D0F0191"
+		    documentation 	"Represents the Enterprise SQL Server database."
+		    stereotype 	"boundary"
+		    language   	"Java"))
+	    logical_presentations 	(list unit_reference_list)))
+    logical_presentations 	(list unit_reference_list))

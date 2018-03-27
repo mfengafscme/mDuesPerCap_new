@@ -1,0 +1,535 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Political Rebate - Annual Rebate Information Edit</TITLE><LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<H1>Political Rebate - Annual Rebate Information Edit</H1>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<BR>
+			</TD>
+		</TR>
+		<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+	</TABLE>
+	<FORM action="#" name="form">
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+			<TR valign="top">
+				<TD class="ContentHeaderTR">
+					John Michael Doe - 12345678<BR>
+					Rebate Year - 2001<BR><BR>
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+			<TR>
+				<TH align="left">
+					Annual Rebate Status
+				</TH>
+			</TR>
+			<TR valign="top">
+				<TD>
+					<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TD width="20%" class="ContentHeaderTD">
+								<LABEL for="label_RosterStatus">Roster Status</LABEL>
+							</TD>
+							<TD width="80%" class="ContentTD">
+								Preliminary
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR>
+				<TD>
+					<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TH>
+								Select
+							</TH>
+							<TH colspan="4">
+								Dues Paid To
+							</TH>
+							<TH>
+								* Duration
+							</TH>
+							<TH>
+								* Filed With
+							</TH>
+							<TH>
+								* Acceptance Code
+							</TH>
+							<TH>
+								* Mbr Type
+							</TH>
+							<TH>
+								* Mbr Status
+							</TH>
+							<TH>
+								* Dues Type
+							</TH>
+						</TR>
+						<TR>
+							<TH class="small">
+								Finder
+							</TH>
+							<TH class="small">
+								* Type
+							</TH>
+							<TH class="small">
+								* Loc/Sub Chap
+							</TH>
+							<TH class="small">
+								* State/Nat'l
+							</TH>
+							<TH class="small">
+								* CN/Ret Chap
+							</TH>
+							<TD colspan="6">
+								&nbsp;
+							</TD>
+						</TR>
+						<TR>
+							<TD align="center">
+								<INPUT type="hidden" name="affiliateCode_1" value="" size="1" maxlength="1">
+								<A name="Finder1" href="javascript:showAffiliateIDResults(form.affiliateType_1, form.affiliateLocal_1, form.affiliateState_1, form.affiliateSubunit_1, form.affiliateCouncil_1);" class="action" title="Retrieve your Affilitate Identifier">Finder</A>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="affiliateType_1" onBlur="lockAffiliateIDFieldsByFields(affiliateType_1, affiliateLocal_1, affiliateState_1, affiliateSubunit_1, affiliateCouncil_1);" onChange="lockAffiliateIDFieldsByFields(affiliateType_1, affiliateLocal_1, affiliateState_1, affiliateSubunit_1, affiliateCouncil_1);">
+									<OPTION></OPTION>
+									<OPTION selected>L</OPTION>
+									<OPTION>R</OPTION>
+									<OPTION>S</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="affiliateLocal_1" value="1111" size="4" maxlength="4">
+									<INPUT type="hidden" name="affiliateSubunit_1" value="0000">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="affiliateState_1">								
+								<SCRIPT language="JavaScript">								var selected = "DC";
+																</SCRIPT>								
+								<SCRIPT language="JavaScript" src="../js/state_select.js">								</SCRIPT>
+									<OPTION value="98">NT</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="affiliateCouncil_1" value="0100" size="2" maxlength="4">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="Duration_1">
+									<OPTION value="0"></OPTION>
+									<OPTION value="1">1 months</OPTION>
+									<OPTION value="2">2 months</OPTION>
+									<OPTION value="3">3 months</OPTION>
+									<OPTION value="4">4 months</OPTION>
+									<OPTION value="5">5 months</OPTION>
+									<OPTION value="6">6 months</OPTION>
+									<OPTION value="7">7 months</OPTION>
+									<OPTION value="8">8 months</OPTION>
+									<OPTION value="9">9 months</OPTION>
+									<OPTION value="10">10 months</OPTION>
+									<OPTION value="11">11 months</OPTION>
+									<OPTION value="12" selected>1 year</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="FiledWith_1">
+									<OPTION></OPTION>
+									<OPTION selected>Local</OPTION>
+									<OPTION>Council</OPTION>
+									<OPTION>Both</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="AcceptanceCode_1">
+									<OPTION></OPTION>
+									<OPTION value="D" selected>Denied</OPTION>
+									<OPTION value="C">Council Accepted</OPTION>
+									<OPTION value="L">Local Accepted</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="MemberType_1">
+									<OPTION></OPTION>
+									<OPTION>Regular</OPTION>
+									<OPTION>Regular</OPTION>
+									<OPTION>Retiree</OPTION>
+									<OPTION>Retiree Spouse</OPTION>
+									<OPTION>Union Shop</OPTION>
+									<OPTION selected>Union Shop Objector</OPTION>
+									<OPTION>Agency Fee Payer</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="MemberStatus_1">
+									<OPTION></OPTION>
+									<OPTION selected>Active</OPTION>
+									<OPTION>Inactive</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="DueRate_1">
+									<OPTION></OPTION>
+									<OPTION selected>Full-Time</OPTION>
+									<OPTION>Part-Time</OPTION>
+									<OPTION>Lower Part-Time</OPTION>
+									<OPTION>Retiree</OPTION>
+								</SELECT>
+							</TD>
+						</TR>
+						<TR>
+							<TD align="center">
+								<INPUT type="hidden" name="affiliateCode_2" value="" size="1" maxlength="1">
+								<A name="Finder2" href="javascript:showAffiliateIDResults(form.affiliateType_2, form.affiliateLocal_2, form.affiliateState_2, form.affiliateSubunit_2, form.affiliateCouncil_2);" class="action" title="Retrieve your Affilitate Identifier">Finder</A>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="affiliateType_2" onBlur="lockAffiliateIDFieldsByFields(affiliateType_2, affiliateLocal_2, affiliateState_2, affiliateSubunit_2, affiliateCouncil_2);" onChange="lockAffiliateIDFieldsByFields(affiliateType_2, affiliateLocal_2, affiliateState_2, affiliateSubunit_2, affiliateCouncil_2);">
+									<OPTION></OPTION>
+									<OPTION selected>L</OPTION>
+									<OPTION>R</OPTION>
+									<OPTION>S</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="affiliateLocal_2" value="2222" size="4" maxlength="4">
+									<INPUT type="hidden" name="affiliateSubunit_2" value="0000">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="affiliateState_2">								
+								<SCRIPT language="JavaScript">								var selected = "VA";
+																</SCRIPT>								
+								<SCRIPT language="JavaScript" src="../js/state_select.js">								</SCRIPT>
+									<OPTION value="98">NT</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="affiliateCouncil_2" value="0200" size="2" maxlength="4">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="Duration_2">
+									<OPTION value="0"></OPTION>
+									<OPTION value="1">1 months</OPTION>
+									<OPTION value="2">2 months</OPTION>
+									<OPTION value="3">3 months</OPTION>
+									<OPTION value="4">4 months</OPTION>
+									<OPTION value="5">5 months</OPTION>
+									<OPTION value="6" selected>6 months</OPTION>
+									<OPTION value="7">7 months</OPTION>
+									<OPTION value="8">8 months</OPTION>
+									<OPTION value="9">9 months</OPTION>
+									<OPTION value="10">10 months</OPTION>
+									<OPTION value="11">11 months</OPTION>
+									<OPTION value="12">1 year</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="FiledWith_2">
+									<OPTION></OPTION>
+									<OPTION>Local</OPTION>
+									<OPTION selected>Council</OPTION>
+									<OPTION>Both</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="AcceptanceCode_2">
+									<OPTION></OPTION>
+									<OPTION value="D">Denied</OPTION>
+									<OPTION value="C" selected>Council Accepted</OPTION>
+									<OPTION value="L">Local Accepted</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="MemberType_2">
+									<OPTION></OPTION>
+									<OPTION>Regular</OPTION>
+									<OPTION>Regular</OPTION>
+									<OPTION>Retiree</OPTION>
+									<OPTION>Retiree Spouse</OPTION>
+									<OPTION selected>Union Shop</OPTION>
+									<OPTION>Union Shop Objector</OPTION>
+									<OPTION>Agency Fee Payer</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="MemberStatus_2">
+									<OPTION></OPTION>
+									<OPTION selected>Active</OPTION>
+									<OPTION>Inactive</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="DueRate_2">
+									<OPTION></OPTION>
+									<OPTION>Full-Time</OPTION>
+									<OPTION selected>Part-Time</OPTION>
+									<OPTION>Lower Part-Time</OPTION>
+									<OPTION>Retiree</OPTION>
+								</SELECT>
+							</TD>
+						</TR>
+						<TR>
+							<TD align="center">
+								<INPUT type="hidden" name="affiliateCode_3" value="" size="1" maxlength="1">
+								<A href="javascript:showAffiliateIDResults(form.affiliateType_3, form.affiliateLocal_3, form.affiliateState_3, form.affiliateSubunit_3, form.affiliateCouncil_3);" class="action" title="Retrieve your Affilitate Identifier">Finder</A>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="affiliateType_3" onBlur="lockAffiliateIDFieldsByFields(affiliateType_3, affiliateLocal_3, affiliateState_3, affiliateSubunit_3, affiliateCouncil_3);" onChange="lockAffiliateIDFieldsByFields(affiliateType_3, affiliateLocal_3, affiliateState_3, affiliateSubunit_3, affiliateCouncil_3);">
+									<OPTION></OPTION>
+									<OPTION selected>L</OPTION>
+									<OPTION>R</OPTION>
+									<OPTION>S</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="affiliateLocal_3" value="3333" size="4" maxlength="4">
+									<INPUT type="hidden" name="affiliateSubunit_3" value="0000">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="affiliateState_3">								
+								<SCRIPT language="JavaScript">								var selected = "NY";
+																</SCRIPT>								
+								<SCRIPT language="JavaScript" src="../js/state_select.js">								</SCRIPT>
+									<OPTION value="98">NT</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="affiliateCouncil_3" value="0300" size="2" maxlength="4">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="Duration_3">
+									<OPTION value="0"></OPTION>
+									<OPTION value="1">1 months</OPTION>
+									<OPTION value="2">2 months</OPTION>
+									<OPTION value="3">3 months</OPTION>
+									<OPTION value="4">4 months</OPTION>
+									<OPTION value="5">5 months</OPTION>
+									<OPTION value="6">6 months</OPTION>
+									<OPTION value="7">7 months</OPTION>
+									<OPTION value="8">8 months</OPTION>
+									<OPTION value="9" selected>9 months</OPTION>
+									<OPTION value="10">10 months</OPTION>
+									<OPTION value="11">11 months</OPTION>
+									<OPTION value="12">1 year</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="FiledWith_3">
+									<OPTION></OPTION>
+									<OPTION>Local</OPTION>
+									<OPTION>Council</OPTION>
+									<OPTION selected>Both</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="AcceptanceCode_3">
+									<OPTION></OPTION>
+									<OPTION value="D">Denied</OPTION>
+									<OPTION value="C">Council Accepted</OPTION>
+									<OPTION value="L" selected>Local Accepted</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="MemberType_3">
+									<OPTION></OPTION>
+									<OPTION selected>Regular</OPTION>
+									<OPTION>Regular</OPTION>
+									<OPTION>Retiree</OPTION>
+									<OPTION>Retiree Spouse</OPTION>
+									<OPTION>Union Shop</OPTION>
+									<OPTION>Union Shop Objector</OPTION>
+									<OPTION>Agency Fee Payer</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="MemberStatus_3">
+									<OPTION></OPTION>
+									<OPTION selected>Active</OPTION>
+									<OPTION>Inactive</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="DueRate_3">
+									<OPTION></OPTION>
+									<OPTION>Full-Time</OPTION>
+									<OPTION>Part-Time</OPTION>
+									<OPTION selected>Lower Part-Time</OPTION>
+									<OPTION>Retiree</OPTION>
+								</SELECT>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR valign="top">
+				<TD>
+					<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TH colspan="7" align="left">
+								Check Information
+							</TH>
+						</TR>
+						<TR>
+							<TH class="small" width="16%">
+								Number
+							</TH>
+							<TH class="small" width="12%">
+								Amount
+							</TH>
+							<TH class="small" width="16%">
+								Date
+							</TH>
+							<TH class="small" width="12%">
+								Returned
+							</TH>
+							<TH class="small" width="16%">
+								Second Number
+							</TH>
+							<TH class="small" width="12%">
+								Second Amount
+							</TH>
+							<TH class="small" width="16%">
+								Second Date
+							</TH>
+						</TR>
+						<TR>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="CheckNumber" value="123456" id="label_CheckNumber" size="6" maxlength="6">
+							</TD>
+							<TD class="ContentTD" align="center">
+								$
+								<INPUT type="text" name="CheckAmount" value="100.00" id="label_CheckAmount" size="6" maxlength="6">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="CheckDate" value="05/01/2002" id="label_CheckDate" size="10" maxlength="10">
+								<A name="CheckCalendar" href="javascript:show_calendar('form.CheckDate');" onClick="if (disabled) return false;" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;">
+									<IMG src="../images/calendar.gif" width="24" height="22" border="0" alt="Calendar"></A>
+							</TD>
+							<TD class="smallFont" align="center">
+								<INPUT type="checkbox" name="CheckReturned">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="SecondCheckNumber" value="" size="6" maxlength="6">
+							</TD>
+							<TD class="ContentTD" align="center">
+								$
+								<INPUT type="text" name="CheckAmount_2" value="" id="label_CheckAmount_2" size="6" maxlength="6">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="CheckDate_2" value="" id="label_CheckDate_2" size="10" maxlength="10">
+								<A name="CheckCalendar_2" href="javascript:show_calendar('form.CheckDate_2');" onClick="if (disabled) return false;" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;">
+									<IMG src="../images/calendar.gif" width="24" height="22" border="0" alt="Calendar"></A>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR>
+				<TH align="left">
+					Rebate Challenge Information
+				</TH>
+			</TR>
+			<TR valign="top">
+				<TD>
+					<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TH>
+								Judicial Panel
+							</TH>
+							<TH colspan="3">
+								Supplemental Check
+							</TH>
+						</TR>
+						<TR>
+							<TH class="small">
+								Case Number
+							</TH>
+							<TH class="small" colspan="">
+								Number
+							</TH>
+							<TH class="small" colspan="">
+								Amount
+							</TH>
+							<TH class="small" colspan="">
+								Date
+							</TH>
+						</TR>
+						<TR>
+							<TD align="center" class="ContentTD">
+								<INPUT type="text" name="JudicialPanelCaseNumber" value="1234567890" id="label_JudicialPanelCaseNumber" size="10" maxlength="10">
+							</TD>
+							<TD align="center" class="ContentTD">
+								<INPUT type="text" name="SupplementalCheckNumber" value="654321" id="label_SupplementalCheckNumber" size="6" maxlength="6">
+							</TD>
+							<TD align="center" class="ContentTD">
+								$
+								<INPUT type="text" name="SupplementalCheckAmount" value="100.00" id="label_SupplementalCheckAmount" size="10">
+							</TD>
+							<TD align="center" class="ContentTD">
+								<INPUT type="text" name="SupplementalCheckDate" value="07/01/2002" id="label_SupplementalCheckDate" size="10" maxlength="10">
+								<A href="javascript:show_calendar('form.SupplementalCheckDate');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;">
+									<IMG src="../images/calendar.gif" width="24" height="22" border="0" alt="Calendar"></A>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR valign="top">
+				<TD>
+					<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TD colspan="2" class="ContentTD">
+								<LABEL for="label_ChallengeComments">Comment</LABEL>
+							</TD>
+						</TR>
+						<TR>
+							<TD colspan="2" class="ContentTD">
+								<TEXTAREA name="ChallengeComments" cols="115" rows="3" onKeyUp="validateComments(this);"></TEXTAREA>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+			<TR valign="top">
+				<TD align="left">
+					<BR>
+					<INPUT type="reset" name="ResetButton2" class="BUTTON" value="Reset">
+						<INPUT type="button" name="CancelButton2" class="BUTTON" value="Cancel" onClick="parent.location='PoliticalRebateAnnualRebateInformation.htm'">
+				</TD>
+				<TD align="right">
+					<BR>
+					<INPUT type="button" name="SubmitButton2" class="BUTTON" value="Submit" onClick="parent.location='PoliticalRebateAnnualRebateInformation.htm'">
+						<BR>
+						<BR>
+				</TD>
+			</TR>
+		</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR><B><I>* Indicates Required Fields</I></B>
+				<BR>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+			</TD>
+		</TR>
+	</TABLE>
+	</FORM>
+</BODY>
+</HTML>

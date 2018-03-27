@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Officer Titles - Add</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Officer Titles - Add</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="OfficerTitles.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				Virginia - PD Local 100 - Council 10<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE align="center" cellpadding="0" cellspacing="0" border="1" class="BodyContent">
+		<TR>
+			<TD colspan="8" class="ContentHeaderTR">
+				New Officer Title 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE align="center" cellpadding="0" cellspacing="0" border="1" class="BodyContent">
+		<TR>
+			<TH width="20%">* Constitutional Title</TH>
+			<TH width="20%">Affiliate Title</TH>
+			<TH width="6%">* # with Title</TH>
+			<TH width="7%">* Month of Election</TH>
+			<TH width="7%">* Length of Term</TH>
+			<TH width="8%">* Term End</TH>
+			<TH width="7%">Delegate Priority</TH>
+			<TH width="2%">RO</TH>
+			<TH width="4%">E-Bd</TH>
+		</TR>
+		<TR>
+			<TD align="center" class="ContentTD">
+				<SELECT name="titles" onChange="validateOnePresident(this.form);checkSteward(this.form);">
+					<SCRIPT language="JavaScript" src="../js/officer_title-codes.js"></SCRIPT>
+				</SELECT> 
+			</TD>
+			<TD align="center" class="ContentTD">
+				<INPUT type="text" name="AffiliateTitle" value="" size="30" maxlength="30"> 
+			</TD>
+			<SCRIPT language="JavaScript">var NumberOfOfficersJS;</SCRIPT>
+			<TD align="center" class="smallFONT">
+				<INPUT type="text" name="NumberOfOfficers" value="" size="2" maxlength="2">
+			</TD>
+			<TD align="center" class="ContentTD">
+				<SELECT name="Month">
+					<SCRIPT language="JavaScript" src="../js/month_options.js"></SCRIPT>
+					<OPTION value="12">1st Qtr.</OPTION>
+					<OPTION value="13">2nd Qtr.</OPTION>
+					<OPTION value="14">3rd Qtr.</OPTION>
+					<OPTION value="15">4th Qtr.</OPTION>
+				</SELECT> 
+			</TD>
+			<TD align="center" class="ContentTD">
+				<SELECT name="TermLength" readonly>
+					<OPTION value="-1"></OPTION>
+					<OPTION value="1">1 year</OPTION>
+					<OPTION value="2">2 years</OPTION>
+					<OPTION value="3">3 years</OPTION>
+					<OPTION value="4">4 years</OPTION>
+					<OPTION value="5">Indefinite</OPTION>
+					<OPTION value="6">Temporary</OPTION>
+				</SELECT> 
+			</TD>
+			<TD align="center">
+				<INPUT type="text" name="InitialTermEnd" value="" size="4" maxlength="4"> 
+			</TD>
+			<TD align="center" class="ContentTD">
+				<INPUT type="text" name="DelegatePriority" value="" size="2" maxlength="2"> 
+			</TD>
+			<TD align="center">
+				<INPUT type="checkbox" name="XB"> 
+			</TD>
+			<TD align="center">
+				<INPUT type="checkbox" name="XB"> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR>
+				<INPUT type="button" class="BUTTON" value="Submit" onClick="parent.location='OfficerTitles.htm'" name="SubmitButton"> 
+				<BR><BR> 
+			</TD>
+			<TD valign="middle" align="center" class="DataFontI">
+				Note: Setting this Officer Title as the Reporting Officer will override the 
+				Officer Title previously selected. 
+			</TD>
+			<TD align="right">
+				<BR>
+				<INPUT name="ResetButton" type="reset" class="BUTTON" value="Reset">
+				<INPUT type="button" name="CancelButton" class="BUTTON" value="Cancel" onClick="parent.location='OfficerTitles.htm'"> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR><B><I>* Indicates Required Fields</I></B>
+				<BR>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

@@ -1,0 +1,1886 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0201.0210"
+    charSet    	0)
+
+(object Class_Category "Cards"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"sc"
+	    name       	"SourceControlSpec"
+	    value      	"Framework"))
+    quid       	"3E4BDA390146"
+    documentation 	"Implements Annual Membership Card Runs"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "CardsMessageBean"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"cg_style"
+		    value      	"Default_EJB"))
+	    quid       	"3E4BE023002B"
+	    documentation 	"Allows CardsBean.performRun() to be called asynchronously.  "
+	    stereotype 	"EJBMessage"
+	    operations 	(list Operations
+		(object Operation "onMessage"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E4BF318000B"
+		    documentation 	"Called by JMS.  Receives a CardRunMessage and in turn calls CardsBean.performRunSync()"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    module     	"Component View::org::afscme::enterprise::cards::ejb::CardsMessageBean"
+	    quidu      	"3EE9E22500E8"
+	    language   	"Java")
+	(object Class "CardsBean"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"cg_style"
+		    value      	"Default_EJB"))
+	    quid       	"3E4BDA5001E0"
+	    documentation 	"Implements the functionality of the 'Perform Annual Membership Card Run' specification."
+	    stereotype 	"EJBSession"
+	    operations 	(list Operations
+		(object Operation "calculateRun"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E4BDB1F035A"
+		    documentation 	
+|Calculates the run summaries for all the non-bypassed affiliates, for the given run type.
+|
+|@param runType common code pk for the type of card run to perform.
+|
+|@return A Set of RunSummary objects
+		    
+		    parameters 	(list Parameters
+			(object Parameter "runType"
+			    quid       	"3E4BDB510302"
+			    type       	"Integer"))
+		    result     	"Set"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0)
+		(object Operation "getScheduled"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E4BE1E201FA"
+		    documentation 	
+|Gets a list of RunSummary objects for all the affiliate scheduled.
+|
+|@return List of RunSummary objects
+		    
+		    result     	"List"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getByPassed"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E4BE1EF0394"
+		    documentation 	
+|Gets run summary objects for the affilaites that are to be bypassed.
+|
+|@return List of RunSummary objects for the affiliates that are to be bypassed
+		    
+		    result     	"List"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getCompleted"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E91CA940346"
+		    documentation 	
+|Gets the list of completed card runs
+|
+|@return List of run summary objects.
+		    
+		    result     	"List"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "removeFromBypass"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E4BE24603AD"
+		    documentation 	
+|Removes an affiliate from bypass.
+|
+|@param affiliates Set of Integers.  The primary keys of the affiliates to schedule.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affiliates"
+			    quid       	"3E4BE253003A"
+			    type       	"Set"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "addToBypass"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E91CEEA027A"
+		    documentation 	
+|Adds an affiliate to the bypass list
+|
+|@param affiliates Set of Integers.  The primary keys of the affiliates to bypass.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affiliates"
+			    quid       	"3E91CEF501A3"
+			    type       	"Set"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "perfomRun"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E4BE263025A"
+		    documentation 	
+|Initiates the run for a given run type.  This method returns immediately, before the run is performed.
+|
+|@param runType common code primary key.  The type of run to perform
+		    
+		    parameters 	(list Parameters
+			(object Parameter "runType"
+			    quid       	"3E4BE26901D6"
+			    type       	"Integer"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "perfomRunSync"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E4BEBCF017C"
+		    documentation 	
+|Performs the run for a given run type.  This method does not return until the run is complete.  This method is called by the CardsMessageBean.
+|
+|
+|@param runType common code primary key.  The type of run to perform
+		    
+		    parameters 	(list Parameters
+			(object Parameter "runType"
+			    quid       	"3E4BEBCF017D"
+			    type       	"Integer"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "initializeNewRun"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E4BE27E0303"
+		    documentation 	"Clears the completed list."
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    module     	"Component View::org::afscme::enterprise::cards::ejb::CardsBean"
+	    quidu      	"3EE9E225011A"
+	    language   	"Java")
+	(object Class "RunSummary"
+	    quid       	"3E4BDB600281"
+	    documentation 	"Represents the totals that will be performed for each affiliate and run type."
+	    stereotype 	"Bean"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "totalMembers"
+		    quid       	"3E4BDB7200BA"
+		    documentation 	"Total number of members in the affiliate."
+		    type       	"int"
+		    exportControl 	"Public")
+		(object ClassAttribute "cardsToGenerate"
+		    quid       	"3E4BDB7F036C"
+		    documentation 	"Number of cards that will be generated in this run."
+		    type       	"int"
+		    exportControl 	"Public")
+		(object ClassAttribute "nonMailable"
+		    quid       	"3E4BDB9C035A"
+		    documentation 	"Number of cards that will not be generated because the member did not have a mailable address."
+		    type       	"int"
+		    exportControl 	"Public")
+		(object ClassAttribute "affPk"
+		    quid       	"3E4BDD76026B"
+		    documentation 	"Primary key of the affiliate this run summary is for."
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "runType"
+		    quid       	"3E4BE139027A"
+		    documentation 	"Common code primary key for the 'CardRunType' common code type"
+		    type       	"Integer"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::cards::RunSummary"
+	    quidu      	"3EE9E2250138"
+	    language   	"Java")
+	(object Class "CardRunMessage"
+	    quid       	"3E52ACA900FE"
+	    documentation 	"The JMS Message sent by CardsBean to itself to start a run for a particular type."
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "runType"
+		    quid       	"3E52ACB5017D"
+		    documentation 	"Common code key from 'CardRunType'."
+		    type       	"Integer"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::cards::CardRunMessage"
+	    quidu      	"3EE9E225014C"
+	    language   	"Java")
+	(object Class "CardFileGenerator"
+	    quid       	"3E7B982F0240"
+	    documentation 	"Class that implements generation of the membership cards file"
+	    operations 	(list Operations
+		(object Operation "generate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E7B986D0221"
+		    documentation 	
+|Generates the cards data for the given affiliates and run type.
+|
+|@param runType common code pk for the type of run to generate
+|@param Set of affiliate primary key Integers indicating what affiliates to generate cards for
+|@param stream The stream to write the cards file data to
+		    
+		    parameters 	(list Parameters
+			(object Parameter "runType"
+			    quid       	"3E7B98880306"
+			    type       	"Integer")
+			(object Parameter "affiliates"
+			    quid       	"3E7B9888032E"
+			    type       	"Set")
+			(object Parameter "stream"
+			    quid       	"3E7B98880356"
+			    type       	"OutputStream"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    module     	"Component View::org::afscme::enterprise::cards::CardFileGenerator"
+	    quidu      	"3EE9E2250160"
+	    language   	"Java")
+	(object Mechanism @1
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$0"
+		    quid       	"3E4BF1F402DC"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E4BF27B0182"
+			    supplier   	"$UNNAMED$1"
+			    quidu      	"3E4BF274027C"
+			    messages   	(list Messages
+				(object Message "initializeNewRun( )"
+				    quid       	"3E4BF27B0183"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"3E4BE27E0303"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E4BF2830328"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.2"
+				    ordinal    	3
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::3rd Party::Struts::Action"
+		    quidu      	"3E1B0B53038F"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$1"
+		    quid       	"3E4BF274027C"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E4BF29A0399"
+			    supplier   	"$UNNAMED$2"
+			    quidu      	"3E4BF2950270"
+			    messages   	(list Messages
+				(object Message "UPDATE Aff_Organizations SET  mbr_yearly_card_run_done_fg = 0"
+				    quid       	"3E4BF29A039A"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.1"
+				    ordinal    	1
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E4BF2BA0024"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.1.1"
+				    ordinal    	2
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::Cards::CardsBean"
+		    quidu      	"3E4BDA5001E0"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$2"
+		    quid       	"3E4BF2950270"
+		    class      	"Logical View::3rd Party::JDBC::JDBC"
+		    quidu      	"3E1B3DBC02F5"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)))
+	(object Mechanism @2
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$3"
+		    quid       	"3E4BF3930333"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E4BF3930334"
+			    supplier   	"$UNNAMED$4"
+			    quidu      	"3E4BF393033C"
+			    messages   	(list Messages
+				(object Message "perfomRun(runType)"
+				    quid       	"3E4BF3930337"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    Operation  	"perfomRun(Integer)"
+				    quidu      	"3E4BE263025A"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E4BF3930338"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.2"
+				    ordinal    	3
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::3rd Party::Struts::Action"
+		    quidu      	"3E1B0B53038F"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$4"
+		    quid       	"3E4BF393033C"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E4BF3930343"
+			    supplier   	"$UNNAMED$5"
+			    quidu      	"3E4BF393034A"
+			    messages   	(list Messages
+				(object Message "send message"
+				    quid       	"3E4BF3930344"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.1"
+				    ordinal    	1
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E4BF3930345"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.1.1"
+				    ordinal    	2
+				    quidu      	"000000000000"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E4BF3D901C1"
+			    supplier   	"$UNNAMED$4"
+			    quidu      	"3E4BF393033C"
+			    messages   	(list Messages
+				(object Message "calculateRun(runType)"
+				    quid       	"3E4BF3D901C2"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2.1.1"
+				    ordinal    	6
+				    Operation  	"calculateRun(Integer)"
+				    quidu      	"3E4BDB1F035A"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E7B98D501C6"
+			    supplier   	"$UNNAMED$6"
+			    quidu      	"3E7B98C101DB"
+			    messages   	(list Messages
+				(object Message "generate(runType, affiliates, stream)"
+				    quid       	"3E7B98D501C7"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3"
+				    ordinal    	7
+				    Operation  	"generate(Integer, Set, OutputStream)"
+				    quidu      	"3E7B986D0221"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E7B98D9009F"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"3.1"
+				    ordinal    	8
+				    quidu      	"000000000000"
+				    creation   	FALSE)))
+			(object Link
+			    quid       	"3E7F27F700D5"
+			    supplier   	"$UNNAMED$7"
+			    quidu      	"3E7F27EA0004"
+			    messages   	(list Messages
+				(object Message "UPDATE Aff_Organizations set mbr_annual_card_run_done_fg = 1"
+				    quid       	"3E6684E20393"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2.1.2"
+				    ordinal    	9
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::Cards::CardsBean"
+		    quidu      	"3E4BDA5001E0"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$8"
+		    quid       	"3E4BF3930351"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E4BF3CD01A6"
+			    supplier   	"$UNNAMED$4"
+			    quidu      	"3E4BF393033C"
+			    messages   	(list Messages
+				(object Message "perfomRunSync(runType)"
+				    quid       	"3E4BF3CD01A7"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2.1"
+				    ordinal    	5
+				    Operation  	"perfomRunSync(Integer)"
+				    quidu      	"3E4BEBCF017C"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E4BF49102CA"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"2.1.3"
+				    ordinal    	10
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::Cards::CardsMessageBean"
+		    quidu      	"3E4BE023002B"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$5"
+		    quid       	"3E4BF393034A"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E4BF393034B"
+			    supplier   	"$UNNAMED$8"
+			    quidu      	"3E4BF3930351"
+			    messages   	(list Messages
+				(object Message "onMessage( )"
+				    quid       	"3E4BF393034C"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2"
+				    ordinal    	4
+				    quidu      	"3E4BF318000B"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3E4BF393034D"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"2.2"
+				    ordinal    	11
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::3rd Party::JMS::JMS Queue"
+		    quidu      	"3E1B0BBC017D"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$6"
+		    quid       	"3E7B98C101DB"
+		    class      	"Logical View::Cards::CardFileGenerator"
+		    quidu      	"3E7B982F0240"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$7"
+		    quid       	"3E7F27EA0004"
+		    class      	"Logical View::3rd Party::JDBC::JDBC"
+		    quidu      	"3E1B3DBC02F5"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"3E4BDA4C00CB"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	350
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Cards::CardsBean" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(624, 368)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(168, 127)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	912
+			justify    	0
+			label      	"CardsBean")
+		    icon_style 	"Decoration"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E4BDA5001E0"
+		    compartment 	(object Compartment
+			Parent_View 	@3
+			location   	(168, 188)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	10
+			max_width  	721)
+		    width      	930
+		    height     	682
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Cards::CardsMessageBean" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1056, 1392)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(786, 1352)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	540
+			justify    	0
+			label      	"CardsMessageBean")
+		    icon       	"EJBMessage"
+		    icon_style 	"Decoration"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E4BE023002B"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(786, 1413)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	2
+			max_width  	293)
+		    width      	558
+		    height     	280
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Cards::RunSummary" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1824, 1152)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1563, 993)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	522
+			justify    	0
+			label      	"RunSummary")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@5
+			location   	(1563, 943)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	522
+			justify    	0
+			label      	"<<Bean>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E4BDB600281"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(1563, 1054)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	6
+			max_width  	450)
+		    width      	540
+		    height     	442
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Cards::CardRunMessage" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1056, 992)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(847, 911)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	418
+			justify    	0
+			label      	"CardRunMessage")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E52ACA900FE"
+		    compartment 	(object Compartment
+			Parent_View 	@6
+			location   	(847, 972)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	2
+			max_width  	362)
+		    width      	436
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Cards::CardFileGenerator" @7
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(384, 976)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(167, 895)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	434
+			justify    	0
+			label      	"CardFileGenerator")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E7B982F0240"
+		    compartment 	(object Compartment
+			Parent_View 	@7
+			location   	(167, 956)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	2
+			max_width  	240)
+		    width      	452
+		    height     	186
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object InteractionDiagram "Initialize Run"
+	    mechanism_ref 	@1
+	    quid       	"3E4BF1CE01F1"
+	    title      	"Initialize Run"
+	    documentation 	"User initialized the system for a new annual card run."
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$0" @8
+		    location   	(192, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(192, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E4BF1F402DC"
+		    width      	662
+		    height     	766
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @9
+			location   	(192, 448)
+			line_color 	3342489
+			InterObjView 	@8
+			height     	452
+			y_coord    	392
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @10
+			location   	(192, 720)
+			line_color 	3342489
+			InterObjView 	@8
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$1" @11
+		    location   	(864, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(864, 224)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	282
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E4BF274027C"
+		    width      	300
+		    height     	766
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @12
+			location   	(864, 448)
+			line_color 	3342489
+			InterObjView 	@11
+			height     	392
+			y_coord    	332
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @13
+			location   	(864, 560)
+			line_color 	3342489
+			InterObjView 	@11
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$2" @14
+		    location   	(2256, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@14
+			location   	(2256, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E4BF2950270"
+		    width      	662
+		    height     	766
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @15
+			location   	(2256, 512)
+			line_color 	3342489
+			InterObjView 	@14
+			height     	168
+			y_coord    	108
+			Nested     	FALSE))
+		(object InterMessView "" @16
+		    location   	(528, 448)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @17
+			Parent_View 	@16
+			location   	(527, 404)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF27B0183"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	344
+			justify    	0
+			label      	"initializeNewRun( )"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@8
+		    supplier   	@11
+		    Focus_Src  	@9
+		    Focus_Entry 	@12
+		    origin     	(207, 448)
+		    terminus   	(848, 448)
+		    ordinal    	0)
+		(object InterMessView "" @18
+		    location   	(560, 720)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @19
+			Parent_View 	@18
+			location   	(528, 676)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF2830328"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@11
+		    supplier   	@8
+		    Focus_Src  	@12
+		    Focus_Entry 	@10
+		    origin     	(848, 720)
+		    terminus   	(208, 720)
+		    ordinal    	3)
+		(object InterMessView "" @20
+		    location   	(16, 512)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @21
+			Parent_View 	@20
+			location   	(1559, 468)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF29A039A"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1327
+			justify    	0
+			label      	"UPDATE Aff_Organizations SET  mbr_yearly_card_run_done_fg = 0"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@11
+		    supplier   	@14
+		    Focus_Src  	@12
+		    Focus_Entry 	@15
+		    origin     	(879, 512)
+		    terminus   	(2240, 512)
+		    ordinal    	1)
+		(object InterMessView "" @22
+		    location   	(16, 560)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @23
+			Parent_View 	@22
+			location   	(1560, 516)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF2BA0024"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@14
+		    supplier   	@11
+		    Focus_Src  	@15
+		    Focus_Entry 	@13
+		    origin     	(2240, 560)
+		    terminus   	(880, 560)
+		    ordinal    	2)))
+	(object InteractionDiagram "Perform Run"
+	    mechanism_ref 	@2
+	    quid       	"3E4BF386035D"
+	    title      	"Perform Run"
+	    documentation 	"User initiates a run."
+	    zoom       	95
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	36
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$3" @24
+		    location   	(208, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@24
+			location   	(208, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E4BF3930333"
+		    width      	662
+		    height     	1982
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @25
+			location   	(208, 496)
+			line_color 	3342489
+			InterObjView 	@24
+			height     	308
+			y_coord    	248
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @26
+			location   	(208, 624)
+			line_color 	3342489
+			InterObjView 	@24
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$4" @27
+		    location   	(640, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@27
+			location   	(640, 224)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	282
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E4BF393033C"
+		    width      	300
+		    height     	1982
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @28
+			location   	(640, 496)
+			line_color 	3342489
+			InterObjView 	@27
+			height     	248
+			y_coord    	188
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @29
+			location   	(640, 544)
+			line_color 	3342489
+			InterObjView 	@27
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @30
+			location   	(640, 928)
+			line_color 	3342489
+			InterObjView 	@27
+			height     	856
+			y_coord    	796
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @31
+			location   	(640, 1072)
+			line_color 	3342489
+			InterObjView 	@27
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @32
+			location   	(640, 1280)
+			line_color 	3342489
+			InterObjView 	@27
+			height     	228
+			y_coord    	168
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @33
+			location   	(640, 1328)
+			line_color 	3342489
+			InterObjView 	@27
+			height     	60
+			y_coord    	0
+			Nested     	TRUE))
+		(object InterObjView "$UNNAMED$8" @34
+		    location   	(1504, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@34
+			location   	(1504, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	316
+			justify    	0
+			label      	"")
+		    icon       	"EJBMessage"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E4BF3930351"
+		    width      	312
+		    height     	1982
+		    icon_height 	237
+		    icon_width 	237
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @35
+			location   	(1504, 816)
+			line_color 	3342489
+			InterObjView 	@34
+			height     	1240
+			y_coord    	1180
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @36
+			location   	(1504, 1664)
+			line_color 	3342489
+			InterObjView 	@34
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$5" @37
+		    location   	(2208, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@37
+			location   	(2208, 249)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	471
+			justify    	0
+			label      	"")
+		    icon       	"business worker"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E4BF393034A"
+		    width      	446
+		    height     	1982
+		    icon_height 	164
+		    icon_width 	157
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @38
+			location   	(2208, 512)
+			line_color 	3342489
+			InterObjView 	@37
+			height     	152
+			y_coord    	92
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @39
+			location   	(2208, 816)
+			line_color 	3342489
+			InterObjView 	@37
+			height     	1300
+			y_coord    	1240
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @40
+			location   	(2208, 1936)
+			line_color 	3342489
+			InterObjView 	@37
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$6" @41
+		    location   	(1088, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@41
+			location   	(1088, 224)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	336
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E7B98C101DB"
+		    width      	354
+		    height     	1982
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @42
+			location   	(1088, 1280)
+			line_color 	3342489
+			InterObjView 	@41
+			height     	168
+			y_coord    	108
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$7" @43
+		    location   	(2880, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@43
+			location   	(2880, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E7F27EA0004"
+		    width      	662
+		    height     	1982
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @44
+			location   	(2880, 1520)
+			line_color 	3342489
+			InterObjView 	@43
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterMessView "" @45
+		    location   	(432, 496)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @46
+			Parent_View 	@45
+			location   	(423, 452)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF3930337"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	419
+			justify    	0
+			label      	"perfomRun(runType)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@24
+		    supplier   	@27
+		    Focus_Src  	@25
+		    Focus_Entry 	@28
+		    origin     	(223, 496)
+		    terminus   	(624, 496)
+		    ordinal    	0)
+		(object InterMessView "" @47
+		    location   	(416, 624)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @48
+			Parent_View 	@47
+			location   	(424, 580)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF3930338"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@27
+		    supplier   	@24
+		    Focus_Src  	@28
+		    Focus_Entry 	@26
+		    origin     	(624, 624)
+		    terminus   	(224, 624)
+		    ordinal    	3)
+		(object InterMessView "" @49
+		    location   	(16, 512)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @50
+			Parent_View 	@49
+			location   	(1423, 468)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF3930344"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	332
+			justify    	0
+			label      	"send message"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@27
+		    supplier   	@37
+		    Focus_Src  	@28
+		    Focus_Entry 	@38
+		    origin     	(655, 512)
+		    terminus   	(2192, 512)
+		    ordinal    	1)
+		(object InterMessView "" @51
+		    location   	(1568, 816)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @52
+			Parent_View 	@51
+			location   	(1856, 772)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF393034C"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	279
+			justify    	0
+			label      	"onMessage( )"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@37
+		    supplier   	@34
+		    Focus_Src  	@39
+		    Focus_Entry 	@35
+		    origin     	(2192, 816)
+		    terminus   	(1520, 816)
+		    ordinal    	4)
+		(object InterMessView "" @53
+		    location   	(16, 544)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @54
+			Parent_View 	@53
+			location   	(1424, 500)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF3930345"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@37
+		    supplier   	@27
+		    Focus_Src  	@38
+		    Focus_Entry 	@29
+		    origin     	(2192, 544)
+		    terminus   	(656, 544)
+		    ordinal    	2)
+		(object InterMessView "" @55
+		    location   	(1552, 1936)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @56
+			Parent_View 	@55
+			location   	(1855, 1892)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF393034D"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@34
+		    supplier   	@37
+		    Focus_Src  	@35
+		    Focus_Entry 	@40
+		    origin     	(1519, 1936)
+		    terminus   	(2192, 1936)
+		    ordinal    	11)
+		(object InterMessView "" @57
+		    location   	(912, 928)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @58
+			Parent_View 	@57
+			location   	(1072, 884)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF3CD01A7"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	515
+			justify    	0
+			label      	"perfomRunSync(runType)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@34
+		    supplier   	@27
+		    Focus_Src  	@35
+		    Focus_Entry 	@30
+		    origin     	(1488, 928)
+		    terminus   	(656, 928)
+		    ordinal    	5)
+		(object SelfMessView "" @59
+		    location   	(16, 1072)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @60
+			Parent_View 	@59
+			location   	(868, 1031)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF3D901C2"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	456
+			justify    	0
+			label      	"calculateRun(runType)"
+			pctDist    	1.420000
+			height     	42
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@27
+		    supplier   	@27
+		    Focus_Src  	@30
+		    Focus_Entry 	@31
+		    origin     	(656, 1072)
+		    terminus   	(806, 1072)
+		    ordinal    	6)
+		(object InterMessView "" @61
+		    location   	(16, 1664)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @62
+			Parent_View 	@61
+			location   	(1071, 1620)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E4BF49102CA"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@27
+		    supplier   	@34
+		    Focus_Src  	@30
+		    Focus_Entry 	@36
+		    origin     	(655, 1664)
+		    terminus   	(1488, 1664)
+		    ordinal    	10)
+		(object InterMessView "" @63
+		    location   	(816, 1280)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @64
+			Parent_View 	@63
+			location   	(1041, 1232)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E7B98D501C7"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	662
+			justify    	0
+			label      	"generate(runType, affiliates, stream)"
+			pctDist    	0.925659
+			height     	48
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@27
+		    supplier   	@41
+		    Focus_Src  	@32
+		    Focus_Entry 	@42
+		    origin     	(655, 1280)
+		    terminus   	(1072, 1280)
+		    ordinal    	7)
+		(object InterMessView "" @65
+		    location   	(16, 1328)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @66
+			Parent_View 	@65
+			location   	(864, 1280)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E7B98D9009F"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@41
+		    supplier   	@27
+		    Focus_Src  	@42
+		    Focus_Entry 	@33
+		    origin     	(1072, 1328)
+		    terminus   	(656, 1328)
+		    ordinal    	8)
+		(object InterMessView "" @67
+		    location   	(16, 1520)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @68
+			Parent_View 	@67
+			location   	(1759, 1476)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E6684E20393"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	1201
+			justify    	0
+			label      	"UPDATE Aff_Organizations set mbr_annual_card_run_done_fg = 1"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@27
+		    supplier   	@43
+		    Focus_Src  	@30
+		    Focus_Entry 	@44
+		    origin     	(655, 1520)
+		    terminus   	(2864, 1520)
+		    ordinal    	9)))))

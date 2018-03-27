@@ -1,0 +1,13 @@
+document.write('								<OPTION value="-1"></OPTION>');
+document.write('								<OPTION value="0">January</OPTION>');
+document.write('								<OPTION value="1">February</OPTION>');
+document.write('								<OPTION value="2">March</OPTION>');
+document.write('								<OPTION value="3">April</OPTION>');
+document.write('								<OPTION value="4">May</OPTION>');
+document.write('								<OPTION value="5">June</OPTION>');
+document.write('								<OPTION value="6">July</OPTION>');
+document.write('								<OPTION value="7">August</OPTION>');
+document.write('								<OPTION value="8">September</OPTION>');
+document.write('								<OPTION value="9">October</OPTION>');
+document.write('								<OPTION value="10">November</OPTION>');
+document.write('								<OPTION value="11">December</OPTION>');

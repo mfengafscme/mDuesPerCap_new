@@ -1,0 +1,488 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Power Affiliate Search</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+<SCRIPT language="JavaScript">
+	function pageInitialize(form) {
+		var field = initializeFocus();
+		forceTab(field);
+	}
+</SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="pageInitialize(document.form);">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Power Affiliate Search</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="AffiliateSearchResults.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT name="BasicSearchButton" type="BUTTON" class="BUTTON" value="Basic Search" onClick="parent.location='BasicAffiliateSearch.htm'"> 
+				<INPUT name="ResetButton" type="reset" class="BUTTON" value="Reset" onClick="parent.location='PowerAffiliateSearch.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" value="Submit" onClick="parent.location='AffiliateSearchResults.htm'" name="SubmitButton"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				Fields to Search: 
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="5" align="left">
+							Affiliate Identifier
+						</TH>
+					</TR>
+					<TR>
+						<TH width="14%">
+							Type 
+						</TH>
+						<TH width="14%">
+							Local/Sub Chapter
+						</TH>
+						<TH width="20%">
+							State/National Type 
+						</TH>
+						<TH width="14%">
+							Sub Unit
+						</TH>
+						<TH width="29%">
+							Council/Retiree Chapter 
+						</TH>
+					</TR>
+					<TR>
+						<INPUT type="hidden" name="affiliateCode">
+						<TD align="center" class="ContentTD">
+							<SELECT name="affiliateType" onBlur="lockAffiliateIDFields(this.form);" onChange="lockAffiliateIDFields(this.form);">
+								<OPTION></OPTION>
+								<OPTION>C</OPTION>
+								<OPTION selected>L</OPTION>
+								<OPTION>U</OPTION>
+								<OPTION>R</OPTION>
+								<OPTION>S</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateLocal" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<SELECT name="affiliateState">
+								<SCRIPT language="JavaScript" src="../js/state.js"></SCRIPT>
+								<OPTION value="98">NT</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateSubunit" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateCouncil" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="6">
+							<HR>
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="2" class="ContentHeaderTD">
+							<LABEL for="label_IncludeSubUnits"> Include Sub-Units</LABEL> 
+						</TD>
+						<TD class="smallFont">
+							<INPUT type="radio" name="IncludeSubUnits" id="label_IncludeSubUnits" value="Yes">
+							Yes 
+							<INPUT type="radio" name="IncludeSubUnits" id="label_IncludeSubUnits" value="No	" checked>
+							No 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TH colspan="2" align="left">
+				General Affiliate Information 
+			</TH>
+		</TR>
+		<TR>
+			<TD width="40%" valign="top">
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR valign="top">
+						<TD class="ContentHeaderTD" width="50%">
+							<LABEL for="label_AffiliateStatus"> Affiliate Status</LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="AffiliateStatus">
+								<OPTION></OPTION>
+								<OPTION value="Y">Yes, Chartered</OPTION>
+								<OPTION value="N">No, Not Chartered</OPTION>
+								<OPTION value="P">Pending Charter</OPTION>
+								<OPTION value="C">Complimentary Unit</OPTION>
+								<OPTION value="D">Deactivated</OPTION>
+								<OPTION value="M">Merged</OPTION>
+								<OPTION value="A">Administratorship</OPTION>
+								<OPTION value="S">Service Council</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_AFSCMELegislativeDistrict"> AFSCME Legislative District</LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="AFSCMELegislativeDistrict">
+								<OPTION value="NULL"></OPTION>
+								<OPTION value="01">Hawaiian District</OPTION>
+								<OPTION value="02">Northwestern District</OPTION>
+								<OPTION value="03">California District</OPTION>
+								<OPTION value="04">Southwestern District</OPTION>
+								<OPTION value="05">North-Central District</OPTION>
+								<OPTION value="06">Midwestern District</OPTION>
+								<OPTION value="07">Wisconsin District</OPTION>
+								<OPTION value="08">Michigan District</OPTION>
+								<OPTION value="09">Illinois District</OPTION>
+								<OPTION value="10">Central District</OPTION>
+								<OPTION value="11">Ohio District</OPTION>
+								<OPTION value="12">Northern New England District</OPTION>
+								<OPTION value="13">Southern New England District</OPTION>
+								<OPTION value="14">New York City District</OPTION>
+								<OPTION value="15">Civil Service Employees Assoc.</OPTION>
+								<OPTION value="16">New York State District</OPTION>
+								<OPTION value="17">Pennsylvania District</OPTION>
+								<OPTION value="18">Eastern District</OPTION>
+								<OPTION value="19">Capital District</OPTION>
+								<OPTION value="20">Southern District</OPTION>
+								<OPTION value="21">Carribean District</OPTION>
+								<OPTION value="22">Ohio CSEA District</OPTION>
+								<OPTION value="23">OAPSE District</OPTION>
+								<OPTION value="24">NUHHCE District</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_AFSCMERegion"> AFSCME Region</LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="AFSCMERegion" id="label_AFSCMERegion">
+								<OPTION></OPTION>
+								<OPTION>East</OPTION>
+								<OPTION>Central</OPTION>
+								<OPTION>West</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_MultipleEmployersFlag"> Multiple Employers</LABEL> 
+						</TD>
+						<TD class="smallFont">
+							<INPUT type="radio" name="MultipleEmployersFlag" id="label_MultipleEmployersFlag" value="yes">
+							Yes 
+							<INPUT type="radio" name="MultipleEmployersFlag" id="label_MultipleEmployersFlag" value="no">
+							No 
+							<INPUT type="radio" name="MultipleEmployersFlag" id="label_MultipleEmployersFlag" value="All">
+							All 
+						</TD>
+					</TR>
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_EmployerSector"> Employer Sector</LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="EmployerSector" id="label_EmployerSector">
+								<OPTION></OPTION>
+								<OPTION>State</OPTION>
+								<OPTION>County</OPTION>
+								<OPTION>Private Sector</OPTION>
+								<OPTION>City</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD valign="top">
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="40%" class="ContentHeaderTD">
+							<LABEL for="label_SubLocalFlag"> Sub-Local</LABEL> 
+						</TD>
+						<TD class="smallFont">
+							<INPUT type="radio" name="SubLocalFlag" id="label_SubLocalFlag" value="yes">
+							Yes 
+							<INPUT type="radio" name="SubLocalFlag" id="label_SubLocalFlag" value="no">
+							No 
+							<INPUT type="radio" name="SubLocalFlag" id="label_SubLocalFlag" value="all">
+							All 
+						</TD>
+					</TR>
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_NewUnitSource"> New Affiliate Identifier Source</LABEL> 
+						</TD>
+						<TD>
+							<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TH class="small">
+										Type 
+									</TH>
+									<TH class="small">
+										Loc/Sub Chap 
+									</TH>
+									<TH class="small">
+										State/Nat'l 
+									</TH>
+									<TH class="small">
+										Sub Unit 
+									</TH>
+									<TH class="small">
+										CN/Ret Chap 
+									</TH>
+								</TR>
+								<TR VALIGN="top">
+									<INPUT type="hidden" name="newUnitSourceCode">
+									<TD align="center" class="ContentTD">
+										<SELECT name="newUnitSourceType" onBlur="lockAffiliateIDFieldsByFields(newUnitSourceType, newUnitSourceLocal, newUnitSourceState, newUnitSourceSubunit, newUnitSourceCouncil);" onChange="lockAffiliateIDFieldsByFields(newUnitSourceType, newUnitSourceLocal, newUnitSourceState, newUnitSourceSubunit, newUnitSourceCouncil);">
+											<OPTION></OPTION>
+											<OPTION>C</OPTION>
+											<OPTION selected>L</OPTION>
+											<OPTION>U</OPTION>
+											<OPTION>R</OPTION>
+											<OPTION>S</OPTION>
+										</SELECT> 
+									</TD>
+									<TD align="center" class="ContentTD">
+										<INPUT type="text" name="newUnitSourceLocal" value="" size="4" maxlength="4"> 
+									</TD>
+									<TD align="center" class="ContentTD">
+										<SELECT name="newUnitSourceState">
+											<SCRIPT language="JavaScript" src="../js/state.js"></SCRIPT>
+											<OPTION value="98">NT</OPTION>
+										</SELECT> 
+									</TD>
+									<TD align="center" class="ContentTD">
+										<INPUT type="text" name="newUnitSourceSubunit" value="" size="4" maxlength="4"> 
+									</TD>
+									<TD align="center" class="ContentTD">
+										<INPUT type="text" name="newUnitSourceCouncil" value="" size="4" maxlength="4"> 
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_MultipleOfficesFlag"> Multiple Offices</LABEL> 
+						</TD>
+						<TD class="smallFont">
+							<INPUT type="radio" name="MultipleOfficesFlag" id="label_MultipleOfficesFlag" value="yes">
+							Yes 
+							<INPUT type="radio" name="MultipleOfficesFlag" id="label_MultipleOfficesFlag" value="no">
+							No 
+							<INPUT type="radio" name="MultipleOfficesFlag" id="label_MultipleOfficesFlag" value="all">
+							All 
+						</TD>
+					</TR>
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_AffiliateWebsite"> Affiliate Website</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="AffiliateWebsite" value="" id="label_AffiliateWebsite" size=25> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="6" align="left">
+							Addresses 
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Attention
+						</TD>
+						<TD class="ContentTD" COLSPAN="5">
+							<INPUT type="text" name="Attention" value="" size="75" maxlength="75"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address1">Address 1</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="Address1" value="" id="label_Address1" size="50" maxlength="50"> 
+						</TD>
+						<TD class="contentheadertd">
+							<LABEL for="label_Address2">Address 2</LABEL> 
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							<INPUT type="text" name="Address2" value="" id="label_Address2" size="50" maxlength="50"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD width="12%" class="ContentHeaderTD">
+							<LABEL for="label_City">City</LABEL> 
+						</TD>
+						<TD width="35%">
+							<INPUT type="text" name="City" value="" id="label_City" size=25 maxlength=25> 
+						</TD>
+						<TD width="18%" class="ContentHeaderTD">
+							<LABEL for="label_state">State</LABEL> 
+						</TD>
+						<TD width="15%">
+							<SELECT name="state" id="label_state">
+								<SCRIPT language="JavaScript">var selected = "";</SCRIPT>
+								<SCRIPT language="JavaScript" src="../js/state_select.js"></SCRIPT>
+							</SELECT> 
+						</TD>
+						<TD width="10%" class="ContentHeaderTD">
+							<LABEL for="label_ZipCode">Zip/Postal Code</LABEL> 
+						</TD>
+						<TD width="10%" >
+							<INPUT type="text" name="Zip" value="" id="label_ZipCode" size="5" maxlength="5"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_County"> County</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="County" value="" id="label_County" size=25 maxlength=25> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Province"> Province</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="Province" value="" id="label_Province" size=25 maxlength=25> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Country"> Country</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="Country" id="label_Country">
+								<OPTION selected></OPTION>
+								<OPTION value="USA">Unites States of America</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_LastUpdated"> Last Updated </LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="AddressLastUpdate" value="" id="label_LastUpdated" size=10> 
+							<A href="javascript:show_calendar('searchform.AddressLastUpdate');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"><IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></A> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_AddressUpdatedBy">Updated By</LABEL> 
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							<INPUT type="text" name="AddressUpdatedBy" value="" id="label_AddressUpdatedBy" size=10 maxlength=10> 
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="6">
+							<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TH align="left" colspan="6">
+										Phone Numbers
+									</TH>
+								</TR>
+								<TR>
+									<TH width="15%" class="small">
+										Code
+									</TH>
+									<TH width="15%" class="small">
+										Country Code
+									</TH>
+									<TH width="15%" class="small">
+										Area Code
+									</TH>
+									<TH width="25%" class="small">
+										Number
+									</TH>
+								</TR>
+								<TR>
+									<TD align="center">
+										Office
+									</TD>
+									<TD align="center">
+										<INPUT name="phonecountrycode" id="label_phone" size="2" maxlength="2"> 
+									</TD>
+									<TD align="center">
+										<INPUT name="phoneareacode" onKeyUp="return autoTab(this, 3, event);" size="3" maxlength="3"> 
+									</TD>
+									<TD align="center">
+										<INPUT name="phone1" size="7" maxlength="7"> 
+									</TD>
+								</TR>
+								<TR>
+									<TD align="center">
+										Fax
+									</TD>
+									<TD align="center">
+										<INPUT name="faxcountrycode" id="label_fax" size="2" maxlength="2"> 
+									</TD>
+									<TD align="center">
+										<INPUT name="faxareacode" onKeyUp="return autoTab(this, 3, event);" size="3" maxlength="3"> 
+									</TD>
+									<TD align="center">
+										<INPUT name="fax" size="7" maxlength="7"> 
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT name="BasicSearchButton2" type="BUTTON" class="BUTTON" value="Basic Search" onClick="parent.location='BasicAffiliateSearch.htm'"> 
+				<INPUT name="ResetButton2" type="reset" class="BUTTON" value="Reset" onClick="parent.location='PowerAffiliateSearch.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" value="Submit" onClick="parent.location='AffiliateSearchResults.htm'" name="SubmitButton"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

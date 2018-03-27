@@ -1,0 +1,418 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0109.2314"
+    charSet    	0)
+
+(object Class_Category "Common"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3DF8AC7D0398"
+    documentation 	"Contains common Data objects used by other packages."
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "RecordData"
+	    quid       	"3E2C086E0274"
+	    documentation 	"Contains 'record data' (auditing data) common to many objects."
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "pk"
+		    quid       	"3E2C088902A5"
+		    documentation 	"Primary key of the record"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "createdBy"
+		    quid       	"3E2C088902B9"
+		    documentation 	"primary key of the user that created the record"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "modifiedBy"
+		    quid       	"3E2C088902C3"
+		    documentation 	"primary key if the last user to modify the record"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "createdDate"
+		    quid       	"3E2C088902CD"
+		    documentation 	"date the record was created"
+		    type       	"java.sql.Timestamp"
+		    exportControl 	"Public")
+		(object ClassAttribute "modifiedDate"
+		    quid       	"3E2C088902D7"
+		    documentation 	"date the record was last modified"
+		    type       	"java.sql.Timestamp"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::common::RecordData"
+	    quidu      	"3EA6D47F0393"
+	    language   	"Java")
+	(object Class "CommentData"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"DisableAutoSync"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Final"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Static"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Strictfp"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateDefaultConstructor"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFinalizer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateStaticInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateInstanceInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateCode"
+		    value      	TRUE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"ReadOnly"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedExtends"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedImplements"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"ConstructorIs"
+		    value      	("Ctor_Set" 62)))
+	    quid       	"3E7F4A540233"
+	    documentation 	
+|Comment fields that are common to components that maintain a comment history.
+|
+|
+	    
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "date"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"IndividualChangeMgt"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"PropertyType"
+			    value      	("BeanProperty_Set" 71))
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Read/Write"
+			    value      	("Read/Write_Set" 81)))
+		    quid       	"3E7F4AB102B9"
+		    documentation 	
+|Date the comment was recorded.
+|
+|
+		    
+		    type       	"java.sql.Timestamp"
+		    exportControl 	"Public")
+		(object ClassAttribute "comment"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"IndividualChangeMgt"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"PropertyType"
+			    value      	("BeanProperty_Set" 71))
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Read/Write"
+			    value      	("Read/Write_Set" 81)))
+		    quid       	"3E7F4AB90365"
+		    documentation 	
+|The actual comment text.
+|
+		    
+		    type       	"String"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::common::CommentData"
+	    quidu      	"3EA6D47F033A"
+	    language   	"Java")
+	(object Class "PhoneData"
+	    quid       	"3E91B920037D"
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "countryCode"
+		    quid       	"3E91BB0E005C"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "areaCode"
+		    quid       	"3E91BB460020"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "phoneNumber"
+		    quid       	"3E91BB6D0207"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "phoneBadFlag"
+		    quid       	"3E91BCB7031A"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "phoneBadDate"
+		    quid       	"3E91BCCB007A"
+		    type       	"Date"
+		    exportControl 	"Public")
+		(object ClassAttribute "phoneExtension"
+		    quid       	"3E91BE2403B5"
+		    type       	"String"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::common::PhoneData"
+	    quidu      	"3EA6E0BF0017"
+	    language   	"Java")
+	(object Association "$UNNAMED$0"
+	    quid       	"3E91F56902CF"
+	    roles      	(list role_list
+		(object Role "theRecordData"
+		    quid       	"3E91F56A02B2"
+		    label      	"theRecordData"
+		    supplier   	"Logical View::Common::RecordData"
+		    quidu      	"3E2C086E0274"
+		    client_cardinality 	(value cardinality "1")
+		    is_navigable 	TRUE)
+		(object Role "$UNNAMED$1"
+		    quid       	"3E91F56A02EE"
+		    supplier   	"Logical View::Common::PhoneData"
+		    quidu      	"3E91B920037D"
+		    is_aggregate 	TRUE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"3DF8AC850353"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Common::CommentData" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(464, 320)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(206, 214)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	516
+			justify    	0
+			label      	"CommentData")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E7F4A540233"
+		    width      	534
+		    height     	236
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Common::RecordData" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1072, 1184)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(736, 1003)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	672
+			justify    	0
+			label      	"RecordData")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E2C086E0274"
+		    width      	690
+		    height     	386
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Common::PhoneData" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    ShowOperationSignature 	TRUE
+		    location   	(1072, 304)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(847, 84)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	450
+			justify    	0
+			label      	"PhoneData")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E91B920037D"
+		    width      	468
+		    height     	464
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object AssociationViewNew "$UNNAMED$0" @4
+		    location   	(1072, 763)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3E91F56902CF"
+		    roleview_list 	(list RoleViews
+			(object RoleView "theRecordData" @5
+			    Parent_View 	@4
+			    location   	(-544, 523)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @6
+				Parent_View 	@5
+				location   	(1031, 944)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	1
+				anchor_loc 	1
+				nlines     	1
+				max_width  	291
+				justify    	0
+				label      	"+theRecordData"
+				pctDist    	0.800000
+				height     	42
+				orientation 	1)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3E91F56A02B2"
+			    client     	@4
+			    supplier   	@2
+			    line_style 	3
+			    origin_attachment 	(1072, 763)
+			    terminal_attachment 	(1072, 991)
+			    label      	(object SegLabel @7
+				Parent_View 	@5
+				location   	(1126, 968)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				anchor     	2
+				anchor_loc 	1
+				nlines     	1
+				max_width  	15
+				justify    	0
+				label      	"1"
+				pctDist    	0.900000
+				height     	54
+				orientation 	0))
+			(object RoleView "$UNNAMED$1" @8
+			    Parent_View 	@4
+			    location   	(-544, 523)
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    quidu      	"3E91F56A02EE"
+			    client     	@4
+			    supplier   	@3
+			    line_style 	3
+			    origin_attachment 	(1072, 763)
+			    terminal_attachment 	(1072, 536))))))))

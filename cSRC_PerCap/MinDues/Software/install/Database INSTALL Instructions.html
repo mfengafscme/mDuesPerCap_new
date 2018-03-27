@@ -1,0 +1,123 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+  <style type="text/css">
+	ol li {padding-top: 1em; padding-bottom: .1em}
+	pre {padding: .3em; border: thin #000000; background-color: #eeeeee}
+	.file { font-weight: bold; color: #000044 }
+	code {color: #884444}
+  </style>
+  <title>AFSCME Enterprise Database Installation</title>
+</head>
+<body>
+<h1> AFSCME Enterprise Database Installation </h1>
+<h2> 			Overview </h2>
+This document describes the procedure for installing the AFSCME Enteprise Application Database.
+<h2> 			Database Server </h2>
+<h3> System Requirements </h3>
+<ul>
+  <li> Windows 2000 </li>
+  <li> MS SQL Server 2000 </li>
+  <li> WinZip </li>
+</ul>
+<h3> Files needed </h3>
+<ul>
+  <li> <span class="file">eap_db_install.zip</span> </li>
+  <li> <span class="file">JMail.exe</span> </li>
+</ul>
+<h3> Preparation </h3>
+<ul>
+	<li>Create a SQL Server login that will be used to install the
+		application.  This login should have permission to <code>CREATE</code>
+		and <code>DROP</code> databases, and to run <code>sp_droptask</code> and <code>sp_addtask</code>
+		on msdb</li>
+	<li>Create a SQL Server login that will be used to access the database
+		from the application server.  This login should have permission to 
+		<code>SELECT</code>,<code>UPDATE</code>,<code>INSERT</code>
+		and <code>DELETE</code> on the application database.  The login created for the install can be used.</li>
+</ul>
+<h3> Steps </h3>
+		These steps are need to be performed on a machine that has the SQL
+Server client tools installed, specifically <span class="file">isql.exe</span>.
+This can be the SQL Server machine itself.
+<ol>
+	<li> Install JMail
+		<ul>
+			<li>Run <span class="file">JMail.exe</span> and follow the instructions. </li>
+		</ul>
+	</li>
+	<li>Ensure <span class="file">isql.exe</span> is in the path by running <code>isql -?</code> from a command 
+  		prompt.  If it is not found, add it to the path in Control Panel / System / Advanced / Environment
+		Variables. <span class="file">(Not necessary if loading production database WITH Migrated Data)</span>
+	</li>
+	<li>Unzip <span class="file">eap_db_install.zip</span> to a directory on this machine. <span class="file">(Not necessary if loading production database WITH Migrated Data)</span>
+	</li>
+	<li>Prepare the environment to run install scripts <span class="file">(Not necessary if loading production database WITH Migrated Data)</span>
+		<ul>
+      		<li>Open a command prompt to the directory where the install files were unzipped to. </li>
+			<li>Set local variables for the database server, name of the database, username, and password, like this:
+		        <pre>set AFSCME_DB_SERVER=theserver<br>set AFSCME_DB_USER=afscme<br>set AFSCME_DB_PASSWORD=emcsfa<br>set AFSCME_DB_NAME=afscme_oltp<br></pre>
+					These values should match the values used in configuring the <span class="file">mssql-ds.xml</span> file above.
+			</li>
+		</ul>
+	<li>Create the database using appropriate install process/script. 				
+		<ul>
+			<li>To create a production database WITH Migrated Data, follow these instructions:
+				<ul>
+					<li>Unzip the database to a directory on this machine. 
+					</li>
+					<li>Create a database called <span class="file">afscme_oltp</span>.
+					</li>
+					<li>Restore the database using the From Device option, Select Device as the file created from the unzip
+						and set the Option to Force restore over existing database.
+					</li>
+					<li>Set the access to this database by granting permission for DB Owner to the user name the
+						application will use to access the OLTP database..
+					</li>
+					<li>Update the <span class="file">COM_App_Config_Data</span> table to change the 
+						<code>variable_value</code> to the name of the SMTP Server. 				
+					</li>
+				</ul>
+			</li>
+			<li style="list-style-type: none; list-style-position: outside; list-style-image: none;">
+						...OR... 	
+			</li>
+			<li>To create a production database, with no data (no members/affiliates etc..), follow these instructions:
+				<ul>
+					<li>In the <span class="file">insertCOMAppTables.sql</span> for section "INSERT MASS CHANGE CONFIG DATA RECORDS", change the <code>variable_value</code> to the name of the SMTP Server. 				
+					</li>
+					<li>Run <span class="file">installProductionDB.cmd</span>.
+					</li>
+				</ul>
+			</li>
+			<li style="list-style-type: none; list-style-position: outside; list-style-image: none;">
+						...OR... 					
+			</li>
+			<li>To create a testing database, with the test data used in development, follow these instructions:
+				<ul>
+					<li>In the <span class="file">insertCOMAppTables.sql</span> for section "INSERT MASS CHANGE CONFIG DATA RECORDS", change the <code>variable_value</code> to the name of the SMTP Server. 				
+					</li>
+					<li>Run <span class="file">installTestDB.cmd</span>.
+					</li>
+				</ul>
+			</li>
+			<li style="list-style-type: none; list-style-position: outside; list-style-image: none;">
+						...OR... 
+			</li>
+			<li>To create a testing database quickly, with only 4 states, follow these instructions:
+				<ul>
+					<li>In the <span class="file">insertCOMAppTables.sql</span> for section "INSERT MASS CHANGE CONFIG DATA RECORDS", change the <code>variable_value</code> to the name of the SMTP Server. 				
+					</li>
+					<li>Run <span class="file">installDB.cmd</span>.
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</li>
+	<li>Verify that <b>SQL Server Agent</b> is started automatically as a service. 				
+	</li>
+	<li>Adjust <b>tempdb</b> to 500 MB with a maximum of 1 GB and <b>templog</b> to 100 MB with a maximum of 500 MB. 				
+	</li>
+</ol>
+</body>
+</html>

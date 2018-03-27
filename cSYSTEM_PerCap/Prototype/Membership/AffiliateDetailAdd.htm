@@ -1,0 +1,369 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Affiliate Detail - Add</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+<SCRIPT language="JavaScript">
+	function pageInitialize(form) {
+		form.EffectiveDateMonth.value = new Date().getMonth();
+		form.EffectiveDateYear.value = new Date().getFullYear();
+		initializeFocus();
+	}
+</SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="pageInitialize(document.form);">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Affiliate Detail - Add</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="AffiliateDetail.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="reset" class="BUTTON" name="ResetButton1" value="Reset" onClick="parent.location='AffiliateDetailAdd.htm'"> 
+				<INPUT type="button" class="BUTTON" name="CancelButton1" value="Cancel" onClick="parent.location='../Common/AfscmeMainMenu.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" name="SubmitButton1" value="Submit" onClick="parent.location='AffiliateDetail.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="6" align="left">
+							Affiliate Identifier 
+						</TH>
+					</TR>
+					<TR>
+						<TH width="17%">
+							* Type 
+						</TH>
+						<TH width="17%">
+							* Local/Sub Chapter 
+						</TH>
+						<TH width="24%">
+							* State/National Type 
+						</TH>
+						<TH width="17%">
+							* Sub Unit 
+						</TH>
+						<TH width="25%">
+							* Council/Retiree Chapter 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center" class="ContentTD">
+							<SELECT name="affiliateType" onBlur="lockAffiliateIDFields(this.form);" onChange="lockAffiliateIDFields(this.form);">
+								<OPTION></OPTION>
+								<OPTION>C</OPTION>
+								<OPTION>L</OPTION>
+								<OPTION>U</OPTION>
+								<OPTION>R</OPTION>
+								<OPTION>S</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateLocal" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<SELECT name="affiliateState">
+								<SCRIPT language="JavaScript" src="../js/state.js"></SCRIPT>
+								<OPTION value="98">NT</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateSubunit" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateCouncil" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="55%" class="ContentHeaderTD">
+							* Abbreviated Affiliate Name 
+						</TD>
+						<TD width="45%" class="ContentTD">
+							<INPUT type="text" name="AbbreviatedName" value="" size="29" maxlength="29"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD width="50%" class="ContentHeaderTD">
+							* Affiliate Status 
+						</TD>
+						<TD width="50%">
+							<SELECT name="AffiliateStatus">
+								<OPTION></OPTION>
+								<OPTION value="Y" selected>Chartered</OPTION>
+								<OPTION value="N">Not Chartered</OPTION>
+								<OPTION value="P">Pending Charter</OPTION>
+								<OPTION value="D">Deactivated</OPTION>
+								<OPTION value="M">Merged</OPTION>
+								<OPTION value="A">Restricted Administratorship</OPTION>
+								<OPTION value="U">Unrestricted Administratorship</OPTION>
+								<OPTION value="S">Administrative/Legislative Council</OPTION>
+								<OPTION value="C">Pending Deactivation</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD width="50%" class="ContentHeaderTD">
+							* Annual Card Run Type 
+						</TD>
+						<TD width="50%">
+							<SELECT name="AnnualCardRunType">
+								<OPTION>[Select]</OPTION>
+								<OPTION>Regular Members</OPTION>
+								<OPTION>Retiree Members</OPTION>
+								<OPTION>CSEA Regular Members</OPTION>
+								<OPTION>CSEA Retiree Members</OPTION>
+								<OPTION>Puerto Rico Members</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD width="50%" valign="top">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD class="ContentHeaderTD">
+							AFSCME Legislative District 
+						</TD>
+						<TD>
+							<SELECT name="AFSCMELegislativeDistrict">
+								<OPTION value="NULL"></OPTION>
+								<OPTION value="01">Hawaiian District</OPTION>
+								<OPTION value="02">Northwestern District</OPTION>
+								<OPTION value="03">California District</OPTION>
+								<OPTION value="04">Southwestern District</OPTION>
+								<OPTION value="05">North-Central District</OPTION>
+								<OPTION value="06">Midwestern District</OPTION>
+								<OPTION value="07">Wisconsin District</OPTION>
+								<OPTION value="08">Michigan District</OPTION>
+								<OPTION value="09">Illinois District</OPTION>
+								<OPTION value="10">Central District</OPTION>
+								<OPTION value="11">Ohio District</OPTION>
+								<OPTION value="12">Northern New England District</OPTION>
+								<OPTION value="13">Southern New England District</OPTION>
+								<OPTION value="14">New York City District</OPTION>
+								<OPTION value="15">Civil Service Employees Assoc.</OPTION>
+								<OPTION value="16">New York State District</OPTION>
+								<OPTION value="17">Pennsylvania District</OPTION>
+								<OPTION value="18">Eastern District</OPTION>
+								<OPTION value="19">Capital District</OPTION>
+								<OPTION value="20">Southern District</OPTION>
+								<OPTION value="21">Carribean District</OPTION>
+								<OPTION value="22">Ohio CSEA District</OPTION>
+								<OPTION value="23">OAPSE District</OPTION>
+								<OPTION value="24">NUHHCE District</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							AFSCME Region 
+						</TD>
+						<TD>
+							<SELECT name="AFSCMERegion">
+								<OPTION></OPTION>
+								<OPTION>East</OPTION>
+								<OPTION>Central</OPTION>
+								<OPTION>West</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Multiple Employers 
+						</TD>
+						<TD>
+							<INPUT type="checkbox" name="MultipleEmployersFlag" id="MultipleEmployersFlag"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Sub-Locals Allowed
+						</TD>
+						<TD>
+							<INPUT type="checkbox" name="SubLocalFlag" id="SubLocalFlag"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TH colspan="2" align="left">
+				Charter Information 
+			</TH>
+		</TR>
+		<TR>
+			<TD colspan="2" class="ContentHeaderTD">
+				* Charter Name 
+			</TD>
+		</TR>
+		<TR>
+			<TD colspan="2" class="ContentHeaderTD">
+				<TEXTAREA name="CharterName" onKeyPress="" cols="115" rows="3"></TEXTAREA> 
+			</TD>
+		</TR>
+		<TR>
+			<TD colspan="2" class="ContentHeaderTD">
+				* Charter Jurisdiction 
+			</TD>
+		</TR>
+		<TR>
+			<TD colspan="2" class="ContentHeaderTD">
+				<TEXTAREA name="CharterJurisdiction" onKeyPress="" cols="115" rows="5"></TEXTAREA> 
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="45%" class="ContentHeaderTD">
+							* Charter Code 
+						</TD>
+						<TD width="55%" class="ContentTD">
+							<SELECT name="NewUnitSource">
+								<OPTION></OPTION>
+								<OPTION selected>New</OPTION>
+								<OPTION>Split</OPTION>
+								<OPTION>Merge</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							* Charter Date 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="CharterDateMonth">
+								<SCRIPT language="JavaScript" src="../js/month_options.js"></SCRIPT>
+							</SELECT> <INPUT type="text" name="CharterDateYear" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+				</TABLE>
+				<INPUT type="hidden" name="EffectiveDateMonth"> <INPUT type="hidden" name="EffectiveDateYear"> 
+			</TD>
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="40%" class="ContentHeaderTD">
+							County 
+						</TD>
+						<TD width="60%" class="ContentTD">
+							<INPUT type="text" name="County_1" value="" size="25"> *
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">&nbsp;
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="County_2" value="" size="25"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">&nbsp;
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="County_3" value="" size="25"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TH colspan="2" align="left">
+				Constitution Information 
+			</TH>
+		</TR>
+		<TR valign="top">
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="55%" class="ContentHeaderTD">
+							Approved Constitution 
+						</TD>
+						<TD width="45%">
+							<INPUT type="checkbox" name="ApprovedConstitutionFlag" value="" id="ApprovedConstitutionFlag"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Generate Default Offices 
+						</TD>
+						<TD>
+							<INPUT type="checkbox" name="defaultOffices" value=""> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="45%" class="ContentHeaderTD">
+							Affiliate Agreement Date 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="AffiliateAgreementDateMonth">
+								<SCRIPT language="JavaScript" src="../js/month_options.js"></SCRIPT>
+							</SELECT> <INPUT type="text" name="AffiliateAgreementDateYear" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="reset" class="BUTTON" name="ResetButton2" value="Reset" onClick="parent.location='AffiliateDetailAdd.htm'"> 
+				<INPUT type="button" class="BUTTON" name="CancelButton2" value="Cancel" onClick="parent.location='../Common/AfscmeMainMenu.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" name="SubmitButton2" value="Submit" onClick="parent.location='AffiliateDetail.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR><B><I>* Indicates Required Fields</I></B>
+				<BR>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

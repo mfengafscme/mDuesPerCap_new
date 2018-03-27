@@ -1,0 +1,3 @@
+This project also depends on the Xerces.jar and servlet.jar in the parent project.
+They are ommitted here to avoid redundancy when zipping up the project.
+Instead, the build.xml file references the jars in ../lib.

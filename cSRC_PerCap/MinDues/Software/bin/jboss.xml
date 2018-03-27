@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE jboss PUBLIC "-//JBoss//DTD JBOSS 2.4//EN" "http://www.jboss.org/j2ee/dtd/jboss_2_4.dtd">
+
+<jboss>
+
+   <enterprise-beans>
+
+      <session>
+         <ejb-name>MaintainUsers</ejb-name>
+         <local-jndi-name>MaintainUsers</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>FileQueue</ejb-name>
+         <local-jndi-name>FileQueue</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>Update</ejb-name>
+         <local-jndi-name>Update</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainPrivileges</ejb-name>
+         <local-jndi-name>MaintainPrivileges</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>ProcessReturnedMail</ejb-name>
+         <local-jndi-name>ProcessReturnedMail</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>BaseReport</ejb-name>
+         <local-jndi-name>BaseReport</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>ReportAccess</ejb-name>
+         <local-jndi-name>ReportAccess</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainPoliticalRebate</ejb-name>
+         <local-jndi-name>MaintainPoliticalRebate</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainPersonMailingLists</ejb-name>
+         <local-jndi-name>MaintainPersonMailingLists</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainPersons</ejb-name>
+         <local-jndi-name>MaintainPersons</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainParticipationGroups</ejb-name>
+         <local-jndi-name>MaintainParticipationGroups</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainOrganizations</ejb-name>
+         <local-jndi-name>MaintainOrganizations</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainOrgLocations</ejb-name>
+         <local-jndi-name>MaintainOrgLocations</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainOrgMailingLists</ejb-name>
+         <local-jndi-name>MaintainOrgMailingLists</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainMyInfo</ejb-name>
+         <local-jndi-name>MaintainMyInfo</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainMembers</ejb-name>
+         <local-jndi-name>MaintainMembers</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MassChange</ejb-name>
+         <local-jndi-name>MassChange</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>AccessControl</ejb-name>
+         <local-jndi-name>AccessControl</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainCodes</ejb-name>
+         <local-jndi-name>MaintainCodes</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>Cards</ejb-name>
+         <local-jndi-name>Cards</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainAffiliateStaff</ejb-name>
+         <local-jndi-name>MaintainAffiliateStaff</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainAffiliateOfficers</ejb-name>
+         <local-jndi-name>MaintainAffiliateOfficers</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>MaintainAffiliates</ejb-name>
+         <local-jndi-name>MaintainAffiliates</local-jndi-name>
+      </session>
+      <session>
+         <ejb-name>SystemAddress</ejb-name>
+         <local-jndi-name>SystemAddress</local-jndi-name>
+      </session>
+
+      <message-driven>
+         <ejb-name>ReportGeneratorMD</ejb-name>
+         <destination-jndi-name>queue/ReportGeneratorMD</destination-jndi-name>
+      </message-driven>
+      <message-driven>
+         <ejb-name>SystemEventReceiver</ejb-name>
+         <destination-jndi-name>queue/SystemEventReceiver</destination-jndi-name>
+      </message-driven>
+
+   </enterprise-beans>
+
+   <resource-managers>
+   </resource-managers>
+
+</jboss>

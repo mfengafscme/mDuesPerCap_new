@@ -1,0 +1,8 @@
+To open the model, you need to (if you already haven't) add CURDIR=& to your path map in Rose.  To do this:
+
+1) Open rose
+2) Go to File->Edit Path Map
+3) Type CURDIR as the symbol
+4) Type & as the actual path
+5) Click Add.
+6) Close and restart Rose.

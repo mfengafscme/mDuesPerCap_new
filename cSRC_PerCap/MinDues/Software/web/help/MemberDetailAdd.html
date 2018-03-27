@@ -1,0 +1,73 @@
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_header.js"></script>
+
+<TITLE>Help: Member Detail Add</TITLE>
+
+<H1>
+Member Detail Add Help 
+</H1>
+
+<BR/><BR/>
+
+This screen provides the user with the ability to add a new Member which includes adding 
+them as a new Person to the system. 
+
+<p>All required fields must be entered. 
+ 
+<p>The Affiliate Identifier must exist in the system.
+
+<p>The Affiliate must have a status of either Chartered, Not Chartered, Restricted 	
+Administratorship, or Unrestricted Administratorship to be valid.
+
+<p>The Member Type can only be ‘Retiree’ and ‘Retiree Spouse’ if Affiliate Type is ‘R’ or ‘S’. 
+
+<p>If the Person being added has a value entered for Social Security Number, the system 
+will check if that Social Security Number already exists. If it does already exist, 
+the system will show the Duplicate SSN Notifier screen before performing the requested action, 
+thus allowing the user to continue or cancel the action. If continuing the action, the records 
+that match are flagged as duplicates.
+
+<p>If the Affiliate Finder functionality is not used to build the fields of the Affiliate Identifier 
+and duplicate Affiliates are found for the data entered, the system will display the Duplicate Affiliate 
+Identifier Notifier Screen as part of the flow to allow the user to indicate the correct Affiliate. 
+Once the choice is made, the flow continues with the requested action.
+
+<p>If one of the Address fields is populated, the system will validate the following rules:
+<ul>
+	<li>If Country is Canada, the Province is required.</li>
+	<li>If one of the Phone fields is populated, then all of the remaining Phone fields are required.</li>
+</ul>
+
+<BR/><BR/>
+
+The following <U>Actions (links or buttons)</U> are available from this screen <U>depending on the 
+user's privileges set by the Admin functionality</U>.
+
+<BR/><BR/>
+
+<TABLE class="DataFONT" align="center" width="95%">
+    <TR valign="top">
+            <TD WIDTH="34%"><B><U>Submit (Button)	</U></B></TD>
+            <TD width="51%">The system validates and saves new Member data.</TD>
+    </TR>            
+
+    <TR valign="top">
+            <TD WIDTH="34%"><B><U>Submit & Add Another (Button)	</U></B></TD>
+            <TD width="51%">The system validates and saves new Member data, and allows the user
+			 to enter another Member.</TD>
+    </TR>            
+
+    <TR valign="top">
+            <TD WIDTH="34%"><B><U>Reset (Button)	</U></B></TD>
+            <TD width="51%">The system clears any changes made to the screen returning it to 
+			its original content.</TD>
+    </TR>            
+
+    <TR valign="top">
+            <TD WIDTH="34%"><B><U>Cancel (Button)	</U></B></TD>
+            <TD width="51%">The system returns to the detail screen from which the 
+			Member Detail Functional Specification was initiated</TD>
+    </TR>            
+   
+</TABLE>
+
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_footer.js"></script>

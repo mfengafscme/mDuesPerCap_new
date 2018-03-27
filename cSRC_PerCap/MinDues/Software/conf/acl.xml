@@ -1,0 +1,823 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE config [
+<!ELEMENT privilege (action)*>
+<!ATTLIST privilege key CDATA #REQUIRED>
+<!ELEMENT action EMPTY>
+<!ATTLIST action name CDATA #REQUIRED>
+<!ELEMENT config (privilege)+>
+]>
+<config>
+
+   <!-- **************************** -->   
+   <!-- BEGIN GLOBAL USER PRIVILEGES -->
+   <!-- **************************** -->   
+   <!-- The following privileges are not determined by user role, -->  
+   <!-- but instead assigned automatically based on other criteria. -->
+   <!-- User privilege is given to all users -->
+   <privilege key="User">
+      <action name="requestPassword"/>
+      <action name="editAccountInfo"/>
+   </privilege>
+   <!-- AFSCMEUser is assigned at runtime if the user is an AFSCME International staff member (i.e., they have a Department) -->
+   <privilege key="AFSCMEUser">
+      <action name="viewPersonalInformation"/>
+      <action name="editPersonalInformation"/>
+      <action name="leaveDataUtility"/>
+      <action name="showMain"/>
+   </privilege>
+   <!-- DataUtility is assigned at runtime if the user has rights to use the data utility as an affiliate -->
+   <privilege key="DataUtilityUser">
+      <action name="selectAffiliate"/>
+      <action name="selectAffiliateSearch"/>
+      <action name="showMain"/>
+   </privilege>
+   <!-- Determined by the members affiliate.  AFSCME International staff always have this privilege -->
+   <privilege key="ViewPersonalInformation">
+      <action name="viewMyInfo"/>
+   </privilege>
+   <!-- Determined by the members affiliate.  AFSCME International staff always have this privilege -->
+   <!-- This Privilege is hard coded in ActionPrivileges.java among other pieces of code and therefore cannot be changed -->
+   <privilege key="EditPersonalInformation">
+   	<action name="editMyInfo"/>
+   	<action name="addPhoneNumber"/>
+   	<action name="saveMyInfo"/>
+   	<action name="savePhoneNumberMyInfo" />
+   </privilege>
+   <!-- Determined by the members affiliate.  AFSCME International staff always have this privilege -->
+   <privilege key="MultipleAffiliates">
+      <action name="switchAffiliate"/>
+   </privilege>
+   <!-- **************************** -->   
+   <!-- END GLOBAL USER PRIVILEGES -->
+   <!-- **************************** -->      
+   
+   
+   <!-- *********************** -->   
+   <!-- BEGIN SYSTEM PRIVILEGES -->
+   <!-- *********************** -->
+   <privilege key="MaintainUsers">
+      <action name="editUser"/>
+      <action name="saveUser"/>
+      <action name="selectRoles"/>
+      <action name="selectUserAffiliatesSearch"/>
+      <action name="saveUserAffiliatesSelection"/>
+   </privilege>
+   <privilege key="MaintainPrivileges">
+      <action name="listRoles"/>
+      <action name="editRole"/>
+      <action name="deleteRole"/>
+      <action name="saveRole"/>
+      <action name="selectReportPrivileges"/>
+      <action name="selectFieldPrivileges"/>
+      <action name="selectPrivileges"/>
+   </privilege>
+   <privilege key="MaintainCodes">
+      <action name="listCodeTypes"/>
+      <action name="editCodeType"/>
+      <action name="saveCodeType"/>
+      <action name="deleteCodeType"/>
+      <action name="editCode"/>
+      <action name="saveCode"/>
+      <action name="deleteCode"/>
+   </privilege>
+   <privilege key="MaintainMemberPrivileges">
+      <action name="editMemberPrivileges"/>
+      <action name="saveMemberPrivileges"/>
+   </privilege>   
+   <!-- Maintain Queries Privileges -->
+   <privilege key="MaintainQueries">
+      <action name="listQueries"/>
+      <action name="editQuery"/>
+      <action name="deleteQuery"/>
+      <action name="addQuery"/>
+      <action name="outputFields"/>
+      <action name="outputFieldsOrder"/>
+      <action name="selectionCriteriaFields"/>
+      <action name="selectionCriteria"/>
+      <action name="sortCriteriaFields"/>
+      <action name="sortCriteria"/>
+      <action name="previewQuery"/>
+      <action name="addCriterion"/>
+      <action name="removeCriterion"/>
+   </privilege>
+   <!-- Generate Reports Privileges -->
+   <privilege key="GenerateReports">
+      <action name="listRegularReports"/>
+      <action name="showRegularOutputFormat"/>
+      <action name="startRegularReportGeneration"/>
+      <action name="addRegularRuntimeCriterion"/>
+      <action name="removeRegularRuntimeCriterion"/>
+      <action name="regularGenerate"/>
+      <action name="onScreenGeneration"/>
+      <action name="saveAsGeneration"/>
+      <!-- specialized reports -->
+      <action name="startSpecializedReportGeneration"/>
+      <action name="enrichedDataReportOutputFormat"/>
+      <action name="runSpecializedReport"/>
+      <action name="nameCountReport"/>
+      <action name="prbApplicationFileReport"/>
+      <action name="rebateCheckFileReport"/>
+      <action name="preliminaryRosterReport"/>
+      <action name="viewPreliminaryRosterAffiliate"/>
+      <action name="mailingListReport"/>
+      <action name="orgMailingListReport"/>
+      <action name="officerCredentialCardsReport"/>
+      <action name="membershipActivityReport"/>
+      <action name="affiliateCounByStatusReport"/>
+      <action name="officerExpirationReport"/>
+      <action name="membershipBatchUpdateReport"/>
+      <action name="officerStatisticalSummaryReport"/>
+      <action name="officerStatisticalSunmmaryDetailReport"/>
+      <action name="recentlyElectedPresidentsReport"/>
+      <action name="recentlyElectedTreasurersReport"/>
+      <action name="membershipRosterReport"/>
+      <action name="invalidAddressForROReport"/>
+      <action name="nonMailableRosterReport"/>
+      <action name="ncoaAcsReport"/>
+   </privilege>
+   <!-- Generate Mailing List Privileges -->
+   <privilege key="GenerateMailingList">
+      <action name="listMailingReports"/>
+      <action name="showMailingOutputFormat"/>
+      <action name="startMailingReportGeneration"/>
+      <action name="addMailingRuntimeCriterion"/>
+      <action name="removeMailingRuntimeCriterion"/>
+      <action name="mailingGenerate"/>
+   </privilege>
+   <privilege key="MaintainMailingListInfo">
+      <action name="addMailingListsInformation"/>
+      <action name="deleteMailingListsInformation"/>
+      <action name="editMailingListsInformation"/>
+   </privilege>
+   <privilege key="ViewMailingListInfo">
+      <action name="viewMailingListsInformation"/>
+      <action name="viewMailingListsAddressAssociation"/>
+   </privilege>     
+   <!-- Upload Affiliate Data Privileges -->
+   <privilege key="UploadAffiliateFiles">
+      <action name="viewUploadAffiliateMember"/>
+      <action name="viewUploadAffiliateOfficer"/>
+      <action name="viewUploadAffiliateOfficer2"/>      
+      <action name="viewUploadAffiliateRebate"/>
+      <action name="uploadAffiliateMember"/>
+      <action name="uploadAffiliateOfficer"/>
+      <action name="uploadAffiliateRebate"/>
+   </privilege>
+   <privilege key="UploadInternationalFiles">
+      <action name="viewUploadParticipation"/>
+      <action name="uploadParticipation"/>
+   </privilege>
+   <privilege key="ProcessReturnedMail">
+      <action name="processReturnedMail"/>
+      <action name="processReturnedMailSummary"/>
+   </privilege>
+   <privilege key="Maintain12MonthRebateAmount">
+      <action name="view12MonthRebateAmount"/>
+      <action name="edit12MonthRebateAmount"/>
+      <action name="save12MonthRebateAmount"/>
+   </privilege>
+   <privilege key="MaintainApplyUpdate">
+      <action name="performMemberUpdate"/>
+      <action name="performOfficerUpdate"/>
+      <action name="performRebateUpdate"/>
+      <action name="viewApplyMemberRejectSummary"/>
+      <action name="viewApplyOfficerRejectSummary"/>
+      <action name="viewApplyUpdateMemberRejectSummary"/>
+      <action name="viewApplyUpdateOfficerRejectSummary"/>
+      <action name="viewApplyUpdateRebateRejectSummary"/>
+      <action name="viewApplyRebateRejectSummary"/>      
+   </privilege>
+   <privilege key="ViewApplyUpdate">
+      <action name="viewApplyUpdateQueue"/>
+      <action name="viewApplyUpdateMemberEditSummary"/>
+      <action name="viewApplyUpdateMemberExceptionDetail"/>
+      <action name="viewApplyUpdateMemberReviewSummary"/>
+      <action name="viewApplyUpdateOfficerEditDetailPerAffiliate"/>
+      <action name="viewApplyUpdateOfficerEditSummary"/>
+      <action name="viewApplyUpdateOfficerExceptionDetail"/>
+      <action name="viewApplyUpdateOfficerReviewSummary"/>
+      <action name="viewApplyUpdateRebateEditSummary"/>
+      <action name="viewApplyUpdateRebateExceptionDetail"/>
+      <action name="viewApplyUpdateRebateReviewSummary"/>
+      <action name="viewApplyUpdateRebateReviewExceptionDetail"/>      
+      <action name="viewApplyUpdateOfficerReviewExceptionDetail"/>
+      <action name="viewApplyUpdateRebateReviewExceptionDetail"/>          
+   </privilege>
+   <privilege key="PerformMassChange">
+      <action name="viewEnableMassChange"/>
+      <action name="saveEnableMassChange"/>
+   </privilege>
+   <privilege key="SearchApplyUpdateLog">
+      <action name="viewApplyUpdateProcessLog"/>
+      <action name="viewApplyUpdateSearchLog"/>
+   </privilege>
+   <privilege key="ScheduleNCOAUpdate">
+        <action name="initiateNcoaProcessing"/>
+   </privilege>      
+   <!-- ********************* -->   
+   <!-- END SYSTEM PRIVILEGES -->
+   <!-- ********************* -->      
+   
+   <!-- ************************** -->   
+   <!-- BEGIN AFFILIATE PRIVILEGES -->
+   <!-- ************************** -->          
+   <privilege key="ViewAffiliateOfficers" >
+      <action name="viewAffiliateOfficerMaintenance" />
+   </privilege>
+   <privilege key="MaintainAffiliateOfficers">    
+      <action name="editAffiliateOfficerMaintenance" />
+      <action name="saveAffiliateOfficerMaintenance" />   
+   </privilege>   
+   <privilege key="MaintainAffiliateDetail">
+      <action name="addAffiliateDetail"/>
+      <action name="editAffiliateDetail"/>
+      <action name="saveAffiliateDetailAdd"/>
+      <action name="saveAffiliateDetailEdit"/>
+   </privilege>
+   <privilege key="ViewAffiliateDetail">
+      <action name="viewAffiliateDetail"/>
+      <action name="viewAffiliateCommentHistory"/>
+   </privilege>
+   <privilege key="SearchAffiliate">
+      <action name="searchAffiliate"/>
+      <action name="viewBasicAffiliateCriteria"/>
+      <action name="searchAffiliateFinder"/>
+   </privilege>
+   <privilege key="SearchPowerAffiliate">
+      <action name="searchPowerAffiliate"/>
+      <action name="viewPowerAffiliateCriteria"/>
+      <action name="searchAffiliateFinder"/>
+   </privilege>
+   <privilege key="MaintainAffiliateOfficerTitles">
+      <action name="addOfficerTitle"/>
+      <action name="removeOfficerTitle"/>
+      <action name="editOfficerTitles"/>
+      <action name="saveOfficerTitlesEdit"/>
+   </privilege>
+   <privilege key="MaintainAffiliateStaffDetail">
+      <action name="editAffiliateStaff"/>
+      <action name="removeAffiliateStaff"/>
+      <action name="removeLocalServiced"/>
+      <action name="saveAffiliateStaff"/>
+      <action name="verifyStaff"/>
+      <action name="viewAddLocalServiced"/>
+      <action name="viewAffiliateStaff"/>
+      <action name="viewPersonStaff"/>
+      <action name="viewStaffCommentHistory"/>
+      <action name="viewStaffMaintainence"/>
+      <action name="viewVerifyStaff"/>
+      <action name="addLocalServiced"/>
+   </privilege>   
+   <privilege key="MaintainCharterInfo">
+      <action name="editCharterInformation"/>
+      <action name="saveCharterInformation"/>
+      <action name="addCouncilAffiliation"/>
+      <action name="saveCouncilAffiliation"/>
+      <action name="deleteCouncilAffiliation"/>
+   </privilege>
+   <privilege key="MaintainConstitutionInfo">
+      <action name="editConstitutionInformation"/>
+      <action name="saveConstitutionInformation"/>
+   </privilege>   
+   <privilege key="MaintainFinancialInfo">
+      <action name="saveFinancialInformation"/>
+      <action name="editFinancialInformation"/>
+   </privilege>
+   <privilege key="MaintainMembershipReportingInfo">
+      <action name="editMembershipReportingInformation"/>
+      <action name="saveMembershipReportingInformation"/>
+   </privilege>
+  <privilege key="ViewAffiliateChangeHistory">
+      <action name="searchAffiliateChangeHistory"/>
+      <action name="viewAffiliateChangeHistoryCriteria"/>
+      <action name="viewAffiliateChangeHistoryDetail"/>
+   </privilege>
+   <privilege key="ViewAffiliateOfficerTitles">
+  	<action name="viewOfficerTitles" />
+  	<action name="viewOfficerTitlesCommentHistory" />  	
+   </privilege>
+    <privilege key="ViewOfficerHistory">
+  	<action name="viewOfficerHistoryForAffiliate" /> 	
+   </privilege>
+   <privilege key="ViewAffiliateStaffInfo">
+	 <action name="viewAffiliateStaff"/>
+	 <action name="viewStaffMaintainence"/>         
+   </privilege>
+   <privilege key="ViewCharterInfo">
+      <action name="viewCharterInformation"/>
+   </privilege>
+   <privilege key="ViewCommentHistory">
+      <action name="viewCommentHistory"/>
+   </privilege>
+   <privilege key="ViewConstitutionInfo">
+      <action name="viewConstitutionInformation"/>
+   </privilege>
+   <privilege key="ViewFinancialInfo">
+      <action name="viewFinancialInformation"/>
+   </privilege>
+   <privilege key="ViewMembershipReportingInfo">
+      <action name="viewMembershipReportingInformation"/>
+   </privilege>
+   <!-- ************************ -->   
+   <!-- END AFFILIATE PRIVILEGES -->
+   <!-- ************************ -->      
+   
+   
+   <!-- *********************** -->   
+   <!-- BEGIN MEMBER PRIVILEGES -->
+   <!-- *********************** --> 
+   <privilege key="MaintainAnnualMemberCardRun"/>
+   <privilege key="ViewAnnualMemberCardRun"/>    
+   <privilege key="SearchVendorMember">
+      <action name="searchVendorMembers"/>
+      <action name="viewVendorMemberCriteria"/>
+      <action name="searchAffiliateFinder"/>
+   </privilege>    
+   <privilege key="MaintainMemberDetail">
+	<action name="addMemberDetail"/>   
+	<action name="editMemberDetail"/>
+	<action name="saveMemberDetail"/>	
+	<action name="viewDuplicateSSNNotifierPerson"/>	
+        <action name="cancelSavePerson"/>	
+	<action name="continueSavePerson"/>
+	<action name="viewVerifyMember"/>	
+	<action name="verifyMember"/>	
+        <action name="saveMemberDetailAdd"/>
+	<action name="saveMemberDetailAddAffiliation"/>
+	<action name="viewMemberDetailAddAffiliation"/>
+	<action name="viewMemberCommentHistory"/>
+   </privilege>
+   <privilege key="MaintainEmployerInfo">
+	<action name="editEmployerInformation"/>
+	<action name="saveEmployerInformation"/>
+   </privilege>
+   <privilege key="MaintainMemberAffiliateInfo">
+	<action name="editMemberAffiliateInformation"/>
+	<action name="saveMemberAffiliateInformation"/>
+	<action name="generateMbrCard"/>
+   </privilege>
+   <privilege key="MaintainParticipationDetail">
+      <action name="editParticipationDetail"/>
+      <action name="saveParticipationDetail"/>
+      <action name="addParticipationDetail"/>
+      <action name="saveParticipationDetailAdd"/>
+      <action name="deleteParticipationDetail"/>
+   </privilege>
+   <privilege key="ViewParticipationGroups">
+      <action name="viewParticipationGroupMaintenance"/>
+      <action name="viewParticipationGroup"/>
+   </privilege>   
+   <privilege key="MaintainParticipationGroups">
+      <action name="addParticipationGroup"/>
+      <action name="addParticipationGroupDetail"/>      
+      <action name="addParticipationGroupOutcome"/>      
+      <action name="addParticipationGroupType"/>
+      <action name="saveParticipationGroup"/>
+      <action name="saveParticipationGroupDetail"/>      
+      <action name="saveParticipationGroupOutcome"/>      
+      <action name="saveParticipationGroupType"/>
+      <action name="viewExportParticipationCodes"/>
+      <action name="saveExportParticipationCodes"/>
+   </privilege>
+  <privilege key="SearchMember">
+      <action name="searchMembers"/>
+      <action name="viewBasicMemberCriteria"/>
+   </privilege>
+   <privilege key="SearchPowerMember">
+      <action name="viewPowerMemberCriteria"/>
+      <action name="searchMembers"/>
+   </privilege>
+   <privilege key="ViewEmployerInfo">
+      <action name="viewEmployerInformation"/>  
+   </privilege>
+   <privilege key="ViewMemberAffiliateInfo">
+   	<action name="viewMemberAffiliateInformation"/>
+   </privilege>
+   <privilege key="ViewMemberDetail">
+      <action name="viewMemberDetail"/>
+   </privilege> 
+   <privilege key="ViewParticipationDetail">
+      <action name="viewParticipationSummary"/>
+      <action name="viewParticipationDetail"/>
+   </privilege>   
+   <!-- ********************* -->   
+   <!-- END MEMBER PRIVILEGES -->
+   <!-- ********************* -->    
+   
+   
+   <!-- *********************** -->   
+   <!-- BEGIN PERSON PRIVILEGES -->
+   <!-- *********************** -->     
+  <privilege key="ViewPersonDetail">
+      <action name="viewPersonDetail"/>
+   </privilege>
+   <privilege key="MaintainPersonDetail">
+      <action name="addPersonDetail"/>
+      <action name="editPersonDetail"/>
+      <action name="savePersonDetail"/>      
+      <action name="viewDuplicateSSNNotifierPerson"/>
+      <action name="cancelSavePerson"/>      
+      <action name="continueSavePerson"/>
+      <action name="viewVerifyPerson"/>      
+      <action name="verifyPerson"/>
+      <action name="savePersonDetailAdd"/>
+   </privilege>
+   <privilege key="MaintainAddressInfo">
+      <action name="deletePersonAddress"/>
+      <action name="editPersonAddress"/>
+      <action name="savePersonAddress"/>
+   </privilege> 
+   <privilege key="MaintainEmailAddressInfo">
+      <action name="deleteEmailAddresses"/>
+      <action name="editEmailAddresses"/>
+      <action name="saveEmailAddresses"/>
+   </privilege>
+   <privilege key="MaintainPhoneNumberInfo">
+      <action name="addPhoneNumber"/>
+      <action name="deletePhoneNumber"/>
+      <action name="editPhoneNumber"/>
+      <action name="savePhoneNumber"/>
+   </privilege>
+   <privilege key="MaintainPoliticalLegislativeInfo">
+	<action name="editPoliticalData"/>
+	<action name="savePoliticalData"/>
+   </privilege>
+   <privilege key="MaintainGeneralDemographicInfo">
+	<action name="editDemographicData"/>
+      	<action name="saveDemographicData"/>
+      	<action name="addChild"/>
+      	<action name="saveChild"/>
+      	<action name="deleteChild"/>
+   </privilege>
+   <privilege key="MaintainPoliticalRebateInfo">
+      <action name="editPoliticalRebateRequest"/>
+      <action name="savePoliticalRebateRequest"/>   
+      <action name="editPoliticalRebateApplication"/>
+      <action name="savePoliticalRebateApplication"/>      
+      <action name="editPoliticalRebateAnnualRebateInformation"/>
+      <action name="savePoliticalRebateAnnualRebateInformation"/>
+   </privilege>
+   <privilege key="ViewPoliticalRebateInfo">
+      <action name="viewPoliticalRebateSummaryByYear"/>
+      <action name="viewPoliticalRebateSummary"/>
+      <action name="viewPoliticalRebateAnnualRebateInformation"/>
+      <action name="viewPoliticalRebateRequest"/>
+      <action name="viewPoliticalRebateApplication"/>
+   </privilege>
+   <privilege key="SearchPerson">
+      <action name="searchPerson"/>
+      <action name="viewBasicPersonCriteria"/>
+   </privilege>
+   <privilege key="SearchPowerPerson">
+      <action name="searchPowerPerson"/>
+      <action name="viewPowerPersonCriteria"/>
+   </privilege>
+   <privilege key="ViewAddressInformation">
+      <action name="viewAddressMaintainence"/>
+   </privilege>
+   <privilege key="ViewCorrespondenceHistory">
+   	<action name="viewCorrespondenceHistory"/>
+   </privilege>
+   <privilege key="ViewEmailAddressInfo">
+      <action name="viewEmailAddresses"/>
+   </privilege>
+   <privilege key="ViewGeneralDemographicInfo">
+   	<action name="viewDemographicData"/>
+   </privilege>
+   <privilege key="ViewPoliticalLegislativeInfo">
+   	<action name="viewPoliticalData"/>
+   </privilege>
+   <privilege key="ViewPhoneNumberInfo">
+      <action name="viewPhoneNumberInformation"/>
+   </privilege>   
+   <!-- ********************* -->   
+   <!-- END PERSON PRIVILEGES -->
+   <!-- ********************* -->     
+   
+   
+   <!-- ***************************** -->   
+   <!-- BEGIN ORGANIZATION PRIVILEGES -->
+   <!-- ***************************** -->       
+   <privilege key="SearchOrganizations">
+      <action name="searchOrganizations"/>
+      <action name="viewOrganizationCriteria"/>
+   </privilege>
+   <privilege key="MaintainOrganizationDetail">
+      <action name="verifyOrganization"/>
+      <action name="viewVerifyOrganization"/>
+      <action name="addOrganizationDetail"/>
+      <action name="editOrganizationDetail"/>
+      <action name="saveOrganizationDetail"/>
+   </privilege>
+   <privilege key="ViewOrganizationDetail">
+      <action name="viewOrganizationDetail"/>
+   </privilege>   
+   <privilege key="MaintainLocationInfo">
+      <action name="editLocation"/>
+      <action name="saveLocation"/>
+      <action name="deleteLocation"/>
+   </privilege>
+   <privilege key="ViewLocationInfo">
+      <action name="viewLocationInformation"/>
+   </privilege>
+   <privilege key="MaintainOrganizationAssociateDetail">
+      <action name="editOrganizationAssociateDetail"/>
+      <action name="saveOrganizationAssociate"/>
+      <action name="viewDuplicateSSNNotifierPerson"/>
+      <action name="cancelSavePerson"/>
+      <action name="continueSavePerson"/>
+      <action name="viewVerifyPerson"/>
+      <action name="verifyPerson"/>            
+      <action name="removeOrganizationAssociate"/>
+   </privilege>
+   <privilege key="ViewOrganizationAssociateInfo">
+      <action name="viewOrganizationAssociateList"/>
+      <action name="viewOrganizationAssociateDetail"/>
+      <action name="viewOrganizationAssociateCommentHistory"/>
+      <action name="viewPersonOrgAssociateList"/>
+   </privilege>
+   <!-- *************************** -->   
+   <!-- END ORGANIZATION PRIVILEGES -->
+   <!-- *************************** -->    
+   
+   
+   <!-- ************************ -->   
+   <!-- BEGIN OFFICER PRIVILEGES -->
+   <!-- ************************ --> 
+   <privilege key="DataUtilityViewOfficerDetail" />   
+   <privilege key="DataUtilityMaintainOfficerDetail" />   
+   <privilege key="ViewOfficerDetail"/>     
+   <privilege key="MaintainOfficerDetail"/>       
+   <privilege key="MaintainAddressSelection"/>  
+   <privilege key="ViewAddressSelection"/>   
+   <privilege key="SearchOfficer"/>
+   <privilege key="ViewOfficerHistory"/>         
+   <privilege key="MaintainLocationSelection">
+      <action name="selectLocation"/>
+   </privilege>
+   <privilege key="ViewLocationSelection">
+      <action name="viewLocationSelection"/>
+   </privilege>      
+   <!-- ********************** -->   
+   <!-- END OFFICER PRIVILEGES -->
+   <!-- ********************** -->      
+   
+   <!-- ************************* -->
+   <!-- BEGIN MEMBER DATA UTILITY PRIVS -->   
+   <!-- ************************* -->
+   <privilege key="DataUtilityMaintainPoliticalLegislativeInfo">
+	<action name="editPoliticalData"/>
+	<action name="savePoliticalData"/>
+   </privilege>
+   <privilege key="DataUtilityViewPoliticalLegislativeInfo">
+      	<action name="viewPoliticalData"/>
+   </privilege>
+   <privilege key="DataUtilityViewMaintainMailingListInfo">
+      <action name="viewMailingListsInformation"/>
+      <action name="viewMailingListsAddressAssociation"/>
+   </privilege>
+   <privilege key="DataUtilityViewPoliticalRebateInfo">
+      <action name="viewPoliticalRebateSummaryByYear"/>
+      <action name="viewPoliticalRebateSummary"/>
+      <action name="viewPoliticalRebateAnnualRebateInformation"/>
+      <action name="viewPoliticalRebateRequest"/>
+      <action name="viewPoliticalRebateApplication"/>      
+   </privilege>
+   <privilege key="DataUtilityMaintainPoliticalRebateInfo">
+      <action name="editPoliticalRebateAnnualRebateInformation"/>
+      <action name="savePoliticalRebateAnnualRebateInformation"/>      
+   </privilege>   
+   <privilege key="DataUtilityMaintainMemberAffiliateInfo">
+	<action name="editMemberAffiliateInformation"/>
+	<action name="saveMemberAffiliateInformation"/>	
+   </privilege>     
+   <privilege key="DataUtilityViewEmployerInfo">
+      <action name="viewEmployerInformation"/>  
+   </privilege>    	
+   <privilege key="DataUtilityMaintainEmployerInfo">
+	<action name="editEmployerInformation"/>
+	<action name="saveEmployerInformation"/>
+   </privilege>    
+   <privilege key="DataUtilityViewMemberDetail">
+       <action name="viewMemberDetail"/>
+   </privilege>
+   <privilege key="DataUtilityMaintainMemberDetail">
+      <action name="editMemberDetail"/>
+      <action name="continueSavePerson"/>
+      <action name="cancelSavePerson"/>
+      <action name="saveMemberDetail"/>
+      <action name="addMemberDetail"/>
+      <action name="saveMemberDetailAdd"/>
+      <action name="saveMemberDetailAddAffiliation"/>
+      <action name="viewMemberDetailAddAffiliation"/>
+      <action name="viewDuplicateSSNNotifierPerson"/>
+      <action name="viewVerifyMember"/>
+      <action name="verifyMember"/>
+      <action name="viewMemberCommentHistory"/>
+   </privilege>     
+   <privilege key="DataUtilityViewPhoneNumberInfo">
+      <action name="viewPhoneNumberInformation"/>
+   </privilege>
+   <privilege key="DataUtilityMaintainPhoneNumberInfo">
+      <action name="addPhoneNumber"/>
+      <action name="deletePhoneNumber"/>
+      <action name="editPhoneNumber"/>
+      <action name="savePhoneNumber"/>
+   </privilege>     
+   <privilege key="DataUtilityViewMemberAffiliateInfo">
+   	<action name="viewMemberAffiliateInformation"/>
+   </privilege> 
+   <privilege key="DataUtilityViewGeneralDemographicInfo">
+   	<action name="viewDemographicData"/>
+   </privilege>
+   <privilege key="DataUtilityMaintainGeneralDemographicInfo">
+	<action name="editDemographicData"/>
+      	<action name="saveDemographicData"/>
+      	<action name="addChild"/>
+      	<action name="saveChild"/>
+      	<action name="deleteChild"/>
+   </privilege>   
+   <privilege key="DataUtilityViewEmailAddressInfo">
+      <action name="viewEmailAddresses"/>
+   </privilege>
+   <privilege key="DataUtilityMaintainEmailAddressInfo">
+      <action name="deleteEmailAddresses"/>
+      <action name="editEmailAddresses"/>
+      <action name="saveEmailAddresses"/>
+   </privilege>   
+   <privilege key="DataUtilityViewCommentHistory">
+      <action name="viewCommentHistory"/>
+   </privilege>   
+   <privilege key="DataUtilityViewAddressInformation">
+      <action name="viewAddressMaintainence"/>
+   </privilege>
+   <privilege key="DataUtilityMaintainAddressInfo">  
+      <action name="deletePersonAddress"/>
+      <action name="editPersonAddress"/>
+      <action name="savePersonAddress"/>
+   </privilege>   
+   <privilege key="DataUtilitySearchPowerMember">
+      <action name="viewPowerMemberCriteria"/>
+      <action name="searchMembers"/>
+   </privilege>   
+   <privilege key="DataUtilityMemberBasicSearch">
+      <action name="searchMembers"/>
+      <action name="viewBasicMemberCriteria"/>
+   </privilege>
+   <!-- ***************************** --> 
+   <!-- END MEMBER DATA UTILITY PRIVS -->
+   <!-- ***************************** -->  
+   
+   <!-- ************************* -->
+   <!-- SYSTEM DATA UTILITY PRIVS -->
+   <!-- ************************* -->->   
+   <privilege key="DataUtilityUploadAffiliateFiles">
+      <action name="viewUploadAffiliateMember"/>
+      <action name="viewUploadAffiliateOfficer"/>
+      <action name="viewUploadAffiliateRebate"/>
+      <action name="viewUploadAffiliateOfficer2"/>      
+      <action name="uploadAffiliateMember"/>
+      <action name="uploadAffiliateOfficer"/>
+      <action name="uploadAffiliateRebate"/>
+   </privilege>
+   <privilege key="DataUtilityViewApplyUpdate">
+      <action name="viewApplyUpdateQueue"/>	
+      <action name="viewApplyUpdateMemberEditSummary"/>
+      <action name="viewApplyUpdateMemberExceptionDetail"/>
+      <action name="viewApplyUpdateMemberReviewSummary"/>
+      <action name="viewApplyUpdateOfficerEditDetailPerAffiliate"/>
+      <action name="viewApplyUpdateOfficerEditSummary"/>
+      <action name="viewApplyUpdateOfficerExceptionDetail"/>
+      <action name="viewApplyUpdateOfficerReviewSummary"/>
+      <action name="viewApplyUpdateRebateEditSummary"/>
+      <action name="viewApplyUpdateRebateExceptionDetail"/>
+      <action name="viewApplyUpdateRebateReviewExceptionDetail"/>
+      <action name="viewApplyUpdateRebateReviewSummary"/>
+   </privilege>
+   <privilege key="DataUtilityGenerateMailingList">
+      <action name="listMailingReports"/>
+      <action name="showMailingOutputFormat"/>
+      <action name="startMailingReportGeneration"/>
+      <action name="addMailingRuntimeCriterion"/>
+      <action name="removeMailingRuntimeCriterion"/>
+      <action name="mailingGenerate"/>
+   </privilege>
+   <privilege key="DataUtilityMaintainQueries">
+      <action name="listQueries"/>
+      <action name="editQuery"/>
+      <action name="deleteQuery"/>
+      <action name="addQuery"/>
+      <action name="outputFields"/>
+      <action name="outputFieldsOrder"/>
+      <action name="selectionCriteriaFields"/>
+      <action name="selectionCriteria"/>
+      <action name="sortCriteriaFields"/>
+      <action name="sortCriteria"/>
+      <action name="previewQuery"/>
+      <action name="addCriterion"/>
+      <action name="removeCriterion"/>
+   </privilege> 
+   <privilege key="DataUtilityGenerateReports">
+      <action name="listRegularReports"/>
+      <action name="showRegularOutputFormat"/>
+      <action name="startRegularReportGeneration"/>
+      <action name="addRegularRuntimeCriterion"/>
+      <action name="removeRegularRuntimeCriterion"/>
+      <action name="regularGenerate"/>
+      <action name="onScreenGeneration"/>
+      <action name="saveAsGeneration"/>
+      <!-- specialized reports -->
+      <action name="startSpecializedReportGeneration"/>
+      <action name="enrichedDataReportOutputFormat"/>
+      <action name="runSpecializedReport"/>
+      <action name="nameCountReport"/>
+      <action name="prbApplicationFileReport"/>
+      <action name="rebateCheckFileReport"/>
+      <action name="preliminaryRosterReport"/>
+      <action name="mailingListReport"/>
+      <action name="orgMailingListReport"/>
+      <action name="officerCredentialCardsReport"/>
+      <action name="membershipActivityReport"/>
+      <action name="affiliateCounByStatusReport"/>
+      <action name="officerExpirationReport"/>
+      <action name="viewEnrichedDataCriteria"/>
+      <action name="enrichedDataReport"/>
+      <action name="searchAffiliateFinder"/>
+      <action name="membershipBatchUpdateReport"/>
+      <action name="officerStatisticalSummaryReport"/>
+      <action name="officerStatisticalSunmmaryDetailReport"/>
+      <action name="recentlyElectedPresidentsReport"/>
+      <action name="recentlyElectedTreasurersReport"/>
+      <action name="membershipRosterReport"/>
+      <action name="invalidAddressForROReport"/>
+      <action name="nonMailableRosterReport"/>
+      <action name="ncoaAcsReport"/>
+   </privilege>
+   <!-- ***************************** -->   
+   <!-- END SYSTEM DATA UTILITY PRIVS -->   
+   <!-- ***************************** -->  
+   
+   <!-- **************************** --> 
+   <!-- AFFILIATE DATA UTILITY PRIVS -->   
+   <!-- **************************** --> 
+   <privilege key="DataUtilityViewAffiliateDetail">
+           <action name="viewAffiliateDetail"/>
+   </privilege>   
+   <privilege key="DataUtilityViewCharterInfo">
+      <action name="viewCharterInformation" />
+   </privilege>   
+   <privilege key="DataUtilityViewConstitutionInfo">
+         <action name="viewConstitutionInformation" />
+   </privilege>   
+   <privilege key="DataUtilityViewFinancialInfo">
+         <action name="viewFinancialInformation"/>
+   </privilege>   
+   <privilege key="DataUtilityViewAffiliateChangeHistory">
+      <action name="searchAffiliateChangeHistory" />
+      <action name="viewAffiliateChangeHistoryCriteria" />
+      <action name="viewAffiliateChangeHistoryDetail" />
+   </privilege>   
+   <privilege key="DataUtilityMaintainAffiliateStaffDetail">
+      <action name="editAffiliateStaff"/>
+      <action name="removeAffiliateStaff"/>
+      <action name="removeLocalServiced"/>
+      <action name="saveAffiliateStaff"/>
+      <action name="verifyStaff"/>
+      <action name="viewAddLocalServiced"/>
+      <action name="viewAffiliateStaff"/>
+      <action name="viewPersonStaff"/>
+      <action name="viewStaffCommentHistory"/>
+      <action name="viewStaffMaintainence"/>
+      <action name="viewVerifyStaff"/>
+      <action name="addLocalServiced"/>
+   </privilege>   
+   <privilege key="DataUtilityViewAffiliateStaffInfo" >
+	<action name="viewAffiliateStaff" />
+	<action name="viewStaffMaintainence" />         
+   </privilege>   
+   <privilege key="DataUtilityMaintainLocationInfo">
+        <action name="editLocation" />
+        <action name="saveLocation" />
+        <action name="deleteLocation" />
+   </privilege>   
+   <privilege key="DataUtilityViewLocationInfo">
+        <action name="viewLocationInformation"/>
+   </privilege>   
+   <privilege key="DataUtilityViewAffiliateOfficerTitles">
+   	<action name="viewOfficerTitles" />
+  	<action name="viewOfficerTitlesCommentHistory" />   	
+   </privilege>      
+   <privilege key="DataUtilityViewAffiliateHierarchy">
+      <action name="viewAffiliateHierarchy"/>
+   </privilege>
+   <privilege key="DataUtilityViewAffiliateOfficers" >
+      <action name="viewAffiliateOfficerMaintenance" />
+   </privilege>   
+   <privilege key="DataUtilityMaintainAffiliateOfficers">    
+      <action name="editAffiliateOfficerMaintenance" />
+      <action name="saveAffiliateOfficerMaintenance" />   
+   </privilege>      
+   <!-- ******************************** -->    
+   <!-- END AFFILIATE DATA UTILITY PRIVS -->        
+   <!-- ******************************** -->     
+</config>

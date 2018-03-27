@@ -1,0 +1,102 @@
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_header.js"></script>
+
+<TITLE>Help: Person Verify Results</TITLE>
+
+<H1>
+Person Verify Results Help 
+</H1>
+
+<BR/><BR/>
+
+<TABLE class="DataFONT" align="center" width="100%">
+<TR>
+
+<!-- BEGIN CHANGE -->
+
+The Person Verify Results screen displays information on similar persons who might 
+be the same person as the one the user is trying to add, based on the criteria 
+entered in the Verify Person screen.  The user can view the results to determine 
+if the person trying to be added matches someone already in the database.  If 
+not, the user can continue to add the new person.<BR/><BR/>
+
+This screen is used by a number of <U><I>Add paths</U></I> including:
+<UL>
+<LI>Add Person</LI>
+<LI>Add Member</LI>
+<LI>Add Affiliate Staff</LI>
+<LI>Add Organization Associate</LI>
+</UL>
+
+If the user recognizes an existing person as the person trying to be added, the 
+user can choose to add a Member or Affiliate Staff using that person or select 
+a person to view more information.<BR/><BR/>
+
+This screen will only display if there are Person records in the AFSCME Enterprise 	  	
+Application Database which match the search criteria entered on the Verify Person screen.
+If no records match, the system will display a Detail - Add screen (which screen depends on 
+the type of Add attempted) directly, without first displaying the Person Verify Results screen.<BR/><BR/>
+
+The initial <U><I>Sort</U></I> sequence for records in the result set is (first to last):
+<UL>
+<LI>Name(Last Name then First Name), ascending alphabetically</LI>
+<LI>Affiliate State ascending alphabetically</LI>
+<LI>Affiliate Council ascending numerically</LI>
+<LI>Affiliate Local ascending numerically </LI>
+</UL>
+	
+
+The following <U>Actions (links or buttons)</U> may be available from this screen. 
+<U>The actions available to the user will depend on the privileges that the user has.</U><BR/>
+
+<TABLE class="DataFONT" align="center" width="95%">
+    <TR valign="top">
+        <TD width="24%"><B><U>Previous (link)</U></B></TD>
+        <TD width="61%">If paging is enabled, then selecting this link will display the previous set 
+			of results.  The link will not be active if the screen is displaying the 
+			first set of records in the results.</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="34%"><B><U>Next (link)</U></B></TD>
+        <TD width="51%">If paging is enabled, then selecting this link will display the next set of 
+			results.  This link will not be active if the screen is displaying the last 
+                        set of records in the results.</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="34%"><B><U>Add New (button)</U></B></TD>
+        <TD width="51%">Displays the Person Detail - Add screen, so the user can 
+                        continue to add the new person.</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="34%"><B><U>New Search (button)</U></B></TD>
+        <TD width="51%">Displays the Verify Person screen, so that the user can 
+                        enter a new search for duplicate persons.</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="34%"><B><U>View (link) (By Row)</U></B></TD>
+        <TD width="51%">Displayed by each row in the result set, if the user has 
+                        the appropriate privilege to access the relevant Detail 
+                        screen (e.g., Person Detail, Member Detail).  Upon selection, 
+                        displays the appropriate Detail screen for the current 
+                        Add flow (e.g., Add Person, Add Member, Add Affiliate Staff)</TD>
+    </TR>
+    <TR valign="top">
+        <TD width="34%"><B><U>Add (link) (By Row)</U></B></TD>
+        <TD width="51%">Displayed by each row in the result set, if the user has the appropriate
+			privilege.  Upon selection, displays either the Member Detail - Add	
+			Affiliation or the Affiliate Staff Detail - Add screen.  
+                        Not applicable in the Add Person flow.</TD>
+    </TR>
+</TABLE>
+<BR/><BR/>
+
+This screen contains column oriented actions for sorting the result set.  
+<U>Certain column headers display as links.  Clicking on the link will sort 
+the entire result set on that column.</U>  Clicking on the column header the 
+first time will sort the results in ascending order based on the column, 
+clicking on the same column again sort the results in descending order.  
+When sorted in ascending order, a (+) plus sign will appear by the column. 
+When sorted in descending order, a (-) minus sign will appear.
+
+<!-- END CHANGE -->
+
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_footer.js"></script>

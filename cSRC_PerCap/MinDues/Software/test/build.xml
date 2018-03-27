@@ -1,0 +1,125 @@
+<project default="compile" basedir=".">
+
+	<!-- set global properties for this build -->
+	<property environment="env"/>
+
+	<!-- Defaults for environment properties.  If these are set in the system environment, values here are ignored -->
+	<property name="env.AFSCME_UNIT_TEST_URL" value="http://localhost:8080"/>
+	<property name="env.AFSCME_HTTP_URL" value="http://localhost:8080"/>
+
+   <path id="project.class.path">
+        <pathelement location="classes"/>
+        <pathelement location="../build/classes"/>
+        <fileset dir="lib">
+           <include name="**/*.jar"/>
+        </fileset>
+        <fileset dir="../lib">
+           <include name="**/*.jar"/>
+        </fileset>
+   </path>
+   
+   <target name="init">
+      <tstamp/>
+      <mkdir dir="classes"/>
+      <mkdir dir="report"/>
+   </target>
+
+   <target name="compile" depends="init,compileMain">
+
+      <javac debug="true" classpathref="project.class.path" destdir="classes" deprecation="on">
+			<src path="src"/>
+       </javac>
+
+   </target>
+
+   <!-- Comples the code in the parent project.  (The code being tested) -->
+   <target name="compileMain">
+        <ant dir=".." target="compile"/>
+   </target>
+   
+   <target name="clean">
+      
+      <delete dir="classes"/><delete dir="report"/>
+	  <delete>
+	  	<fileset dir=".">
+			<include name="test.war"/>
+			<include name="TEST-*.xml"/>
+		</fileset>
+		</delete>
+   </target>
+
+   <target name="war" depends="compile">
+       <jar jarfile="test.war">
+          <zipfileset dir="classes" prefix="WEB-INF/classes"/>
+          <zipfileset dir="lib" prefix="WEB-INF/lib">
+            <include name="junit.jar"/>
+          </zipfileset>
+          <fileset dir="web"/>
+        </jar>
+   </target>
+
+   <target name="unitTest" depends="compile">
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.address.ejb.SystemAddressTest"
+             dest="TEST-SystemAddressTest.xml"
+             ignoreerrors="true"
+             verbose="true"/> 
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.log.SystemLogTest" dest="TEST-SystemLogTest.xml" ignoreerrors="true" verbose="true"/> 
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.util.ConfigUtilTest" dest="TEST-ConfigUtilTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.util.TextUtilTest" dest="TEST-TextUtilTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.util.DelimitedStringBufferTest" dest="TEST-DelimitedStringBufferTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.util.CryptoUtilTest" dest="TEST-CryptoUtilTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.util.MailUtilTest" dest="TEST-MailUtilTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.util.JNDIUtilTest" dest="TEST-JNDIUtilTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.util.DBUtilTest" dest="TEST-DBUtilTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.codes.ejb.MaintainCodesTest" dest="TEST-MaintainCodesTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.users.ejb.MaintainUsersTest" dest="TEST-MaintainUsersTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.roles.ejb.MaintainPrivilegesTest" dest="TEST-MaintainPrivilegesTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.controller.ejb.AccessControlTest" dest="TEST-AccessControlTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.reporting.base.ejb.ReportAccessBeanTest" dest="TEST-ReportAccessBeanTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.reporting.base.ejb.BaseReportBeanTest" dest="TEST-BaseReportBeanTest.xml" verbose="true" ignoreerrors="true"/> 
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.util.PreparedStatementBuilderTest" dest="TEST-PreparedStatementBuilderTest.xml" verbose="true" ignoreerrors="true"/>              
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.returnedmail.ejb.ProcessReturnedMailBeanTest" dest="TEST-ProcessReturnedMailBeanTest.xml" ignoreerrors="true" verbose="true"/> 
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.organization.ejb.MaintainOrganizationsBeanTest" dest="TEST-MaintainOrganizationsBeanTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.organization.ejb.MaintainOrgLocationsBeanTest" dest="TEST-MaintainOrgLocationsBeanTest.xml" ignoreerrors="true" verbose="true"/>
+        <get src="${env.AFSCME_HTTP_URL}/test/test.jsp?class=org.afscme.enterprise.affiliate.ejb.MaintainAffiliatesBeanTest" dest="TEST-MaintainAffiliatesBeanTest.xml" verbose="true" ignoreerrors="true"/>
+        <get src="${env.AFSCME_HTTP_URL}/test/test.jsp?class=org.afscme.enterprise.affiliate.staff.ejb.MaintainAffiliateStaffBeanTest" dest="TEST-MaintainAffiliateStaffBeanTest.xml" verbose="true" ignoreerrors="true"/>
+        <get src="${env.AFSCME_HTTP_URL}/test/test.jsp?class=org.afscme.enterprise.person.ejb.MaintainPersonsBeanTest" dest="TEST-MaintainPersonsBeanTest.xml" verbose="true" ignoreerrors="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.organization.ejb.MaintainOrgMailingListsBeanTest" dest="TEST-MaintainOrgMailingListsBeanTest.xml" verbose="true" ignoreerrors="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.person.ejb.MaintainPersonMailingListsBeanTest" dest="TEST-MaintainPersonMailingListsBeanTest.xml" verbose="true" ignoreerrors="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.cards.ejb.CardsBeanTest" dest="TEST-CardsBeanTest.xml" verbose="true" ignoreerrors="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.rebate.ejb.MaintainPoliticalRebateBeanTest" dest="TEST-MaintainPoliticalRebateBeanTest.xml" verbose="true" ignoreerrors="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.participationgroups.ejb.MaintainParticipationGroupsBeanTest" dest="TEST-MaintainParticipationGroupsBeanTest.xml" verbose="true" ignoreerrors="true"/>
+        <get src="${env.AFSCME_UNIT_TEST_URL}/test/test.jsp?class=org.afscme.enterprise.member.ejb.MaintainMembersBeanTest" dest="TEST-MaintainMembersBeanTest.xml" verbose="true" ignoreerrors="true"/>        
+   </target>
+
+     <target name="functionalTest" depends="compile">
+        <junit showoutput="true" printsummary="on" fork="true">
+			<jvmarg value="-Dtest.http.url=${env.AFSCME_HTTP_URL}"/>
+            <formatter type="xml"/>
+            <batchtest>
+                <fileset dir="classes">
+                    <include name="**/web/*Test.class"/>
+                    <exclude name="**/web/MaintainQueriesWebTest.class"/>
+                </fileset>
+            </batchtest>
+            <classpath refid="project.class.path"/>
+         </junit>
+      </target>
+                    
+
+     <target name="run" depends="unitTest,functionalTest"/>
+
+     <target name="report">
+    
+        <junitreport todir="report">
+          <fileset dir=".">
+            <include name="TEST-*.xml"/>
+          </fileset>
+          <report format="frames" todir="report/html"/>
+        </junitreport>
+
+        <style in="report/TESTS-TestSuites.xml" out="report/SUMMARY" style="summary.xsl"/>
+
+   </target>
+
+</project>

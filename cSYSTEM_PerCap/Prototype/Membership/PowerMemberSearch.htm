@@ -1,0 +1,708 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Power Member Search</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Power Member Search</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="MemberSearchResults.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="button" class="BUTTON" name="BasicSearchButton" value="Basic Search" onClick="parent.location='BasicMemberSearch.htm'"> 
+				<INPUT type="reset"  class="BUTTON" name="ResetButton" value="Reset" onClick="parent.location='PowerMemberSearch.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" value="Submit" onClick="parent.location='MemberSearchResults.htm'" name="SubmitButton"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD class="ContentHeaderTR" colspan="2">
+				Fields to Search: 
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="14%">
+							Prefix 
+						</TH>
+						<TH width="24%">
+							First Name 
+						</TH>
+						<TH width="24%">
+							Middle Name 
+						</TH>
+						<TH width="24%">
+							Last Name 
+						</TH>
+						<TH width="14%">
+							Suffix 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center">
+							<SELECT name="prefix">
+								<OPTION></OPTION>
+								<OPTION>Ms.</OPTION>
+								<OPTION>Mrs.</OPTION>
+								<OPTION>Mr.</OPTION>
+								<OPTION>Dr.</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="FirstName" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="MiddleName" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="LastName" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<SELECT name="Suffix">
+								<OPTION></OPTION>
+								<OPTION>Jr.</OPTION>
+								<OPTION>Sr.</OPTION>
+								<OPTION>I</OPTION>
+								<OPTION>II</OPTION>
+								<OPTION>III</OPTION>
+								<OPTION>IV</OPTION>
+								<OPTION>V</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="6" align="left">
+							Affiliate Identifier - <A href="javascript:showAffiliateIDResults(form.affiliateType, form.affiliateLocal, form.affiliateState, form.affiliateSubunit, form.affiliateCouncil);" class="TH" title="Retrieve your Affilitate Identifier">Finder</A> 
+						</TH>
+					</TR>
+					<TR>
+						<TH width="14%">
+							Type 
+						</TH>
+						<TH width="14%">
+							Local/Sub Chapter 
+						</TH>
+						<TH width="20%">
+							State/National Type 
+						</TH>
+						<TH width="14%">
+							Sub Unit 
+						</TH>
+						<TH width="29%">
+							Council/Retiree Chapter 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center" class="ContentTD">
+							<INPUT type="hidden" name="affiliateCode"> <SELECT name="affiliateType" onBlur="lockAffiliateIDFields(this.form);" onChange="lockAffiliateIDFields(this.form);">
+								<OPTION></OPTION>
+								<OPTION>C</OPTION>
+								<OPTION>L</OPTION>
+								<OPTION>U</OPTION>
+								<OPTION>R</OPTION>
+								<OPTION>S</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateLocal" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<SELECT name="affiliateState">
+								<SCRIPT language="JavaScript" src="../js/state.js"></SCRIPT>
+								<OPTION value="98">NT</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateSubunit" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateCouncil" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="8" align="left">
+							Primary Mailing Address 
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address1">Address 1</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="Address1" value="" id="label_Address1" size="50" maxlength="50"> 
+						</TD>
+						<TD class="contentheadertd">
+							<LABEL for="label_Address2">Address 2</LABEL> 
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							<INPUT type="text" name="Address2" value="" id="label_Address2" size="50" maxlength="50"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD width="11%" class="ContentHeaderTD">
+							<LABEL for="label_City">City</LABEL> 
+						</TD>
+						<TD width="35%">
+							<INPUT type="text" name="City" value="" id="label_City" size=25 maxlength=25> 
+						</TD>
+						<TD width="10%" class="ContentHeaderTD">
+							<LABEL for="label_state">State</LABEL> 
+						</TD>
+						<TD width="22%">
+							<SELECT name="state" id="label_state">
+								<SCRIPT language="JavaScript">var selected = "";</SCRIPT>
+								<SCRIPT language="JavaScript" src="../js/state_select.js"></SCRIPT>
+							</SELECT> 
+						</TD>
+						<TD width="10%" class="ContentHeaderTD">
+							<LABEL for="label_ZipCode">Zip/Postal Code</LABEL> 
+						</TD>
+						<TD width="15%" >
+							<INPUT type="text" name="Zip" value="" id="label_ZipCode" size="5" maxlength="5"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_County"> County</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="County" value="" id="label_County" size=25 maxlength=25> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Province"> Province</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="Province" value="" id="label_Province" size=25 maxlength=25> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Country"> Country</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="Country" id="label_Country">
+								<OPTION selected></OPTION>
+								<OPTION value="USA">USA</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_AddressLastUpdated">Last Updated</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="AddressLastUpdated" value="" id="label_AddressLastUpdated" size=10> 
+							<A href="javascript:show_calendar('searchform.AddressLastUpdate');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"><IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></A> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_AddressUpdatedBy">Updated By</LABEL> 
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							<INPUT type="text" name="AddressUpdatedBy" value="" id="label_AddressUpdatedBy" size=10 maxlength=10> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TH colspan="2" align="left">
+				General Member Information 
+			</TH>
+		</TR>
+		<TR valign="top">
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="45%" class="ContentHeaderTD">
+							<LABEL for="label_Nickname"> Nickname</LABEL> 
+						</TD>
+						<TD width="55%">
+							<INPUT type="text" name="Nickname" value="" id="label_Nickname" size=25> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_AlternateMailingName"> Alt Mail Name</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="AlternateMailingName" value="" id="label_AlternateMailingName" size=25> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_memberNumber"> Member Number</LABEL> 
+						</TD>
+						<TD >
+							<INPUT type="text" name="memberNumber" value="" id="label_memberNumber" size=6> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD" valign="top">
+							<LABEL for="label_ssn"> Social Security Number</LABEL> 
+						</TD>
+						<TD valign="top">
+							<INPUT type="text" name="ssn1" value="" id="label_ssn" size=3 maxlength=3>
+							- 
+							<INPUT type="text" name="ssn2" value="" id="label_ssn" size=2 maxlength=2>
+							- 
+							<INPUT type="text" name="ssn3" value="" id="label_ssn" size=4 maxlength=4> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_ValidSSN"> Valid SSN</LABEL> 
+						</TD>
+						<TD class="smallFont">
+							<INPUT type="radio" name="ValidSSN" id="label_ValidSSN" value="Valid">
+							Valid 
+							<INPUT type="radio" name="ValidSSN" id="label_ValidSSN" value="Invalid">
+							Invalid 
+							<INPUT type="radio" name="ValidSSN" id="label_ValidSSN" value="All">
+							All 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="contentheadertd">
+							<LABEL for="label_PhoneNumber"> Phone Number</LABEL> 
+						</TD>
+						<TD>
+							<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TD class="smallFont" width="30%">
+										Country Code 
+									</TD>
+									<TD class="smallFont" width="25%">
+										Area Code 
+									</TD>
+									<TD class="smallFont" width="45%">
+										Number 
+									</TD>
+								</TR>
+								<TR>
+									<TD width="23%">
+										<INPUT name="phonecountrycode" id="label_phone" size="3" maxlength="3"> 
+									</TD>
+									<TD width="23%">
+										<INPUT name="phoneareacode" id="label_phone" onKeyUp="return autoTab(this, 3, event);" size="3" maxlength="3"> 
+									</TD>
+									<TD width="54%">
+										<INPUT name="phone" size="7" maxlength="7"> 
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_EmailAddress"> Email Address</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="EmailAddress" value="" id="label_EmailAddress" size=25 maxlength=30> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_InformationSource">Primary Information Source</LABEL> 
+						</TD>
+						<TD>
+							<SELECT id="label_InformationSource" name="InformationSource">
+								<OPTION value="">[Select]</OPTION>
+								<OPTION value="0">International</OPTION>
+								<OPTION value="2">Council (Manual)</OPTION>
+								<OPTION value="3">Local (Manual)</OPTION>
+								<OPTION value="4">Tape</OPTION>
+								<OPTION value="9">Other</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_MemberType">Member Type</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="MemberType" ID="label_MemberType">
+								<OPTION VALUE="-1">[Select]</OPTION>
+								<SCRIPT LANGUAGE="JavaScript" SRC="../js/member_type_options.js"></SCRIPT>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_MemberStatus">Member Status</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="MemberStatus" ID="label_MemberStatus">
+								<OPTION VALUE="-1">[Select]</OPTION>
+								<OPTION value="A">Active</OPTION>
+								<OPTION value="I">Inactive</OPTION>
+								<OPTION value="T">Temporary</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label15"> Date Membership Card Sent</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="DateMembershipCardSent" value="" id="label15" size=10> 
+							<A href="javascript:show_calendar('searchform.DateMembershipCardSent');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"><IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></A> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_MemberLastUpdated"> Member Last Updated </LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="MemberLastUpdated" value="" id="label_MemberLastUpdated" size=10> 
+							<A href="javascript:show_calendar('searchform.MemberLastUpdate');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"><IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></A> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_MemberUpdatedBy">Member Updated By</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="MemberUpdatedBy" value="" id="label_MemberUpdatedBy" size="10" maxlength="10"> 
+						</TD>
+					</TR>
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							Mail 
+						</TD>
+						<TD>
+							<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TD>
+										<LABEL for="label_NoMail" class="smallFONT"> Mail</LABEL> 
+									</TD>
+									<TD class="smallFont">
+										<INPUT type="radio" name="NoMail" id="label_NoMail" value="yes">
+										Yes 
+										<INPUT type="radio" name="NoMail" id="label_NoMail" value="no">
+										No 
+										<INPUT type="radio" name="NoMail" id="label_NoMail" value="all">
+										All 
+									</TD>
+								</TR>
+								<TR>
+								</TR>
+								<TR>
+								</TR>
+								<TR>
+									<TD>
+										<LABEL for="label_NoCards" class="smallFONT"> Cards</LABEL> 
+									</TD>
+									<TD class="smallFont">
+										<INPUT type="radio" name="NoCards" id="label_NoCards" value="yes">
+										Yes 
+										<INPUT type="radio" name="NoCards" id="label_NoCards" value="no">
+										No 
+										<INPUT type="radio" name="NoCards" id="label_NoCards" value="all">
+										All 
+									</TD>
+								</TR>
+								<TR>
+									<TD>
+										<LABEL for="label_NoPublicEmployee" class="smallFONT"> Public 
+										Employee</LABEL> 
+									</TD>
+									<TD class="smallFont">
+										<INPUT type="radio" name="NoPublicEmployee" id="label_NoPublicEmployee" value="yes">
+										Yes 
+										<INPUT type="radio" name="NoPublicEmployee" id="label_NoPublicEmployee" value="no">
+										No 
+										<INPUT type="radio" name="NoPublicEmployee" id="label_NoPublicEmployee" value="all">
+										All 
+									</TD>
+								</TR>
+								<TR>
+									<TD>
+										<LABEL for="label_NoLegislativeMail" class="smallFONT"> Legislative 
+										Mail</LABEL> 
+									</TD>
+									<TD class="smallFont">
+										<INPUT type="radio" name="NoLegislativeMail" id="label_NoLegislativeMail" value="yes">
+										Yes 
+										<INPUT type="radio" name="NoLegislativeMail" id="label_NoLegislativeMail" value="no">
+										No 
+										<INPUT type="radio" name="NoLegislativeMail" id="label_NoLegislativeMail" value="all">
+										All 
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD colspan="3" class="ContentHeaderTR">
+				Fields to display: 
+			</TD>
+		</TR>
+		<TR VALIGN="top">
+			<TD width="33%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkPrefix" id="label_chkPrefix" > 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_chkPrefix"> Prefix</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkFirstName" id="label_chkFirstName" checked> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_chkFirstName"> First Name</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkMiddleName" id="label_chkMiddleName" checked> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_chkMiddleName"> Middle Name</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkLastName" id="label_chkLastName" checked> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_chkLastName"> Last Name</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkSuffix" id="label_chkSuffix" checked> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_chkSuffix"> Suffix</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkNickname" id="chkNickname" > 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="chkNickname"> Nickname</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkTitleForMailings" id="chkTitleForMailings" > 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="chkTitleForMailings"> Alt Mail Name</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkInformationSource" id="chkInformationSource" > 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="chkInformationSource"> Primary Information Source</LABEL> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD width="34%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkSSN" id="chkSSN" > 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="chkSSN"> Social Security Number</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkValidSSNFlag" id="chkValidSSNFlag" > 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="chkValidSSNFlag"> Valid SSN</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkPrimaryAddress" id="label_chkPrimaryAddress" checked> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_chkPrimaryAddress"> Primary Address</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkAddressLastUpdate" id="chkAddressLastUpdate" > 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="chkAddressLastUpdated"> Address Last Updated </LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkAddressLastUpdateUserID" id="chkAddressLastUpdateUserID" > 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="chkAddressUpdatedBy">Address Updated By</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkPhoneNumbers" id="chkPhoneNumbers" > 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="chkPhoneNumbers"> Phone Numbers</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkEmailAddresses" id="chkEmailAddresses" > 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="chkEmailAddresses"> Email Addresses</LABEL> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD width="33%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkAffiliateIdentifier" id="label_chkAffiliateIdentifier" checked> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_chkAffiliateIdentifier"> Affiliate Identifier </LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkMemberType" id="label_chkMemberType"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_chkMemberType">Member Type</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkMemberStatus" id="label_chkMemberStatus" checked> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_chkMemberStatus">Member Status</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkMemberNumber" id="chkMemberNumber" checked> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="chkMemberNumber"> Member Number</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkCouncil" id="chkCouncil" > 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="chkCouncil"> Date Membership Card Sent</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkMailFlag" id="chkMailFlag" > 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="chkMailFlag"> Mail</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkMemberLastUpdated" id="label_chkMemberLastUpdated"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_chkMemberLastUpdated"> Member Last Updated </LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">
+							<INPUT type="checkbox" name="chkMemberUpdatedBy" id="label_chkMemberUpdatedBy"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_chkMemberUpdatedBy">Member Updated By</LABEL> 
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top" width="10%">&nbsp;
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="button" class="BUTTON" name="BasicSearchButton2" value="Basic Search" onClick="parent.location='BasicMemberSearch.htm'"> 
+				<INPUT type="reset"  class="BUTTON" name="ResetButton2" value="Reset" onClick="parent.location='PowerMemberSearch.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" value="Submit" onClick="parent.location='MemberSearchResults.htm'" name="SubmitButton"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

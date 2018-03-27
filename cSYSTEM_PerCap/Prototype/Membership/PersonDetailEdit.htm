@@ -1,0 +1,390 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Person Detail - Edit</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align="center">
+			<H1>Person Detail - Edit</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+</TABLE>
+<FORM action="PersonDetail.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="reset" class="BUTTON" name="ResetButton" value="Reset"> <INPUT type="button" class="BUTTON" name="CancelButton" value="Cancel" onClick="parent.location='PersonDetail.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" name="SubmitButton" value="Submit" class="BUTTON" onClick="parent.location='DuplicateSSNNotifier_ForPerson.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				John Michael Doe <BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR align="center">
+			<TD>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="14%">
+							Prefix 
+						</TH>
+						<TH width="24%">
+							* First Name 
+						</TH>
+						<TH width="24%">
+							Middle Name 
+						</TH>
+						<TH width="24%">
+							* Last Name 
+						</TH>
+						<TH width="14%">
+							Suffix 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center">
+							<SELECT name="prefix">
+								<OPTION></OPTION>
+								<OPTION>Ms.</OPTION>
+								<OPTION>Mrs.</OPTION>
+								<OPTION selected>Mr.</OPTION>
+								<OPTION>Dr.</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="FirstName" value="John" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="MiddleName" value="Michael" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="LastName" value="Doe" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<SELECT name="Suffix">
+								<OPTION></OPTION>
+								<OPTION>Jr.</OPTION>
+								<OPTION>Sr.</OPTION>
+								<OPTION>I</OPTION>
+								<OPTION>II</OPTION>
+								<OPTION selected>III</OPTION>
+								<OPTION>IV</OPTION>
+								<OPTION>V</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR align="center">
+			<TD>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="15%" class="ContentHeaderTD">
+							<LABEL for="label_Nickname">Nickname</LABEL>
+						</TD>
+						<TD width="20%" class="ContentTD">
+							<INPUT type="text" name="Nickname" value="Johnny" id="label_Nickname" size="25" maxlength="25"> 
+						</TD>
+						<TD width="5%" class="ContentHeaderTD">
+							<LABEL for="label_SSN">SSN</LABEL>
+						</TD>
+						<TD width="20%" class="ContentTD">
+							<INPUT type="text" name="SSN1" value="000" id="label_SSN" size="3" maxlength="3">
+							- 
+							<INPUT type="text" name="SSN2" value="00" size="2" maxlength="2">
+							- 
+							<INPUT type="text" name="SSN3" value="0000" size="4" maxlength="4"> 
+						</TD>
+						<TD width="15%" class="ContentHeaderTD">
+							<LABEL for="label_ValidSSN">Valid SSN</LABEL> 
+						</TD>
+						<TD width="5%">
+							<INPUT type="checkbox" name="ValidSSN" id="label_ValidSSN"> 
+						</TD>
+						<TD width="15%" class="ContentHeaderTD">
+							Duplicate SSN
+						</TD>
+						<TD width="5%">
+							<INPUT type="checkbox" name="dupSSN" value="" id="label_dupSSN" disabled>
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_AlternateMailingName">Alt Mail Name</LABEL> 
+						</TD>
+						<TD class="ContentTD" colspan="7">
+							<INPUT type="text" name="AlternateMailingName" value="John Doe" id="AlternateMailingName" size="120" maxlength="130"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD CLASS="ContentHeaderTD">Marked for Deletion</TD>
+						<TD CLASS="ContentTD">
+							<INPUT type="Checkbox" name="Deletion">
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR align="center">
+			<TD>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH align="left" colspan="6">
+							Primary Address 
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address1">Address 1</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							111 Some Street 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address2">Address 2</LABEL> 
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							Apt. 1 
+						</TD>
+					</TR>
+					<TR>
+						<TD width="11%" class="ContentHeaderTD">
+							<LABEL for="label_City">City</LABEL> 
+						</TD>
+						<TD width="29%">
+							Vienna 
+						</TD>
+						<TD width="15%" class="ContentHeaderTD">
+							<LABEL for="label_state">State</LABEL> 
+						</TD>
+						<TD width="25%">
+							VA 
+						</TD>
+						<TD width="10%" class="ContentHeaderTD">
+							<LABEL for="label_ZipCode">Zip/Postal Code</LABEL> 
+						</TD>
+						<TD width="15%">
+							00000-0000 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_County">County</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							Fairfax 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Province">Province</LABEL> 
+						</TD>
+						<TD class="ContentTD">&nbsp;
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Country">Country</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							USA 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_BadAddressFlag">Bad Address</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="checkbox" name="BadAddress" id="label_BadAddress" disabled> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							Date Marked Bad 
+						</TD>
+						<TD class="ContentTD" colspan="3">&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Last Updated
+						</TD>
+						<TD class="ContentTD">
+							03/25/2002
+						</TD>
+						<TD class="ContentHeaderTD">
+							Updated By
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							username
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR align="center">
+			<TD>
+				<TABLE width="100%" cellpadding="0" cellspacing="0" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="35%" valign="top">
+							<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TH colspan="4" align="left">
+										Phone Numbers 
+									</TH>
+								</TR>
+								<TR>
+									<TH align="left" width="20%" class="small">
+										Type 
+									</TH>
+									<TH align="left" width="25%" class="small">
+										Country Code 
+									</TH>
+									<TH align="left" width="20%" class="small">
+										Area Code 
+									</TH>
+									<TH align="left" width="35%" class="small">
+										Number 
+									</TH>
+								</TR>
+								<TR>
+									<TD>
+										Home 
+									</TD>
+									<TD>&nbsp;
+									</TD>
+									<TD>
+										703 
+									</TD>
+									<TD>
+										555-1212 
+									</TD>
+								</TR>
+								<TR>
+									<TD>
+										Work 
+									</TD>
+									<TD>
+										55 
+									</TD>
+									<TD>
+										555 
+									</TD>
+									<TD>
+										555-1234 
+									</TD>
+								</TR>
+								<TR>
+									<TD>
+										Cell 
+									</TD>
+									<TD>&nbsp;
+									</TD>
+									<TD>
+										703 
+									</TD>
+									<TD>
+										555-6789 
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+						<TD width="65%" valign="top">
+							<TABLE width="100%" cellpadding="2" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TH colspan="2" align="left">
+										Email Addresses 
+									</TH>
+								</TR>
+								<TR>
+									<TD width="20%">
+										Primary 
+									</TD>
+									<TD width="80%">
+										some.user@home.com 
+									</TD>
+								</TR>
+								<TR>
+									<TD>
+										Alternate 
+									</TD>
+									<TD>
+										some.user@work.com 
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="top">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH align="left">
+							Enter New Comments 
+						</TH>
+					</TR>
+					<TR>
+						<TD>
+							<TEXTAREA name="comments" cols="115" rows="3" onKeyUp="validateComments(this);"></TEXTAREA> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD class="ContentHeaderTR">
+				<BR>
+				John Michael Doe 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="reset" class="BUTTON" name="ResetButton2" value="Reset"> <INPUT type="button" class="BUTTON" name="CancelButton2" value="Cancel" onClick="parent.location='PersonDetail.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" name="SubmitButton" value="Submit" class="BUTTON" onClick="parent.location='DuplicateSSNNotifier_ForPerson.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR>
+				<B><I>* Indicates Required Fields</I></B> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

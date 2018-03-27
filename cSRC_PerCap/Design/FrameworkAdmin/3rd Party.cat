@@ -1,0 +1,94 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0201.0210"
+    charSet    	0)
+
+(object Class_Category "3rd Party"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3D1A1E5C002F"
+    documentation 	"Contains libraries written by 3rd parties."
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class_Category "Java"
+	    quid       	"3D1B859C0224"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class_Category "IO"
+		    quid       	"3D1B8BC4018A"
+		    exportControl 	"Public"
+		    logical_models 	(list unit_reference_list
+			(object Class "File"
+			    quid       	"3D1B85A700C1"
+			    stereotype 	"boundary"
+			    operations 	(list Operations
+				(object Operation "write"
+				    quid       	"3D1B879A0250"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	0))))
+		    logical_presentations 	(list unit_reference_list))
+		(object Class_Category "JMS"
+		    quid       	"3D1B87E0026E"
+		    exportControl 	"Public"
+		    logical_models 	(list unit_reference_list
+			(object Class "Queue"
+			    quid       	"3D1B87EC01B7"
+			    stereotype 	"boundary"))
+		    logical_presentations 	(list unit_reference_list))
+		(object Class_Category "Serlvets"
+		    quid       	"3D1A116F0063"
+		    exportControl 	"Public"
+		    logical_models 	(list unit_reference_list
+			(object Class "JspPage"
+			    quid       	"3D1A11900088"
+			    operations 	(list Operations
+				(object Operation "_jspService"
+				    quid       	"3D1A1576008D"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	0))))
+		    logical_presentations 	(list unit_reference_list)))
+	    logical_presentations 	(list unit_reference_list))
+	(object Class_Category "Jakarta"
+	    quid       	"3D1B8BD30376"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class_Category "Struts"
+		    quid       	"3D1A08C60191"
+		    visible_categories 	(list visibility_relationship_list
+			(object Visibility_Relationship
+			    quid       	"3D1A16600288"
+			    supplier   	"Logical View::3rd Party::Java::Serlvets"
+			    quidu      	"3D1A116F0063"))
+		    exportControl 	"Public"
+		    logical_models 	(list unit_reference_list
+			(object Class "Action"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"ReadOnly"
+				    value      	FALSE))
+			    quid       	"3DDE698B0340"
+			    module     	"Component View::org::apache::struts::action::Action"
+			    quidu      	"3DDE698B0334"
+			    language   	"Java")
+			(object Class "ActionServlet"
+			    quid       	"3DDE93770079"))
+		    logical_presentations 	(list unit_reference_list))
+		(object Class_Category "Log4J"
+		    quid       	"3D1B6131005C"
+		    exportControl 	"Public"
+		    logical_models 	(list unit_reference_list
+			(object Class "Logger"
+			    quid       	"3D1B8AEB017E"
+			    operations 	(list Operations
+				(object Operation "info"
+				    quid       	"3D1B8AF003D4"
+				    concurrency 	"Sequential"
+				    opExportControl 	"Public"
+				    uid        	0))))
+		    logical_presentations 	(list unit_reference_list)))
+	    logical_presentations 	(list unit_reference_list)))
+    logical_presentations 	(list unit_reference_list))

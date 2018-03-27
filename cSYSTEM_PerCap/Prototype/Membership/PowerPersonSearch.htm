@@ -1,0 +1,356 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Power Person Search</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Power Person Search</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="PersonSearchResults.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="button" class="BUTTON" name="BasicSearchButton" value="Basic Search" onClick="parent.location='BasicPersonSearch.htm'"> 
+				<INPUT type="reset"  class="BUTTON" name="ResetButton" value="Reset" onClick="parent.location='PowerPersonSearch.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" name="SubmitButton" class="BUTTON" value="Submit" onClick="parent.location='PersonSearchResults.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD class="ContentHeaderTR" colspan="2">
+				Fields to Search: 
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="14%">
+							Prefix 
+						</TH>
+						<TH width="24%">
+							First Name 
+						</TH>
+						<TH width="24%">
+							Middle Name 
+						</TH>
+						<TH width="24%">
+							Last Name 
+						</TH>
+						<TH width="14%">
+							Suffix 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center">
+							<SELECT name="prefix">
+								<OPTION></OPTION>
+								<OPTION>Ms.</OPTION>
+								<OPTION>Mrs.</OPTION>
+								<OPTION>Mr.</OPTION>
+								<OPTION>Dr.</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="FirstName" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="MiddleName" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="LastName" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<SELECT name="Suffix">
+								<OPTION></OPTION>
+								<OPTION>Jr.</OPTION>
+								<OPTION>Sr.</OPTION>
+								<OPTION>I</OPTION>
+								<OPTION>II</OPTION>
+								<OPTION>III</OPTION>
+								<OPTION>IV</OPTION>
+								<OPTION>V</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="6" align="left">
+							Primary Mailing Address 
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address1">Address 1</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="Address1" id="label_Address1" value="" size="50" maxlength="50"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address2">Address 2</LABEL> 
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							<INPUT type="text" name="Address2" id="label_Address2" value="" size="50" maxlength="50"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD width="10%" class="ContentHeaderTD">
+							<LABEL for="label_City">City</LABEL> 
+						</TD>
+						<TD width="35%">
+							<INPUT type="text" name="City" id="label_City" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD width="10%" class="ContentHeaderTD">
+							<LABEL for="label_state">State</LABEL> 
+						</TD>
+						<TD width="20%">
+							<SELECT name="state" id="label_state">
+								<SCRIPT language="JavaScript" src="../js/state.js"></SCRIPT>
+							</SELECT> 
+						</TD>
+						<TD width="10%" class="ContentHeaderTD">
+							<LABEL for="label_ZipCode">Zip/Postal Code</LABEL> 
+						</TD>
+						<TD width="15%">
+							<INPUT type="text" name="ZipCode" value="" id="label_ZipCode" size="5" maxlength="5">
+							- 
+							<INPUT type="text" name="ZipCode4" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_County">County</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="County" id="label_County" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Province">Province</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="Province" id="label_Province" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Country">Country</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="Country" id="ContentHeaderTD">
+								<OPTION></OPTION>
+								<OPTION>USA</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="2" align="left">
+							General Person Information 
+						</TH>
+					</TR>
+					<TR>
+						<TD width="45%" class="ContentHeaderTD">
+							<LABEL for="label_Nickname"> Nickname</LABEL> 
+						</TD>
+						<TD width="55%">
+							<INPUT type="text" name="Nickname" value="" id="label_Nickname" size=25> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_AlternateMailingName"> Alt Mail Name</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="AlternateMailingName" value="" id="label_AlternateMailingName" size=25> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD" valign="top">
+							<LABEL for="label_ssn"> Social Security Number</LABEL> 
+						</TD>
+						<TD valign="top">
+							<INPUT type="text" name="ssn1" value="" id="label_ssn" size=3 maxlength=3>
+							- 
+							<INPUT type="text" name="ssn2" value="" id="label_ssn" size=2 maxlength=2>
+							- 
+							<INPUT type="text" name="ssn3" value="" id="label_ssn" size=4 maxlength=4> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD" valign="top">
+							<LABEL for="label_userID"> User ID</LABEL> 
+						</TD>
+						<TD valign="top">
+							<INPUT type="text" name="userID" value="" id="label_userID" size="10" maxlength="10"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="contentheadertd">
+							<LABEL for="label_PhoneNumber"> Phone Number</LABEL> 
+						</TD>
+						<TD>
+							<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TD class="smallFont" width="30%">
+										Country Code 
+									</TD>
+									<TD class="smallFont" width="25%">
+										Area Code 
+									</TD>
+									<TD class="smallFont" width="45%">
+										Number 
+									</TD>
+								</TR>
+								<TR>
+									<TD width="23%">
+										<INPUT name="phonecountrycode" id="label_phone" size="3" maxlength="3"> 
+									</TD>
+									<TD width="23%">
+										<INPUT name="phoneareacode" id="label_phone" onKeyUp="return autoTab(this, 3, event);" size="3" maxlength="3"> 
+									</TD>
+									<TD width="54%">
+										<INPUT name="phone" size="7" maxlength="7"> 
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_EmailAddress"> Email Address</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="EmailAddress" value="" id="label_EmailAddress" size=25 maxlength=30> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Deletion">Marked for Deletion</LABEL>
+						</TD>
+						<TD>
+							<INPUT type="radio" name="Deletion" value="Yes"> Yes
+							<INPUT type="radio" name="Deletion" id="label_Deletion" value="No" CHECKED> No
+							<INPUT type="radio" name="Deletion" value="All"> All
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH align="left" colspan="2">
+							Search by Persona 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center" width="10%">
+							<INPUT type="radio" name="persona" value="AFSCME_Staff"> 
+						</TD>
+						<TD width="90%" class="ContentHeaderTD">
+							AFSCME Staff 
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center" width="10%">
+							<INPUT type="radio" name="persona" value="Affiliate_Staff"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							Affiliate Staff 
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center" width="10%">
+							<INPUT type="radio" name="persona" value="Other"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							Other 
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center" width="10%">
+							<INPUT type="radio" name="persona" value="Member"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							Member 
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center" width="10%">
+							<INPUT type="radio" name="persona" value="Contributor"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							PAC Contributor 
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center" width="10%">
+							<INPUT type="radio" name="persona" value="OrganizationAssociate"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							Organization Associate
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center" width="10%">
+							<INPUT type="radio" name="persona" value="All" checked>
+						</TD>
+						<TD class="ContentHeaderTD">
+							All
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="button" class="BUTTON" name="BasicSearchButton2" value="Basic Search" onClick="parent.location='BasicPersonSearch.htm'"> 
+				<INPUT type="reset"  name="ResetButton2"       class="BUTTON" value="Reset" onClick="parent.location='PowerPersonSearch.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" name="SubmitButton2"      class="BUTTON" value="Submit" onClick="parent.location='PersonSearchResults.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

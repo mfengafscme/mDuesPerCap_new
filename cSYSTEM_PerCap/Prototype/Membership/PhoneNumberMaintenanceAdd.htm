@@ -1,0 +1,141 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Phone Number Maintenance - Add</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align="center">
+			<H1>Phone Number Maintenance - Add</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+</TABLE>
+<FORM action="#" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				John Michael Doe - 12345678 <BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="15%">
+							Primary
+						</TH>
+						<TH width="25%">
+							* Code
+						</TH>
+						<TH width="15%">
+							Private
+						</TH>
+						<TH width="15%">
+							DO NOT CALL
+						</TH>
+						<TH width="15%">
+							Bad
+						</TH>
+						<TH width="15%">
+							Date Marked Bad
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentTD" align="center">
+							<INPUT type="checkbox" name="PrimaryPhoneNumber" id="label_PrimaryPhoneNumber"> 
+						</TD>
+						<TD class="ContentTD" align="center">
+							<SELECT name="PhoneNumberType" id="label_PhoneNumberType">
+								<OPTION value="">[Select]</OPTION>
+								<OPTION>Home</OPTION>
+								<OPTION>Work</OPTION>
+								<OPTION>Cell</OPTION>
+								<OPTION>Fax</OPTION>
+								<OPTION>Other</OPTION>
+							</SELECT> 
+						</TD>
+						<TD class="ContentTD" align="center">
+							<INPUT type="checkbox" name="Private" id="label_Private"> 
+						</TD>
+						<TD class="ContentTD" align="center">
+							<INPUT type="checkbox" name="DoNotCall" id="label_DoNotCall"> 
+						</TD>
+						<TD class="ContentTD" align="center">
+							<INPUT type="checkbox" name="BadPhoneNumber" id="label_BadPhoneNumber"> 
+						</TD>
+						<TD class="ContentTD" align="center">&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TH COLSPAN="2">
+							* Country Code
+						</TH>
+						<TH COLSPAN="2">
+							Area Code
+						</TH>
+						<TH COLSPAN="2">
+							* Number
+						</TH>
+					</TR>
+					<TR>
+						<TD COLSPAN="2" ALIGN="center">
+							<SELECT name="countryCode">
+								<OPTION selected>1 - United States</OPTION>
+								<OPTION>44 - United Kingdom</OPTION>
+								<OPTION>1+340 - U.S. Virgin Islands</OPTION>
+								<OPTION>1+787 - Puerto Rico</OPTION>
+								<OPTION>1+939 - Puerto Rico</OPTION>
+							</SELECT>
+						</TD>
+						<TD COLSPAN="2" ALIGN="center">
+							<INPUT type="text" name="AreaCode" id="label_AreaCode" value="" size="3" maxlength="3">
+						</TD>
+						<TD COLSPAN="2" ALIGN="center">
+							<INPUT type="text" name="PhoneNumber" id="label_PhoneNumber" value="" size="7" maxlength="7">
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT name="ResetButton" type="reset" class="BUTTON" value="Reset"> <INPUT name="CancelButton" type="button" class="BUTTON" onClick="history.go(-1);" value="Cancel"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT name="SubmitButton" type="button" class="BUTTON" onClick="parent.location='PhoneNumberMaintenance.htm'" value="Submit"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR><B><I>* Indicates Required Fields</I></B>
+				<BR>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

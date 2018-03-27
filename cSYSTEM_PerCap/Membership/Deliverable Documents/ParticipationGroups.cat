@@ -1,0 +1,1359 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0201.0210"
+    charSet    	0)
+
+(object Class_Category "ParticipationGroups"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3E9BF91D0251"
+    documentation 	"Contains components that handle the 'Maintain Participation Groups' specification."
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "ParticipationGroupData"
+	    quid       	"3E9BFB5E01E3"
+	    documentation 	"Represents a Participation Group."
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "groupPk"
+		    quid       	"3E9C0113016B"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "name"
+		    quid       	"3E9C00C601D9"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "description"
+		    quid       	"3E9C00CE0271"
+		    type       	"String"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::participationgroups::ParticipationGroupData"
+	    quidu      	"3EAD20B4000D"
+	    language   	"Java")
+	(object Class "ParticipationTypeData"
+	    quid       	"3E9BFB940050"
+	    documentation 	"Represents a Participation Type for a specific Group."
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "typePk"
+		    quid       	"3E9C01700241"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "groupPk"
+		    quid       	"3E9C017A032C"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "name"
+		    quid       	"3E9C019303E6"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "description"
+		    quid       	"3E9C019C0353"
+		    type       	"String"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::participationgroups::ParticipationTypeData"
+	    quidu      	"3EAD20B40053"
+	    language   	"Java")
+	(object Class "ParticipationDetailData"
+	    quid       	"3E9BFBA703AA"
+	    documentation 	"Represents a Participation Detail for a specific Group and Type."
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "detailPk"
+		    quid       	"3E9C01D00073"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "typePk"
+		    quid       	"3E9C01DA0103"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "groupPk"
+		    quid       	"3E9C01E20277"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "name"
+		    quid       	"3E9C01EB0202"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "description"
+		    quid       	"3E9C01F1030F"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "shortcut"
+		    quid       	"3E9C02210142"
+		    type       	"int"
+		    exportControl 	"Public")
+		(object ClassAttribute "status"
+		    quid       	"3E9C02290067"
+		    type       	"boolean"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::participationgroups::ParticipationDetailData"
+	    quidu      	"3EAD20B4007B"
+	    language   	"Java")
+	(object Class "ParticipationOutcomeData"
+	    quid       	"3E9C02690394"
+	    documentation 	"Represents a Participation Outcome for a specific Group, Type and Detail."
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "groupPk"
+		    quid       	"3E9C029A02EA"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "typePk"
+		    quid       	"3E9C0291007A"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "detailPk"
+		    quid       	"3E9C02890083"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "detailShortcut"
+		    quid       	"3E9C1A1D0295"
+		    type       	"int"
+		    exportControl 	"Public")
+		(object ClassAttribute "outcomePk"
+		    quid       	"3E9C027B02F0"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "name"
+		    quid       	"3E9C02A5028C"
+		    type       	"String"
+		    exportControl 	"Public")
+		(object ClassAttribute "description"
+		    quid       	"3E9C02AB0046"
+		    type       	"String"
+		    exportControl 	"Public"))
+	    module     	"Component View::org::afscme::enterprise::participationgroups::ParticipationOutcomeData"
+	    quidu      	"3EA7077C005B"
+	    language   	"Java")
+	(object Class "MaintainParticipationGroupsBean"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"cg_style"
+		    value      	"Default_EJB"))
+	    quid       	"3E9C037601EC"
+	    documentation 	"Encapsulates operations against participation group data"
+	    stereotype 	"EJBSession"
+	    operations 	(list Operations
+		(object Operation "addParticipationDetailData"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C09F500DF"
+		    documentation 	
+|Adds a new Participation Detail to a Participation Group and Type.
+|
+|@param detail the Participation Detail Data
+|
+|@return the ParticipationDetailData object with the Primary Key and Shortcut populated.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "detail"
+			    quid       	"3E9C0C860076"
+			    type       	"ParticipationDetailData"
+			    quidu      	"3E9BFBA703AA"))
+		    result     	"ParticipationDetailData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3E9BFBA703AA")
+		(object Operation "addParticipationGroupData"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C09AF02F1"
+		    documentation 	
+|Adds a new Participation Group.
+|
+|@param group the Participation Group Data
+|
+|@return the ParticipationGroupData object with the Primary Key populated.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "group"
+			    quid       	"3E9C0BF102E8"
+			    type       	"ParticipationGroupData"
+			    quidu      	"3E9BFB5E01E3"))
+		    result     	"ParticipationGroupData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3E9BFB5E01E3")
+		(object Operation "addParticipationOutcomeData"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C0A1203B2"
+		    documentation 	
+|Adds a new Participation Outcome to a Participation Group, Type, and Detail.
+|
+|@param outcome the Participation Outcome Data
+|
+|@return the ParticipationOutcomeData object with the Primary Key populated.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "outcome"
+			    quid       	"3E9C0D6902FD"
+			    type       	"ParticipationOutcomeData"
+			    quidu      	"3E9C02690394"))
+		    result     	"ParticipationOutcomeData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3E9C02690394")
+		(object Operation "addParticipationTypeData"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C09D20161"
+		    documentation 	
+|Adds a new Participation Type to a Participation Group.
+|
+|@param type the Participation Type Data
+|
+|@return the ParticipationTypeData object with the Primary Key populated.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "type"
+			    quid       	"3E9C0C3B00BE"
+			    type       	"ParticipationTypeData"
+			    quidu      	"3E9BFB940050"))
+		    result     	"ParticipationTypeData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3E9BFB940050")
+		(object Operation "getParticipationDetailData"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C08E4028B"
+		    documentation 	
+|Retrieves the data for a single Participation Detail.
+|
+|@param groupPk the Participation Group Primary Key
+|@param typePk the Participation Type Primary Key
+|@param detailPk the Participation Detail Primary Key
+|
+|@return the ParticipationDetailData object representing Participation Detail.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "groupPk"
+			    quid       	"3E9C092D0358"
+			    type       	"Integer")
+			(object Parameter "typePk"
+			    quid       	"3E9C09370244"
+			    type       	"Integer")
+			(object Parameter "detailPk"
+			    quid       	"3E9C093F0304"
+			    type       	"Integer"))
+		    result     	"ParticipationDetailData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3E9BFBA703AA")
+		(object Operation "getParticipationDetailData"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C094701BB"
+		    documentation 	
+|Retrieves the data for a single Participation Detail using the Shortcut value.
+|
+|@param shortcut the Participation Detail's shortcut value
+|
+|@return the ParticipationDetailData object representing Participation Detail.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "shortcut"
+			    quid       	"3E9C09A101D9"
+			    type       	"int"))
+		    result     	"ParticipationDetailData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3E9BFBA703AA")
+		(object Operation "getParticipationDetails"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C05CC0001"
+		    documentation 	
+|Retrieves all of the Participation Details for a given Participation Group and Type.
+|
+|@param groupPk the Participation Group Primary Key
+|@param typePk the Participation Type Primary Key
+|
+|@return a Collection of ParticipationDetailData objects.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "groupPk"
+			    quid       	"3E9C08280227"
+			    type       	"Integer")
+			(object Parameter "typePk"
+			    quid       	"3E9C0832014F"
+			    type       	"Integer"))
+		    result     	"Collection"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getParticipationGroupData"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C077802C4"
+		    documentation 	
+|Retrieves the data for a single Participation Group.
+|
+|@param groupPk the Participation Group Primary Key
+|
+|@return the ParticipationGroupData object representing Participation Group.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "groupPk"
+			    quid       	"3E9C08810301"
+			    type       	"Integer"))
+		    result     	"ParticipationGroupData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3E9BFB5E01E3")
+		(object Operation "getParticipationGroups"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C053D0074"
+		    documentation 	
+|Retrieves all of the Participation groups in the system.
+|
+|@return a Collection of ParticipationGroupData objects.
+		    
+		    result     	"Collection"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getParticipationOutcomeData"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C0A0100FA"
+		    documentation 	
+|Retrieves the data for a single Participation Outcome.
+|
+|@param groupPk the Participation Group Primary Key
+|@param typePk the Participation Type Primary Key
+|@param detailPk the Participation Detail Primary Key
+|@param outcomePk the Participation Outcome Primary Key
+|
+|@return the ParticipationOutcomeData object representing Participation Outcome.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "groupPk"
+			    quid       	"3E9C0CFC0170"
+			    type       	"Integer")
+			(object Parameter "typePk"
+			    quid       	"3E9C0D06016A"
+			    type       	"Integer")
+			(object Parameter "detailPk"
+			    quid       	"3E9C0D0F00A5"
+			    type       	"Integer")
+			(object Parameter "outcomePk"
+			    quid       	"3E9C0D170237"
+			    type       	"Integer"))
+		    result     	"ParticipationOutcomeData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3E9C02690394")
+		(object Operation "getParticipationOutcomes"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C06EE0095"
+		    documentation 	
+|Retrieves all of the Participation Outcomes for a given Participation Group, Type and Detail.
+|
+|@param groupPk the Participation Group Primary Key
+|@param typePk the Participation Type Primary Key
+|@param detailPk the Participation Detail Primary Key
+|
+|@return a Collection of ParticipationDetailData objects.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "groupPk"
+			    quid       	"3E9C08530337"
+			    type       	"Integer")
+			(object Parameter "typePk"
+			    quid       	"3E9C085F02F8"
+			    type       	"Integer")
+			(object Parameter "detailPk"
+			    quid       	"3E9C0873030B"
+			    type       	"Integer"))
+		    result     	"Collection"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getParticipationTypeData"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C088B035F"
+		    documentation 	
+|Retrieves the data for a single Participation Type.
+|
+|@param groupPk the Participation Group Primary Key
+|@param typePk the Participation Type Primary Key
+|
+|@return the ParticipationTypeData object representing Participation Type.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "groupPk"
+			    quid       	"3E9C08D40256"
+			    type       	"Integer")
+			(object Parameter "typePk"
+			    quid       	"3E9C08DE0052"
+			    type       	"Integer"))
+		    result     	"ParticipationTypeData"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3E9BFB940050")
+		(object Operation "getParticipationTypes"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	""))
+		    quid       	"3E9C05BD0399"
+		    documentation 	
+|Retrieves all of the Participation Types for a given group.
+|
+|@param groupPk the Participation Group Primary Key
+|
+|@return a Collection of ParticipationTypeData objects.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "groupPk"
+			    quid       	"3E9C081000C4"
+			    type       	"Integer"))
+		    result     	"Collection"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    module     	"Component View::org::afscme::enterprise::participationgroups::ejb::MaintainParticipationGroupsBean"
+	    quidu      	"3EAD20B400D5"
+	    language   	"Java")
+	(object Mechanism @1
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$0"
+		    quid       	"3E9C1AE10124"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3E9C1AEF03E1"
+			    supplier   	"$UNNAMED$1"
+			    quidu      	"3E9C1AE8005C"
+			    messages   	(list Messages
+				(object Message "getParticipationGroupData(Integer)"
+				    quid       	"3E9C1AEF03E2"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    quidu      	"3E9C077802C4"
+				    creation   	FALSE)
+				(object Message "ParticipationGroupData"
+				    quid       	"3E9C1B0B0193"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"1.1"
+				    ordinal    	1
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "getParticipationDetails(Integer, Integer)"
+				    quid       	"3E9C1B240211"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3"
+				    ordinal    	4
+				    quidu      	"3E9C05CC0001"
+				    creation   	FALSE)
+				(object Message "Collection <ParticipationDetailData>"
+				    quid       	"3E9C1B5003B9"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"3.1"
+				    ordinal    	5
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "getParticipationOutcomes(Integer, Integer, Integer)"
+				    quid       	"3E9C1BA40233"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"4"
+				    ordinal    	6
+				    quidu      	"3E9C06EE0095"
+				    creation   	FALSE)
+				(object Message "Collection <ParticipationOutcomeData>"
+				    quid       	"3E9C1BB60012"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"4.1"
+				    ordinal    	7
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message "getParticipationTypes(Integer)"
+				    quid       	"3E9C1BDD0113"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"2"
+				    ordinal    	2
+				    quidu      	"3E9C05BD0399"
+				    creation   	FALSE)
+				(object Message "Collection <ParticipationTypeData>"
+				    quid       	"3E9C1BEE0294"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"2.1"
+				    ordinal    	3
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::3rd Party::Struts::Action"
+		    quidu      	"3E1B0B53038F"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$1"
+		    quid       	"3E9C1AE8005C"
+		    class      	"Logical View::ParticipationGroups::MaintainParticipationGroupsBean"
+		    quidu      	"3E9C037601EC"
+		    persistence 	"Transient"
+		    creationObj 	TRUE
+		    multi      	FALSE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Partcipation Group Classes"
+	    quid       	"3E9BF9ED0278"
+	    title      	"Partcipation Group Classes"
+	    documentation 	"Encapsulates access to Participation Group data."
+	    zoom       	90
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::ParticipationGroups::ParticipationGroupData" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1056, 304)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(790, 168)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	532
+			justify    	0
+			label      	"ParticipationGroupData")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E9BFB5E01E3"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(790, 231)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	4
+			max_width  	410)
+		    width      	550
+		    height     	298
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::ParticipationGroups::ParticipationTypeData" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1728, 320)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(1474, 159)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	508
+			justify    	0
+			label      	"ParticipationTypeData")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E9BFB940050"
+		    compartment 	(object Compartment
+			Parent_View 	@3
+			location   	(1474, 222)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	5
+			max_width  	410)
+		    width      	526
+		    height     	346
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::ParticipationGroups::ParticipationDetailData" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1072, 880)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(807, 641)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	530
+			justify    	0
+			label      	"ParticipationDetailData")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E9BFBA703AA"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(807, 704)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	8
+			max_width  	410)
+		    width      	548
+		    height     	502
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::ParticipationGroups::ParticipationOutcomeData" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1664, 880)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1405, 641)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	518
+			justify    	0
+			label      	"ParticipationOutcomeData")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E9C02690394"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(1405, 704)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	8
+			max_width  	434)
+		    width      	536
+		    height     	504
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::ParticipationGroups::MaintainParticipationGroupsBean" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(368, 528)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(39, 244)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	658
+			justify    	0
+			label      	"MaintainParticipationGroupsBean")
+		    icon       	"EJBSession"
+		    icon_style 	"Decoration"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E9C037601EC"
+		    compartment 	(object Compartment
+			Parent_View 	@6
+			location   	(39, 307)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	14
+			max_width  	625)
+		    width      	676
+		    height     	874
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object InteractionDiagram "S_View a Participation Group"
+	    mechanism_ref 	@1
+	    quid       	"3E9C0EE40167"
+	    title      	"S_View a Participation Group"
+	    documentation 	"Shows the calls needed to build the Participation Group - View screen."
+	    zoom       	90
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	21
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$0" @7
+		    location   	(144, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(144, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E9C1AE10124"
+		    width      	662
+		    height     	1854
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @8
+			location   	(144, 576)
+			line_color 	3342489
+			InterObjView 	@7
+			height     	260
+			y_coord    	200
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @9
+			location   	(144, 656)
+			line_color 	3342489
+			InterObjView 	@7
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @10
+			location   	(144, 912)
+			line_color 	3342489
+			InterObjView 	@7
+			height     	276
+			y_coord    	216
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @11
+			location   	(144, 1008)
+			line_color 	3342489
+			InterObjView 	@7
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @12
+			location   	(144, 1328)
+			line_color 	3342489
+			InterObjView 	@7
+			height     	276
+			y_coord    	216
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @13
+			location   	(144, 1424)
+			line_color 	3342489
+			InterObjView 	@7
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @14
+			location   	(144, 1696)
+			line_color 	3342489
+			InterObjView 	@7
+			height     	292
+			y_coord    	232
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @15
+			location   	(144, 1808)
+			line_color 	3342489
+			InterObjView 	@7
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$1" @16
+		    location   	(1520, 480)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(1520, 480)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	620
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E9C1AE8005C"
+		    width      	638
+		    height     	1598
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @17
+			location   	(1520, 540)
+			InterObjView 	@16
+			height     	242
+			y_coord    	182
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @18
+			location   	(1520, 576)
+			line_color 	3342489
+			InterObjView 	@16
+			height     	200
+			y_coord    	140
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @19
+			location   	(1520, 912)
+			line_color 	3342489
+			InterObjView 	@16
+			height     	216
+			y_coord    	156
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @20
+			location   	(1520, 1328)
+			line_color 	3342489
+			InterObjView 	@16
+			height     	216
+			y_coord    	156
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @21
+			location   	(1520, 1696)
+			line_color 	3342489
+			InterObjView 	@16
+			height     	232
+			y_coord    	172
+			Nested     	FALSE))
+		(object InterMessView "" @22
+		    location   	(16, 576)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @23
+			Parent_View 	@22
+			location   	(831, 532)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9C1AEF03E2"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	664
+			justify    	0
+			label      	"getParticipationGroupData(Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@7
+		    supplier   	@16
+		    Focus_Src  	@8
+		    Focus_Entry 	@18
+		    origin     	(159, 576)
+		    terminus   	(1504, 576)
+		    ordinal    	0)
+		(object InterMessView "" @24
+		    location   	(544, 656)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @25
+			Parent_View 	@24
+			location   	(832, 612)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9C1B0B0193"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	454
+			justify    	0
+			label      	"ParticipationGroupData"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@16
+		    supplier   	@7
+		    Focus_Src  	@18
+		    Focus_Entry 	@9
+		    origin     	(1504, 656)
+		    terminus   	(160, 656)
+		    ordinal    	1)
+		(object InterMessView "" @26
+		    location   	(832, 1328)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @27
+			Parent_View 	@26
+			location   	(831, 1284)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9C1B240211"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	744
+			justify    	0
+			label      	"getParticipationDetails(Integer, Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@7
+		    supplier   	@16
+		    Focus_Src  	@12
+		    Focus_Entry 	@20
+		    origin     	(159, 1328)
+		    terminus   	(1504, 1328)
+		    ordinal    	4)
+		(object InterMessView "" @28
+		    location   	(832, 1424)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @29
+			Parent_View 	@28
+			location   	(832, 1380)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9C1B5003B9"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	697
+			justify    	0
+			label      	"Collection <ParticipationDetailData>"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@16
+		    supplier   	@7
+		    Focus_Src  	@20
+		    Focus_Entry 	@13
+		    origin     	(1504, 1424)
+		    terminus   	(160, 1424)
+		    ordinal    	5)
+		(object NoteView @30
+		    location   	(1904, 1792)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@30
+			location   	(1638, 1691)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	496
+			label      	"For each ParticipationDetailData object.")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	556
+		    height     	215)
+		(object InterMessView "" @31
+		    location   	(832, 1696)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @32
+			Parent_View 	@31
+			location   	(831, 1652)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9C1BA40233"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	968
+			justify    	0
+			label      	"getParticipationOutcomes(Integer, Integer, Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@7
+		    supplier   	@16
+		    Focus_Src  	@14
+		    Focus_Entry 	@21
+		    origin     	(159, 1696)
+		    terminus   	(1504, 1696)
+		    ordinal    	6)
+		(object InterMessView "" @33
+		    location   	(832, 1808)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @34
+			Parent_View 	@33
+			location   	(832, 1764)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9C1BB60012"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	760
+			justify    	0
+			label      	"Collection <ParticipationOutcomeData>"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@16
+		    supplier   	@7
+		    Focus_Src  	@21
+		    Focus_Entry 	@15
+		    origin     	(1504, 1808)
+		    terminus   	(160, 1808)
+		    ordinal    	7)
+		(object AttachView "" @35
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@30
+		    supplier   	@31
+		    line_style 	0)
+		(object InterMessView "" @36
+		    location   	(16, 912)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @37
+			Parent_View 	@36
+			location   	(831, 868)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9C1BDD0113"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	580
+			justify    	0
+			label      	"getParticipationTypes(Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@7
+		    supplier   	@16
+		    Focus_Src  	@10
+		    Focus_Entry 	@19
+		    origin     	(159, 912)
+		    terminus   	(1504, 912)
+		    ordinal    	2)
+		(object InterMessView "" @38
+		    location   	(832, 1008)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @39
+			Parent_View 	@38
+			location   	(832, 964)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3E9C1BEE0294"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	677
+			justify    	0
+			label      	"Collection <ParticipationTypeData>"
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@16
+		    supplier   	@7
+		    Focus_Src  	@19
+		    Focus_Entry 	@11
+		    origin     	(1504, 1008)
+		    terminus   	(160, 1008)
+		    ordinal    	3)
+		(object NoteView @40
+		    location   	(1952, 1424)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@40
+			location   	(1686, 1323)
+			fill_color 	13434879
+			nlines     	3
+			max_width  	496
+			label      	"For each ParticipationTypeData object.")
+		    line_color 	3342489
+		    fill_color 	13434879
+		    width      	556
+		    height     	215)
+		(object AttachView "" @41
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@40
+		    supplier   	@26
+		    line_style 	0)
+		(object Label @42
+		    location   	(480, 80)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    nlines     	2
+		    max_width  	1105
+		    label      	"Shows the calls needed to build the Participation Group - View screen.")))))

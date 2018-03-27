@@ -1,0 +1,403 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Officer Detail - Edit</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align="center">
+			<H1>Officer Detail - Edit</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+</TABLE>
+<FORM action="#" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="reset" class="BUTTON" name="ResetButton" value="Reset"> <INPUT type="button" class="BUTTON" name="CancelButton" value="Cancel" onClick="parent.location='OfficerDetail.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" name="SubmitButton" value="Submit" onClick="parent.location='OfficerDetail.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD class="ContentHeaderTR">
+				John Michael Doe - 12345678 <BR>
+				Virginia PD Local 100 - L0100-VA-0000-0010<BR><BR>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR align="center">
+			<TD colspan="2">
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="14%">
+							Prefix 
+						</TH>
+						<TH width="24%">
+							First Name 
+						</TH>
+						<TH width="24%">
+							Middle Name 
+						</TH>
+						<TH width="24%">
+							Last Name 
+						</TH>
+						<TH width="14%">
+							Suffix 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center">
+							Mr 
+						</TD>
+						<TD align="center">
+							John 
+						</TD>
+						<TD align="center">
+							Michael 
+						</TD>
+						<TD align="center">
+							Doe 
+						</TD>
+						<TD align="center">
+							III 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD width="50%" valign="top">
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD class="ContentHeaderTD" width="15%">
+							<LABEL for="label_OfficerTitle">Officer Title</LABEL> 
+						</TD>
+						<TD width="25%">
+							President 
+						</TD>
+						<TD class="ContentHeaderTD" width="13%">
+							<LABEL for="label_MailCode">Officer Mail To</LABEL> 
+						</TD>
+						<TD width="17%">
+							Affiliate 
+						</TD>
+						<TD width="19%" class="ContentHeaderTD">
+							<LABEL for="label_MemberNumber">Member Number</LABEL> 
+						</TD>
+						<TD width="11%">
+							123456 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_BeginningTermDate">Beginning Term Date</LABEL> 
+						</TD>
+						<TD>
+							01/2002 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_EndingTermDate">Ending Term Date</LABEL>
+						</TD>
+						<TD>
+							01/2003 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Suspended">Suspended</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="checkbox" name="Suspended" id="label_Suspended"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_SuspendedDate">Suspended Date</LABEL> 
+						</TD>
+						<TD colspan="1">
+							<SELECT name="suspendedDateMonth">
+								<SCRIPT language="JavaScript" src="../js/month_options.js"></SCRIPT>
+							</SELECT> <INPUT type="text" name="suspendedDateYear" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_InformationUpdateSource">Primary Information Source</LABEL> 
+						</TD>
+						<TD>
+							Council (Manual) 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="top" colspan="2">
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH align="left" colspan="8">
+							Officer Mailing Address 
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address1">Address 1</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							111 Some Street 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address2">Address 2</LABEL> 
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							Apt. 1 
+						</TD>
+					</TR>
+					<TR>
+						<TD width="11%" class="ContentHeaderTD">
+							<LABEL for="label_City">City</LABEL> 
+						</TD>
+						<TD width="29%">
+							Vienna 
+						</TD>
+						<TD width="15%" class="ContentHeaderTD">
+							<LABEL for="label_state">State</LABEL> 
+						</TD>
+						<TD width="25%">
+							VA 
+						</TD>
+						<TD width="10%" class="ContentHeaderTD">
+							<LABEL for="label_ZipCode">Zip/Postal Code</LABEL> 
+						</TD>
+						<TD width="15%">
+							00000-0000 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_County">County</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							Fairfax 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Province">Province</LABEL> 
+						</TD>
+						<TD class="ContentTD">&nbsp;
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Country">Country</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							USA 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_BadAddressFlag">Bad Address</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="checkbox" name="BadAddress" id="label_BadAddress" disabled> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							Date Marked Bad 
+						</TD>
+						<TD class="ContentTD" colspan="3">&nbsp;
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD colspan="2" valign="top">
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH align="left" colspan="7">
+							Other Positions Held 
+						</TH>
+					</TR>
+					<TR>
+						<TH width="25%">
+							Officer Title 
+						</TH>
+						<TH width="50%" colspan="5">
+							Affiliate Identifier 
+						</TH>
+						<TH align="center" width="25%">
+							Officer Mail To 
+						</TH>
+					</TR>
+					<TR>
+						<TD>&nbsp;
+						</TD>
+						<TH class="small">
+							Type 
+						</TH>
+						<TH class="small">
+							Loc/Sub Chap 
+						</TH>
+						<TH class="small">
+							State/Nat'l 
+						</TH>
+						<TH class="small">
+							Sub Unit 
+						</TH>
+						<TH class="small">
+							CN/Ret Chap 
+						</TH>
+						<TD>&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center">
+							President 
+						</TD>
+						<TD align="center">
+							L 
+						</TD>
+						<TD align="center">
+							1234 
+						</TD>
+						<TD align="center">
+							DC 
+						</TD>
+						<TD align="center">
+							0000 
+						</TD>
+						<TD align="center">
+							0001 
+						</TD>
+						<TD align="center">
+							Affiliate 
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center">
+							Secretary Treasurer 
+						</TD>
+						<TD align="center">
+							L 
+						</TD>
+						<TD align="center">
+							0100 
+						</TD>
+						<TD align="center">
+							VA 
+						</TD>
+						<TD align="center">
+							0000 
+						</TD>
+						<TD align="center">
+							0100 
+						</TD>
+						<TD align="center">
+							Home 
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center">
+							Vice President 
+						</TD>
+						<TD align="center">
+							C 
+						</TD>
+						<TD align="center">
+							0000 
+						</TD>
+						<TD align="center">
+							NT 
+						</TD>
+						<TD align="center">
+							0000 
+						</TD>
+						<TD align="center">
+							0200 
+						</TD>
+						<TD align="center">
+							Affilite 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD colspan="2" valign="top">
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH align="left">
+							Enter New Comments
+						</TH>
+					</TR>
+					<TR>
+						<TD>
+							<TEXTAREA name="comments" cols="115" rows="3" onKeyUp="validateComments(this);"></TEXTAREA> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD colspan="2" valign="top">
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD class="ContentHeaderTD">
+							Last Updated
+						</TD>
+						<TD class="ContentTD">
+							01/01/2002
+						</TD>
+						<TD class="ContentHeaderTD">
+							Updated By
+						</TD>
+						<TD class="ContentTD">
+							smurf628
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD class="ContentHeaderTR">
+				<BR>
+				John Michael Doe - 12345678 <BR>
+				Virginia PD Local 100 - L0100-VA-0000-0010 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="reset" class="BUTTON" name="ResetButton" value="Reset"> <INPUT type="button" class="BUTTON" name="CancelButton" value="Cancel" onClick="parent.location='OfficerDetail.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" name="SubmitButton" value="Submit" onClick="parent.location='OfficerDetail.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">				</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

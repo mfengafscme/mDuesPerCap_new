@@ -1,0 +1,801 @@
+Code Type,Code,Legacy Code,Description,Priority
+Accomodations,1,,Wheelchair accessibility,
+Accomodations,2,,Refrigeration for medication,
+Accomodations,3,,Materials: Braille,
+Accomodations,4,,Materials: Cassette,
+Accomodations,5,,Materials: Large Type,
+Accomodations,6,,ASL Interpreter,
+Accomodations,7,,Assisted Listening Device,
+Accomodations,8,,Telecommunications Device,
+Accomodations,9,,Handicap Rest/Bathroom,
+ActivityType,A,,Add,
+ActivityType,D,,Deactivate,
+ActivityType,U,,Update,
+AddressType,1,,Home,
+AddressType,2,,Work,
+AddressType,3,,Shipping,
+AffiliateCardRunType,1,,Regular Members
+AffiliateCardRunType,2,,Retiree Members
+AffiliateCardRunType,3,,CSEA Regular Members
+AffiliateCardRunType,4,,CSEA Retiree Members
+AffiliateCardRunType,5,,Puerto Rico Members
+AffiliateSections,1,,Detail
+AffiliateSections,2,,Location
+AffiliateSections,3,,Charter
+AffiliateSections,4,,Constitution
+AffiliateSections,5,,Officer Titles
+AffiliateSections,6,,Financial
+AffiliateSections,7,,Membership Reporting
+AffiliateState,AK,2,ALASKA                                            
+AffiliateState,AL,1,ALABAMA                                           
+AffiliateState,AR,4,ARKANSAS                                          
+AffiliateState,AS,58,AMERICAN SOMOA                                    
+AffiliateState,AZ,3,ARIZONA                                           
+AffiliateState,CA,5,CALIFORNIA                                        
+AffiliateState,CO,6,COLORADO                                          
+AffiliateState,CT,7,CONNECTICUT                                       
+AffiliateState,CZ,60,REPUBLIC OF PANAMA
+AffiliateState,DC,9,DISTRICT OF COLUMBIA                              
+AffiliateState,DE,8,DELAWARE                                          
+AffiliateState,FL,10,FLORIDA                                           
+AffiliateState,GA,11,GEORGIA                                           
+AffiliateState,GU,53,GUAM                                              
+AffiliateState,HI,12,HAWAII                                            
+AffiliateState,IA,16,IOWA                                              
+AffiliateState,ID,13,IDAHO                                             
+AffiliateState,IL,14,ILLINOIS                                          
+AffiliateState,IN,15,INDIANA                                           
+AffiliateState,KS,17,KANSAS                                            
+AffiliateState,KY,18,KENTUCKY                                          
+AffiliateState,LA,19,LOUISIANA                                         
+AffiliateState,MA,22,MASSACHUSETTS                                     
+AffiliateState,MD,21,MARYLAND                                          
+AffiliateState,ME,20,MAINE                                             
+AffiliateState,MI,23,MICHIGAN                                          
+AffiliateState,MN,24,MINNESOTA                                         
+AffiliateState,MO,26,MISSOURI                                          
+AffiliateState,MS,25,MISSISSIPPI                                       
+AffiliateState,MT,27,MONTANA                                           
+AffiliateState,NA,0,BLANK
+AffiliateState,NC,34,NORTH CAROLINA                                    
+AffiliateState,ND,35,NORTH DAKOTA                                      
+AffiliateState,NE,28,NEBRASKA                                          
+AffiliateState,NH,30,NEW HAMPSHIRE                                     
+AffiliateState,NJ,31,NEW JERSEY                                        
+AffiliateState,NM,32,NEW MEXICO                                        
+AffiliateState,NT,98,NATIONAL
+AffiliateState,NV,29,NEVADA                                            
+AffiliateState,NY,33,NEW YORK                                          
+AffiliateState,OH,36,OHIO                                              
+AffiliateState,OK,37,OKLAHOMA                                          
+AffiliateState,OR,38,OREGON                                            
+AffiliateState,PA,39,PENNSYLVANIA                                      
+AffiliateState,PR,55,PUERTO RICO                                       
+AffiliateState,RI,40,RHODE ISLAND                                      
+AffiliateState,SC,41,SOUTH CAROLINA                                    
+AffiliateState,SD,42,SOUTH DAKOTA                                      
+AffiliateState,TN,43,TENNESSEE                                         
+AffiliateState,TT,59,CATCH-ALL                                         
+AffiliateState,TX,44,TEXAS                                             
+AffiliateState,UT,45,UTAH                                              
+AffiliateState,VA,47,VIRGINIA                                          
+AffiliateState,VI,56,VIRGIN ISLANDS                                    
+AffiliateState,VT,46,VERMONT                                           
+AffiliateState,WA,48,WASHINGTON                                        
+AffiliateState,WI,50,WISCONSIN                                         
+AffiliateState,WV,49,WEST VIRGINIA                                     
+AffiliateState,WY,51,WYOMING                                           
+AffiliateState,XX,99,CASH RECEIPTS                                     
+AffiliateStatus,AC,S,Administrative/Legislative Council
+AffiliateStatus,C,Y,Chartered
+AffiliateStatus,CU,,Certified
+AffiliateStatus,D,D,Deactivated
+AffiliateStatus,DU,,Decertified
+AffiliateStatus,M,M,Merged
+AffiliateStatus,N,N,Not Chartered
+AffiliateStatus,PC,P,Pending Charter
+AffiliateStatus,PD,,Pending Deactivation,
+AffiliateStatus,RA,A,Restricted Administratorship,
+AffiliateStatus,S,,Split,
+AffiliateStatus,UA,,Unrestricted Administratorship,
+AffiliateType,C,C,Council,
+AffiliateType,L,L,Local,
+AffiliateType,R,R,Retiree Chapter,
+AffiliateType,S,S,Retiree Sub-Chapter,
+AffiliateType,U,,Sub-Unit,
+AFSCMETitle,1,,International President,1
+AFSCMETitle,2,,International Secretary-Treasurer,2
+AFSCMETitle,3,,International Vice-President,3
+AFSCMETitle,4,13,Administrator,4
+AFSCMETitle,5,,Deputy Administrator,5
+AFSCMETitle,6,26,Executive Director,6
+AFSCMETitle,7,,Director,7
+AFSCMETitle,8,,Regional Director,8
+AFSCMETitle,9,1,President,9
+AFSCMETitle,10,30,Chairman,10
+AFSCMETitle,11,29,Co-Chair,11
+AFSCMETitle,12,28,Executive Vice-President,12
+AFSCMETitle,13,5,Vice President,13
+AFSCMETitle,14,31,Vice-Chairman,14
+AFSCMETitle,15,6,1st Vice President,15
+AFSCMETitle,16,7,2nd Vice President,16
+AFSCMETitle,17,8,3rd Vice President,17
+AFSCMETitle,18,9,4th Vice President,18
+AFSCMETitle,19,10,5th Vice President,19
+AFSCMETitle,20,,Conference Board Vice President,20
+AFSCMETitle,21,,Regional Vice-President,21
+AFSCMETitle,22,,District Vice-President,22
+AFSCMETitle,23,,Department Vice-President,23
+AFSCMETitle,24,11,Recording Secretary,24
+AFSCMETitle,25,2,Secretary,25
+AFSCMETitle,26,12,Corresponding Secretary,26
+AFSCMETitle,27,14,Assistant Secretary,27
+AFSCMETitle,28,15,Secretary Treasurer,28
+AFSCMETitle,29,3,Treasurer,29
+AFSCMETitle,30,,Assistant Treasurer,30
+AFSCMETitle,31,16,Financial Secretary,31
+AFSCMETitle,32,4,Financial Reporting Officer,32
+AFSCMETitle,33,17,Executive Board Member,33
+AFSCMETitle,34,18,Board of Directors Member,34
+AFSCMETitle,35,,District Board Member,35
+AFSCMETitle,36,,Regional Board Member,36
+AFSCMETitle,37,,Department Board Member,37
+AFSCMETitle,38,,Conference Board Member,38
+AFSCMETitle,39,20,Chief Steward,39
+AFSCMETitle,40,23,Sergeant-At-Arms,40
+AFSCMETitle,41,19,Trustee,41
+AFSCMETitle,42,,Past President,42
+AFSCMETitle,43,24,Business Agent,43
+AFSCMETitle,44,25,Business Representative,44
+AFSCMETitle,45,,Parliamentarian,45
+AFSCMETitle,46,90,Steward,46
+AFSCMETitle,47,,Chapter Chairperson,47
+AFSCMETitle,48,,Chapter Secretary,48
+AFSCMETitle,49,,Chapter Treasurer,49
+AFSCMETitle,50,,Business Manager,50
+AFSCMETitle,51,,Judicial Panel Chairperson,51
+AFSCMETitle,52,,Judicial Panel Member,52
+CharterCode,1,,New ,
+CharterCode,2,,Split,
+CharterCode,3,,Merge,
+CountryCitizenship,AD,,Andorra
+CountryCitizenship,AE,,United Arab Emirates
+CountryCitizenship,AF,,Afghanistan
+CountryCitizenship,AG,,Antigua & Barbuda (Inc. Redonda)
+CountryCitizenship,AI,,Anguilla
+CountryCitizenship,AL,,Albania
+CountryCitizenship,AM,,Armenia
+CountryCitizenship,AN,,Netherlands Antilles
+CountryCitizenship,AO,,Angola
+CountryCitizenship,AR,,Argentina
+CountryCitizenship,AT,,Austria
+CountryCitizenship,AU,,Australia
+CountryCitizenship,AW,,Aruba
+CountryCitizenship,AZ,,Azerbaijan
+CountryCitizenship,BA,,Bosnia-Herzegovina
+CountryCitizenship,BB,,Barbados
+CountryCitizenship,BD,,Bangladesh
+CountryCitizenship,BE,,Belgium
+CountryCitizenship,BF,,Burkina Faso
+CountryCitizenship,BG,,Bulgaria
+CountryCitizenship,BH,,Bahrain
+CountryCitizenship,BI,,Burundi
+CountryCitizenship,BJ,,Benin
+CountryCitizenship,BM,,Bermuda
+CountryCitizenship,BN,,Brunei Darussalem
+CountryCitizenship,BO,,Bolivia
+CountryCitizenship,BR,,Brazil
+CountryCitizenship,BS,,Bahamas
+CountryCitizenship,BT,,Bhutan
+CountryCitizenship,BW,,Botswana
+CountryCitizenship,BY,,Belarus
+CountryCitizenship,BZ,,Belize
+CountryCitizenship,CA,,Canada
+CountryCitizenship,CF,,Central African Republic
+CountryCitizenship,CG,,"Congo (Brazzaville), Republic of the"
+CountryCitizenship,CH,,Switzerland
+CountryCitizenship,CI,,Ivory Coast
+CountryCitizenship,CL,,Chile
+CountryCitizenship,CM,,Cameroon
+CountryCitizenship,CN,,China
+CountryCitizenship,CO,,Colombia
+CountryCitizenship,CR,,Costa Rica
+CountryCitizenship,CU,,Cuba
+CountryCitizenship,CV,,Cape Verde
+CountryCitizenship,CY,,Cyprus
+CountryCitizenship,CZ,,Czech Republic
+CountryCitizenship,DE,,Germany
+CountryCitizenship,DJ,,Djibouti
+CountryCitizenship,DK,,Denmark
+CountryCitizenship,DM,,Dominica
+CountryCitizenship,DO,,Dominican Republic
+CountryCitizenship,DZ,,Algeria
+CountryCitizenship,EC,,Ecuador
+CountryCitizenship,EE,,Estonia
+CountryCitizenship,EG,,Egypt
+CountryCitizenship,ER,,Eritrea
+CountryCitizenship,ES,,Spain
+CountryCitizenship,ET,,Ethiopia
+CountryCitizenship,FI,,Finland
+CountryCitizenship,FJ,,Fiji
+CountryCitizenship,FK,,Falkland Islands
+CountryCitizenship,FR,,France
+CountryCitizenship,GA,,Gabon
+CountryCitizenship,GB,,Great Britain & Northern Ireland
+CountryCitizenship,GD,,Grenada
+CountryCitizenship,GE,,"Georgia, Republic of"
+CountryCitizenship,GF,,French Guiana
+CountryCitizenship,GH,,Ghana
+CountryCitizenship,GI,,Gibraltar
+CountryCitizenship,GL,,Greenland
+CountryCitizenship,GM,,Gambia
+CountryCitizenship,GN,,Guinea
+CountryCitizenship,GP,,Guadeloupe
+CountryCitizenship,GQ,,Equatorial Guinea
+CountryCitizenship,GR,,Greece
+CountryCitizenship,GT,,Guatemala
+CountryCitizenship,GW,,Guinea Bissau
+CountryCitizenship,GY,,Guyana
+CountryCitizenship,HK,,Hong Kong
+CountryCitizenship,HN,,Honduras
+CountryCitizenship,HR,,Croatia
+CountryCitizenship,HT,,Haiti
+CountryCitizenship,HU,,Hungary
+CountryCitizenship,ID,,Indonesia
+CountryCitizenship,IE,,Ireland
+CountryCitizenship,IL,,Israel
+CountryCitizenship,IN,,India
+CountryCitizenship,IQ,,Iraq
+CountryCitizenship,IR,,Iran
+CountryCitizenship,IS,,Iceland
+CountryCitizenship,IT,,Italy
+CountryCitizenship,JM,,Jamaica
+CountryCitizenship,JO,,Jordan
+CountryCitizenship,JP,,Japan
+CountryCitizenship,KE,,Kenya
+CountryCitizenship,KG,,Kyrgyzstan
+CountryCitizenship,KH,,Cambodia
+CountryCitizenship,KI,,Kiribati
+CountryCitizenship,KM,,Comoros
+CountryCitizenship,KN,,Saint Christopher (St.Kitts) & Nevis
+CountryCitizenship,KP,,"Korea, Dem. Peoples Rep. (North)"
+CountryCitizenship,KR,,"Korea, Republic of (South)"
+CountryCitizenship,KW,,Kuwait
+CountryCitizenship,KY,,Cayman Islands
+CountryCitizenship,KZ,,Kazakhstan
+CountryCitizenship,LA,,Laos
+CountryCitizenship,LB,,Lebanon
+CountryCitizenship,LC,,Saint Lucia
+CountryCitizenship,LI,,Liechtenstein
+CountryCitizenship,LK,,Sri Lanka
+CountryCitizenship,LR,,Liberia
+CountryCitizenship,LS,,Lesotho
+CountryCitizenship,LT,,Lithuania
+CountryCitizenship,LU,,Luxembourg
+CountryCitizenship,LV,,Latvia
+CountryCitizenship,LY,,Libya
+CountryCitizenship,MA,,Morocco
+CountryCitizenship,MC,,Monaco
+CountryCitizenship,MD,,Moldova
+CountryCitizenship,MG,,Madagascar
+CountryCitizenship,MK,,"Macedonia, Republic of"
+CountryCitizenship,ML,,Mali
+CountryCitizenship,MM,,Burma (Myanmar)
+CountryCitizenship,MN,,Mongolia
+CountryCitizenship,MO,,Macao
+CountryCitizenship,MQ,,Martinique
+CountryCitizenship,MR,,Mauritania
+CountryCitizenship,MS,,Monserrat
+CountryCitizenship,MT,,Malta
+CountryCitizenship,MU,,Mauritius
+CountryCitizenship,MV,,Maldives
+CountryCitizenship,MW,,Malawi
+CountryCitizenship,MX,,Mexico
+CountryCitizenship,MY,,Malaysia
+CountryCitizenship,MZ,,Mozambique
+CountryCitizenship,NA,,Namibia
+CountryCitizenship,NC,,New Caledonia
+CountryCitizenship,NE,,Niger
+CountryCitizenship,NG,,Nigeria
+CountryCitizenship,NI,,Nicaragua
+CountryCitizenship,NL,,Netherlands
+CountryCitizenship,NO,,Norway
+CountryCitizenship,NP,,Nepal
+CountryCitizenship,NR,,Nauru
+CountryCitizenship,NZ,,New Zealand
+CountryCitizenship,OM,,Oman
+CountryCitizenship,PA,,Panama
+CountryCitizenship,PE,,Peru
+CountryCitizenship,PF,,French Polynesia
+CountryCitizenship,PG,,Papua New Guinea
+CountryCitizenship,PH,,Philippines
+CountryCitizenship,PK,,Pakistan
+CountryCitizenship,PL,,Poland
+CountryCitizenship,PM,,Saint Pierre & Miquelon
+CountryCitizenship,PN,,Pitcairn Islands
+CountryCitizenship,PT,,Portugal
+CountryCitizenship,PY,,Paraguay
+CountryCitizenship,QA,,Qatar
+CountryCitizenship,RE,,Reunion
+CountryCitizenship,RO,,Romania
+CountryCitizenship,RU,,Russia
+CountryCitizenship,RW,,Rwanda
+CountryCitizenship,SA,,Saudi Arabia
+CountryCitizenship,SB,,Solomon Islands (Inc. Santa Cruz Is.)
+CountryCitizenship,SC,,Seychelles
+CountryCitizenship,SD,,Sudan
+CountryCitizenship,SE,,Sweden
+CountryCitizenship,SG,,Singapore
+CountryCitizenship,SH,,Saint Helena
+CountryCitizenship,SI,,Slovenia
+CountryCitizenship,SK,,Slovak Republic (Slovakia)
+CountryCitizenship,SL,,Sierra Leone
+CountryCitizenship,SM,,San Marino
+CountryCitizenship,SN,,Senegal
+CountryCitizenship,SO,,Somalia
+CountryCitizenship,SR,,Suriname
+CountryCitizenship,ST,,Sao Tome & Principe
+CountryCitizenship,SV,,El Salvador
+CountryCitizenship,SY,,Syria
+CountryCitizenship,SZ,,Swaziland
+CountryCitizenship,TC,,Turks & Caicos Islands
+CountryCitizenship,TD,,Chad
+CountryCitizenship,TG,,Togo
+CountryCitizenship,TH,,Thailand
+CountryCitizenship,TJ,,Tajikistan
+CountryCitizenship,TM,,Turkmenistan
+CountryCitizenship,TN,,Tunisia
+CountryCitizenship,TO,,Tonga
+CountryCitizenship,TP,,East Timor (Indonesia)
+CountryCitizenship,TR,,Turkey
+CountryCitizenship,TT,,Trinidad & Tobago
+CountryCitizenship,TV,,Tuvalu
+CountryCitizenship,TW,,Taiwan
+CountryCitizenship,TZ,,Tanzania
+CountryCitizenship,U,,Unknown
+CountryCitizenship,UA,,Ukraine
+CountryCitizenship,UG,,Uganda
+CountryCitizenship,US,,United States of America
+CountryCitizenship,UY,,Uruguay
+CountryCitizenship,UZ,,Uzbekistan
+CountryCitizenship,VA,,Vatican City
+CountryCitizenship,VC,,Saint Vincent & the Grenadines
+CountryCitizenship,VE,,Venezuela
+CountryCitizenship,VG,,British Virgin Islands
+CountryCitizenship,VN,,Vietnam
+CountryCitizenship,VU,,Vanuatu
+CountryCitizenship,WF,,Wallis & Futuna Islands
+CountryCitizenship,WS,,Western Samoa
+CountryCitizenship,YE,,Yemen
+CountryCitizenship,YU,,Serbia-Montenegro (Yugoslavia)
+CountryCitizenship,ZA,,South Africa
+CountryCitizenship,ZM,,Zambia
+CountryCitizenship,ZR,,"Congo, Democratic Republic of the"
+CountryCitizenship,ZW,,Zimbabwe
+Department,FO,,Field Office
+Department,HQ,,Headquarters
+Department,IT,,Information Technology
+Department,MD,,Membership/Affiliate Relations
+Department,PD,,PEOPLE
+Disabilities,1,,Musculoskeletal
+Disabilities,2,,Blood Serum Disorders
+Disabilities,3,,Cardiovascular/Circulatory
+Disabilities,4,,Respiratory
+Disabilities,5,,Diabetes
+Disabilities,6,,Epilepsy
+Disabilities,7,,Speech
+Disabilities,8,,Language
+Disabilities,9,,Hearing
+Disabilities,10,,Mental
+Disabilities,U,,Unknown
+DuesFrequency,1,,Weekly
+DuesFrequency,2,,Bi-weekly
+DuesFrequency,3,,Semi-monthly
+DuesFrequency,4,,Monthly
+DuesFrequency,5,,Quarterly
+DuesFrequency,6,,Semi-annually
+DuesFrequency,7,,Annually
+DuesFrequency,U,,Unknown
+DuesType,1,,Full-time
+DuesType,2,,Part-time
+DuesType,3,,Lower Part-time
+DuesType,4,,Retiree
+EmployeeJobTitle,1,,
+EmployeeJobTitle,U,,Unknown
+EmployeeSalaryRange,1,,
+EmployeeSector,1,,
+EmployeeSector,U,,Unknown
+EmployerSector,1,,State
+EmployerSector,2,,County
+EmployerSector,3,,Private
+EmployerSector,4,,City
+EthnicOrigin,1,,African-American
+EthnicOrigin,10,,Mixed
+EthnicOrigin,11,,Other
+EthnicOrigin,2,,Asian-American
+EthnicOrigin,3,,European-American
+EthnicOrigin,4,,Latino-American
+EthnicOrigin,5,,Native-American
+EthnicOrigin,6,,Asian
+EthnicOrigin,7,,Hispanic
+EthnicOrigin,8,,Caucasian
+EthnicOrigin,9,,Foreign
+EthnicOrigin,U,,Unknown
+Gender,F,F,Female
+Gender,M,M,Male
+Gender,U,U,Unknown
+InformationSource,2,2,COUNCIL (MANUAL)
+InformationSource,3,3,LOCAL (MANUAL)
+InformationSource,4,4,TAPE
+InformationSource,9,9,OTHER
+InformationSource,1,0,INTERNATIONAL
+InformationSource,5,,CD
+InformationSource,6,,Diskette
+InformationSource,7,,FTP
+InformationSource,8,,Website
+Languages,1,,English
+Languages,2,,Spanish or Spanish Creole
+Languages,3,,French or French Creole
+Languages,4,,German
+Languages,5,,Chinese
+Languages,6,,Italian
+Languages,7,,Indic
+Languages,8,,Vietnamese
+Languages,9,,Portuguese or Portuguese Creole
+Languages,10,,Japanese
+Languages,11,,Greek
+Languages,12,,Native North American languages
+Languages,13,,Tagalog
+Languages,14,,Polish
+Languages,15,,Other Indo-European language
+Languages,16,,Korean
+Languages,17,,Russian
+Languages,18,,Yiddish
+Languages,19,,Scandanavian
+Languages,20,,South Slavic
+Languages,21,,Mon-Khmer
+Languages,22,,Other-Western Germanic language
+Languages,23,,Unspecified
+Languages,U,,Unknown
+LegislativeDistrict,1,1,Hawaiian District 
+LegislativeDistrict,2,2,Northwestern District
+LegislativeDistrict,3,3,California District
+LegislativeDistrict,4,4,Southwestern District
+LegislativeDistrict,5,5,North-Central District
+LegislativeDistrict,6,6,Midwestern District
+LegislativeDistrict,7,7,Wisconsin District
+LegislativeDistrict,8,8,Michigan District
+LegislativeDistrict,9,9,Illinois District
+LegislativeDistrict,10,10,Central District
+LegislativeDistrict,11,11,Ohio District
+LegislativeDistrict,12,12,Northern New England District
+LegislativeDistrict,13,13,Southern New England District
+LegislativeDistrict,14,14,New York City District
+LegislativeDistrict,15,15,Civil Service Employees Assoc.
+LegislativeDistrict,16,16,New York State District
+LegislativeDistrict,17,17,Pennsylvania District
+LegislativeDistrict,18,18,Eastern District
+LegislativeDistrict,19,19,Capital District
+LegislativeDistrict,20,20,Southern District
+LegislativeDistrict,21,21,Carribean District
+LegislativeDistrict,22,22,Ohio CSEA District
+LegislativeDistrict,23,23,OAPSE District
+LegislativeDistrict,24,24,NUHHCE District
+MailingListOrg,99,99,PE Bulk Mail File
+MailingListPerson,3,3,AFSCME International Field Staff
+MailingListPerson,7,7,Affiliate Staff List
+MailingListPerson,9,9,Senior Citizens Group
+MailingListPerson,26,26,Collective Bargaining Auxillary List
+MailingListPerson,31,31,CSEA Field Staff
+MailingListPerson,52,52,Legislation Eye Opener List
+MailingListPerson,60,60,Affiliate Membership Contacts
+MailingListPerson,72,72,AFSCME International HQ Staff
+MailingListPerson,78,78,AFL-CIO Central Labor Bodies
+MailingListPerson,79,79,AFL-CIO State Labor Bodies
+MailingListPerson,90,90,Safety & Health News
+MailingListPerson,92,92,AFL-CIO Union Presidents
+MailingListPerson,95,95,AFSCME Leader - CSEA (NY Local 1000)
+MailingListPerson,96,,AIM
+MailingListPerson,97,,Nurses
+MailingListPerson,98,,Corrections
+MaritalStatus,1,,Single
+MaritalStatus,2,,Married
+MaritalStatus,3,,Domestic Partnership
+MaritalStatus,4,,Separated
+MaritalStatus,5,,Divorced
+MaritalStatus,6,,Widowed
+MaritalStatus,U,,Unknown
+MassChange,IS,,Membership Information Reporting Source 
+MassChange,MR,,Member Renewal 
+MassChange,NA,,New Affiliate Identifier
+MassChange,NC,,Unit Wide No Member Cards 
+MassChange,NP,,Unit Wide No PE Mail 
+MassChange,SD,,Status Change - Deactivated
+MassChange,SM,,Status Change - Merged
+MassChange,SS,,Status Change - Split
+MeetingFrequency,1,,Monthly
+MeetingFrequency,2,,Bi-Annually
+MeetingFrequency,3,,Annually
+MeetingFrequency,4,,Quarterly
+MeetingFrequency,5,,Other
+MeetingFrequency,U,,Unknown
+MemberRenewal,1,,Checkoff
+MemberRenewal,2,,Annual Renewal
+MemberStatus,A,A,ACTIVE
+MemberStatus,I,,INACTIVE
+MemberStatus,T,T,TEMPORARY
+MemberType,A,,Agency Fee Payer
+MemberType,O,,Union Shop Objector
+MemberType,R,,Regular
+MemberType,S,,Retiree Spouse
+MemberType,T,,Retiree
+MemberType,U,,Union Shop
+MethodOffcrElection,1,,Mail/Ballot
+MethodOffcrElection,2,,Not Specified
+MonthOffcrElection,1,,January
+MonthOffcrElection,10,,October
+MonthOffcrElection,11,,November
+MonthOffcrElection,12,,December
+MonthOffcrElection,13,,1st Qtr.
+MonthOffcrElection,14,,2nd Qtr.
+MonthOffcrElection,15,,3rd Qtr.
+MonthOffcrElection,16,,4th Qtr.
+MonthOffcrElection,2,,February
+MonthOffcrElection,3,,March
+MonthOffcrElection,4,,April
+MonthOffcrElection,5,,May
+MonthOffcrElection,6,,June
+MonthOffcrElection,7,,July
+MonthOffcrElection,8,,August
+MonthOffcrElection,9,,September
+OrgAddressType,1,,Regular
+OrgAddressType,2,,Shipping
+OrganizationSubType,A,,Affiliate Sub Type
+OrganizationSubType,O,,Organization Sub Type
+OrganizationType,1,,Library
+OrganizationType,2,,University
+OrganizationType,3,,Non-Profit
+OrganizationType,4,,Labor Union
+OrganizationType,U,,Unknown
+OrgPhoneType,1,,Office
+OrgPhoneType,2,,Fax
+OrgPositionTitle,1,,Organization Member
+OrgPositionTitle,2,,Director
+OrgPositionTitle,3,,President
+OrgPositionTitle,4,,Vice President
+OrgPositionTitle,5,,Senior Engineer
+OrgPositionTitle,6,,Developer
+PhoneType,1,,Home
+PhoneType,2,,Work
+PhoneType,3,,Cell
+PhoneType,4,,Fax
+PhoneType,5,,Other
+POC,1,,Membership
+POC,2,,PAC
+POC,3,,IT
+POC,U,,Unknown
+PoliticalParty,D,D,Democrat
+PoliticalParty,I,I,Independent
+PoliticalParty,O,O,Other
+PoliticalParty,R,R,Republican
+PoliticalParty,U,U,Unknown
+Prefix,1,1,MR
+Prefix,2,2,MS
+Prefix,3,3,MRS
+Prefix,4,4,MISS
+Prefix,5,5,REV
+Prefix,6,6,DR
+Prefix,7,7,HON
+Prefix,U,U,UNKNOWN / OTHER
+RbtCommentAnalCode,31,31,General Objection - CN 31 members whose applications may have been thrown out
+RbtCommentAnalCode,21,21,"Objects to Section 211, exclusion for employer provided educational benefits (NY)"
+RbtCommentAnalCode,AD,AD,Objects to support of Arthur Eve (New York)
+RbtCommentAnalCode,AG,AG,Opposes Anti-Gun politicians
+RbtCommentAnalCode,AI,AI,Objects to DC 37 Illegal Activities
+RbtCommentAnalCode,AS,AS,Objects to Support of NY Assemblyman Silver
+RbtCommentAnalCode,BE,BE,Objects to Bilingual Education
+RbtCommentAnalCode,BG,BG,Objects to support of Benjamin Gilman (NY)
+RbtCommentAnalCode,BV,BV,Objects to Buying Votes
+RbtCommentAnalCode,CB,CB,Objects to any activity that is not directly related to collective bargaining
+RbtCommentAnalCode,CH,CH,Objects to support of Hillary Rodham Clinton
+RbtCommentAnalCode,CI,CI,Lack of Committment/Expenditures on Corrections Issues
+RbtCommentAnalCode,CP,CP,Corrupt Political Activites
+RbtCommentAnalCode,CV,CV,"Activities that are contrary to Christian Values (abortion, homosexual organizations)"
+RbtCommentAnalCode,DH,DH,Dues too High
+RbtCommentAnalCode,DP,DP,Objects to Support of Democratic Politicians
+RbtCommentAnalCode,DT,DT,Objects to Drug Testing (Cn 31)
+RbtCommentAnalCode,E,E,Entitlement based on union membership
+RbtCommentAnalCode,EI,EI,Objects to certain Environmental Issues
+RbtCommentAnalCode,G,G,General Objection to AFSCME's spending any dues money for any political candidate
+RbtCommentAnalCode,GO,GO,Objects to Current Gubernatorial Administration
+RbtCommentAnalCode,HC,HC,Health Care/Medicaide
+RbtCommentAnalCode,IP,IP,Objects to support of Incumbent Politicians
+RbtCommentAnalCode,LL,LL,Objects to political expenditures at the Local Level
+RbtCommentAnalCode,LW,LW,Objects to Licensing of Child Welfare workers
+RbtCommentAnalCode,MA,MA,Objects to Media Advertising
+RbtCommentAnalCode,MC,MC,Objects to support of Michael Coleman
+RbtCommentAnalCode,MG,MG,Objects to support of Maryland Governor & Baltimore County Executive
+RbtCommentAnalCode,MR,MR,Multiple Reasons
+RbtCommentAnalCode,MV,MV,Wants Membership Vote for any expenditures for political purposes
+RbtCommentAnalCode,NR,NR,Non-Responsive
+RbtCommentAnalCode,NS,NS,No Specific objection
+RbtCommentAnalCode,OC,OC,Objects to AFSCME's Choice of Candidates
+RbtCommentAnalCode,OG,OG,Objects to support of Mayor Guliani (NY)
+RbtCommentAnalCode,OH,OH,Objects to Hawaiian government's policies and projects
+RbtCommentAnalCode,OL,OL,Opposes Lobbyists
+RbtCommentAnalCode,OM,OM,Objects to Support of NYC Mayoral Candidate Mark Green
+RbtCommentAnalCode,PA,PA,Objects to Pataki Administration/and money given in support of him & NY State Senate
+RbtCommentAnalCode,PB,PB,Personal Business - Not Union Business
+RbtCommentAnalCode,PC,PC,Against contributing to Political Campaigns
+RbtCommentAnalCode,PD,PD,Objects to Capital Punishment
+RbtCommentAnalCode,PG,PG,Use of Union Funds for Personal Gain
+RbtCommentAnalCode,PJ,PJ,Objects to Privatization of Jobs
+RbtCommentAnalCode,PP,PP,Objects to Privatization of Prisons
+RbtCommentAnalCode,RC,RC,Objects to contributions to local Republican Candidates
+RbtCommentAnalCode,RE,RE,Funding of Re-election campaigns
+RbtCommentAnalCode,RO,RO,Religious Objections (non-specific)
+RbtCommentAnalCode,SF,SF,Objects to Support of Federal Programs
+RbtCommentAnalCode,SM,SM,Objects to Socialized Medicine
+RbtCommentAnalCode,SO,SO,Supports Ban on Soft Money
+RbtCommentAnalCode,SP,SP,Objects to Socialist Party
+RbtCommentAnalCode,SS,SS,Objects to Social Security taxes
+RbtCommentAnalCode,TA,TA,Trips Abroad
+RbtCommentAnalCode,TF,TF,Objects to subsidies to Tobacco Farms/Farmers and Tobacco companies
+RbtCommentAnalCode,TR,TR,Objects to support of Tom Ridge (PA)
+RbtCommentAnalCode,TT,TT,Objects to support of Tommy Thompson (WI)
+RbtCommentAnalCode,UN,UN,Union Non-supportive of members' interests
+RbtCommentAnalCode,US,US,Objects to expenditures for Union Sponsored Functions
+RbtCommentAnalCode,WB,WB,Objects to the Whistle Blower Protection Bill (NY)
+RbtCommentAnalCode,WR,WR,Objects to expenditures for Womens Rights
+RbtCommentAnalCode,WS,WS,Wasteful Spending of Union Funds
+RebateAcceptanceCode,C,,Council Accepted
+RebateAcceptanceCode,D,,Denied
+RebateAcceptanceCode,L,,Local Accepted
+RebateAppEvalCode,NR,NR,Not Returned
+RebateAppEvalCode,NT,NT,Not Timely; not returned in 30 days
+RebateAppEvalCode,Q1,Q1,Not indicated or NO to Question 1
+RebateAppEvalCode,Q7,Q7,Not indicated or NO to Question 7
+RebateAppEvalCode,QB,QB,Not indicated or NO to Questions 1 & 7
+RebateDuration,1,1,1 Month
+RebateDuration,10,10,10 Months
+RebateDuration,11,11,11 Months
+RebateDuration,12,12,12 Months
+RebateDuration,2,2,2 Months
+RebateDuration,3,3,3 Months
+RebateDuration,4,4,4 Months
+RebateDuration,5,5,5 Months
+RebateDuration,6,6,6 Months
+RebateDuration,7,7,7 Months
+RebateDuration,8,8,8 Months
+RebateDuration,9,9,9 Months
+RebateFiledWith,B,,Both
+RebateFiledWith,C,,Council
+RebateFiledWith,L,,Local
+RebateMbrStatus,A,,ACTIVE
+RebateMbrStatus,I,,INACTIVE
+RebateMbrType,A,,Agency Fee Payer
+RebateMbrType,K,,Unknown
+RebateMbrType,N,,Non Member
+RebateMbrType,O,,Union Shop Objector
+RebateMbrType,R,,Regular
+RebateMbrType,S,,Retiree Spouse
+RebateMbrType,T,,Retiree
+RebateMbrType,U,,Union Shop
+RebateReasonDenied,M,M,Multiple Submissions
+RebateReasonDenied,NC,NC,Not Certified
+RebateReasonDenied,NT,NT,Not Timely
+RebateReasonDenied,P,P,Prior Years Invalid
+RebateReasonDenied,Z,,Not an AFSCME Member
+RebateStatus,A,,Approved
+RebateStatus,D,,Denied
+RebateStatus,IP,,In Progress
+Region,1,,East
+Region,2,,Central
+Region,3,,West
+Region,4,1199,Blank
+RegisteredVoter,N,N,No
+RegisteredVoter,U,U,Unknown
+RegisteredVoter,Y,Y,Yes
+Religion,1,,Catholic
+Religion,2,,Baptist
+Religion,3,,Methodist
+Religion,4,,Lutheran
+Religion,5,,Pentecostal/Charismatic/Foursquare
+Religion,6,,Presbyterian
+Religion,7,,Mormon/Church of Jesus Christ Latter-day Saints
+Religion,8,,Non-denominational Christians
+Religion,9,,Church of Christ
+Religion,10,,Episcopal/Angelican
+Religion,11,,Assemblies of God
+Religion,12,,Congregational/United Church of Christ
+Religion,13,,Seventh-Day Adventist
+Religion,14,,Jewish
+Religion,15,,Islamic
+Religion,U,,Unknown
+State,AK,2,ALASKA                                            
+State,AL,1,ALABAMA                                           
+State,AR,4,ARKANSAS                                          
+State,AS,58,AMERICAN SOMOA                                    
+State,AZ,3,ARIZONA                                           
+State,CA,5,CALIFORNIA                                        
+State,CO,6,COLORADO                                          
+State,CT,7,CONNECTICUT                                       
+State,CZ,60,REPUBLIC OF PANAMA                                       
+State,DC,9,DISTRICT OF COLUMBIA                              
+State,DE,8,DELAWARE                                          
+State,FL,10,FLORIDA                                           
+State,GA,11,GEORGIA                                           
+State,GU,53,GUAM                                              
+State,HI,12,HAWAII                                            
+State,IA,16,IOWA                                              
+State,ID,13,IDAHO                                             
+State,IL,14,ILLINOIS                                          
+State,IN,15,INDIANA                                           
+State,KS,17,KANSAS                                            
+State,KY,18,KENTUCKY                                          
+State,LA,19,LOUISIANA                                         
+State,MA,22,MASSACHUSETTS                                     
+State,MD,21,MARYLAND                                          
+State,ME,20,MAINE                                             
+State,MI,23,MICHIGAN                                          
+State,MN,24,MINNESOTA                                         
+State,MO,26,MISSOURI                                          
+State,MS,25,MISSISSIPPI                                       
+State,MT,27,MONTANA                                           
+State,NA,0,BLANK (LEAVE THIS ENTRY)                          
+State,NC,34,NORTH CAROLINA                                    
+State,ND,35,NORTH DAKOTA                                      
+State,NE,28,NEBRASKA                                          
+State,NH,30,NEW HAMPSHIRE                                     
+State,NJ,31,NEW JERSEY                                        
+State,NM,32,NEW MEXICO                                        
+State,NV,29,NEVADA                                            
+State,NY,33,NEW YORK                                          
+State,OH,36,OHIO                                              
+State,OK,37,OKLAHOMA                                          
+State,OR,38,OREGON                                            
+State,PA,39,PENNSYLVANIA                                      
+State,PR,55,PUERTO RICO                                       
+State,RI,40,RHODE ISLAND                                      
+State,SC,41,SOUTH CAROLINA                                    
+State,SD,42,SOUTH DAKOTA                                      
+State,TN,43,TENNESSEE                                         
+State,TT,59,CATCH-ALL                                         
+State,TX,44,TEXAS                                             
+State,UT,45,UTAH                                              
+State,VA,47,VIRGINIA                                          
+State,VI,56,VIRGIN ISLANDS                                    
+State,VT,46,VERMONT                                           
+State,WA,48,WASHINGTON                                        
+State,WI,50,WISCONSIN                                         
+State,WV,49,WEST VIRGINIA                                     
+State,WY,51,WYOMING                                           
+State,XX,99,CASH RECEIPTS                                   
+Suffix,1,1,SR
+Suffix,2,2,JR
+Suffix,3,3,III
+Suffix,4,4,IV
+Suffix,5,5,II 
+Suffix,6,6,ESQ
+Suffix,U,U,UNKNOWN / OTHER
+TermLength,1,,1 year
+TermLength,2,,2 years
+TermLength,3,,3 years
+TermLength,4,,4 years
+TermLength,5,,Indefinite
+TermLength,6,,Temporary
+UpdateFileQueue,B,,Bad
+UpdateFileQueue,G,,Good
+UpdateFileQueue,I,,Initial
+UpdateFileStatus,1,,Review
+UpdateFileStatus,2,,Pending
+UpdateFileStatus,3,,Processed
+UpdateFileStatus,4,,Rejected
+UpdateFileStatus,5,,Uploaded
+UpdateFileType,A,,Affiliate
+UpdateFileType,M,,Member
+UpdateFileType,O,,Officer
+UpdateFileType,P,,Participation
+UpdateFileType,R,,Rebate
+UpdateType,F,,Full
+UpdateType,P,,Partial

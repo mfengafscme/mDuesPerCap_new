@@ -1,0 +1,192 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Page Title</TITLE><LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<H1>User Detail</H1>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<BR>
+			</TD>
+		</TR>
+		<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+	</TABLE>
+	<FORM action="#" name="form">
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+			<TR valign="top">
+				<TD width="50%">
+					<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TD>
+								<LABEL for="userID">User ID</LABEL>
+							</TD>
+							<TD>
+								<INPUT id="userID" value="steveg">
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								<LABEL>Password</LABEL>
+							</TD>
+							<TD>
+								<INPUT type="password" value="password" size="8" maxlength="8">
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								<LABEL>Repeat&nbsp;Password</LABEL>
+							</TD>
+							<TD>
+								<INPUT type="password" value="password" name="password" size="8" maxlength="8">
+							</TD>
+						</TR>
+						<TR>
+							<TD valign="Top">
+								<LABEL>Password Expires On</LABEL>
+							</TD>
+							<TD valign="Top">
+								1:20 PM. Jun 4, 2003.
+							</TD>
+						</TR>
+						<TR>
+							<TD valign="Top">
+								<LABEL>Last Login</LABEL>
+							</TD>
+							<TD valign="Top">
+								3:34 PM. May 11, 2002.
+							</TD>
+						</TR>
+						<TR>
+							<TD valign="Top">
+								<LABEL>Locked Out Until</LABEL>
+							</TD>
+							<TD>
+								1:12 PM. May 21, 2002.
+							<A class="action" href="User.htm">Unlock</A>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+				<TD width="50%">
+					<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TD valign="Top">
+								<LABEL for="question">Challenge Question</LABEL>
+							</TD>
+							<TD valign="Top">
+								<SELECT id="question">
+									<OPTION value="0">Mother's Maiden Name</OPTION>
+									<OPTION value="1" selected="">Pet's name</OPTION>
+									<OPTION value="2">City where you were born</OPTION>
+								</SELECT>
+								<BR>
+							</TD>
+						</TR>
+						<TR>
+							<TD valign="Top">
+								<LABEL for="response">Challenge Response</LABEL>
+							</TD>
+							<TD valign="Top">
+								<INPUT type="text" id="response" value="Fido">
+							</TD>
+						</TR>
+						<TR>
+							<TD valign="Top">
+								<LABEL>Remarks</LABEL>
+							</TD>
+							<TD valign="Top">
+								<INPUT type="text" name="textfield" value="This is the main Administrator account" maxlength="50" size="50">
+							</TD>
+						</TR>
+						<TR>
+							<TD valign="Top">
+								<LABEL for="dept">Department</LABEL>
+							</TD>
+							<TD valign="Top">
+								<SELECT id="dept">
+									<OPTION value="0">[None]</OPTION>
+									<OPTION value="1" selected>Membership</OPTION>
+									<OPTION value="2">PAC</OPTION>
+								</SELECT>
+								<BR>
+							</TD>
+						</TR>
+						<TR>
+							<TD valign="top">
+								<LABEL>Start Page</LABEL>
+							</TD>
+							<TD valign="Top">
+								<SELECT id="startPage">
+									<OPTION value="0" selected>AFSCME Main Menu</OPTION>
+									<OPTION value="1">Affiliate Data Utility Main Menu</OPTION>
+									<OPTION value="2">My Personal Information</OPTION>
+								</SELECT>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR>
+				<TD colspan="2">
+					<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TD colspan="2">
+								<LABEL>Roles</LABEL>
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								User Admins
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								Import/Export Operators
+							</TD>
+						</TR>
+						<TR>
+							<TD>
+								Print Operators
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+			<TR valign="top">
+				<TD width="50%" align="left">
+					<BR>
+					<input type="button" class="BUTTON" name="submitEdit" value="Submit" onclick="window.location='../Membership/PersonDetail.htm'">
+				</TD>
+				<TD width="50%" align="right">
+					<BR>
+					<input type="button" class="BUTTON" id="selectRoles" value="Select Roles" onclick="window.location = 'SelectRoles.htm'"> 
+					<input type="button" class="BUTTON" id="selectRoles" value="Select Affiliates" onclick="window.location = 'SelectAffiliateSearch.htm'">
+					<input type="reset" class="BUTTON" name="reset" value="Reset">
+					<input type="button" class="BUTTON" name="cancel" value="Cancel" onclick="window.location='../Membership/PersonDetail.htm'">
+					<BR>
+					<BR>
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+			<TR valign="top">
+				<TD align="center">
+								<SCRIPT language="JavaScript" src="../js/footer.js">				</SCRIPT>
+				</TD>
+			</TR>
+		</TABLE>
+	</FORM>
+</BODY>
+</HTML>

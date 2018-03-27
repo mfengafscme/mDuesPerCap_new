@@ -1,0 +1,183 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+
+<TITLE>Specify Output Fields Order</TITLE>
+
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+
+</HEAD>
+
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<form action="#">
+
+<!-- top table1 -->
+<TABLE align="center" valign=TOP cellpadding="0" cellspacing="3" border=0 class="ContentTable">
+  <TR>
+    <TD align="center">
+      <H2>Specify Output Fields Order</H2>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD align="right">
+      <B><A href="../Common/AfscmeMainMenu.htm" title="Return to AFSCME Main Menu">Main Menu</A>&nbsp;|&nbsp;
+	<a href="#">Need Help with this page?</A></B><BR><BR>
+    </TD>
+  </TR>
+</TABLE>
+
+<TABLE align="center" valign=TOP cellpadding="0" cellspacing="3" border=0 class="ContentTable">
+  <TR>
+    <td align = "center" >           
+      <h4>       
+      <a href="OutputFields.htm">Output Fields</a> >>
+      <span class="CurrentWizardPage">Ouput Fields Order</span> >>
+      <a href="SelectionCriteriaFields.htm">Selection Criteria Fields</a> >> 
+      <a href="SelectionCriteria.htm">Selection Criteria</a> >>
+      <a href="SortCriteriaFields.htm">Sort Criteria Fields</a> >>
+      <a href="SortCriteria.htm">Sort Criteria</a> >>
+      <a href="PreviewQuery.htm">Preview Query</a>
+      </h4>
+    </td>
+  </TR>
+
+  <TR> 
+    <TD align="right"><BR>
+      <INPUT type="button" class="BUTTON" name="Cancel" value="Cancel" onClick="window.location='MaintainQueries.htm'">
+    </TD>
+  </TR>
+
+  <TR> <!-- Real data table begins -->  
+    <TD align="center"> <BR>
+      <!-- table2 -->
+      <TABLE width="75%" cellpadding="0" cellspacing="3" border=1 class="InnerContentTable">
+	<TR>
+	  <TD valign=top width="70%">
+	    <H2>Member Fields</H2>
+	  </TD>
+	</TR>
+
+	<TR>
+	  <TD valign=top width="70%">
+	    <TABLE width="70%" align="left">
+	      <TR>
+	        <td nowrap><b>Field</b></td>
+		<td nowrap><b>Output Order</b></td>
+	      </TR>
+	
+	      <TR><TD colspan=2><BR></TD></TR>
+
+	      <TR> 
+	        <td nowrap>Last Name</td>
+		<td>
+		  <select name="mLastNameS">
+		    <option value="1" selected>1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		  </select>
+		</td>
+	      </TR>
+              
+	      <TR>
+	        <td nowrap>First Name</td>
+		<td>
+		  <select name="mFirstNameS">
+		    <option value="1">1</option>
+		    <option value="2" selected>2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		  </select>
+		</td>
+	      </TR>
+
+	      <TR>
+	        <td nowrap>Member Number</td>
+		<td>
+		  <select name="mNumS" id="mMemberNumber">
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3" selected>3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		  </select>
+		</td>
+	      </TR>
+
+	      <TR>
+	        <td nowrap>Unit Code</td>
+		<td>
+		  <select name="mUnitCode" id="mUnitCode">
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4" selected>4</option>
+		    <option value="5">5</option>
+		    <option value="6">6</option>
+		  </select>
+		</td>
+	      </TR>
+
+	      <TR> 
+	        <td nowrap>Member Status Code</td>
+		<td>
+		  <select name="mStatusCode" id="mStatusCode">
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5" selected>5</option>
+		    <option value="6">6</option>
+		  </select>
+		</td>
+	      </TR>
+
+	      <TR> 
+	        <td nowrap>Date Joined</td>
+		<td>
+		  <select name="mDateJoined" id="mDateJoined">
+		    <option value="1">1</option>
+		    <option value="2">2</option>
+		    <option value="3">3</option>
+		    <option value="4">4</option>
+		    <option value="5">5</option>
+		    <option value="6" selected>6</option>
+		  </select>
+		</td>
+	      </TR>
+	    </TABLE>
+	  </TD>
+	</TR>
+     </TABLE> <!-- end of table2 -->
+    </TD>
+  </TR>
+
+  <BR>
+
+  <TR> <!-- fifth row of the light-yellow table -->
+    <TD valign="TOP" align="center"> 
+      <SCRIPT type="text/javascript" language="JavaScript" src="../js/footer.js">
+      </SCRIPT>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD>&nbsp;</TD>
+  </TR>
+
+</TABLE>
+
+</form>
+
+</BODY>
+</HTML>

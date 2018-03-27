@@ -1,0 +1,647 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Enable Mass Change</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<SCRIPT language="JavaScript">var infosourceJS = 0;
+
+	var MergedAffiliateTypeJS = 0;
+	var MergedAffiliateLocalJS = "****";
+	var MergedAffiliateStateJS = 0;
+	var MergedAffiliateSubunitJS = "****";
+	var MergedAffiliateCouncilJS = "****";
+	
+	var SplitAffiliateTypeJS = 0;
+	var SplitAffiliateLocalJS = "****";
+	var SplitAffiliateStateJS = 0;
+	var SplitAffiliateSubunitJS = "****";
+	var SplitAffiliateCouncilJS = "****";
+	
+	var NewAffiliateTypeJS = 0;
+	var NewAffiliateLocalJS = "****";
+	var NewAffiliateStateJS = 0;
+	var NewAffiliateSubunitJS = "****";
+	var NewAffiliateCouncilJS = "****";
+	
+	var StatusValueJS = "";
+	
+	function resetMergedAffiliateJSvars(form) {
+		MergedAffiliateTypeJS = form.MergedAffiliateType.selectedIndex;
+		MergedAffiliateLocalJS = form.MergedAffiliateLocal.value;
+		MergedAffiliateStateJS = form.MergedAffiliateState.selectedIndex;
+		MergedAffiliateSubunitJS = form.MergedAffiliateSubunit.value;
+		MergedAffiliateCouncilJS = form.MergedAffiliateCouncil.value;
+	}
+	
+	function resetSplitAffiliateJSvars(form) {
+		SplitAffiliateTypeJS = form.SplitAffiliateType.selectedIndex;
+		SplitAffiliateLocalJS = form.SplitAffiliateLocal.value;
+		SplitAffiliateStateJS = form.SplitAffiliateState.selectedIndex;
+		SplitAffiliateSubunitJS = form.SplitAffiliateSubunit.value;
+		SplitAffiliateCouncilJS = form.SplitAffiliateCouncil.value;
+	}
+	
+	function setFieldsForStatusChange(form) {
+		disableFieldsForOtherChanges(form);
+		enableRadioSet('statusChangeSelect');
+		if (StatusValueJS == "Merged") {
+			setFieldsForMergedStatus(form);
+		} else if (StatusValueJS == "Split") {
+			setFieldsForSplitStatus(form);
+		} else if (StatusValueJS == "Deactivated") {
+			setFieldsForDeactivatedStatus(form);
+		}
+		form.NewStatus.value = StatusValueJS;
+	}
+	
+	function disableFieldsForStatusChange(form) {
+		disableRadioSet('statusChangeSelect');
+		disableSplitAffiliateIdentifierFields(form);
+		disableMergedAffiliateIdentifierFields(form);
+		form.NewStatus.value = "";
+	}
+	
+	function setFieldsForOtherChanges(form) {
+		disableFieldsForStatusChange(form);
+		form.chkInformationSource.disabled = false;
+		form.chkMbrCardBypass.disabled = false;
+		form.chkPEBypass.disabled = false;
+		form.chkMemberRenewal.disabled = false;
+		form.chkNewAffiliateIdentifier.disabled = false;
+		setFieldsForInfoSource(form);
+		setFieldsForNoMbrCards(form);
+		setFieldsForNoPEMail(form);
+		setFieldsForMemberRenewal(form);
+		setFieldsForNewAffiliateIdentifier(form);
+	}
+	
+	function disableFieldsForOtherChanges(form) {
+		form.chkInformationSource.disabled = true;
+		form.chkMbrCardBypass.disabled = true;
+		form.chkPEBypass.disabled = true;
+		form.chkMemberRenewal.disabled = true;
+		form.chkNewAffiliateIdentifier.disabled = true;
+		setFieldsForInfoSource(form);
+		setFieldsForNoMbrCards(form);
+		setFieldsForNoPEMail(form);
+		setFieldsForMemberRenewal(form);
+		setFieldsForNewAffiliateIdentifier(form);
+	}
+	
+	function setFieldsForNewAffiliateIdentifier(form) {
+		form.NewAffiliateType.disabled = !form.chkNewAffiliateIdentifier.checked || form.chkNewAffiliateIdentifier.disabled;
+		form.NewAffiliateLocal.disabled = !form.chkNewAffiliateIdentifier.checked || form.chkNewAffiliateIdentifier.disabled;
+		form.NewAffiliateState.disabled = !form.chkNewAffiliateIdentifier.checked || form.chkNewAffiliateIdentifier.disabled;
+		form.NewAffiliateSubunit.disabled = !form.chkNewAffiliateIdentifier.checked || form.chkNewAffiliateIdentifier.disabled;
+		form.NewAffiliateCouncil.disabled = !form.chkNewAffiliateIdentifier.checked || form.chkNewAffiliateIdentifier.disabled;
+		
+		if (form.chkNewAffiliateIdentifier.checked && !form.chkNewAffiliateIdentifier.disabled) {
+			form.NewAffiliateType.selectedIndex = NewAffiliateTypeJS;
+			form.NewAffiliateLocal.value = NewAffiliateLocalJS;
+			form.NewAffiliateState.selectedIndex = NewAffiliateStateJS;
+			form.NewAffiliateSubunit.value = NewAffiliateSubunitJS;
+			form.NewAffiliateCouncil.value = NewAffiliateCouncilJS;
+			
+			form.NewAffiliateType.focus();			
+		} else {
+			form.NewAffiliateType.selectedIndex = 1;
+			form.NewAffiliateLocal.value = form.NewAffiliateLocal.defaultValue;
+			form.NewAffiliateState.selectedIndex = 1;
+			form.NewAffiliateSubunit.value = form.NewAffiliateSubunit.defaultValue;
+			form.NewAffiliateCouncil.value = form.NewAffiliateCouncil.defaultValue;			
+		}
+	}
+	
+	function setFieldsForInfoSource(form) {
+		form.infosource.disabled = !form.chkInformationSource.checked || form.chkInformationSource.disabled;
+		if (form.chkInformationSource.checked && !form.chkInformationSource.disabled) {
+			form.infosource.selectedIndex = infosourceJS;
+			form.infosource.focus();
+		} else {
+			form.infosource.value = form.infosource.defaultValue;
+		}
+	}
+	
+	function setFieldsForNoMbrCards(form) {
+		form.chkMbrCardBypass_new.disabled = !form.chkMbrCardBypass.checked || form.chkMbrCardBypass.disabled;
+	}
+
+	function setFieldsForNoPEMail(form) {
+		form.chkPEBypass_new.disabled = !form.chkPEBypass.checked || form.chkPEBypass.disabled;
+	}
+	
+	function setFieldsForMemberRenewal(form) {
+		form.chkMemberRenewal_new.disabled = !form.chkMemberRenewal.checked || form.chkMemberRenewal.disabled;
+	}
+	
+	function setFieldsForMergedStatus(form) {
+		StatusValueJS = "Merged";
+		form.NewStatus.value = StatusValueJS;
+		disableSplitAffiliateIdentifierFields(form);
+		enableMergedAffiliateIdentifierFields(form);
+		lockAffiliateIDFieldsByFields(form.MergedAffiliateType, form.MergedAffiliateLocal, form.MergedAffiliateState, form.MergedAffiliateSubunit, form.MergedAffiliateCouncil);
+		form.MergedAffiliateType.focus();
+	}
+	
+	function setFieldsForSplitStatus(form) {
+		StatusValueJS = "Split";
+		form.NewStatus.value = StatusValueJS;
+		disableMergedAffiliateIdentifierFields(form);
+		enableSplitAffiliateIdentifierFields(form);
+		lockAffiliateIDFieldsByFields(form.SplitAffiliateType, form.SplitAffiliateLocal, form.SplitAffiliateState, form.SplitAffiliateSubunit, form.SplitAffiliateCouncil);
+		form.SplitAffiliateType.focus();
+	}
+	
+	function setFieldsForDeactivatedStatus(form) {
+		StatusValueJS = "Deactivated";
+		form.NewStatus.value = StatusValueJS;
+		disableSplitAffiliateIdentifierFields(form);
+		disableMergedAffiliateIdentifierFields(form);
+	}
+	
+	function disableSplitAffiliateIdentifierFields(form) {
+		// only if they're not already disabled
+		if (form.SplitAffiliateType.disabled == false) {
+			// back up the values
+			SplitAffiliateTypeJS = form.SplitAffiliateType.selectedIndex;
+			SplitAffiliateLocalJS = form.SplitAffiliateLocal.value;
+			SplitAffiliateStateJS = form.SplitAffiliateState.selectedIndex;
+			SplitAffiliateSubunitJS = form.SplitAffiliateSubunit.value;
+			SplitAffiliateCouncilJS = form.SplitAffiliateCouncil.value;
+			// blank the values
+			form.SplitAffiliateType.selectedIndex = 1;
+			form.SplitAffiliateLocal.value = form.SplitAffiliateLocal.defaultValue;
+			form.SplitAffiliateState.selectedIndex = 1;
+			form.SplitAffiliateSubunit.value = form.SplitAffiliateSubunit.defaultValue;
+			form.SplitAffiliateCouncil.value = form.SplitAffiliateCouncil.defaultValue;
+			form.SplitStatusText.value = "";
+			// lock the fields
+			form.SplitAffiliateType.disabled = true;
+			form.SplitAffiliateLocal.disabled = true;
+			form.SplitAffiliateState.disabled = true;
+			form.SplitAffiliateSubunit.disabled = true;
+			form.SplitAffiliateCouncil.disabled = true;
+			Finder2.disabled = true;
+		}
+	}
+	
+	function enableSplitAffiliateIdentifierFields(form) {
+		// restore the backed up values
+		form.SplitAffiliateType.selectedIndex = SplitAffiliateTypeJS;
+		form.SplitAffiliateLocal.value = SplitAffiliateLocalJS;
+		form.SplitAffiliateState.selectedIndex = SplitAffiliateStateJS;
+		form.SplitAffiliateSubunit.value = SplitAffiliateSubunitJS;
+		form.SplitAffiliateCouncil.value = SplitAffiliateCouncilJS;
+		form.SplitStatusText.value = "Enter Affiliate to be Associated with";
+		// unlock the fields
+		form.SplitAffiliateType.disabled = false;
+		form.SplitAffiliateLocal.disabled = false;
+		form.SplitAffiliateState.disabled = false;
+		form.SplitAffiliateSubunit.disabled = false;
+		form.SplitAffiliateCouncil.disabled = false;
+		Finder2.disabled = false;		
+	}
+	
+	function disableMergedAffiliateIdentifierFields(form) {
+		// only if they're not already disabled
+		if (form.MergedAffiliateType.disabled == false) {
+			// back up the values
+			MergedAffiliateTypeJS = form.MergedAffiliateType.selectedIndex;
+			MergedAffiliateLocalJS = form.MergedAffiliateLocal.value;
+			MergedAffiliateStateJS = form.MergedAffiliateState.selectedIndex;
+			MergedAffiliateSubunitJS = form.MergedAffiliateSubunit.value;
+			MergedAffiliateCouncilJS = form.MergedAffiliateCouncil.value;
+			// blank the values
+			form.MergedAffiliateType.selectedIndex = 1;
+			form.MergedAffiliateLocal.value = form.MergedAffiliateSubunit.defaultValue;
+			form.MergedAffiliateState.selectedIndex = 1;
+			form.MergedAffiliateSubunit.value = form.MergedAffiliateSubunit.defaultValue;
+			form.MergedAffiliateCouncil.value = form.MergedAffiliateCouncil.defaultValue;
+			form.MergedStatusText.value = "";
+			// lock the fields
+			form.MergedAffiliateType.disabled = true;
+			form.MergedAffiliateLocal.disabled = true;
+			form.MergedAffiliateState.disabled = true;
+			form.MergedAffiliateSubunit.disabled = true;
+			form.MergedAffiliateCouncil.disabled = true;
+			Finder1.disabled = true;
+		}
+	}
+	
+	function enableMergedAffiliateIdentifierFields(form) {
+		// restore the backed up values
+		form.MergedAffiliateType.selectedIndex = MergedAffiliateTypeJS;
+		form.MergedAffiliateLocal.value = MergedAffiliateLocalJS;
+		form.MergedAffiliateState.selectedIndex = MergedAffiliateStateJS;
+		form.MergedAffiliateSubunit.value = MergedAffiliateSubunitJS;
+		form.MergedAffiliateCouncil.value = MergedAffiliateCouncilJS;
+		form.MergedStatusText.value = "Enter Affiliate to be Merged with";
+		// unlock the fields
+		form.MergedAffiliateType.disabled = false;
+		form.MergedAffiliateLocal.disabled = false;
+		form.MergedAffiliateState.disabled = false;
+		form.MergedAffiliateSubunit.disabled = false;
+		form.MergedAffiliateCouncil.disabled = false;
+		Finder1.disabled = false;
+	}
+	
+	function disableAllFinders() {
+		Finder1.disabled = true;
+		Finder2.disabled = true;
+	}
+	
+	function forwardOnConfirmation() {
+		if (confirm("Are you sure you want to apply the requested change on this Affiliate and all it's sub-Affiliates?")) { 
+			parent.location='MembershipReportingInformation.htm';
+			return true;
+		}
+		return false;
+	}
+</SCRIPT>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();disableAllFinders();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align="center">
+			<H1>Enable Mass Change</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+</TABLE>
+<FORM action="MembershipReportingInformation.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				Virginia - PD Local 100 - Council 10<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TH align="left" width="4%">
+				Select 
+			</TH>
+			<TH align="left" width="29%">
+				Field Name 
+			</TH>
+			<TH align="left" width="25%">
+				Current Value 
+			</TH>
+			<TH align="left" width="41%">
+				New Value 
+			</TH>
+		</TR>
+		<TR>
+			<TD ALIGN="center">
+				<INPUT type="Radio" name="massChangeSelect" value="statusChange" onClick="setFieldsForStatusChange(form);"> 
+			</TD>
+			<TD class="ContentHeaderTD">
+				Affiliate Status Change
+			</TD>
+			<TD class="ContentTD">
+				Active 
+			</TD>
+			<TD class="ContentHeaderTD">
+				<INPUT type="text" name="NewStatus" value="" size="30" style="border:none;font-weight:bold" readonly> 
+			</TD>
+		</TR>
+		<TR>
+			<TD>&nbsp;
+			</TD>
+			<TD class="ContentTD">
+				<INPUT type="radio" name="statusChangeSelect" value="MergedStatus" onClick="setFieldsForMergedStatus(form);" disabled>
+				Set to Merged
+			</TD>
+			<TD>
+				<INPUT type="Text" name="MergedStatusText" value="" size="35" maxlength="25" class="smallNoBorder" readonly> 
+			</TD>
+			<TD class="ContentTD">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH class="small">
+							Type 
+						</TH>
+						<TH class="small">
+							Loc/Sub Chap 
+						</TH>
+						<TH class="small">
+							State/Nat'l 
+						</TH>
+						<TH class="small">
+							Sub Unit 
+						</TH>
+						<TH class="small">
+							CN/Ret Chap 
+						</TH>
+						<TD>
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center">
+							<SELECT name="MergedAffiliateType" onChange="lockAffiliateIDFieldsByFields(MergedAffiliateType, MergedAffiliateLocal, MergedAffiliateState, MergedAffiliateSubunit, MergedAffiliateCouncil);MergedAffiliateTypeJS = MergedAffiliateType.selectedIndex;" disabled>
+								<OPTION>*</OPTION>
+								<OPTION selected></OPTION>
+								<OPTION>C</OPTION>
+								<OPTION>L</OPTION>
+								<OPTION>U</OPTION>
+								<OPTION>R</OPTION>
+								<OPTION>S</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="MergedAffiliateLocal" size="4" maxlength="4" onFocus="MergedAffiliateLocal.select();" onBlur="MergedAffiliateLocalJS = MergedAffiliateLocal.value;" disabled> 
+						</TD>
+						<TD align="center">
+							<SELECT name="MergedAffiliateState" onChange="MergedAffiliateStateJS = MergedAffiliateState.selectedIndex;" disabled>
+								<OPTION value="-1">*</OPTION>
+								<OPTION value="-1" selected></OPTION>
+								<SCRIPT language="JavaScript" src="../js/state.js"></SCRIPT>
+								<OPTION value="98">NT</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="MergedAffiliateSubunit" size="4" maxlength="4" onFocus="MergedAffiliateSubunit.select();" onBlur="MergedAffiliateSubunitJS = MergedAffiliateSubunit.value;" disabled> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="MergedAffiliateCouncil" size="4" maxlength="4" onFocus="MergedAffiliateCouncil.select();" onBlur="MergedAffiliateCouncilJS = MergedAffiliateCouncil.value;" disabled> 
+						</TD>
+						<TD align="center">
+							<A href="javascript:showAffiliateIDResults(form.MergedAffiliateType, form.MergedAffiliateLocal, form.MergedAffiliateState, form.MergedAffiliateSubunit, form.MergedAffiliateCouncil);" onClick="if (disabled) return false; " onBlur="resetMergedAffiliateJSvars(form)" name="Finder1" class="action" title="Retrieve your Affilitate Identifier">Finder</A> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD>&nbsp;
+			</TD>
+			<TD class="ContentTD">
+				<INPUT type="radio" name="statusChangeSelect" value="SplitStatus" onClick="setFieldsForSplitStatus(form);" disabled>
+				Set to Split
+			</TD>
+			<TD class="ContentTD">
+				<INPUT type="Text" name="SplitStatusText" value="" size="35" maxlength="25" class="smallNoBorder" readonly> 
+			</TD>
+			<TD class="ContentTD">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH class="small">
+							Type 
+						</TH>
+						<TH class="small">
+							Loc/Sub Chap 
+						</TH>
+						<TH class="small">
+							State/Nat'l 
+						</TH>
+						<TH class="small">
+							Sub Unit 
+						</TH>
+						<TH class="small">
+							CN/Ret Chap 
+						</TH>
+						<TD>
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center">
+							<SELECT name="SplitAffiliateType" onChange="lockAffiliateIDFieldsByFields(SplitAffiliateType, SplitAffiliateLocal, SplitAffiliateState, SplitAffiliateSubunit, SplitAffiliateCouncil);SplitAffiliateTypeJS = SplitAffiliateType.selectedIndex;" disabled>
+								<OPTION>*</OPTION>
+								<OPTION selected></OPTION>
+								<OPTION>C</OPTION>
+								<OPTION>L</OPTION>
+								<OPTION>U</OPTION>
+								<OPTION>R</OPTION>
+								<OPTION>S</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="SplitAffiliateLocal" size="4" maxlength="4" onFocus="SplitAffiliateLocal.select();" onBlur="SplitAffiliateLocalJS = SplitAffiliateLocal.value;" disabled> 
+						</TD>
+						<TD align="center">
+							<SELECT name="SplitAffiliateState" onChange="SplitAffiliateStateJS = SplitAffiliateState.selectedIndex;" disabled>
+								<OPTION value="-1">*</OPTION>
+								<OPTION value="-1" selected></OPTION>
+								<SCRIPT language="JavaScript" src="../js/state.js"></SCRIPT>
+								<OPTION value="98">NT</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="SplitAffiliateSubunit" size="4" maxlength="4" onFocus="SplitAffiliateSubunit.select();" onBlur="SplitAffiliateSubunitJS = SplitAffiliateSubunit.value;" disabled> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="SplitAffiliateCouncil" size="4" maxlength="4" onFocus="SplitAffiliateCouncil.select();" onBlur="SplitAffiliateCouncilJS = SplitAffiliateCouncil.value;" disabled> 
+						</TD>
+						<TD align="center">
+							<A href="javascript:showAffiliateIDResults(form.SplitAffiliateType, form.SplitAffiliateLocal, form.SplitAffiliateState, form.SplitAffiliateSubunit, form.SplitAffiliateCouncil);" onClick="if (disabled) return false; " onBlur="resetSplitAffiliateJSvars(form)" name="Finder2" class="action" title="Retrieve your Affilitate Identifier">Finder</A> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD>&nbsp;
+			</TD>
+			<TD class="ContentTD">
+				<INPUT type="radio" name="statusChangeSelect" value="DeactivatedStatus" onClick="setFieldsForDeactivatedStatus(form);" disabled>
+				Set to Deactivated 
+			</TD>
+			<TD class="ContentTD">
+				<INPUT type="Text" name="DeactivatedStatusText" value="" size="35" maxlength="25" class="smallNoBorder" readonly> 
+			</TD>
+			<TD class="ContentTD">&nbsp;
+			</TD>
+		</TR>
+		<TR>
+			<TD ALIGN="center">
+				<INPUT type="Radio" name="massChangeSelect" value="otherChange" onClick="setFieldsForOtherChanges(form);"> 
+			</TD>
+			<TD class="ContentHeaderTD" COLSPAN="3">
+				Other Mass Change Types
+			</TD>
+		</TR>
+		<TR>
+			<TD class="ContentHeaderTD">
+				&nbsp;
+			</TD>
+			<TD class="ContentTD">
+				<INPUT type="checkbox" name="chkInformationSource" onClick="setFieldsForInfoSource(form);" DISABLED> 
+				Membership Information Reporting Source 
+			</TD>
+			<TD class="ContentTD">
+				Council (Manual) 
+			</TD>
+			<TD class="ContentTD">
+				<SELECT name="infosource" onChange="infosourceJS = infosource.selectedIndex;" disabled>
+					<OPTION value="-1">*</OPTION>
+					<OPTION value="-1" selected></OPTION>
+					<OPTION value="0">International</OPTION>
+					<OPTION value="2">Council (Manual)</OPTION>
+					<OPTION value="3">Local (Manual)</OPTION>
+					<OPTION value="4">Tape</OPTION>
+					<OPTION value="9">Other</OPTION>
+				</SELECT> 
+			</TD>
+		</TR>
+		<TR>
+			<TD class="ContentHeaderTD">
+				&nbsp;
+			</TD>
+			<TD class="ContentTD">
+				<INPUT type="checkbox" name="chkMbrCardBypass" onClick="setFieldsForNoMbrCards(form);" DISABLED> 
+				Unit Wide No Member Cards 
+			</TD>
+			<TD class="ContentHeaderTD">
+				<INPUT type="checkbox" name="chkMbrCardBypass_current" checked disabled> 
+			</TD>
+			<TD class="ContentHeaderTD">
+				<INPUT type="checkbox" name="chkMbrCardBypass_new" disabled> 
+			</TD>
+		</TR>
+		<TR>
+			<TD class="ContentHeaderTD">
+				&nbsp;
+			</TD>
+			<TD class="ContentTD">
+				<INPUT type="checkbox" name="chkPEBypass" onClick="setFieldsForNoPEMail(form);" DISABLED> 
+				Unit Wide No PE Mail
+			</TD>
+			<TD class="ContentHeaderTD">
+				<INPUT type="checkbox" name="chkPEBypass_current" checked disabled> 
+			</TD>
+			<TD class="ContentHeaderTD">
+				<INPUT type="checkbox" name="chkPEBypass_new" disabled> 
+			</TD>
+		</TR>
+		<TR>
+			<TD class="ContentHeaderTD">
+				&nbsp;
+			</TD>
+			<TD class="ContentTD">
+				<INPUT type="checkbox" name="chkMemberRenewal" onClick="setFieldsForMemberRenewal(form);" DISABLED> 
+				Member Renewal 
+			</TD>
+			<TD class="ContentHeaderTD">&nbsp;
+			</TD>
+			<TD class="ContentHeaderTD">
+				<INPUT type="checkbox" name="chkMemberRenewal_new" disabled> 
+			</TD>
+		</TR>
+		<TR>
+			<TD class="ContentHeaderTD">
+				&nbsp;
+			</TD>
+			<TD class="ContentTD">
+				<INPUT type="checkbox" name="chkNewAffiliateIdentifier" onClick="setFieldsForNewAffiliateIdentifier(form);" DISABLED> 
+				New Affiliate Identifier 
+			</TD>
+			<TD class="ContentTD">
+				L-100-VA-0-10
+			</TD>
+			<TD class="ContentTD">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH class="small">
+							Type 
+						</TH>
+						<TH class="small">
+							Loc/Sub Chap 
+						</TH>
+						<TH class="small">
+							State/Nat'l 
+						</TH>
+						<TH class="small">
+							Sub Unit 
+						</TH>
+						<TH class="small">
+							CN/Ret Chap 
+						</TH>
+						<TD>
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center">
+							<SELECT name="NewAffiliateType" onChange="lockAffiliateIDFieldsByFields(NewAffiliateType, NewAffiliateLocal, NewAffiliateState, NewAffiliateSubunit, NewAffiliateCouncil);NewAffiliateTypeJS = NewAffiliateType.selectedIndex;" disabled>
+								<OPTION>*</OPTION>
+								<OPTION selected></OPTION>
+								<OPTION>C</OPTION>
+								<OPTION>L</OPTION>
+								<OPTION>U</OPTION>
+								<OPTION>R</OPTION>
+								<OPTION>S</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="NewAffiliateLocal" size="4" maxlength="4" onFocus="NewAffiliateLocal.select();" onBlur="NewAffiliateLocalJS = NewAffiliateLocal.value;" disabled> 
+						</TD>
+						<TD align="center">
+							<SELECT name="NewAffiliateState" onChange="NewAffiliateStateJS = NewAffiliateState.selectedIndex;" disabled>
+								<OPTION value="-1">*</OPTION>
+								<OPTION value="-1" selected></OPTION>
+								<SCRIPT language="JavaScript" src="../js/state.js"></SCRIPT>
+								<OPTION value="98">NT</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="NewAffiliateSubunit" size="4" maxlength="4" onFocus="NewAffiliateSubunit.select();" onBlur="NewAffiliateSubunitJS = NewAffiliateSubunit.value;" disabled> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="NewAffiliateCouncil" size="4" maxlength="4" onFocus="NewAffiliateCouncil.select();" onBlur="NewAffiliateCouncilJS = NewAffiliateCouncil.value;" disabled> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="reset" name="ResetButton" class="BUTTON" value="Reset" onClick="window.location='EnablemassChange.htm';"> 
+				<INPUT type="button" name="CancelButton" class="BUTTON" value="Cancel" onClick="parent.location='MembershipReportingInformation.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" name="ApplyButton" class="BUTTON" value="Apply Mass Change" onClick="return forwardOnConfirmation();"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTableNoWidth" width="56%" align="center">
+		<TR>
+			<TD align="center" class="smallFontI">
+				* Note: Performing a Mass Change on any of these fields, will apply that change to all 
+				Affiliates, below this one, in the hierarchy. To change a field for this Affiliate only, 
+				use the 'Edit' tab on the previous screen. 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">				</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+	<!--	The following SELECT is here and hidden since we need a place holder for this field, so the Finder functions 
+				work properly, but we don't want to show it. 
+		 -->
+	<SELECT name="NewCouncilType" style="visibility:hidden">
+		<OPTION>*</OPTION>
+		<OPTION></OPTION>
+		<OPTION selected>C</OPTION>
+		<OPTION>L</OPTION>
+		<OPTION>U</OPTION>
+		<OPTION>R</OPTION>
+		<OPTION>S</OPTION>
+	</SELECT>
+</FORM>
+</BODY>
+</HTML>

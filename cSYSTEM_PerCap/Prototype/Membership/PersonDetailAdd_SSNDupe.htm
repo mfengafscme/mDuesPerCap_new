@@ -1,0 +1,348 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Person Detail - Add</TITLE><LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<H1>Person Detail - Add</H1>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<BR>
+			</TD>
+		</TR>
+		<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+	</TABLE>
+	<FORM action="#" name="form">
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+			<TR align="center">
+				<TD>
+					<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TH width="14%">
+								Prefix
+							</TH>
+							<TH width="24%">
+								* First Name
+							</TH>
+							<TH width="24%">
+								Middle Name
+							</TH>
+							<TH width="24%">
+								* Last Name
+							</TH>
+							<TH width="14%">
+								Suffix
+							</TH>
+						</TR>
+						<TR>
+							<TD align="center">
+								<SELECT name="prefix" id="label_Prefix">
+									<OPTION></OPTION>
+									<OPTION>Ms.</OPTION>
+									<OPTION>Mrs.</OPTION>
+									<OPTION>Mr.</OPTION>
+									<OPTION>Dr.</OPTION>
+								</SELECT>
+							</TD>
+							<TD align="center">
+								<INPUT type="text" name="FirstName" value="" id="FirstName" size="25">
+							</TD>
+							<TD align="center">
+								<INPUT type="text" name="MiddleName" value="" id="MiddleName" size="25">
+							</TD>
+							<TD align="center">
+								<INPUT type="text" name="LastName" value="" id="LastName2" size="25">
+							</TD>
+							<TD align="center">
+								<SELECT name="Suffix" id="select">
+									<OPTION></OPTION>
+									<OPTION>Jr.</OPTION>
+									<OPTION>Sr.</OPTION>
+									<OPTION>I</OPTION>
+									<OPTION>II</OPTION>
+									<OPTION>III</OPTION>
+									<OPTION>IV</OPTION>
+									<OPTION>V</OPTION>
+								</SELECT>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR align="center">
+				<TD>
+					<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TD width="12%" class="ContentHeaderTD">
+								<LABEL for="label_Nickname">Nickname</LABEL>
+							</TD>
+							<TD width="25%" class="ContentTD">
+								<INPUT type="text" name="Nickname" value="" id="label_Nickname" size="25" maxlength="25">
+							</TD>
+							<TD width="10%" class="ContentHeaderTD">
+								<LABEL for="label_SSN">SSN</LABEL>
+							</TD>
+							<TD width="20%" class="ContentTD">
+								<INPUT type="text" name="SSN1" value="111" id="label_SSN" size="3" maxlength="3">
+								-
+								<INPUT type="text" name="SSN2" value="11" size="2" maxlength="2">
+								-
+								<INPUT type="text" name="SSN3" value="1111" size="4" maxlength="4">
+							</TD>
+							<TD width="15%" class="ContentHeaderTD">
+								<LABEL for="label_ValidSSN">Valid SSN</LABEL>
+							</TD>
+							<TD width="18%">
+								<INPUT type="checkbox" name="ValidSSN" id="label_ValidSSN">
+							</TD>
+						</TR>
+						<TR>
+							<TD class="ContentHeaderTD">
+								<LABEL for="label_AlternateMailingName">Alt Mail Name</LABEL>
+							</TD>
+							<TD class="ContentTD" colspan="5">
+								<INPUT type="text" name="AlternateMailingName" value="" id="AlternateMailingName" size="120" maxlength="130">
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR align="center">
+				<TD>
+					<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TH align="left" colspan="5">
+								Primary Address
+							</TH>
+						</TR>
+						<TR>
+							<TD colspan="5">
+								<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+									<TR>
+										<TD class="ContentHeaderTD">
+											<LABEL for="label_Address1">Address 1</LABEL>
+										</TD>
+										<TD class="ContentTD">
+											<INPUT type="text" name="Address1" id="label_Address1" value="" size="50" maxlength="50">
+										</TD>
+										<TD class="ContentHeaderTD">
+											<LABEL for="label_Address2">Address 2</LABEL>
+										</TD>
+										<TD class="ContentTD" colspan="3">
+											<INPUT type="text" name="Address2" id="label_Address2" value="" size="50" maxlength="50">
+										</TD>
+									</TR>
+									<TR>
+										<TD width="10%" class="ContentHeaderTD">
+											<LABEL for="label_City">City</LABEL>
+										</TD>
+										<TD width="35%">
+											<INPUT type="text" name="City" id="label_City" value="" size="25" maxlength="25">
+										</TD>
+										<TD width="10%" class="ContentHeaderTD">
+											<LABEL for="label_state">State</LABEL>
+										</TD>
+										<TD width="20%">
+											<SELECT name="state" id="label_state">											
+											<SCRIPT language="JavaScript" src="../js/state.js">											</SCRIPT>
+											</SELECT>
+										</TD>
+										<TD width="10%" class="ContentHeaderTD">
+											<LABEL for="label_ZipCode">Zip/Postal Code</LABEL>
+										</TD>
+										<TD width="15%">
+											<INPUT type="text" name="ZipCode" value="" id="label_ZipCode" size="5" maxlength="5">
+												-
+												<INPUT type="text" name="ZipCode4" value="" size="4" maxlength="4">
+										</TD>
+									</TR>
+									<TR>
+										<TD class="ContentHeaderTD">
+											<LABEL for="label_County">County</LABEL>
+										</TD>
+										<TD class="ContentTD">
+											<INPUT type="text" name="County" id="label_County" value="" size="25" maxlength="25">
+										</TD>
+										<TD class="ContentHeaderTD">
+											<LABEL for="label_Province">Province</LABEL>
+										</TD>
+										<TD class="ContentTD">
+											<INPUT type="text" name="Province" id="label_Province" value="" size="25" maxlength="25">
+										</TD>
+										<TD class="ContentHeaderTD">
+											<LABEL for="label_Country">Country</LABEL>
+										</TD>
+										<TD class="ContentTD">
+											<SELECT name="Country" id="label_Country">											
+											<SCRIPT LANGUAGE="JavaScript" SRC="../js/country_options.js">											</SCRIPT>
+											</SELECT>
+										</TD>
+									</TR>
+									<TR>
+										<TD class="ContentHeaderTD">
+											Code
+										</TD>
+										<TD class="ContentTD">
+											Home
+										</TD>
+										<TD class="ContentHeaderTD">
+											Bad
+										</TD>
+										<TD class="ContentTD" colspan="3">
+											<INPUT name="BadAddress" type="checkbox" id="label_BadAddressFlag">
+										</TD>
+									</TR>
+								</TABLE>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR align="center">
+				<TD>
+					<TABLE cellpadding="0" cellspacing="0" border="0" class="InnerContentTable">
+						<TR>
+							<TD width="35%" valign="top">
+								<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+									<TR>
+										<TH colspan="4" align="left">
+											Phone Number
+										</TH>
+									</TR>
+									<TR>
+										<TH align="left" width="20%" class="small">
+											Type
+										</TH>
+										<TH align="left" width="25%" class="small">
+											Country Code
+										</TH>
+										<TH align="left" width="20%" class="small">
+											Area Code
+										</TH>
+										<TH align="left" width="35%" class="small">
+											Number
+										</TH>
+									</TR>
+									<TR>
+										<TD>
+											<SELECT name="PhoneNumberType" id="label_PhoneNumberType">
+												<OPTION value=""></OPTION>
+												<OPTION>Home</OPTION>
+												<OPTION>Work</OPTION>
+												<OPTION>Cell</OPTION>
+												<OPTION>Fax</OPTION>
+												<OPTION>Other</OPTION>
+											</SELECT>
+										</TD>
+										<TD>
+											<INPUT type="text" name="InternationalAccessCode" id="label_InternationalAccessCode" value="" size="3" maxlength="3">
+										</TD>
+										<TD>
+											<INPUT type="text" name="AreaCode" id="label_AreaCode" value="" size="3" maxlength="3">
+										</TD>
+										<TD>
+											<INPUT type="text" name="PhoneNumber" id="label_PhoneNumber" value="" size="7" maxlength="7">
+										</TD>
+									</TR>
+								</TABLE>
+							</TD>
+							<TD width="65%" valign="top">
+								<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+									<TR>
+										<TH colspan="2" align="left">
+											Email Addresses
+										</TH>
+									</TR>
+									<TR>
+										<TH align="left" width="20%" class="small">
+											Type
+										</TH>
+										<TH align="left" width="20%" class="small">
+											Email
+										</TH>
+									</TR>
+									<!--TR>
+									<TD class="small">
+										&nbsp;
+									</TD>
+</TR-->
+									<TR>
+										<TD width="20%">
+											Primary
+										</TD>
+										<TD width="80%">
+											<INPUT type="text" name="EmailAddress_1" value="" size="50" maxlength="50">
+										</TD>
+									</TR>
+									<TR>
+										<TD>
+											Alternate
+										</TD>
+										<TD>
+											<INPUT type="text" name="EmailAddress_2" value="" size="50" maxlength="50">
+										</TD>
+									</TR>
+								</TABLE>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR>
+				<TD valign="top">
+					<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TH align="left">
+								Enter New Comments
+							</TH>
+						</TR>
+						<TR>
+							<TD>
+								<TEXTAREA name="comments" cols="115" rows="3" onKeyUp="validateComments(this);"></TEXTAREA>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+			<TR valign="top">
+				<TD align="left">
+					<BR>
+					<INPUT type="button" name="SubmitMoreButton" value="Submit & Add Another" class="BUTTON" onClick="parent.location='VerifyPerson.htm'">
+					<INPUT type="button" name="SubmitButton" value="Submit" class="BUTTON" onClick="parent.location='DuplicateSSNNotifier_ForPerson.htm'">
+					<BR>
+					<BR>
+				</TD>
+				<TD align="right">
+					<BR>
+					<INPUT type="reset" class="BUTTON" name="ResetButton2" value="Reset">
+					<INPUT type="button" class="BUTTON" name="CancelButton2" value="Cancel" onClick="history.go(-1);">
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+			<TR>
+				<TD align="center">
+					<B><I>* Indicates Required Fields</I></B>
+					<BR>
+				</TD>
+			</TR>
+			<TR>
+				<TD valign="TOP" align="center">
+					<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+				</TD>
+			</TR>
+		</TABLE>
+	</FORM>
+</BODY>
+</HTML>

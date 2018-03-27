@@ -1,0 +1,94 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Mailing List Output Format</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+
+</HEAD>
+
+<SCRIPT language="JavaScript">
+function viewReport() {
+var reportFile = window.location.hash.substr(1);
+window.open(reportFile);
+}
+</SCRIPT>
+
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+
+<TABLE valign=TOP cellpadding="0" cellspacing="0" border="0" class="ContentTable">
+  <TR> 
+    <TD align=center> 
+      <H1>Select Output Format</H1>
+    </TD>
+  </TR>
+  
+  <TR>
+    <TD><BR></BR></TD>
+  </TR>
+
+  <TR> 
+    <TD align="right"><B>
+	<A href="../Common/AfscmeMainMenu.htm" title="Return to AFSCME Main Menu">Main Menu</A>&nbsp;|&nbsp;
+	<A href="#">Need Help with this page?</A></B><BR>
+      <BR>
+    </TD>
+  </TR>
+
+  <TR> 
+    <TD > <BR>
+      <TABLE align="center" border=2 class="InnerContentTable" width="161">
+        <tr> 
+	  <td><input type="radio" name="OutputFormat" id="output1"></input>
+	    <label for="output1">Mail Merge File</label>
+	  </td>
+	</tr>
+	
+	<tr>
+	  <td><input type="radio" name="OutputFormat" id="output2"></input>
+	    <label for="output2">Mailing House File</label>
+	  </td>
+	</tr>
+
+	<tr>
+	  <td><input type="radio" name="OutputFormat" id="output3"></input>
+	    <label for="output3">Labels</label>
+	  </td>
+	</tr>
+      </TABLE>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD valign="top" align="center">
+      <TABLE width="95%" cellpadding="0" cellspacing="3" class="InnerContentTable">
+        <TR> 
+	  <TD align="right"><BR>
+	    <INPUT type="button" class="BUTTON" name="GenerateMailingList" value="Generate Mailing List" onClick="window.location='GenerateMailingList.htm'">
+	    <INPUT type="button" class="BUTTON" name="Cancel" value="Cancel" onClick="window.location='GenerateMailingList.htm'">
+	  </TD>
+	</TR>
+	
+	<TR> 
+	  <TD align="right">&nbsp;</TD>
+	</TR>
+      </TABLE>
+    </TD>
+  </TR>
+
+  <BR>
+
+  <TR> 
+    <TD valign="TOP" align="center"> 
+      <SCRIPT type="text/javascript" language="JavaScript" src="../js/footer.js"></SCRIPT>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD>&nbsp;</TD>
+  </TR>
+</TABLE>
+</BODY>
+</HTML>

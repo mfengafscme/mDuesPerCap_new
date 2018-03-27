@@ -1,0 +1,349 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Officer Search</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Officer Search</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="OfficerSearchResults.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD colspan="3" class="ContentHeaderTR">
+				Fields to Search: 
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="6" align="left">
+							Affiliate Identifier - <A href="javascript:showAffiliateIDResults(form.affiliateType, form.affiliateLocal, form.affiliateState, form.affiliateSubunit, form.affiliateCouncil);" class="TH" title="Retrieve your Affilitate Identifier">Finder</A> 
+						</TH>
+					</TR>
+					<TR>
+						<TH width="14%">
+							Type 
+						</TH>
+						<TH width="14%">
+							Local/Sub Chapter 
+						</TH>
+						<TH width="20%">
+							State/National Type 
+						</TH>
+						<TH width="14%">
+							Sub Unit 
+						</TH>
+						<TH width="29%">
+							Council/Retiree Chapter 
+						</TH>
+					</TR>
+					<TR>
+						<INPUT type="hidden" name="affiliateCode">
+						<TD align="center" class="ContentTD">
+							<SELECT name="affiliateType" onBlur="lockAffiliateIDFields(this.form);" onChange="lockAffiliateIDFields(this.form);">
+								<OPTION></OPTION>
+								<OPTION>C</OPTION>
+								<OPTION>L</OPTION>
+								<OPTION>U</OPTION>
+								<OPTION>R</OPTION>
+								<OPTION>S</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateLocal" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<SELECT name="affiliateState">
+								<SCRIPT language="JavaScript" src="../js/state.js"></SCRIPT>
+								<OPTION value="98">NT</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateSubunit" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateCouncil" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="14%">
+							Prefix 
+						</TH>
+						<TH width="24%">
+							First Name 
+						</TH>
+						<TH width="24%">
+							Middle Name 
+						</TH>
+						<TH width="24%">
+							Last Name 
+						</TH>
+						<TH width="14%">
+							Suffix 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center">
+							<SELECT name="prefix">
+								<OPTION></OPTION>
+								<OPTION>Ms.</OPTION>
+								<OPTION>Mrs.</OPTION>
+								<OPTION>Mr.</OPTION>
+								<OPTION>Dr.</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="FirstName" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="MiddleName" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="LastName" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<SELECT name="Suffix">
+								<OPTION></OPTION>
+								<OPTION>Jr.</OPTION>
+								<OPTION>Sr.</OPTION>
+								<OPTION>I</OPTION>
+								<OPTION>II</OPTION>
+								<OPTION>III</OPTION>
+								<OPTION>IV</OPTION>
+								<OPTION>V</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_memberNumber"> Member Number</LABEL> 
+						</TD>
+						<TD valign="top">
+							<INPUT type="text" name="memberNumber" value="" id="label_memberNumber" size=6> 
+						</TD>
+					</TR>
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_OfficerCode"> Officer Title</LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="titlemap1">
+								<OPTION></OPTION>
+								<OPTION value="01">President</OPTION>
+								<OPTION value="02">Vice President</OPTION>
+								<OPTION value="03">Recording Secretary</OPTION>
+								<OPTION value="04">Secretary Treasurer</OPTION>
+								<OPTION value="05">Board Member</OPTION>
+								<OPTION value="06">Trustee</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<!--TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_OfficerSequenceNumber"> Officer Sequence Number</LABEL>
+						</TD>
+						<TD>
+							<INPUT type="text" name="OfficerSequenceNumber" value="" id="label_OfficerSequenceNumber" size=6>
+						</TD>
+					</TR!-->
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Suspended">Suspended</LABEL> 
+						</TD>
+						<TD class="smallFont">
+							<INPUT type="radio" name="Suspended" id="label_Suspended" value="yes">
+							Yes 
+							<INPUT type="radio" name="Suspended" value="no">
+							No 
+							<INPUT type="radio" name="Suspended" value="all" checked>
+							All 
+						</TD>
+					</TR>
+					<TR>
+						<TD width="40%" class="ContentHeaderTD">
+							<LABEL for="label_Stewards">Stewards</LABEL> 
+						</TD>
+						<TD width="60%" class="smallFont">
+							<INPUT type="radio" name="stewards" id="label_Stewards" value="yes">
+							Yes 
+							<INPUT type="radio" name="stewards" id="label_Stewards" value="no" checked>
+							No 
+							<INPUT type="radio" name="stewards" id="label_Stewards" value="all">
+							All 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_InformationSource"> Primary Information Source</LABEL> 
+						</TD>
+						<TD>
+							<SELECT id="label_InformationSource" name="InformationSource">
+								<OPTION value=""></OPTION>
+								<OPTION value="0">International</OPTION>
+								<OPTION value="2">Council (Manual)</OPTION>
+								<OPTION value="3">Local (Manual)</OPTION>
+								<OPTION value="4">Tape</OPTION>
+								<OPTION value="9">Other</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_TermBeginningDate">Term Beginning Date</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="TermBeginningDateMonth">
+								<SCRIPT language="JavaScript" src="../js/month_options.js"></SCRIPT>
+							</SELECT> <INPUT type="text" name="TermBeginningDateYear" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_TermEndingDate">Term Ending Date</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="TermEndingDateMonth">
+								<SCRIPT language="JavaScript" src="../js/month_options.js"></SCRIPT>
+							</SELECT> <INPUT type="text" name="TermEndingDateYear" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+					<TR valign="top">
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_DateOfficerDataLastUpdated">Last Updated</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="DateOfficerDataLastUpdated" value="" id="label_DateOfficerDataLastUpdated" size=10> 
+							<A href="javascript:show_calendar('form.DateOfficerDataLastUpdated');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"><IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></A> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="8" align="left">
+							Addresses 
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address1">Address 1</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="Address1" value="" id="label_Address1" size="50" maxlength="50"> 
+						</TD>
+						<TD class="contentheadertd">
+							<LABEL for="label_Address2">Address 2</LABEL> 
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							<INPUT type="text" name="Address2" value="" id="label_Address2" size="50" maxlength="50"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD width="10%" class="ContentHeaderTD">
+							<LABEL for="label_City">City</LABEL> 
+						</TD>
+						<TD width="35%">
+							<INPUT type="text" name="City" value="" id="label_City" size=25 maxlength=25> 
+						</TD>
+						<TD width="12%" class="ContentHeaderTD">
+							<LABEL for="label_state">State</LABEL> 
+						</TD>
+						<TD width="15%">
+							<SELECT name="state" id="label_state">
+								<SCRIPT language="JavaScript">var selected = "";</SCRIPT>
+								<SCRIPT language="JavaScript" src="../js/state_select.js"></SCRIPT>
+							</SELECT> 
+						</TD>
+						<TD width="5%" class="ContentHeaderTD">
+							<LABEL for="label_ZipCode">Zip/Postal Code</LABEL> 
+						</TD>
+						<TD width="5%" >
+							<INPUT type="text" name="Zip" value="" id="label_ZipCode" size="5" maxlength="5"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_County"> County</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="County" value="" id="label_County" size=25 maxlength=25> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Province"> Province</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="Province" value="" id="label_Province" size=25 maxlength=25> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Country"> Country</LABEL> 
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							<SELECT name="Country" id="label_Country">
+								<OPTION selected></OPTION>
+								<OPTION value="USA">Unites States of America</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="reset" name="ResetButton" class="BUTTON" value="Reset" onClick="parent.location='PowerOfficerSearch.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" name="SubmitButton" class="BUTTON" value="Submit" onClick="parent.location='OfficerSearchResults.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

@@ -1,0 +1,752 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0201.0210"
+    charSet    	0)
+
+(object Class_Category "Rebate"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3DF8B84801CC"
+    documentation 	
+|Contains components that handle political rebate background processing.  
+|
+|Note: The rebate file import is handled by the import package.
+|
+|Note: This component focuses on the background processing and in particular the creation of files.  Other rebate functionality is handled in the Person package.
+    
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "MaintainPoliticalRebate"
+	    quid       	"3E2C220D0279"
+	    documentation 	"Encapsulates operations against rebate data"
+	    stereotype 	"EJBSession"
+	    operations 	(list Operations
+		(object Operation "performPRBApplicationRun"
+		    quid       	"3E2C433C03B5"
+		    documentation 	
+|This method will call the series of stored procedures under the primary stored procedure StoredProcPRBApplicationRun.
+|
+|To support this functionality, a screen to capture the value of the Application Mailed Date and to call this method.  
+|
+|There is not a UI requirement for this method, this is provided for future enhancement however a link is made from the Generate Reports screen.  AFSCME IT would use this or call the Stored Procedure directly.
+|
+|@param prbApplicationMailedDt The date the Application was mailed.  This is not always the same date the Application File is generated and must be a parameter to the system.
+|
+|@return void Returns nothing.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "prbApplicationMailedDt"
+			    quid       	"3E2C712101D9"
+			    type       	"Date"))
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "preparePRBPreliminaryRoster"
+		    quid       	"3E2C444C029E"
+		    documentation 	
+|This method will call the series of stored procedures under the primary stored procedure StoredProcPRBPreliminaryRoster.
+|
+|There is not an UI requirement for this method, this is provided for future enhancement however a link is made from the Generate Reports screen.  AFSCME IT would use this or call the Stored Procedure.
+|
+|@return void Returns nothing.
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "performPRBCheckFile"
+		    quid       	"3E2D7D1903BD"
+		    documentation 	
+|This method will call the series of stored procedures under the primary stored procedure StoredProcPRBCheckFile.
+|
+|To support this functionality, a screen to capture the value of the Starting Check Number and to call this method.  
+|
+|There is not an UI requirement for this method, this is provided for future enhancement however a link is made from the Generate Reports screen.  AFSCME IT would use this or call the Stored Procedure.
+|
+|@param prbStartCheckNumber The starting number for the check run.  This number is provided by accounting and is incremented for each check produced.
+|
+|@return void Returns nothing.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "prbStartCheckNumber"
+			    quid       	"3E2D7D4601B9"
+			    type       	"Integer"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getPRB12MonthAmount"
+		    quid       	"3E2C44CD022B"
+		    documentation 	
+|This method retrieves a 12 Month Amount from the database that matches the rebate year input. 
+|
+|@param prbYear Rebate year to retrieve a specific set of 12 month amounts
+|
+|@return PRB12MonthRebateAmount A single instance of the dataobject that hold amounts for one year
+		    
+		    parameters 	(list Parameters
+			(object Parameter "prbYear"
+			    quid       	"3E2EE98B00D9"
+			    type       	"Integer"))
+		    result     	"PRB12MonthRebateAmount"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0
+		    quidu      	"3E2C453D007D")
+		(object Operation "getPRB12MonthAmount"
+		    quid       	"3E7E01270222"
+		    documentation 	
+|This method retrieves a historical list of the 12 Month Amounts from the database for each rebate year.
+|
+|@return A collection of PRB12MonthRebateAmount dataobjects
+		    
+		    result     	"java.util.Collections"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "updatePRB12MonthAmount"
+		    quid       	"3E2C44E2009B"
+		    documentation 	
+|This method allows one set of Rebate Amount data to be updated. 
+|
+|UPDATE PRB_12_Month_Rebate
+|SET rbt_pct = @prbPercentage, 
+|rbt_full_time_amt = @prbFullTime, 
+|rbt_part_time_amt = @prbPartTime, 
+|rbt_lower_part_time_amt = @prbLowerPartTime, 
+|rbt_retiree_amt = @prbRetiree,
+|lst_mod_user_pk = @modifiedBy,
+|lst_mod_dt = @modifiedDate 
+|WHERE rbt_year = @prbYear
+|
+|@param PRB12MonthAmount The dataobject containing updated values to be stored in the database
+|
+|@return void Returns nothing.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "prb12MonthRebateAmount"
+			    quid       	"3E7E029F015A"
+			    type       	"PRB12MonthRebateAmount"
+			    quidu      	"3E2C453D007D"))
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "addPRBYear"
+		    quid       	"3E2C451B01BF"
+		    documentation 	
+|This method adds another Rebate Year to the system for capturing the 12-Month Rebate Amount.
+|
+|INSERT INTO PRB_12_Month_Rebate
+|VALUES (prbYear, prbPercentage, prbFullTime, prbPartTime, prbLowerPartTime, prbRetiree, createdBy, createdDate, modifiedBy, modifiedDate)
+|
+|@param PRB12MonthAmount The dataobject containing updated values to be stored in the database
+|
+|@return void Returns nothing.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "prb12MonthRebateAmount"
+			    quid       	"3E2F032D020B"
+			    type       	"PRB12MonthRebateAmount"
+			    quidu      	"3E2C453D007D"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)))
+	(object Class "PRB12MonthRebateAmount"
+	    quid       	"3E2C453D007D"
+	    documentation 	"Data about an individual 12-Month Rebate Amount for a specific rebate year."
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3E7E04490167"
+		    supplier   	"Logical View::Common::RecordData"
+		    quidu      	"3E2C086E0274"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "prbYear"
+		    quid       	"3E2C45730310"
+		    documentation 	"Contains the Rebate Year"
+		    type       	"Integer"
+		    exportControl 	"Public")
+		(object ClassAttribute "prbPercentage"
+		    quid       	"3E2C45890253"
+		    documentation 	"Contains the Rebate Percentage.  This field only retains the percentage and is not used in any calculations."
+		    type       	"Double"
+		    exportControl 	"Public")
+		(object ClassAttribute "prbFullTime"
+		    quid       	"3E2C45A900F1"
+		    documentation 	"This is the annual amount to be paid to a member with a Full Time dues status."
+		    type       	"Double"
+		    exportControl 	"Public")
+		(object ClassAttribute "prbPartTime"
+		    quid       	"3E2C45D50180"
+		    documentation 	"This is the annual amount to be paid to a member with a PartTime dues status."
+		    type       	"Double"
+		    exportControl 	"Public")
+		(object ClassAttribute "prbLowerPartTime"
+		    quid       	"3E2C45E301BD"
+		    documentation 	"This is the annual amount to be paid to a member with a Lower PartTime dues status."
+		    type       	"Double"
+		    exportControl 	"Public")
+		(object ClassAttribute "prbRetiree"
+		    quid       	"3E2C45F10325"
+		    documentation 	"This is the annual amount to be paid to a member with a Retiree dues status."
+		    type       	"Double"
+		    exportControl 	"Public")))
+	(object Class "StoredProcPRBApplicationRun"
+	    quid       	"3E2C53800100"
+	    documentation 	
+|SQL Server stored procedure that defaults the Evaluation Code to "Not Returned", and include the Dues Paid To and Duration from the Request record.
+|
+|
+	    
+	    stereotype 	"boundary"
+	    operations 	(list Operations
+		(object Operation "performPRBApplicationRun"
+		    quid       	"3E2C53B800D8"
+		    documentation 	
+|SQL Server stored procedure that takes the application mailed date as an argument and manages the calls for each step of the Application Run.
+|
+|Calls the processes/stored procedures in the following order:
+|getPRBApplicationEligible
+|generatePRBApplicationFile
+|createPRBApplicationRecord
+|
+|@return Void Returns nothing.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "prbApplicationMailedDt"
+			    quid       	"3E2C717F01D4"
+			    documentation 	"Contains the date the applications are expected to be mailed.  This will be used to update all the applications that are part of this run."
+			    type       	"Date"))
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getPRBApplicationEligible"
+		    quid       	"3E2D7E8F02B6"
+		    documentation 	
+|SQL Server stored procedure that compiles a list of Political Rebate Requests that have not been included in a prior application run and have not been denied and combines multiple requests from a single Requester into one application.
+|
+|PRB_Requests.rqst_status = "Approved"
+|AND PRB_Requests.prb_app_pk IS NULL
+|
+|@return Void Returns nothing.
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "generatePRBApplicationFile"
+		    quid       	"3E2D7F970306"
+		    documentation 	
+|SQL Server stored procedure that generates the file to produce the "mailing labels".
+|
+|prbApplicationMailedDt (parameter)
+|Person.first_nm
+|Person.middle_nm
+|Person.last_nm
+|"Local:" + Aff_Organizations.aff_localSubChapter
+|"CN:" + Aff_Organizations.aff_councilRetiree_chap
+|(Person_Address.addr1
+|Person_Address.addr2
+|Person_Address.city
+|Person_Address.province
+|Person_Address.state
+|Person_Address.zipcode
+|Person_Address.zip_plus
+|Person_Address.country WHERE Person_Address.addr_type = "System Mailing Address")
+|Person.ssn
+|Person.valid_ssn
+|"FOR THE FISCAL YEAR ENDING" + (last day of the prior year mm/dd/yy)
+|
+|@return Void Returns nothing.
+|
+|
+|
+|
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "createPRBApplicationRecord"
+		    quid       	"3E2D7FB9003E"
+		    documentation 	
+|SQL Server stored procedure that creates an Application record with the supplied mailed date.  Also sets the default for the Evaluation Code to "Not Returned" and includes the Dues Paid To and Duration from the Request record.
+|
+|Create record in PRB_Apps and set the PRB_Apps.app_mailed_dt = @prbApplicationMailedDt
+|AND PRB_Apps.prb_evaluation_cd = "Not Returned"
+|AND PRB_Apps.aff_roster_generated_fg = FALSE
+|
+|Get the PRB_Apps.prb_apps_pk and update the PRB_Requests.prb_app_pk with the PRB_Apps.prb_apps_pk
+|
+|Create an equivalent record in the PRB_App_Affs table (SET PRB_App_Affs.app_duration_in_aff = PRB_Request_Affs.rqst_duration_in_aff, PRB_App_Affs.app_months_in aff = PRB_Request_Affs.rqst_months_in_aff, PRB_App_Affs.app_filed_with = PRB_Request_Affs.rqst_filed_with, PRB_App_Affs.app_aff_status = "Denied")
+|
+|@return Void Returns nothing.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "prbApplicationMailedDt"
+			    quid       	"3E3022E501A3"
+			    type       	"Date"))
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)))
+	(object Class "StoredProcPRBPreliminaryRoster"
+	    quid       	"3E2C78E802F4"
+	    documentation 	
+|Stored Procedure that creates a list of Requesters that have met the criteria for the Preliminary Roster and will have their information passed to the affiliate for review and final approval.  
+|
+|
+	    
+	    stereotype 	"boundary"
+	    operations 	(list Operations
+		(object Operation "preparePRBPreliminaryRoster"
+		    quid       	"3E2C7F1D01E0"
+		    documentation 	
+|Stored Procedure that manages the process to generate the Preliminary Roster.
+|
+|Calls the processes/stored procedures in the following order:
+|getPRBPreliminaryRosterEligible
+|preparePRBAffiliateFiles
+|
+|@return Void Returns nothing.
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getPRBPreliminaryRosterEligible"
+		    quid       	"3E2D7DDE0149"
+		    documentation 	
+|Stored Procedure that creates a list of Requesters that have met the criteria for the Preliminary Roster and will have their information passed to the affiliate for review and final approval.
+|
+|IF PRB_Roster_Persons.roster_aff_status = "Preliminary" 
+|AND PRB_Roster_Persons.roster_acceptance_cd = "blank"
+|THEN eligilble
+|
+|@return Void Returns nothing
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "preparePRBAffiliateFiles"
+		    quid       	"3E2D7E3F0384"
+		    documentation 	
+|Stored Procedure that manages the method calls to create the rebate files for each affiliate.
+|
+|For each affiliate that has eligible members, calls the stored procedure for the createPRBUpdateFile and createPRBPreliminaryRosterFile
+|
+|The creation of the files will depend on naming convention for each affiliate.  That file naming convention is yet to be determined.
+|
+|@return Void Returns nothing
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "createPRBUpdateFile"
+		    quid       	"3E2D7E450206"
+		    documentation 	
+|Stored Procedure that creates the Update file that the affiliate will update selective information to approve or deny the rebate request.
+|
+|The creation of the files will depend on naming convention for each affiliate.  That file naming convention is yet to be determined.
+|
+|@return Void Returns nothing
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "createPRBPreliminaryRosterFile"
+		    quid       	"3E2D7E5302CE"
+		    documentation 	
+|Stored Procedure that creates a file for the affiliate containing the members requesting a rebate.  This file is not updateable by affiliate but made available for review purposes.
+|
+|UPDATE PRB_Apps.aff_roster_generated_fg = TRUE
+|
+|The creation of the files will depend on naming convention for each affiliate.  That file naming convention is yet to be determined.
+|
+|@return Void Returns nothing
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)))
+	(object Class "StoredProcPRBCheckFile"
+	    quid       	"3E2D44E00303"
+	    documentation 	
+|Stored Procedure that creates a list of Members that have been approved for a Rebate and are eligilbe to receive a Rebate, calculates the check amount, assigns the check number and date, create the Check File, create the Check Register report, and set Members to the Final Roster.
+|
+	    
+	    stereotype 	"boundary"
+	    operations 	(list Operations
+		(object Operation "performPRBCheckRun"
+		    quid       	"3E2D8046025E"
+		    documentation 	
+|Stored Procedure that manages the method calls for the Check Run.
+|
+|Calls the processes/stored procedures in the following order:
+|getPRBCheckEligible
+|calculatePRBCheckAmount
+|setCheckNumber
+|createCheckFile
+|createCheckRegister
+|updateFinalRoster
+|
+|@param prbStartCheckNumber The check number to start incrementing from.
+|
+|@return Void Returns nothing.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "prbStartCheckNumber"
+			    quid       	"3E2D80E0001A"
+			    type       	"Integer"))
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "getPRBCheckEligible"
+		    quid       	"3E2D80630219"
+		    documentation 	
+|Stored Procedure that creates a list of Members that have been approved for a Rebate and are eligilbe to receive a Rebate.
+|
+|Eligible is defined as the following:
+|- at least one affiliate must have an approved of the rebate (PRB_Roster_Persons.roster_acceptance_cd IN( "Council Accepted","Local Accepted")
+|- and the approved rebate affiliate(s) cannot have already been part of a previous check run (PRB_Roster_Persons.rbt_check_nbr is not null)
+|
+|@return Void Returns nothing
+|
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "calculatePRBCheckAmount"
+		    quid       	"3E2D807E0041"
+		    documentation 	
+|Stored Procedure that calculates the check amount for each eligible member.
+|
+|Check Amount =  sum for the affiliate approved applications of (Member Status political rebate year rate * number of months active for each type of dues paid by the member )
+|
+|@return Void Returns nothing.
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setCheckNumber"
+		    quid       	"3E2D809303A9"
+		    documentation 	
+|Stored Procedure that assigns the check number and date.
+|
+|@param prbStartCheckNumber The check number to start incrementing from.
+|
+|@return Void Returns nothing.
+		    
+		    parameters 	(list Parameters
+			(object Parameter "prbStartCheckNumber"
+			    quid       	"3E2D812D036E"
+			    type       	"Integer"))
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "createCheckFile"
+		    quid       	"3E2D80B0024C"
+		    documentation 	
+|Stored Procedure that creates the Check File in the format to be used by Accounting.
+|
+|@return Void Returns nothing.
+|
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "createCheckRegister"
+		    quid       	"3E2D80BB031A"
+		    documentation 	
+|Stored Procedure that creates the Check Register report of those members that a check will be sent to.
+|
+|@return Void Returns nothing.
+|
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "updateFinalRoster"
+		    quid       	"3E2D80C60185"
+		    documentation 	
+|Stored Procedure that updates the Members to the Final Roster who were part of the Check File to receive a rebate check.
+|
+|UPDATE PRB_Roster_Persons
+|SET roster_aff_status = "Final"
+|UPDATE PRB_Rbt_Year_Info.person_rbt_year_status to "Check Issued"
+|
+|@return Void Returns nothing.
+		    
+		    result     	"Void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "PoliticalRebate"
+	    quid       	"3E2C2037009D"
+	    title      	"PoliticalRebate"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Rebate::MaintainPoliticalRebate" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(752, 368)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(389, 159)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	726
+			justify    	0
+			label      	"MaintainPoliticalRebate")
+		    stereotype 	(object ItemLabel
+			Parent_View 	@1
+			location   	(389, 109)
+			fill_color 	13434879
+			anchor     	10
+			nlines     	1
+			max_width  	726
+			justify    	0
+			label      	"<<EJBSession>>")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E2C220D0279"
+		    compartment 	(object Compartment
+			Parent_View 	@1
+			location   	(389, 220)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	8
+			max_width  	625)
+		    width      	744
+		    height     	542
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Rebate::PRB12MonthRebateAmount" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1776, 336)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(1457, 130)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	638
+			justify    	0
+			label      	"PRB12MonthRebateAmount")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E2C453D007D"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(1457, 191)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	7
+			max_width  	546)
+		    width      	656
+		    height     	436
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Rebate::StoredProcPRBApplicationRun" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(352, 896)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(351, 1052)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	1041
+			justify    	0
+			label      	"StoredProcPRBApplicationRun")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E2C53800100"
+		    compartment 	(object Compartment
+			Parent_View 	@3
+			location   	(22, 1093)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			anchor     	2
+			nlines     	5
+			max_width  	656
+			justify    	0)
+		    width      	230
+		    height     	154
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Rebate::StoredProcPRBPreliminaryRoster" @4
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1200, 896)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(1199, 1052)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	1041
+			justify    	0
+			label      	"StoredProcPRBPreliminaryRoster")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E2C78E802F4"
+		    compartment 	(object Compartment
+			Parent_View 	@4
+			location   	(823, 1093)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			anchor     	2
+			nlines     	6
+			max_width  	750
+			justify    	0)
+		    width      	230
+		    height     	154
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Rebate::StoredProcPRBCheckFile" @5
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1952, 896)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@5
+			location   	(1951, 1052)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	975
+			justify    	0
+			label      	"StoredProcPRBCheckFile")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E2D44E00303"
+		    compartment 	(object Compartment
+			Parent_View 	@5
+			location   	(1640, 1093)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			anchor     	2
+			nlines     	8
+			max_width  	619
+			justify    	0)
+		    width      	230
+		    height     	154
+		    annotation 	8
+		    autoResize 	TRUE)))))

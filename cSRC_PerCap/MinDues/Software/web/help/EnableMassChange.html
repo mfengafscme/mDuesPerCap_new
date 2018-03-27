@@ -1,0 +1,97 @@
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_header.js"></script>
+
+<!-- BEGIN CHANGE -->
+<TITLE>Help: Enable Mass Change</TITLE>
+<!-- END CHANGE -->
+
+<H1>
+<!-- BEGIN CHANGE -->
+Enable Mass Change Help
+<!-- END CHANGE -->
+</H1>
+
+<BR/><BR/>
+
+<!-- BEGIN CHANGE -->
+<p>The Enable Mass Change screen allows a number of mass change operations to be initiated. Mass Change 
+operations are scheduled operations which means based on system configuration parameters the system 
+runs mass change operations at a later time. One reason that Mass Change operations are scheduled, is 
+that they typically modify a large number of records. Modifying large numbers of records at one time 
+uses resources and potentially locks records desired by other users and can result in poor performance 
+for users of the AFSCME Enterprise Application.  The AFSCME Enterprise Application Operators set the 
+times that the mass change operations will run. </p>
+
+<p>The term <i>sub-affiliates</i> is a generic term that is used to describe the "children" or affiliates 
+that are associated and report to other affiliates in hierarchy. For example, the sub-affiliates of a 
+council include all locals directly related to that affiliate and all sub-units related to any of the 
+locals related to the council.</p>
+
+<p>To select a particular mass change operation to perform, the user must first select whether they wish 
+to perform an Affiliate Status change or Other Mass Change Types by selecting the appropriate radio 
+button. </p>
+
+<p>Some operations require an affiliate identifier to be input, such as Merge and Split operations. 
+For these two operations, the affiliate finder functionality is provided. The affiliate finder 
+functionality allows the user to input partial affiliate identifier information, such as the state, 
+and then returns a list of matching affiliates from which the user can select an affiliate to 
+populate the associated affiliate identifier fields. If the user enters affiliate identifier 
+information and does not use the finder functionality, and more than one affiliate matches the 
+information entered, the user will be taken to the Duplicate Affiliate Identifier Notifier screen 
+where the user can select the affiliate intended.  </p>
+
+AFSCME Mass Change Operations include:
+<TABLE class="DataFONT" align="center" width="95%">
+    <TR valign="top">
+		<TD WIDTH="34%"><B><U>Set To Merge </U></B></TD>
+		<TD WIDTH="51%">Merge the members of the current affiliate (the one the user is working with) 
+		with another affiliate. The user must enter the affiliate identifier of the affiliate 
+		to which the members will be moved. This operation is only valid for Locals and Retiree 
+		Sub Chapters. The current affiliate will then have its status set to Merged.</TD>
+	</TR>
+    <TR valign="top">
+		<TD WIDTH="34%"><B><U>Set to Split </U></B></TD>
+		<TD WIDTH="51%">Splits the current affiliate (that the user is working with) and associates 
+		it with a different affiliate. The user must enter the affiliate identifier of the new 
+		affiliate to which the association will be made. The Split operation can only be performed 
+		when the current affiliate is a Sub Local. Upon completion of this operation, the sub local 
+		status is set to Split.</TD>
+	</TR>
+    <TR valign="top">
+		<TD WIDTH="34%"><B><U>Set to Deactivated </U></B></TD>
+		<TD WIDTH="51%">Sets the status of all members of the affiliate to Inactive. When performing 
+		the deactivation on a council, mass change deactivates the Council and disassociates all of 
+		its Sub-Affiliates. This disassociation will result in the Sub-Affiliate’s Affiliate 
+		Identifier Council field being set to blank.</TD>
+	</TR>
+    <TR valign="top">
+		<TD WIDTH="34%"><B><U>Membership Information Reporting Source </U></B></TD>
+		<TD WIDTH="51%">Modify the Membership Information Reporting Source for the current affiliate 
+		and all its members.</TD>
+	</TR>
+    <TR valign="top">
+		<TD WIDTH="34%"><B><U>Unit Wide No Member Cards </U></B></TD>
+		<TD WIDTH="51%">Modify the Unit Wide No Member Card flag for the affiliate and all its members.</TD>
+	</TR>
+    <TR valign="top">
+		<TD WIDTH="34%"><B><U>Unit Wide No PE Mail </U></B></TD>
+		<TD WIDTH="51%">Modify the Unit Wide No PE Mail for the affiliate and all its members.</TD>
+	</TR>
+    <TR valign="top">
+		<TD WIDTH="34%"><B><U>Retiree Annual Dues Renewal </U></B></TD>
+		<TD WIDTH="51%">Sets or unsets this flag for the affiliate. Valid only for Retiree Chapters 
+		and Retiree Sub Chapters.</TD>
+	</TR>
+    <TR valign="top">
+		<TD WIDTH="34%"><B><U>Affiliate Identifier </U></B></TD>
+		<TD WIDTH="51%">Allows the affiliate identifier to be changed for the affiliate.
+		Examples of using the Affiliate Identifier option include changing the Affiliate Number to an 
+		appropriate one for an affiliate. For a council or Retiree Chapter, this means the 
+		Council\Retiree Chapter field can be changed. For a Local or Retiree Sub Chapter, this means 
+		the Local\Sub Chapter field can be changed. For a Sub Unit of a Local , the Sub Unit can be 
+		changed. State can also be changed for an Affiliate.	</TD>
+	</TR>
+</TABLE>
+<BR/><BR/>
+<!-- END CHANGE -->
+
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_footer.js"></script>

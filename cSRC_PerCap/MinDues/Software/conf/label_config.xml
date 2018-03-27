@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE config [
+    <!ELEMENT page EMPTY>
+    <!ATTLIST page
+        labelsPerLine CDATA #REQUIRED
+        linesPerPage CDATA #REQUIRED>
+    <!ELEMENT label EMPTY>
+    <!ATTLIST label
+        labelWidth CDATA #REQUIRED
+        cityWidth CDATA #REQUIRED>
+        
+    <!ELEMENT config (page, label)>
+]>
+
+<config>
+    <page labelsPerLine="4" linesPerPage="12"/>
+    <label labelWidth="34" cityWidth="16"/>
+</config>
+

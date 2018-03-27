@@ -1,0 +1,302 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Member Affiliate Information - Edit</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align="center">
+			<H1>Member Affiliate Information - Edit</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+</TABLE>
+<FORM action="MemberAffiliateInformation.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT name="ResetButton" type="reset" class="BUTTON" value="Reset"> <INPUT name="CancelButton" type="button" class="BUTTON" value="Cancel" onClick="parent.location='MemberAffiliateInformation.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT name="SubmitButton" type="button" class="BUTTON" value="Submit" onClick="parent.location='MemberAffiliateInformation.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				John Michael Doe - 12345678 <BR>
+				Virginia - PD Local 100 - Council 10 <BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD class="ContentHeaderTD" WIDTH="50%">
+							<LABEL for="label_MemberType">* Member Type</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="MemberType" ID="label_MemberType">
+								<OPTION VALUE="-1">[Select]</OPTION>
+								<SCRIPT LANGUAGE="JavaScript">var selected = "R";</SCRIPT>
+								<SCRIPT LANGUAGE="JavaScript" SRC="../js/member_type_options_select.js"></SCRIPT>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_MemberStatus">* Member Status</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="MemberStatus" ID="label_MemberStatus">
+								<OPTION VALUE="-1">[Select]</OPTION>
+								<OPTION value="A" sel>Active</OPTION>
+								<OPTION value="I">Inactive</OPTION>
+								<OPTION value="T">Temporary</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_AffiliateMbrNum">Affiliate Member Number</LABEL> 
+						</TD>
+						<TD>
+							111111 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="55%" class="ContentHeaderTD">
+							Membership Card Sent 
+						</TD>
+						<TD class="ContentTD">
+							01/01/2002 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Primary Information Source 
+						</TD>
+						<TD class="ContentTD">
+							Council (Manual) 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_lostTime">Lost Time Language in Contract</LABEL> 
+						</TD>
+						<TD class="smallFont">
+							<INPUT type="checkbox" name="lostTime" value="" id="label_lostTime"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="50%" class="ContentHeaderTD">
+							<LABEL for="label_joinDate">* Join Date</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="joinDateMonth">
+								<SCRIPT language="JavaScript">								var index = 0;
+																</SCRIPT>
+								<SCRIPT language="JavaScript" src="../js/month_options_select.js">								</SCRIPT>
+							</SELECT> <INPUT type="text" name="joinDateYear" value="2002" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="55%" class="ContentHeaderTD">
+							<LABEL for="label_duesType">Dues Type</LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="duesType" id="label_duesType">
+								<OPTION value=""></OPTION>
+								<OPTION selected>Part-time</OPTION>
+								<OPTION>Full-time</OPTION>
+								<OPTION>Lower Part-time</OPTION>
+								<OPTION>Union Shop</OPTION>
+								<OPTION>Retiree</OPTION>
+								<OPTION>Non-Member</OPTION>
+								<OPTION>None</OPTION>
+								<OPTION>Unknown</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_dueRate">Dues Rate</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="dueRate" value="1000.00" id="label_dueRate" size="10">
+							USD 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_duesFreq">Dues Frequency</LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="duesFreq" id="label_duesFreq">
+								<OPTION></OPTION>
+								<OPTION>Weekly</OPTION>
+								<OPTION>Bi-weekly</OPTION>
+								<OPTION>Semi-monthly</OPTION>
+								<OPTION>Monthly</OPTION>
+								<OPTION>Quarterly</OPTION>
+								<OPTION>Semi-annually</OPTION>
+								<OPTION selected>Annually</OPTION>
+								<OPTION>None</OPTION>
+								<OPTION>Unknown</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="50%" class="ContentHeaderTD">
+							<LABEL for="label_retiredDate">Retired Date</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="retiredDateMonth">
+								<SCRIPT language="JavaScript">								var index = 1;
+																</SCRIPT>
+								<SCRIPT language="JavaScript" src="../js/month_options_select.js">								</SCRIPT>
+							</SELECT> <INPUT type="text" name="retiredDateYear" value="2002" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="55%" class="ContentHeaderTD">
+							<LABEL for="label_renewalFlag">Retiree Annual Dues Renewal</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="checkbox" name="renewal" value="" id="label_renewalFlag"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="2">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH align="left" colspan="2">
+							Mail 
+						</TH>
+					</TR>
+					<TR>
+						<LABEL for="label_NoMail"></LABEL>
+						<TD width="35%" class="ContentHeaderTD">
+							No Mail 
+						</TD>
+						<TD>
+							<INPUT type="checkbox" name="NoMail" value="" id="label_NoMail" onClick="setAllMailFlags(this.form);"> 
+						</TD>
+					</TR>
+					<TR>
+						<LABEL for="label_NoCards"></LABEL>
+						<TD class="ContentHeaderTD">
+							No Cards 
+						</TD>
+						<TD>
+							<INPUT type="checkbox" name="NoCards" value="" id="label_NoCards" checked> 
+						</TD>
+					</TR>
+					<TR>
+						<LABEL for="label_NoPublicEmployee"></LABEL>
+						<TD class="ContentHeaderTD">
+							No Public Employee 
+						</TD>
+						<TD>
+							<INPUT type="checkbox" name="NoPublicEmployee" value="" id="label_NoPublicEmployee" checked> 
+						</TD>
+					</TR>
+					<TR>
+						<LABEL for="label_NoLegislativeMail"></LABEL>
+						<TD class="ContentHeaderTD">
+							No Legislative Mail 
+						</TD>
+						<TD>
+							<INPUT type="checkbox" name="NoLegislativeMail" value="" id="label_NoLegislativeMail"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TH>
+				Officer Position 
+			</TH>
+			<TH>
+				<!-- minimum is 9 -->
+				Officer Mail To
+			</TH>
+		</TR>
+		<TR valign="top">
+			<TD class="ContentTD" align="center">
+				Vice President 
+			</TD>
+			<TD class="ContentTD" align="center">
+				Affiliate 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT name="ResetButton2" type="reset" class="BUTTON" value="Reset"> <INPUT name="CancelButton2" type="button" class="BUTTON" value="Cancel" onClick="parent.location='MemberAffiliateInformation.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT name="SubmitButton2" type="button" class="BUTTON" value="Submit" onClick="parent.location='MemberAffiliateInformation.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR><B><I>* Indicates Required Fields</I></B>
+				<BR>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

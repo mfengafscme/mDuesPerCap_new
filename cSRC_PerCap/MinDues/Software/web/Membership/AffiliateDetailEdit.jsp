@@ -1,0 +1,288 @@
+<%! String title = "Affiliate Detail Edit", help = "AffiliateDetailEdit.html";%>
+<%@ include file="../include/header.inc" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/afscme.tld" prefix="afscme" %>
+
+<html:form action="saveAffiliateDetailEdit.action" focus="affilName">
+    <html:hidden name="affiliateDetailForm" property="affPk"/>
+    <html:hidden name="affiliateDetailForm" property="locationPk"/>
+    <html:hidden name="affiliateDetailForm" property="affIdType"/>
+    <html:hidden name="affiliateDetailForm" property="affIdLocal"/>
+    <html:hidden name="affiliateDetailForm" property="affIdState"/>
+    <html:hidden name="affiliateDetailForm" property="affIdSubUnit"/>
+    <html:hidden name="affiliateDetailForm" property="affIdCouncil"/>
+    <html:hidden name="affiliateDetailForm" property="affIdCode"/>
+    <html:hidden name="affiliateDetailForm" property="newAffIdPk"/>
+    <html:hidden name="affiliateDetailForm" property="affilStatus"/>
+    <html:hidden name="affiliateDetailForm" property="containsSubLocals"/>
+    <TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+        <TR valign="top">
+            <TD>
+                <BR>
+                <html:submit styleClass="button"/>
+                <BR> <BR> 
+            </TD>
+            <TD align="right">
+                <BR> 
+                <html:reset styleClass="button"/>&nbsp;
+                <afscme:button action="/viewAffiliateDetail.action">Cancel</afscme:button>
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+        <TR valign="top">
+            <TD class="ContentHeaderTR">
+                <afscme:currentAffiliate />
+                <BR><BR> 
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+        <TR valign="top">
+            <TD colspan="2" class="ContentHeaderTR">
+                <TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+                    <TR>
+                        <TH colspan="6" align="left">
+                                Affiliate Identifier 
+                        </TH>
+                    </TR>
+                    <TR>
+                        <TH width="17%">
+                                Type 
+                        </TH>
+                        <TH width="17%">
+                                Local/Sub Chapter 
+                        </TH>
+                        <TH width="24%">
+                                State/National Type 
+                        </TH>
+                        <TH width="17%">
+                                Sub Unit 
+                        </TH>
+                        <TH width="25%">
+                                Council/Retiree Chapter 
+                        </TH>
+                    </TR>
+                    <TR>
+                        <TD align="center" class="ContentTD">
+                            <bean:write name="affiliateDetailForm" property="affIdType"/>
+                        </TD>
+                        <TD align="center" class="ContentTD">
+                            <bean:write name="affiliateDetailForm"  property="affIdLocal"/>
+                        </TD>
+                        <TD align="center" class="ContentTD">
+                            <bean:write name="affiliateDetailForm"  property="affIdState"/>
+                        </TD>
+                        <TD align="center" class="ContentTD">
+                            <bean:write name="affiliateDetailForm"  property="affIdSubUnit"/>
+                        </TD>
+                        <TD align="center" class="ContentTD">
+                            <bean:write name="affiliateDetailForm"  property="affIdCouncil"/>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+        <TR valign="top">
+            <TD width="50%">
+                <TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+                    <TR>
+                        <TD width="55%" class="ContentHeaderTD">* Abbreviated Affiliate Name</TD>
+                        <TD width="45%" class="ContentTD">
+                            <html:text name="affiliateDetailForm" property="affilName" size="29" maxlength="29"/>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD colspan='2'>
+                            <html:errors property="affilName"/>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD class="ContentHeaderTD">Affiliate Status</TD>
+                        <TD>
+                            <afscme:codeWrite name="affiliateDetailForm" property="affilStatus" codeType="AffiliateStatus" format="{1}"/>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD class="ContentHeaderTD">AFSCME Legislative District</TD>
+                        <TD>
+                            <html:select property="afscmeLegislativeDistrict" name="affiliateDetailForm">
+                                <afscme:codeOptions useCode="false" codeType="LegislativeDistrict" allowNull="true" nullDisplay="" format="{1}"/>
+                            </html:select>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD class="ContentHeaderTD">* AFSCME Region</TD>
+                        <TD>
+                            <html:select name="affiliateDetailForm" property="afscmeRegion">
+                                <afscme:codeOptions useCode="false" codeType="Region" allowNull="true" nullDisplay="" format="{1}"/>
+                            </html:select>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD colspan='2'>
+                            <html:errors property="afscmeRegion"/>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD class="ContentHeaderTD">Multiple Employers</TD>
+                        <TD>
+                            <html:checkbox name="affiliateDetailForm" property="multipleEmployers"/>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD class="ContentHeaderTD">
+                            Employer Sector <BR>
+                            (multiple select) 
+                        </TD>
+                        <TD>
+                            <html:select name="affiliateDetailForm" property="employerSectors" multiple="true" size="3">
+                                <afscme:codeOptions useCode="false" codeType="EmployerSector" allowNull="true" nullDisplay="" format="{1}"/>
+                            </html:select>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+            <TD width="50%" valign="top">
+                <TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+                    <TR>
+                        <TD width="50%" class="ContentHeaderTD">Sub-Locals Allowed</TD>
+                        <TD width="50%">
+                            <html:checkbox name="affiliateDetailForm" property="subLocalsAllowed"/>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD colspan='2'>
+                            <html:errors property="subLocalsAllowed"/>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD class="ContentHeaderTD">New Affiliate Identifier Source</TD>
+                        <TD>
+                            <logic:present name="affiliateDetailForm" property="newAffIdPk">
+                                <bean:write name="affiliateDetailForm" property="newAffIdType"/>
+                                <bean:write name="affiliateDetailForm" property="newAffIdLocal"/>
+                                <bean:write name="affiliateDetailForm" property="newAffIdState"/>
+                                - <bean:write name="affiliateDetailForm" property="newAffIdSubUnit"/>
+                                - <bean:write name="affiliateDetailForm" property="newAffIdCouncil"/>
+                            </logic:present>
+                            <logic:notPresent name="affiliateDetailForm" property="newAffIdPk">
+                                &nbsp;
+                            </logic:notPresent>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD class="ContentHeaderTD">Multiple Offices</TD>
+                        <TD>
+                            <html:checkbox name="affiliateDetailForm" property="multipleOffices"/>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD class="ContentHeaderTD">Annual Card Run Performed</TD>
+                        <TD>
+                            <html:checkbox name="affiliateDetailForm" property="annualCardRunPerformed" disabled="true"/>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD class="ContentHeaderTD">* Annual Card Run Type</TD>
+                        <TD>
+                            <html:select name="affiliateDetailForm" property="annualCardRunType">
+                                <afscme:codeOptions useCode="false" codeType="AffiliateCardRunType" allowNull="true" nullDisplay="" format="{1}"/>
+                            </html:select>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD colspan='2'>
+                            <html:errors property="annualCardRunType"/>
+                        </TD>
+                    </TR>
+                    <TR>
+                        <TD class="ContentHeaderTD">Member Renewal</TD>
+                        <TD>
+                            <html:select name="affiliateDetailForm" property="memberRenewal">
+                                <afscme:codeOptions useCode="false" codeType="MemberRenewal" allowNull="true" nullDisplay="" format="{1}"/>
+                            </html:select>
+                        </TD>
+                    </TR>
+                   <TR>
+                        <TD colspan='2'>
+                            <html:errors property="memberRenewal"/>
+                        </TD>
+                    </TR>                    
+                    <TR>
+                        <TD class="ContentHeaderTD">Affiliate Website</TD>
+                        <TD>
+                            <html:text name="affiliateDetailForm" property="website" size="25" maxlength="100"/> 
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+        <TR>
+            <TD valign="top" colspan="2">
+                <TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+                    <TR>
+                        <TH colspan="6" align="left" class="large">Location Information</TH>
+                    </TR>
+                    <!-- Organization Primary Location -->
+                    <logic:notEmpty name="affiliateDetailForm" property="locationData">
+                        <bean:define id="location" name="affiliateDetailForm" property="locationData" type="org.afscme.enterprise.organization.LocationData"/>
+                        <%@ include file="../include/location_primary_content.inc" %>
+                    </logic:notEmpty>
+                    <logic:empty name="affiliateDetailForm" property="locationData">
+                        <%@ include file="../include/location_noprimary_content.inc" %>
+                    </logic:empty>
+                </TABLE>
+            </TD>
+        </TR>
+        <TR>
+            <TD valign="top" COLSPAN="2">
+                <TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+                    <TR>
+                        <TH align="left">Enter New Comments</TH>
+                    </TR>
+                    <TR>
+                        <TD>
+                            <html:textarea name="affiliateDetailForm" property="comment" onkeyup="validateComments(this);" cols="105" rows="3"></html:textarea>
+                        </TD>
+                    </TR>
+                </TABLE>
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+        <TR>
+            <TD class="ContentHeaderTR">
+                <BR>
+                <afscme:currentAffiliate />
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+        <TR valign="top">
+            <TD>
+                <BR>
+                <html:submit styleClass="button"/>
+                <BR> <BR> 
+            </TD>
+            <TD align="right">
+                <BR> 
+                <html:reset styleClass="button"/> &nbsp;
+                <afscme:button action="/viewAffiliateDetail.action">Cancel</afscme:button>
+            </TD>
+        </TR>
+    </TABLE>
+    <TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+        <TR>
+            <TD align="center">
+                <BR><B><I>* Indicates Required Fields</I></B>
+                <BR>
+            </TD>
+        </TR>
+    </TABLE>
+</html:form>
+
+
+<%@ include file="../include/footer.inc" %> 

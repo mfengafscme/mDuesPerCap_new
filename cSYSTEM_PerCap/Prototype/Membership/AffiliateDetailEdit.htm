@@ -1,0 +1,444 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Affiliate Detail - Edit</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align="center">
+			<H1>Affiliate Detail - Edit</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+</TABLE>
+<FORM action="" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="reset" class="BUTTON" name="ResetButton" value="Reset"> <INPUT type="button" class="BUTTON" name="CancelButton" value="Cancel" onClick="parent.location='AffiliateDetail.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" name="SubmitButton" value="Submit" onClick="parent.location='AffiliateDetail.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				Virginia - PD Local 100 - Council 10 <BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD colspan="2" class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="6" align="left">
+							Affiliate Identifier 
+						</TH>
+					</TR>
+					<TR>
+						<TH width="17%">
+							Type 
+						</TH>
+						<TH width="17%">
+							Local/Sub Chapter 
+						</TH>
+						<TH width="24%">
+							State/National Type 
+						</TH>
+						<TH width="17%">
+							Sub Unit 
+						</TH>
+						<TH width="25%">
+							Council/Retiree Chapter 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center" class="ContentTD">
+							L 
+						</TD>
+						<TD align="center" class="ContentTD">
+							0100 
+						</TD>
+						<TD align="center" class="ContentTD">
+							VA 
+						</TD>
+						<TD align="center" class="ContentTD">
+							0000 
+						</TD>
+						<TD align="center" class="ContentTD">
+							0010 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD width="50%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="55%" class="ContentHeaderTD">
+							* Abbreviated Affiliate Name 
+						</TD>
+						<TD width="45%" class="ContentTD">
+							<INPUT type="text" name="AbbreviatedName" value="Virginia PD Local 100" id="label_AbbreviatedName" size="25" maxlength="25"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Affiliate Status 
+						</TD>
+						<TD>
+							Chartered 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							AFSCME Legislative District 
+						</TD>
+						<TD>
+							148 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							* AFSCME Region 
+						</TD>
+						<TD>
+							<SELECT name="AFSCMERegion">
+								<OPTION></OPTION>
+								<OPTION selected>East</OPTION>
+								<OPTION>Central</OPTION>
+								<OPTION>West</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_MultipleEmployers">Multiple Employers</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="checkbox" name="MultipleEmployers" id="MultipleEmployers"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Employer Sector <BR>
+							(multiple select) 
+						</TD>
+						<TD>
+							<SELECT name="EmployerSector" size="3" multiple>
+								<OPTION></OPTION>
+								<OPTION>State</OPTION>
+								<OPTION selected>County</OPTION>
+								<OPTION>Private Sector</OPTION>
+								<OPTION>City</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD width="50%" valign="top">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="50%" class="ContentHeaderTD">
+							<LABEL for="label_SubLocal">Sub-Locals Allowed</LABEL> 
+						</TD>
+						<TD width="50%">
+							<INPUT type="checkbox" name="SubLocal" id="SubLocal"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							New Affiliate Identifier Source 
+						</TD>
+						<TD>
+							&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_MultipleOffices">Multiple Offices</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="checkbox" name="MultipleOffices" id="MultipleOffices" disabled> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_AnnualCardRunPerformed">Annual Card Run Performed</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="checkbox" name="AnnualCardRunPerformed" id="label_AnnualCardRunPerformed" disabled> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							* Annual Card Run Type 
+						</TD>
+						<TD>
+							<SELECT name="AnnualCardRunType">
+								<OPTION>[Select]</OPTION>
+								<OPTION SELECTED>Regular Members</OPTION>
+								<OPTION>Retiree Members</OPTION>
+								<OPTION>CSEA Regular Members</OPTION>
+								<OPTION>CSEA Retiree Members</OPTION>
+								<OPTION>Puerto Rico Members</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_MemberRenewal">Member Renewal</LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="MemberRenewal" id="label_MemberRenewal">
+								<OPTION></OPTION>
+								<OPTION>Checkoff</OPTION>
+								<OPTION>Annual Renewal</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Affiliate Website 
+						</TD>
+						<TD>
+							<INPUT type="text" name="AffiliateWebsite" value="http://www.affiliatename.com" id="label_AffiliateWebsite" size="25"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="top" colspan="2">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="6" align="left" class="large">
+							Location Information 
+						</TH>
+					</TR>
+					<TR>
+						<TH colspan="6" align="left">
+							Primary Address 
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD" colspan="2">
+							Title of Location
+						</TD>
+						<TD class="ContentTD" align="left" colspan="4">
+							Fairfax Office, General Info Mail
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="6">
+							<HR>
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Attention
+						</TD>
+						<TD class="ContentTD">
+							John Michael Doe
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Address 1
+						</TD>
+						<TD class="ContentTD">
+							421 Labor Way
+						</TD>
+						<TD class="ContentHeaderTD">
+							Address 2
+						</TD>
+						<TD class="ContentTD" colspan="3">
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD" width="11%">
+							City
+						</TD>
+						<TD class="ContentTD" width="34%">
+							Fairfax
+						</TD>
+						<TD class="ContentHeaderTD" width="14%">
+							State
+						</TD>
+						<TD class="ContentTD" width="18%">
+							VA
+						</TD>
+						<TD class="ContentHeaderTD" width="10%">
+							Zip/Postal Code
+						</TD>
+						<TD class="ContentTD" width="13%">
+							11111-1111
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							County
+						</TD>
+						<TD class="ContentTD">
+							Fairfax
+						</TD>
+						<TD class="ContentHeaderTD">
+							Province
+						</TD>
+						<TD class="ContentTD">&nbsp;
+						</TD>
+						<TD class="ContentHeaderTD">
+							Country
+						</TD>
+						<TD class="ContentTD">
+							USA
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Bad Address
+						</TD>
+						<TD class="ContentTD">
+							<INPUT name="BadAddress_1" type="checkbox" disabled>
+						</TD>
+						<TD class="ContentHeaderTD">
+							Date Marked Bad
+						</TD>
+						<TD class="ContentTD" colspan="3">&nbsp;
+						</TD>
+					</TR>
+				</TABLE>
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH align="left" colspan="6">
+							Phone Numbers
+						</TH>
+					</TR>
+					<TR>
+						<TH width="15%" class="small">
+							Code
+						</TH>
+						<TH width="15%" class="small">
+							Country Code
+						</TH>
+						<TH width="15%" class="small">
+							Area Code
+						</TH>
+						<TH width="25%" class="small">
+							Number
+						</TH>
+						<TH width="10%" class="small">
+							Bad
+						</TH>
+						<TH width="20%" class="small">
+							Date Marked Bad
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center">
+							Office
+						</TD>
+						<TD align="center">
+							001
+						</TD>
+						<TD align="center">
+							703
+						</TD>
+						<TD align="center">
+							555-5555
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="checkbox" name="BadPhoneNumber_1" id="label_BadPhoneNumber_1" disabled> 
+						</TD>
+						<TD align="center" class="ContentTD">&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center">
+							Fax
+						</TD>
+						<TD align="center">
+							001
+						</TD>
+						<TD align="center">
+							703
+						</TD>
+						<TD align="center">
+							555-1234
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="checkbox" name="BadPhoneNumber_1" id="label_BadPhoneNumber_1" disabled> 
+						</TD>
+						<TD align="center" class="ContentTD">&nbsp;
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="top" COLSPAN="2">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH align="left">
+							Enter New Comments
+						</TH>
+					</TR>
+					<TR>
+						<TD>
+							<TEXTAREA name="comments" cols="115" rows="3" onKeyUp="validateComments(this);"></TEXTAREA> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD class="ContentHeaderTR">
+				<BR>
+				Virginia - PD Local 100 - Council 10 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="reset" class="BUTTON" name="ResetButton2" value="Reset"> <INPUT type="button" class="BUTTON" name="CancelButton2" value="Cancel" onClick="parent.location='AffiliateDetail.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" name="SubmitButton2" value="Submit" onClick="parent.location='AffiliateDetail.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR><B><I>* Indicates Required Fields</I></B>
+				<BR>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

@@ -1,0 +1,146 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+
+<TITLE>Maintain Queries</TITLE>
+
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css"></LINK>
+
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+
+
+</HEAD>
+
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<script type="text/javascript" language="JavaScript" src="../js/util.js"></script>
+
+<TABLE align="center" valign=TOP cellpadding="0" cellspacing="0" border="0" class="ContentTable">
+  <TR>
+    <TD align="center">
+      <H2>Maintain Queries<H2>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD><BR></BR></TD>
+  </TR>
+
+  <TR>
+    <TD align="right"><B>
+	<A href="../Common/AfscmeMainMenu.htm" title="Return to AFSCME Main Menu">Main Menu</A>&nbsp;|&nbsp;
+        <a href="#">Need help with this page?</a></B><BR></BR>
+    </TD>
+  </TR>
+
+  <TR>
+    <TD align="center">
+    <TABLE width="95%" valign=TOP cellspacing="3" border="0" class="InnerContentTable">
+      <TR>
+        <TD align="right">
+	  <BUTTON type="submit" class="BUTTON" value="Add" onClick="window.location='OutputFields.htm?rid=null'">Add Query</BUTTON>
+	</TD>
+      </TR>
+    </TABLE>
+    </TD>
+  </TR> 
+
+  <TR>
+    <TD align="center">
+    <!-- This table list all the reports the user has created before. -->
+    <TABLE align="center" width="95%" border="2" cellpadding=1 cellspacing=1 class="InnerContentTable">
+      <TR>
+	<TD colspan=2 align="center"><B>Action</B></TD>
+
+	<TD align="center"><B>Name</B></TD>
+
+	<TD align="center"><B>Description</B></TD>
+
+	<TD align="center"><B>Last Updated User ID</B></TD>
+
+	<TD align="center"><B>Last Updated Date</B></TD>
+	
+      </TR>
+
+      <!-- Some sample rows of reports. In production, the rows will be
+           generated dynamically from database based on who is the current user. -->
+      <TR>
+	<TD align="center">
+	  <A href="OutputFields.htm?rid='report1'" class="action"><I>Edit</I></A>
+	</TD>
+	<TD align="center">
+	  <A href="Javascript:confirmDelete('Are you sure you want to delete this Query?', 'MaintainQueries.htm')" class="action"><I>Delete</I></A>
+	</TD>
+        <TD align="left">My Query One</TD>
+	<TD align="left">This query shows all members in NY</TD>
+	<TD align="left">User1</TD>
+	<TD align="left">03/18/2002</TD>
+      </TR>
+
+      <TR>
+	<TD align="center">
+	  <A href="OutputFields.htm?rid='report2'" class="action"><I>Edit</I></A>
+	</TD>
+	<TD align="center">
+	  <A href="Javascript:confirmDelete('Are you sure you want to delete this Query?', 'MaintainQueries.htm')" class="action"><I>Delete</I></A>
+	</TD>
+        <TD align="left">My Query Two</TD>
+	<TD align="left">This query shows all officers in unit 123L0097A in VA</TD>
+	<TD align="left">User1</TD>
+	<TD align="left">04/18/2002</TD>
+      </TR>
+
+      <TR>
+	<TD align="center">
+	  <A href="OutputFields.htm?rid='report3'" class="action"><I>Edit</I></A>
+	</TD>
+	<TD align="center">
+	  <A href="Javascript:confirmDelete('Are you sure you want to delete this Query?', 'MaintainQueries.htm')" class="action"><I>Delete</I></A>
+	</TD>
+        <TD align="left">My Query Three</TD>
+	<TD align="left">This query shows all retirees</TD>
+	<TD align="left">User1</TD>
+	<TD align="left">02/20/2002</TD>
+      </TR>
+
+      <TR>
+	<TD align="center">
+	  <A href="OutputFields.htm?rid='report4'" class="action"><I>Edit</I></A>
+	</TD>
+	<TD align="center">
+	  <A href="Javascript:confirmDelete('Are you sure you want to delete this Query?', 'MaintainQueries.htm')" class="action"><I>Delete</I></A>
+	</TD>
+        <TD align="left">My Query Four</TD>
+	<TD align="left">This query shows all members' labels</TD>
+	<TD align="left">User1</TD>
+	<TD align="left">04/01/2002</TD>
+      </TR>
+
+    </TABLE>
+    </TD>
+
+  </TR>  <!-- end of the first row of the ContentTable -->
+
+  <TR>
+    <TD align="center">
+    <TABLE width="95%" valign=TOP cellspacing="3" border="0" class="InnerContentTable">
+      <TR>
+        <TD align="right">
+	  <BUTTON type="submit" class="BUTTON" value="Add" onClick="window.location='OutputFields.htm?rid=null'">Add Query</BUTTON>
+	</TD>
+      </TR>
+    </TABLE>
+    </TD>
+  </TR> <!-- end of the second row of the ContentTable -->
+
+  <TR>
+    <TD valign="TOP" align="center">
+      <SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+    </TD>
+  </TR>
+
+</TABLE>
+
+</BODY>
+</HTML>

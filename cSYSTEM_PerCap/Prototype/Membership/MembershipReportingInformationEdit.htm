@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Membership Reporting Information - Edit</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Membership Reporting Information - Edit</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="membershipReportingInformation.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				Virginia - PD Local 100 - Council 10 <BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD width="30%" class="ContentHeaderTD">
+				Membership Information Reporting Source 
+			</TD>
+			<TD width="70%" colspan="2" class="ContentTD">
+				<SELECT name="infosource">
+					<OPTION value="-1"></OPTION>
+					<OPTION value="0">International</OPTION>
+					<OPTION value="2" selected>Council (Manual)</OPTION>
+					<OPTION value="3">Local (Manual)</OPTION>
+					<OPTION value="4">Tape</OPTION>
+					<OPTION value="9">Other</OPTION>
+				</SELECT> 
+			</TD>
+		</TR>
+		<TR>
+			<TD class="ContentHeaderTD" >
+				New Affiliate Identifier 
+			</TD>
+			<TD class="ContentTD" colspan="2">
+				<TABLE width="100%" cellpadding="0" cellspacing="0" border="0" class="InnerContentTable">
+					<TR>
+						<TD class="ContentTD">
+							L-100-VA-0-10
+						</TD>
+						<TD width="35%" class="smallFontI">
+							Note: Can only be updated via Enable Mass Change 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD class="ContentHeaderTD" >
+				Affiliate Status 
+			</TD>
+			<TD class="ContentTD" colspan="2">
+				<TABLE width="100%" cellpadding="0" cellspacing="0" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="20%" class="ContentTD">
+							Chartered
+						</TD>
+						<TD width="8%" class="smallFont">
+							Change to: 
+						</TD>
+						<TD class="smallFont">
+							<SELECT name="AffiliateStatus">
+								<OPTION></OPTION>
+								<OPTION value="Y">Chartered</OPTION>
+								<OPTION value="N">Not Chartered</OPTION>
+								<OPTION value="P">Pending Charter</OPTION>
+								<OPTION value="A">Restricted Administratorship</OPTION>
+								<OPTION value="U">Unrestricted Administratorship</OPTION>
+								<OPTION value="C">Pending Deactivation</OPTION>
+							</SELECT> 
+						</TD>
+						<TD width="35%" class="smallFontI">
+							Note: You can only change the status option to 'Merged', 'Deactivated', or 'Split' via Enable Mass Change 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD class="ContentHeaderTD">
+				Unit Wide No Member Cards 
+			</TD>
+			<TD class="ContentTD">
+				<INPUT type="checkbox" name="CardBypass" checked>
+			</TD>
+		</TR>
+		<TR>
+			<TD class="ContentHeaderTD">
+				Unit Wide No PE Mail
+			</TD>
+			<TD class="ContentTD">
+				<INPUT type="checkbox" name="PEBypass" checked>
+			</TD>
+		</TR>
+		<TR>
+			<TH align="left" colspan="3">
+				Enter New Comments
+			</TH>
+		</TR>
+		<TR>
+			<TD width="90%" class="ContentTD" colspan="3">
+				<TEXTAREA name="comments" cols="115" rows="3" onKeyUp="validateComments(this);"></TEXTAREA> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT name="ResetButton" type="reset" class="BUTTON" value="Reset"> <INPUT type="BUTTON" class="BUTTON" value="Cancel" onClick="parent.location='MembershipReportingInformation.htm'" name="CancelButton2"> 
+			</TD>
+			<TD align="right">
+				<BR> <FONT size="4">*</FONT> <INPUT type="submit" class="BUTTON" value="Submit" onClick="parent.location='MembershipReportingInformation.htm'" name="SubmitButton"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTableNoWidth" width="61%" align="center">
+		<TR>
+			<TD align="center" class="smallFontI">
+				* Note: Changes made here only apply to this Affiliate and will not be applied to Affiliates 
+				in the Hierarchy. 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

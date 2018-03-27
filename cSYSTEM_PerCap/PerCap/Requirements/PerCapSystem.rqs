@@ -1,0 +1,16 @@
+[Project]
+Owner=team leader
+Name=PerCapSystem
+GUID={6FAC4A17-4804-44BC-87A5-119BA2557152}
+Description=Accounting Dept - Project to consolidate Cash Receipts, STAT, Per Cap & Min Dues Systems
+Owner Key=3
+Revision number=1.0001
+Prefix=PERCAP
+NbrRequirements=35
+Directory=\\view\stt_PerCapProj\PerCapProject\Requirements\PerCapSystem\PerCapSystem.rqs
+Key=1
+
+[Application]
+Data file version=1.0040
+Program Version=7.01.2007.1
+

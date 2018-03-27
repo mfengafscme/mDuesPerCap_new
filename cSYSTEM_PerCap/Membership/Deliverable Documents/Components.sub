@@ -1,0 +1,1821 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0201.0210"
+    charSet    	0)
+
+(object SubSystem "org"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"sc"
+	    name       	"SourceControlSpec"
+	    value      	"Framework"))
+    quid       	"3E370528000F"
+    physical_models 	(list unit_reference_list
+	(object SubSystem "afscme"
+	    quid       	"3E37053300E7"
+	    physical_models 	(list unit_reference_list
+		(object SubSystem "enterprise"
+		    quid       	"3E3705380379"
+		    physical_models 	(list unit_reference_list
+			(object SubSystem "update"
+			    quid       	"3E37053E00BB"
+			    physical_models 	(list unit_reference_list
+				(object module "UpdateMessage" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\UpdateMessage.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+				    quid       	"3E3171730310"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PersonReviewData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\PersonReviewData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+				    quid       	"3E3175FA010E"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PreUpdateSummary" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\PreUpdateSummary.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+				    quid       	"3E3170D30252"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PreUpdateMessage" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\PreUpdateMessage.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+				    quid       	"3E3170D30234"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "FileProcessor" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\FileProcessor.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+				    quid       	"3E3170D3020C"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "FieldChange" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\FieldChange.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+				    quid       	"3E3170D301F8"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "ExceptionData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\ExceptionData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+				    quid       	"3E3170D301D0"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "ExceptionComparison" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\ExceptionComparison.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+				    quid       	"3E3170D301B2"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "AddressElement" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\AddressElement.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+				    quid       	"3E3170D30194"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PersonUpdateElement" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\PersonUpdateElement.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+				    quid       	"3E38284F0328"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "UpdateManager" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\roseout\\org\\afscme\\enterprise\\update\\UpdateManager.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\roseout"))
+				    quid       	"3E41408B0389"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "UpdateTabulation" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\UpdateTabulation.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+				    quid       	"3E4161DD0136"
+				    stereotype 	""
+				    language   	"Java")
+				(object SubSystem "ejb"
+				    quid       	"3E37056900EF"
+				    physical_models 	(list unit_reference_list
+					(object module "UpdateBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\ejb\\UpdateBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E31717302F2"
+					    stereotype 	"EJBSession"
+					    language   	"Java")
+					(object module "UpdateMessageBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\ejb\\UpdateMessageBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3171140219"
+					    stereotype 	"EJBMessage"
+					    language   	"Java")
+					(object module "FileQueueBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\ejb\\FileQueueBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E31719D0055"
+					    stereotype 	"EJBSession"
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list))
+				(object SubSystem "officer"
+				    quid       	"3E370576022E"
+				    physical_models 	(list unit_reference_list
+					(object module "PostionChangesResult" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\officer\\PostionChangesResult.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3704CE02C3"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "PositionChanges" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\officer\\PositionChanges.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3704CE02A5"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "OfficerUpdateResult" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\officer\\OfficerUpdateResult.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3171FE0085"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "OfficerPreUpdateSummary" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\officer\\OfficerPreUpdateSummary.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3171FE00CB"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "OfficerFileProcessor" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\officer\\OfficerFileProcessor.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E31720F01B6"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "OfficerUpdateElement" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\officer\\OfficerUpdateElement.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E31720F01A2"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "OfficerChanges" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\officer\\OfficerChanges.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3171FE00AD"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "OfficerReviewData" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\officer\\OfficerReviewData.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E38283103B2"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "OfficerReviewSummary" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\officer\\OfficerReviewSummary.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E4140E103B6"
+					    stereotype 	""
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list))
+				(object SubSystem "member"
+				    quid       	"3E37059901C0"
+				    physical_models 	(list unit_reference_list
+					(object module "MemberUpdateResult" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\member\\MemberUpdateResult.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3171E80387"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "MemberPreUpdateSummary" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\member\\MemberPreUpdateSummary.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3171E8035F"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "MemberFileProcessor" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\member\\MemberFileProcessor.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3171D20399"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "MemberUpdateElement" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\member\\MemberUpdateElement.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3171D20371"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "MemberChanges" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\member\\MemberChanges.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3171E80340"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "MatchResult" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\member\\MatchResult.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3171D20317"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "MemberUpdateTabulation" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\member\\MemberUpdateTabulation.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E41419D02F7"
+					    stereotype 	""
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list))
+				(object SubSystem "participation"
+				    quid       	"3E3705B90068"
+				    physical_models 	(list unit_reference_list
+					(object module "ParticipationFileProcessor" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"c:\\roseout\\org\\afscme\\enterprise\\update\\participation\\ParticipationFileProcessor.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"c:\\roseout"))
+					    quid       	"3E3704F30352"
+					    stereotype 	""
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list))
+				(object SubSystem "rebate"
+				    quid       	"3E3705C8022C"
+				    physical_models 	(list unit_reference_list
+					(object module "RebateFileProcessor" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\rebate\\RebateFileProcessor.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3704FE00EB"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "RebateChanges" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\rebate\\RebateChanges.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E31722800E1"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "RebateReviewSummary" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\rebate\\RebateReviewSummary.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E4140B50359"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "RebateUpdateElement" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\rebate\\RebateUpdateElement.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E4140CC0379"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "RebatePreUpdateSummary" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder\\org\\afscme\\enterprise\\update\\rebate\\RebatePreUpdateSummary.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Program Files\\Rational\\RUPBuilder"))
+					    quid       	"3E3170D3027A"
+					    stereotype 	""
+					    language   	"Java")
+					(object module "RebateUpdateResult" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"c:\\roseout\\org\\afscme\\enterprise\\update\\RebateUpdateResult.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"c:\\"))
+					    quid       	"3E3170D30298"
+					    stereotype 	""
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list))
+				(object SubSystem "files"
+				    quid       	"3E3705DB0193"
+				    physical_models 	(list unit_reference_list
+					(object module "FileResult" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\kvogel_afscme\\AFSCME\\Software\\src\\org\\afscme\\enterprise\\update\\files\\FileResult.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\kvogel_afscme\\AFSCME\\Software\\src"))
+					    quid       	"3E31719D0072"
+					    stereotype 	""
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list)))
+			    physical_presentations 	(list unit_reference_list))
+			(object SubSystem "address"
+			    quid       	"3E3832DF03BC"
+			    physical_models 	(list unit_reference_list
+				(object module "Address" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\address\\Address.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3E3832C803C3"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PersonAddressRecord" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\roseout\\Address\\PersonAddressRecord.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	""))
+				    quid       	"3E3832C9000D"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OrgAddress" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\roseout\\org\\afscme\\enterprise\\address\\OrgAddress.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\roseout"))
+				    quid       	"3E3832C803A5"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PersonAddress" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\address\\PersonAddress.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA81E92014D"
+				    stereotype 	""
+				    language   	"Java")
+				(object SubSystem "ejb"
+				    quid       	"3E3832EA014B"
+				    physical_models 	(list unit_reference_list
+					(object module "SystemAddressBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"c:\\roseout\\org\\afscme\\enterprise\\address\\ejb\\SystemAddressBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"c:\\roseout"))
+					    quid       	"3E3832C80392"
+					    stereotype 	"EJBSession"
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list)))
+			    physical_presentations 	(list unit_reference_list))
+			(object SubSystem "affiliate"
+			    quid       	"3EA6D6B101B1"
+			    physical_models 	(list unit_reference_list
+				(object module "UpdateOfficerData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\UpdateOfficerData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D4800041"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "StaffData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\StaffData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D48001DC"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OfficeData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\OfficeData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D4800218"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "NewAffiliateOfficerData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\NewAffiliateOfficerData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D4800023"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "NewAffiliate" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\NewAffiliate.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D47F02F3"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "MRData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\MRData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D480033A"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "FinancialData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\FinancialData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D4800312"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "ConstitutionData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\ConstitutionData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D48002E0"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "CharterData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\CharterData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D48002B8"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "AutoEBoardTitleData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\AutoEBoardTitleData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D4800236"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "AutoEBoardOfficerData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\AutoEBoardOfficerData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D480024A"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "AffiliateResult" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\AffiliateResult.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D4800150"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "AffiliateIdentifier" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\AffiliateIdentifier.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D47F0311"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "AffiliateData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\AffiliateData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D4800005"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "AffiliateChangeResults" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\AffiliateChangeResults.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D480007D"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "AffiliateChangeCriteria" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\AffiliateChangeCriteria.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D480009B"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "AffiliateCriteria" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\AffiliateCriteria.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D4800128"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "AffiliateChangeData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\AffiliateChangeData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D4800069"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "AFSCMETitleData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\AFSCMETitleData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6DDA602A3"
+				    stereotype 	""
+				    language   	"Java")
+				(object SubSystem "ejb"
+				    quid       	"3EA6D81A0119"
+				    physical_models 	(list unit_reference_list
+					(object module "MaintainAffiliatesBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\affiliate\\ejb\\MaintainAffiliatesBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"c:\\rosetemp"))
+					    quid       	"3EA6D47F02CB"
+					    stereotype 	"EJBSession"
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list)))
+			    physical_presentations 	(list unit_reference_list))
+			(object SubSystem "common"
+			    quid       	"3EA6D72600A0"
+			    physical_models 	(list unit_reference_list
+				(object module "RecordData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\roseout\\org\\afscme\\enterprise\\common\\RecordData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\roseout"))
+				    quid       	"3EA6D47F0393"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "CommentData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\roseout\\org\\afscme\\enterprise\\common\\CommentData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\roseout"))
+				    quid       	"3EA6D47F033A"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PhoneData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\roseout\\org\\afscme\\enterprise\\common\\PhoneData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\roseout"))
+				    quid       	"3EA6E0BF0017"
+				    stereotype 	""
+				    language   	"Java"))
+			    physical_presentations 	(list unit_reference_list))
+			(object SubSystem "masschange"
+			    quid       	"3EA6D73B02B3"
+			    physical_models 	(list unit_reference_list
+				(object module "MassChangeRequest" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\masschange\\MassChangeRequest.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D4800359"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "MassChangeData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\masschange\\MassChangeData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3F13FC3C02E2"
+				    stereotype 	""
+				    language   	"Java")
+				(object SubSystem "ejb"
+				    quid       	"3EA6D74A0319"
+				    physical_models 	(list unit_reference_list
+					(object module "MassChangeBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\masschange\\ejb\\MassChangeBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"c:\\rosetemp"))
+					    quid       	"3F13FC8B0079"
+					    stereotype 	"EJBSession"
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list)))
+			    physical_presentations 	(list unit_reference_list))
+			(object SubSystem "officer"
+			    quid       	"3EA6D75B02F5"
+			    physical_models 	(list unit_reference_list
+				(object module "OfficerData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\officer\\OfficerData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D4800287"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "LocationAddressAssociationData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\officer\\LocationAddressAssociationData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3F1291D50114"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OfficerCriteria" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\officer\\OfficerCriteria.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3F1291D50183"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OfficerResult" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\officer\\OfficerResult.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3F1291D501B5"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OtherOfficeData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\officer\\OtherOfficeData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3F1291D50241"
+				    stereotype 	""
+				    language   	"Java")
+				(object SubSystem "ejb"
+				    quid       	"3F1291F300DC"
+				    physical_models 	(list unit_reference_list
+					(object module "MaintainOfficersBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\officer\\ejb\\MaintainOfficersBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"c:\\rosetemp"))
+					    quid       	"3F1291D50151"
+					    stereotype 	"EJBSession"
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list)))
+			    physical_presentations 	(list unit_reference_list))
+			(object SubSystem "organization"
+			    quid       	"3EA6D77500FE"
+			    physical_models 	(list unit_reference_list
+				(object module "LocationData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\organization\\LocationData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D47F036C"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OrgMailingListData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\organization\\OrgMailingListData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6D4800376"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OrgAddressData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\organization\\OrgAddressData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6DEE80042"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OrganizationData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\roseout\\org\\afscme\\enterprise\\organization\\OrganizationData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\roseout"))
+				    quid       	"3EA6DEE80088"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OrgPhoneData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\organization\\OrgPhoneData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA6DEE80056"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OrganizationResult" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\roseout\\org\\afscme\\enterprise\\organization\\OrganizationResult.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\roseout"))
+				    quid       	"3EAD769C01BF"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OrganizationCriteria" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\roseout\\org\\afscme\\enterprise\\organization\\OrganizationCriteria.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\roseout"))
+				    quid       	"3EAD77520275"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OrganizationAssociateData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\roseout\\org\\afscme\\enterprise\\organization\\OrganizationAssociateData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\roseout"))
+				    quid       	"3EAD9EDE00B0"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "OrgAssociateResult" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\roseout\\org\\afscme\\enterprise\\organization\\OrgAssociateResult.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\roseout"))
+				    quid       	"3EFB0C22001B"
+				    stereotype 	""
+				    language   	"Java")
+				(object SubSystem "ejb"
+				    quid       	"3EAD761D03BB"
+				    physical_models 	(list unit_reference_list
+					(object module "MaintainOrganizationsBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"c:\\roseout\\org\\afscme\\enterprise\\organization\\ejb\\MaintainOrganizationsBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"c:\\roseout"))
+					    quid       	"3EAD75C40313"
+					    stereotype 	"EJBSession"
+					    language   	"Java")
+					(object module "MaintainOrgMailingListsBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"c:\\rose\\org\\afscme\\enterprise\\organization\\ejb\\MaintainOrgMailingListsBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"c:\\rose"))
+					    quid       	"3EC91B8B005F"
+					    stereotype 	"EJBSession"
+					    language   	"Java")
+					(object module "MaintainOrgLocationsBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"c:\\roseout\\org\\afscme\\enterprise\\organization\\ejb\\MaintainOrgLocationsBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"c:\\roseout"))
+					    quid       	"3ED4DB1700DB"
+					    stereotype 	"EJBSession"
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list)))
+			    physical_presentations 	(list unit_reference_list))
+			(object SubSystem "person"
+			    quid       	"3EA6D77D0091"
+			    physical_models 	(list unit_reference_list
+				(object module "EmailData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\EmailData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6D48001B4"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PersonData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\PersonData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6D480018C"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "NewPerson" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\NewPerson.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6F6950297"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "CorrespondenceData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\CorrespondenceData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6F910036C"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "DemographicData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\DemographicData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6FA690214"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PersonCriteria" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\roseout\\org\\afscme\\enterprise\\person\\PersonCriteria.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\roseout"))
+				    quid       	"3EA6FB0E029D"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PersonMailingListData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\PersonMailingListData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6FB6A037C"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PersonResult" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\PersonResult.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6FBBE0355"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PoliticalData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\PoliticalData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6FBEB0287"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PRBAffiliateData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\PRBAffiliateData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6FC1D010C"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PRBApplicationData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\PRBApplicationData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6FC47029D"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PRBCheckInfo" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\PRBCheckInfo.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6FC74018A"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PRBRebateData" "NotAModuleType" "NotAModulePart"
+				    quid       	"3EA6FCA20262"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "PRBRequestData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\PRBRequestData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6FCD80039"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "RelationData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\RelationData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Data\\Work\\roseout"))
+				    quid       	"3EA6FD080179"
+				    stereotype 	""
+				    language   	"Java")
+				(object SubSystem "ejb"
+				    quid       	"3EA6F5D60039"
+				    physical_models 	(list unit_reference_list
+					(object module "MaintainPersonsBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Data\\Work\\roseout\\org\\afscme\\enterprise\\person\\ejb\\MaintainPersonsBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Data\\Work\\roseout"))
+					    quid       	"3EA6F5A20220"
+					    stereotype 	"EJBSession"
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list)))
+			    physical_presentations 	(list unit_reference_list))
+			(object SubSystem "member"
+			    quid       	"3EA6E7B4019C"
+			    physical_models 	(list unit_reference_list
+				(object module "MemberResult" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\roseout\\Member\\MemberResult.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\roseout")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"CmIdentification"
+					    value      	(value Text ""))
+					(object Attribute
+					    tool       	"Java"
+					    name       	"CopyrightNotice"
+					    value      	(value Text "")))
+				    quid       	"3EA6E8D802FA"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "NewMember" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\roseout\\Member\\NewMember.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\roseout"))
+				    quid       	"3EA6EA71003C"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "MemberAffiliateResult" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\roseout\\Member\\MemberAffiliateResult.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\roseout"))
+				    quid       	"3EA6EB080025"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "MemberAffiliateData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\roseout\\Member\\MemberAffiliateData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\roseout"))
+				    quid       	"3EA6EB4A01C5"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "MemberData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\roseout\\org\\afscme\\enterprise\\member\\MemberData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\roseout"))
+				    quid       	"3EA6F215005C"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "EmployerData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\roseout\\org\\afscme\\enterprise\\member\\EmployerData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\roseout"))
+				    quid       	"3EA7015C0114"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "ParticipationData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\member\\ParticipationData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA704DD0218"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "MemberCriteria" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\roseout\\org\\afscme\\enterprise\\member\\MemberCriteria.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\roseout"))
+				    quid       	"3EA706AC03D7"
+				    stereotype 	""
+				    language   	"Java")
+				(object SubSystem "ejb"
+				    quid       	"3EA6E7C7032A"
+				    physical_models 	(list unit_reference_list
+					(object module "MaintainMembersBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\roseout\\Member\\MaintainMembersBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\roseout"))
+					    quid       	"3EA6E6EA0052"
+					    stereotype 	"EJBSession"
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list)))
+			    physical_presentations 	(list unit_reference_list))
+			(object SubSystem "participationgroups"
+			    quid       	"3EA7074D0266"
+			    physical_models 	(list unit_reference_list
+				(object module "ParticipationOutcomeData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\participationgroups\\ParticipationOutcomeData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EA7077C005B"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "ParticipationDetailData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\participationgroups\\ParticipationDetailData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EAD20B4007B"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "ParticipationGroupData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\participationgroups\\ParticipationGroupData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EAD20B4000D"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "ParticipationTypeData" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\participationgroups\\ParticipationTypeData.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rosetemp"))
+				    quid       	"3EAD20B40053"
+				    stereotype 	""
+				    language   	"Java")
+				(object SubSystem "ejb"
+				    quid       	"3EAD218B0052"
+				    physical_models 	(list unit_reference_list
+					(object module "MaintainParticipationGroupsBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"c:\\rosetemp\\org\\afscme\\enterprise\\participationgroups\\ejb\\MaintainParticipationGroupsBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"c:\\rosetemp"))
+					    quid       	"3EAD20B400D5"
+					    stereotype 	"EJBSession"
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list)))
+			    physical_presentations 	(list unit_reference_list))
+			(object SubSystem "returnedmail"
+			    quid       	"3EAD70E50395"
+			    physical_models 	(list unit_reference_list
+				(object module "ReturnedOrganizationAddress" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rose\\org\\afscme\\enterprise\\returnedmail\\ReturnedOrganizationAddress.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rose"))
+				    quid       	"3EAD737B0148"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "ReturnedMailSummary" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rose\\org\\afscme\\enterprise\\returnedmail\\ReturnedMailSummary.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rose"))
+				    quid       	"3EAD73640181"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "ReturnedPersonAddress" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rose\\org\\afscme\\enterprise\\returnedmail\\ReturnedPersonAddress.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rose"))
+				    quid       	"3EAD7382002F"
+				    stereotype 	""
+				    language   	"Java")
+				(object SubSystem "ejb"
+				    quid       	"3EAD7121017E"
+				    physical_models 	(list unit_reference_list
+					(object module "ProcessReturnedMailBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"c:\\rose\\org\\afscme\\enterprise\\returnedmail\\ejb\\ProcessReturnedMailBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"c:\\rose"))
+					    quid       	"3EAD70E50396"
+					    stereotype 	"EJBSession"
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list)))
+			    physical_presentations 	(list unit_reference_list))
+			(object SubSystem "rebate"
+			    quid       	"3EE8C5C903A1"
+			    physical_models 	(list unit_reference_list
+				(object module "PRB12MonthRebateAmount" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"c:\\rose\\org\\afscme\\enterprise\\rebate\\PRB12MonthRebateAmount.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"c:\\rose"))
+				    quid       	"3EE8CF7E02D3"
+				    stereotype 	""
+				    language   	"Java")
+				(object SubSystem "ejb"
+				    quid       	"3EE8D1E201C4"
+				    physical_models 	(list unit_reference_list
+					(object module "MaintainPoliticalRebateBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"c:\\rose\\org\\afscme\\enterprise\\rebate\\ejb\\MaintainPoliticalRebateBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"c:\\rose"))
+					    quid       	"3EE8D0DB0216"
+					    stereotype 	"EJBSession"
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list)))
+			    physical_presentations 	(list unit_reference_list))
+			(object SubSystem "cards"
+			    quid       	"3EE9E315027D"
+			    physical_models 	(list unit_reference_list
+				(object module "CardFileGenerator" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Rose\\org\\afscme\\enterprise\\cards\\CardFileGenerator.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Rose"))
+				    quid       	"3EE9E2250160"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "CardRunMessage" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Rose\\org\\afscme\\enterprise\\cards\\CardRunMessage.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Rose"))
+				    quid       	"3EE9E225014C"
+				    stereotype 	""
+				    language   	"Java")
+				(object module "RunSummary" "NotAModuleType" "NotAModulePart"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"FileName"
+					    value      	"C:\\Rose\\org\\afscme\\enterprise\\cards\\RunSummary.java")
+					(object Attribute
+					    tool       	"Java"
+					    name       	"RootPath"
+					    value      	"C:\\Rose"))
+				    quid       	"3EE9E2250138"
+				    stereotype 	""
+				    language   	"Java")
+				(object SubSystem "ejb"
+				    quid       	"3EE9E3290254"
+				    physical_models 	(list unit_reference_list
+					(object module "CardsMessageBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Rose\\org\\afscme\\enterprise\\cards\\ejb\\CardsMessageBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Rose"))
+					    quid       	"3EE9E22500E8"
+					    stereotype 	"EJBMessage"
+					    language   	"Java")
+					(object module "CardsBean" "NotAModuleType" "NotAModulePart"
+					    attributes 	(list Attribute_Set
+						(object Attribute
+						    tool       	"Java"
+						    name       	"FileName"
+						    value      	"C:\\Rose\\org\\afscme\\enterprise\\cards\\ejb\\CardsBean.java")
+						(object Attribute
+						    tool       	"Java"
+						    name       	"RootPath"
+						    value      	"C:\\Rose"))
+					    quid       	"3EE9E225011A"
+					    stereotype 	"EJBSession"
+					    language   	"Java"))
+				    physical_presentations 	(list unit_reference_list)))
+			    physical_presentations 	(list unit_reference_list)))
+		    physical_presentations 	(list unit_reference_list)))
+	    physical_presentations 	(list unit_reference_list)))
+    physical_presentations 	(list unit_reference_list))

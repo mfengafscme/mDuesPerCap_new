@@ -1,0 +1,4297 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config [
+<!ENTITY % BeanName "CDATA">
+<!ENTITY % Boolean "(true|false|yes|no)">
+<!ENTITY % ClassName "CDATA">
+<!ENTITY % Integer "CDATA">
+<!ENTITY % Location "#PCDATA">
+<!ENTITY % PropName "CDATA">
+<!ENTITY % RequestPath "CDATA">
+<!ENTITY % RequestScope "(request|session)">
+<!ELEMENT struts-config (data-sources?, form-beans?, global-forwards?, action-mappings?)>
+<!ATTLIST struts-config  id             ID              #IMPLIED>
+<!ELEMENT data-sources (data-source*)>
+<!ATTLIST data-sources   id             ID              #IMPLIED>
+<!ELEMENT data-source (set-property*)>
+<!ATTLIST data-source    id             ID              #IMPLIED>
+<!ATTLIST data-source    key            CDATA      #IMPLIED>
+<!ATTLIST data-source    type           CDATA     #IMPLIED>
+<!ATTLIST data-source    autoCommit     (true|false|yes|no)       #IMPLIED>
+<!ATTLIST data-source    description    CDATA           #IMPLIED>
+<!ATTLIST data-source    driverClass    CDATA     #IMPLIED>
+<!ATTLIST data-source    loginTimeout   CDATA       #IMPLIED>
+<!ATTLIST data-source    maxCount       CDATA       #IMPLIED>
+<!ATTLIST data-source    minCount       CDATA       #IMPLIED>
+<!ATTLIST data-source    password       CDATA           #IMPLIED>
+<!ATTLIST data-source    readOnly       (true|false|yes|no)       #IMPLIED>
+<!ATTLIST data-source    url            CDATA           #IMPLIED>
+<!ATTLIST data-source    user           CDATA           #IMPLIED>
+<!ELEMENT form-beans (form-bean*)>
+<!ATTLIST form-beans     id             ID              #IMPLIED>
+<!ATTLIST form-beans     type           CDATA     "org.apache.struts.action.ActionFormBean">
+<!ELEMENT form-bean (icon?, display-name?, description?, set-property*)>
+<!ATTLIST form-bean      id             ID              #IMPLIED>
+<!ATTLIST form-bean      className      CDATA     #IMPLIED>
+<!ATTLIST form-bean      name           CDATA      #REQUIRED>
+<!ATTLIST form-bean      type           CDATA     #REQUIRED>
+<!ELEMENT global-forwards (forward*)>
+<!ATTLIST global-forwards id            ID              #IMPLIED>
+<!ATTLIST global-forwards type          CDATA     "org.apache.struts.action.ActionForward">
+<!ELEMENT forward (icon?, display-name?, description?, set-property*)>
+<!ATTLIST forward        id             ID              #IMPLIED>
+<!ATTLIST forward        className      CDATA     #IMPLIED>
+<!ATTLIST forward        name           CDATA           #REQUIRED>
+<!ATTLIST forward        path           CDATA   #REQUIRED>
+<!ATTLIST forward        redirect       (true|false|yes|no)       #IMPLIED>
+<!ELEMENT action-mappings (action*)>
+<!ATTLIST action-mappings id             ID              #IMPLIED>
+<!ATTLIST action-mappings type           CDATA     "org.apache.struts.action.ActionMapping">
+<!ELEMENT action (icon?, display-name?, description?, set-property*, forward*)>
+<!ATTLIST action         id             ID              #IMPLIED>
+<!ATTLIST action         attribute      CDATA      #IMPLIED>
+<!ATTLIST action         className      CDATA     #IMPLIED>
+<!ATTLIST action         forward        CDATA   #IMPLIED>
+<!ATTLIST action         include        CDATA   #IMPLIED>
+<!ATTLIST action         input          CDATA   #IMPLIED>
+<!ATTLIST action         name           CDATA      #IMPLIED>
+<!ATTLIST action         parameter      CDATA           #IMPLIED>
+<!ATTLIST action         path           CDATA   #REQUIRED>
+<!ATTLIST action         prefix         CDATA           #IMPLIED>
+<!ATTLIST action         scope          (request|session)  #IMPLIED>
+<!ATTLIST action         suffix         CDATA           #IMPLIED>
+<!ATTLIST action         type           CDATA     #IMPLIED>
+<!ATTLIST action         unknown        (true|false|yes|no)       #IMPLIED>
+<!ATTLIST action         validate       (true|false|yes|no)       #IMPLIED>
+<!ELEMENT set-property EMPTY>
+<!ATTLIST set-property   id             ID              #IMPLIED>
+<!ATTLIST set-property   property       CDATA      #REQUIRED>
+<!ATTLIST set-property   value          CDATA           #REQUIRED>
+<!ELEMENT description (#PCDATA)>
+<!ATTLIST description    id             ID              #IMPLIED>
+<!ELEMENT display-name (#PCDATA)>
+<!ATTLIST display-name   id             ID              #IMPLIED>
+<!ELEMENT icon (small-icon?, large-icon?)>
+<!ATTLIST icon           id             ID              #IMPLIED>
+<!ELEMENT large-icon (#PCDATA)>
+<!ATTLIST large-icon     id             ID              #IMPLIED>
+<!ELEMENT small-icon (#PCDATA)>
+<!ATTLIST small-icon     id             ID              #IMPLIED>
+]>
+
+<struts-config>
+
+  <!-- ========== Form Bean Definitions =================================== -->
+  <form-beans>
+    <form-bean name="rolesForm"
+               type="org.afscme.enterprise.users.web.RolesForm" />
+    <form-bean name="selectUserAffiliatesSearchForm"
+               type="org.afscme.enterprise.users.web.SelectUserAffiliatesSearchForm" />
+    <form-bean name="userForm"
+               type="org.afscme.enterprise.users.web.UserForm" />
+    <form-bean name="affiliateFileUploadForm"
+               type="org.afscme.enterprise.update.web.AffiliateFileUploadForm" />
+    <form-bean name="applyUpdateForm"
+               type="org.afscme.enterprise.update.web.ApplyUpdateForm" />
+    <form-bean name="ApplyUpdateMemberRejectForm"
+               type="org.afscme.enterprise.update.web.ApplyUpdateMemberRejectForm" />
+    <form-bean name="ApplyUpdateOfficerRejectForm"
+               type="org.afscme.enterprise.update.web.ApplyUpdateOfficerRejectForm" />
+    <form-bean name="ApplyUpdateRebateRejectForm"
+               type="org.afscme.enterprise.update.web.ApplyUpdateRebateRejectForm" />
+    <form-bean name="participationUploadForm"
+               type="org.afscme.enterprise.update.web.ParticipationUploadForm" />
+    <form-bean name="processLogForm"
+               type="org.afscme.enterprise.update.web.ProcessLogForm" />
+    <form-bean name="searchLogForm"
+               type="org.afscme.enterprise.update.web.SearchLogForm" />
+    <form-bean name="ViewApplyUpdateMemberReviewForm"
+               type="org.afscme.enterprise.update.web.ViewApplyUpdateMemberReviewForm" />
+    <form-bean name="fieldPrivilegesForm"
+               type="org.afscme.enterprise.roles.web.FieldPrivilegesForm" />
+    <form-bean name="listRolesForm"
+               type="org.afscme.enterprise.roles.web.ListRolesForm" />
+    <form-bean name="memberPrivilegesForm"
+               type="org.afscme.enterprise.roles.web.MemberPrivilegesForm" />
+    <form-bean name="privilegesForm"
+               type="org.afscme.enterprise.roles.web.PrivilegesForm" />
+    <form-bean name="reportPrivilegesForm"
+               type="org.afscme.enterprise.roles.web.ReportPrivilegesForm" />
+    <form-bean name="roleForm"
+               type="org.afscme.enterprise.roles.web.RoleForm" />
+    <form-bean name="processReturnedMailForm"
+               type="org.afscme.enterprise.returnedmail.web.ProcessReturnedMailForm" />
+    <form-bean name="affiliateCountByStatusForm"
+               type="org.afscme.enterprise.reporting.specialized.web.AffiliateCountByStatusForm" />
+    <form-bean name="enrichedDataForm"
+               type="org.afscme.enterprise.reporting.specialized.web.EnrichedDataForm" />
+    <form-bean name="invalidAddressForROForm"
+               type="org.afscme.enterprise.reporting.specialized.web.InvalidAddressForROForm" />
+    <form-bean name="mailingListForm"
+               type="org.afscme.enterprise.reporting.specialized.web.MailingListForm" />
+    <form-bean name="membershipBatchUpdateForm"
+               type="org.afscme.enterprise.reporting.specialized.web.MembershipBatchUpdateForm" />
+    <form-bean name="membershipRosterForm"
+               type="org.afscme.enterprise.reporting.specialized.web.MembershipRosterForm" />
+    <form-bean name="nameCountForm"
+               type="org.afscme.enterprise.reporting.specialized.web.NameCountForm" />
+    <form-bean name="ncoaAcsForm"
+               type="org.afscme.enterprise.reporting.specialized.web.NcoaAcsForm" />
+    <form-bean name="nonMailableRosterForm"
+               type="org.afscme.enterprise.reporting.specialized.web.NonMailableRosterForm" />
+    <form-bean name="officerCredentialCardsForm"
+               type="org.afscme.enterprise.reporting.specialized.web.OfficerCredentialCardsForm" />
+    <form-bean name="officerExpirationForm"
+               type="org.afscme.enterprise.reporting.specialized.web.OfficerExpirationForm" />
+    <form-bean name="officerStatisticalSummaryForm"
+               type="org.afscme.enterprise.reporting.specialized.web.OfficerStatisticalSummaryForm" />
+    <form-bean name="officerStatisticalSunmmaryDetailForm"
+               type="org.afscme.enterprise.reporting.specialized.web.OfficerStatisticalSunmmaryDetailForm" />
+    <form-bean name="prbApplicationFileForm"
+               type="org.afscme.enterprise.reporting.specialized.web.PRBApplicationFileForm" />
+    <form-bean name="preliminaryRosterAffiliateForm"
+               type="org.afscme.enterprise.reporting.specialized.web.PreliminaryRosterAffiliateForm" />
+    <form-bean name="rebateCheckFileForm"
+               type="org.afscme.enterprise.reporting.specialized.web.RebateCheckFileForm" />
+    <form-bean name="recentlyElectedPresidentsForm"
+               type="org.afscme.enterprise.reporting.specialized.web.RecentlyElectedPresidentsForm" />
+    <form-bean name="recentlyElectedTreasurersForm"
+               type="org.afscme.enterprise.reporting.specialized.web.RecentlyElectedTreasurersForm" />
+    <form-bean name="specializedReportForm"
+               type="org.afscme.enterprise.reporting.specialized.web.SpecializedReportForm" />
+    <form-bean name="mailingReportForm"
+               type="org.afscme.enterprise.reporting.base.web.MailingReportForm" />
+    <form-bean name="queryForm"
+               type="org.afscme.enterprise.reporting.base.web.QueryForm" />
+    <form-bean name="regularReportForm"
+               type="org.afscme.enterprise.reporting.base.web.RegularReportForm" />
+    <form-bean name="politicalRebateAnnualRebateInformationEditForm"
+               type="org.afscme.enterprise.rebate.web.PoliticalRebateAnnualRebateInformationEditForm" />
+    <form-bean name="politicalRebateAnnualRebateInformationForm"
+               type="org.afscme.enterprise.rebate.web.PoliticalRebateAnnualRebateInformationForm" />
+    <form-bean name="politicalRebateApplicationForm"
+               type="org.afscme.enterprise.rebate.web.PoliticalRebateApplicationForm" />
+    <form-bean name="politicalRebateRequestForm"
+               type="org.afscme.enterprise.rebate.web.PoliticalRebateRequestForm" />
+    <form-bean name="politicalRebateSummaryByYearForm"
+               type="org.afscme.enterprise.rebate.web.PoliticalRebateSummaryByYearForm" />
+    <form-bean name="politicalRebateSummaryForm"
+               type="org.afscme.enterprise.rebate.web.PoliticalRebateSummaryForm" />
+    <form-bean name="twelveMonthRebateAmountEditForm"
+               type="org.afscme.enterprise.rebate.web.TwelveMonthRebateAmountEditForm" />
+    <form-bean name="twelveMonthRebateAmountForm"
+               type="org.afscme.enterprise.rebate.web.TwelveMonthRebateAmountForm" />
+    <form-bean name="demographicDataForm"
+               type="org.afscme.enterprise.person.web.DemographicDataForm" />
+    <form-bean name="emailAddressForm"
+               type="org.afscme.enterprise.person.web.EmailAddressForm" />
+    <form-bean name="personDetailAddForm"
+               type="org.afscme.enterprise.person.web.PersonDetailAddForm" />
+    <form-bean name="personDetailForm"
+               type="org.afscme.enterprise.person.web.PersonDetailForm" />
+    <form-bean name="phoneNumberForm"
+               type="org.afscme.enterprise.person.web.PhoneNumberForm" />
+    <form-bean name="politicalDataForm"
+               type="org.afscme.enterprise.person.web.PoliticalDataForm" />
+    <form-bean name="relationDataForm"
+               type="org.afscme.enterprise.person.web.RelationDataForm" />
+    <form-bean name="searchPersonForm"
+               type="org.afscme.enterprise.person.web.SearchPersonForm" />
+    <form-bean name="verifyPersonForm"
+               type="org.afscme.enterprise.person.web.VerifyPersonForm" />
+    <form-bean name="exportParticipationCodesForm"
+               type="org.afscme.enterprise.participationgroups.web.ExportParticipationCodesForm" />
+    <form-bean name="participationCodeForm"
+               type="org.afscme.enterprise.participationgroups.web.ParticipationCodeForm" />
+    <form-bean name="participationCodeListForm"
+               type="org.afscme.enterprise.participationgroups.web.ParticipationCodeListForm" />
+    <form-bean name="locationForm"
+               type="org.afscme.enterprise.organization.web.LocationForm" />
+    <form-bean name="locationListForm"
+               type="org.afscme.enterprise.organization.web.LocationListForm" />
+    <form-bean name="organizationAssociateDetailForm"
+               type="org.afscme.enterprise.organization.web.OrganizationAssociateDetailForm" />
+    <form-bean name="organizationAssociateListForm"
+               type="org.afscme.enterprise.organization.web.OrganizationAssociateListForm" />
+    <form-bean name="organizationDetailForm"
+               type="org.afscme.enterprise.organization.web.OrganizationDetailForm" />
+    <form-bean name="personOrgAssociateListForm"
+               type="org.afscme.enterprise.organization.web.PersonOrgAssociateListForm" />
+    <form-bean name="searchOrganizationsForm"
+               type="org.afscme.enterprise.organization.web.SearchOrganizationsForm" />
+    <form-bean name="verifyOrganizationForm"
+               type="org.afscme.enterprise.organization.web.VerifyOrganizationForm" />
+    <form-bean name="myInfoForm"
+               type="org.afscme.enterprise.myinfo.web.MyInfoForm" />
+    <form-bean name="AddDataEntryForm"
+               type="org.afscme.enterprise.minimumdues.web.AddDataEntryForm" />
+    <form-bean name="AddEmployerForm"
+               type="org.afscme.enterprise.minimumdues.web.AddEmployerForm" />
+    <form-bean name="AffiliateChooseAddForm"
+               type="org.afscme.enterprise.minimumdues.web.AffiliateChooseAddForm" />
+    <form-bean name="DataEntryForm"
+               type="org.afscme.enterprise.minimumdues.web.DataEntryForm" />
+    <form-bean name="EditDataEntryForm"
+               type="org.afscme.enterprise.minimumdues.web.EditDataEntryForm" />
+    <form-bean name="EditDelEmployerForm"
+               type="org.afscme.enterprise.minimumdues.web.EditDelEmployerForm" />
+    <form-bean name="ViewDataEntryForm"
+               type="org.afscme.enterprise.minimumdues.web.ViewDataEntryForm" />
+    <form-bean name="employerInformationForm"
+               type="org.afscme.enterprise.member.web.EmployerInformationForm" />
+    <form-bean name="memberAffiliateInformationForm"
+               type="org.afscme.enterprise.member.web.MemberAffiliateInformationForm" />
+    <form-bean name="memberDetailAddForm"
+               type="org.afscme.enterprise.member.web.MemberDetailAddForm" />
+    <form-bean name="memberDetailForm"
+               type="org.afscme.enterprise.member.web.MemberDetailForm" />
+    <form-bean name="participationDetailForm"
+               type="org.afscme.enterprise.member.web.ParticipationDetailForm" />
+    <form-bean name="participationSummaryForm"
+               type="org.afscme.enterprise.member.web.ParticipationSummaryForm" />
+    <form-bean name="searchMembersForm"
+               type="org.afscme.enterprise.member.web.SearchMembersForm" />
+    <form-bean name="searchVendorMembersForm"
+               type="org.afscme.enterprise.member.web.SearchVendorMembersForm" />
+    <form-bean name="verifyMemberForm"
+               type="org.afscme.enterprise.member.web.VerifyMemberForm" />
+    <form-bean name="massChangeForm"
+               type="org.afscme.enterprise.masschange.web.MassChangeForm" />
+    <form-bean name="addMailingListsInformationForm"
+               type="org.afscme.enterprise.mailinglists.web.AddMailingListsInformationForm" />
+    <form-bean name="editMailingListsInformationForm"
+               type="org.afscme.enterprise.mailinglists.web.EditMailingListsInformationForm" />
+    <form-bean name="mailingListsAddressAssociationForm"
+               type="org.afscme.enterprise.mailinglists.web.MailingListsAddressAssociationForm" />
+    <form-bean name="mailingListsInformationForm"
+               type="org.afscme.enterprise.mailinglists.web.MailingListsInformationForm" />
+    <form-bean name="correspondenceHistoryInformationForm"
+               type="org.afscme.enterprise.correspondence.web.CorrespondenceHistoryInformationForm" />
+    <form-bean name="accountInfoForm"
+               type="org.afscme.enterprise.controller.web.AccountInfoForm" />
+    <form-bean name="loginForm"
+               type="org.afscme.enterprise.controller.web.LoginForm" />
+    <form-bean name="requestPasswordForm"
+               type="org.afscme.enterprise.controller.web.RequestPasswordForm" />
+    <form-bean name="selectAffiliateSearchForm"
+               type="org.afscme.enterprise.controller.web.SelectAffiliateSearchForm" />
+    <form-bean name="commentHistoryForm"
+               type="org.afscme.enterprise.common.web.CommentHistoryForm" />
+    <form-bean name="codeForm"
+               type="org.afscme.enterprise.codes.web.CodeForm" />
+    <form-bean name="codeTypeForm"
+               type="org.afscme.enterprise.codes.web.CodeTypeForm" />
+    <form-bean name="GetBypassedAffiliatesorm"
+               type="org.afscme.enterprise.cards.web.GetBypassedAffiliatesForm" />
+    <form-bean name="affiliateDetailAddForm"
+               type="org.afscme.enterprise.affiliate.web.AffiliateDetailAddForm" />
+    <form-bean name="affiliateDetailForm"
+               type="org.afscme.enterprise.affiliate.web.AffiliateDetailForm" />
+    <form-bean name="affiliateFinderForm"
+               type="org.afscme.enterprise.affiliate.web.AffiliateFinderForm" />
+    <form-bean name="affiliateSearchForm"
+               type="org.afscme.enterprise.affiliate.web.AffiliateSearchForm" />
+    <form-bean name="changeHistoryDetailForm"
+               type="org.afscme.enterprise.affiliate.web.ChangeHistoryDetailForm" />
+    <form-bean name="changeHistorySearchForm"
+               type="org.afscme.enterprise.affiliate.web.ChangeHistorySearchForm" />
+    <form-bean name="charterForm"
+               type="org.afscme.enterprise.affiliate.web.CharterForm" />
+    <form-bean name="constitutionForm"
+               type="org.afscme.enterprise.affiliate.web.ConstitutionForm" />
+    <form-bean name="councilAffiliationForm"
+               type="org.afscme.enterprise.affiliate.web.CouncilAffiliationForm" />
+    <form-bean name="financialForm"
+               type="org.afscme.enterprise.affiliate.web.FinancialForm" />
+    <form-bean name="membershipReportingInformationForm"
+               type="org.afscme.enterprise.affiliate.web.MembershipReportingInformationForm" />
+    <form-bean name="addLocalServicedForm"
+               type="org.afscme.enterprise.affiliate.staff.web.AddLocalServicedForm" />
+    <form-bean name="personStaffForm"
+               type="org.afscme.enterprise.affiliate.staff.web.PersonStaffForm" />
+    <form-bean name="staffForm"
+               type="org.afscme.enterprise.affiliate.staff.web.StaffForm" />
+    <form-bean name="staffMaintainenceForm"
+               type="org.afscme.enterprise.affiliate.staff.web.StaffMaintainenceForm" />
+    <form-bean name="verifyStaffForm"
+               type="org.afscme.enterprise.affiliate.staff.web.VerifyStaffForm" />
+    <form-bean name="addOfficerTitleForm"
+               type="org.afscme.enterprise.affiliate.officer.web.AddOfficerTitleForm" />
+    <form-bean name="affiliateOfficerMaintenanceForm"
+               type="org.afscme.enterprise.affiliate.officer.web.AffiliateOfficerMaintenanceForm" />
+    <form-bean name="editOfficerTitlesForm"
+               type="org.afscme.enterprise.affiliate.officer.web.EditOfficerTitlesForm" />
+    <form-bean name="officerTitlesForm"
+               type="org.afscme.enterprise.affiliate.officer.web.OfficerTitlesForm" />
+    <form-bean name="replaceOfficerResultsForm"
+               type="org.afscme.enterprise.affiliate.officer.web.ReplaceOfficerResultsForm" />
+    <form-bean name="personAddressForm"
+               type="org.afscme.enterprise.address.web.PersonAddressForm" />
+
+    <!-- If you have non XDoclet forms, define them in a file called struts-forms.xml and place it in your merge directory. -->
+  </form-beans>
+
+  <!-- ========== Global Forward Definitions ============================== -->
+  <global-forwards>
+    <forward name="ListRoles" path="/listRoles.action"/>
+    <forward name="Logout" path="/logout.action"/>
+    <forward name="Login" path="/mdu/login.action"/>
+    <forward name="EditAccountInfo" path="/editAccountInfo.action"/>
+    <forward name="ForceChangePassword" path="/editAccountInfo.action?forceChangePassword=true"/>
+    <forward name="ForceToChangePassword" path="/editAccountInfo.action?forceChangePassword=true"/>
+    <forward name="ListCodeTypes" path="/listCodeTypes.action"/>
+    <forward name="GenerateReportList" path="/generateReportList.action"/>
+    <forward name="MainMenu" path="/showMain.action" redirect="true"/>
+    <forward name="MinimumDuesMainMenu" path="/showMain.action" redirect="true"/>
+    <forward name="LeaveDataUtility" path="/leaveDataUtility.action"/>
+    <forward name="Welcome" path="/" redirect="true"/>
+    <forward name="SwitchAffiliate" path="/switchAffiliate.action"/>
+    <forward name="AffiliateDataUtility" path="/selectAffiliateSearch.action?new="/>
+    <forward name="VendorMemberSearch" path="/viewVendorMemberCriteria.action"/>
+    <forward name="EditMemberPrivileges" path="/editMemberPrivileges.action"/>
+    <forward name="ShowLogin" path="/Common/Login.jsp"/>
+    <forward name="ErrorNoPrivileges" path="/Error/NoPrivileges.jsp"/>
+    <forward name="ErrorNoAccess" path="/Error/NoAccess.jsp"/>
+    <forward name="Error" path="/Error/General.jsp"/>
+    <forward name="Message" path="/Common/Message.jsp"/>
+    <forward name="ViewBasicAffiliateSearch" path="/viewBasicAffiliateCriteria.action"/>
+    <forward name="ViewAffiliateDetail" path="/viewAffiliateDetail.action" redirect="true"/>
+    <forward name="ViewCharter"  path="/viewCharterInformation.action" redirect="true"/>
+    <forward name="ViewConstitution"  path="/viewConstitutionInformation.action" redirect="true"/>
+    <forward name="ViewFinancial" path="/viewFinancialInformation.action" redirect="true"/>
+    <forward name="ViewMembershipReporting" path="/viewMembershipReportingInformation.action" redirect="true"/>
+    <forward name="ViewCommentHistory" path="/Membership/CommentHistory.jsp"/>
+    <forward name="SearchOrganizations" path="/searchOrganizations.action?new"/>
+    <forward name="ViewOrganizationCriteria" path="/viewOrganizationCriteria.action"/>
+    <forward name="VerifyOrganization" path="/verifyOrganization.action?new"/>
+    <forward name="ViewVerifyOrganization" path="/viewVerifyOrganization.action"/>
+    <forward name="ViewOrganizationDetail" path="/viewOrganizationDetail.action"/>
+    <forward name="ViewLocationInformation" path="/viewLocationInformation.action"/>    
+    <forward name="ViewOrganizationAssociateList" path="/viewOrganizationAssociateList.action"/>
+    <forward name="ViewParticipationGroupMaintenance" path="/viewParticipationGroupMaintenance.action"/>
+    <forward name="SearchAffiliateFinder" path="/searchAffiliateFinder.action"/>
+    <forward name="SearchAffiliateFinderRedirect" path="/searchAffiliateFinder.action?new" redirect="true"/>
+    <forward name="ViewPersonalInformation" path="/viewMyInfo.action" redirect="true"/>
+</global-forwards>
+
+  <!-- ========== Action Mapping Definitions ============================== -->
+  <action-mappings>
+    <action path="/editUser"
+            type="org.afscme.enterprise.users.web.EditUserAction"
+            name="userForm"
+            scope="request"
+            validate="true">
+      <forward name="Edit"
+               path="/Admin/EditUser.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveUserAffiliatesSelection"
+            type="org.afscme.enterprise.users.web.SaveAffiliatesSelectionAction"
+            name="selectUserAffiliatesSearchForm"
+            scope="session"
+            input="/Admin/SelectUserAffiliatesSearchResults.jsp"
+            validate="true">
+      <forward name="EditUser"
+               path="/editUser.action"
+               redirect="false">
+      </forward>
+      <forward name="SearchForm"
+               path="/selectUserAffiliatesSearch.action?new"
+               redirect="false">
+      </forward>
+      <forward name="Cancelled"
+               path="/editUser.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveUser"
+            type="org.afscme.enterprise.users.web.SaveUserAction"
+            name="userForm"
+            scope="request"
+            input="/Admin/EditUser.jsp"
+            validate="true">
+      <forward name="SelectAffiliates"
+               path="/selectUserAffiliatesSearch.action?new"
+               redirect="true">
+      </forward>
+      <forward name="SelectRoles"
+               path="/selectRoles.action"
+               redirect="false">
+      </forward>
+      <forward name="PersonDetail"
+               path="viewPersonDetail.action?back=ListPersons"
+               redirect="true">
+      </forward>
+    </action>
+    <action path="/selectRoles"
+            type="org.afscme.enterprise.users.web.SelectRolesAction"
+            name="rolesForm"
+            scope="request"
+            input="/Admin/SelectRoles.jsp"
+            validate="true">
+      <forward name="View"
+               path="/Admin/SelectRoles.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Done"
+               path="/editUser.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/selectUserAffiliatesSearch"
+            type="org.afscme.enterprise.users.web.SelectUserAffiliatesSearchAction"
+            name="selectUserAffiliatesSearchForm"
+            scope="session"
+            input="/Admin/SelectUserAffiliatesSearch.jsp"
+            validate="true">
+      <forward name="SearchForm"
+               path="/Admin/SelectUserAffiliatesSearch.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SearchResults"
+               path="/Admin/SelectUserAffiliatesSearchResults.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Cancelled"
+               path="/editUser.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/performMemberUpdate"
+            type="org.afscme.enterprise.update.web.PerformMemberUpdateAction"
+            name="applyUpdateForm"
+            scope="request"
+            input="/Update/ApplyUpdateMemberEditSummary.jsp"
+            validate="false">
+      <forward name="done"
+               path="/Update/ApplyUpdateConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/performOfficerUpdate"
+            type="org.afscme.enterprise.update.web.PerformOfficerUpdateAction"
+            name="applyUpdateForm"
+            scope="request"
+            input="/Update/ApplyUpdateOfficerEditSummary.jsp"
+            validate="false">
+      <forward name="done"
+               path="/Update/ApplyUpdateConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/performRebateUpdate"
+            type="org.afscme.enterprise.update.web.PerformRebateUpdateAction"
+            name="applyUpdateForm"
+            scope="request"
+            input="/Update/ApplyUpdateRebateEditSummary.jsp"
+            validate="false">
+      <forward name="done"
+               path="/Update/ApplyUpdateConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/uploadAffiliateMember"
+            type="org.afscme.enterprise.update.web.UploadAffiliateMemberAction"
+            name="affiliateFileUploadForm"
+            scope="request"
+            input="/Update/UploadAffiliateMemberData.jsp"
+            validate="true">
+      <forward name="Done"
+               path="/Update/FileUploadConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/uploadAffiliateOfficer"
+            type="org.afscme.enterprise.update.web.UploadAffiliateOfficerAction"
+            name="affiliateFileUploadForm"
+            scope="request"
+            input="/Update/UploadAffiliateOfficer2Data.jsp"
+            validate="true">
+      <forward name="Done"
+               path="/Update/FileUploadConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/uploadAffiliateRebate"
+            type="org.afscme.enterprise.update.web.UploadAffiliateRebateAction"
+            name="affiliateFileUploadForm"
+            scope="request"
+            input="/Update/UploadAffiliateRebateData.jsp"
+            validate="true">
+      <forward name="Done"
+               path="/Update/FileUploadConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/uploadParticipation"
+            type="org.afscme.enterprise.update.web.UploadParticipationAction"
+            name="participationUploadForm"
+            scope="request"
+            input="/Update/UploadParticipationData.jsp"
+            validate="true">
+      <forward name="Done"
+               path="/Update/FileUploadConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyMemberRejectSummary"
+            type="org.afscme.enterprise.update.web.ViewApplyMemberRejectSummaryAction"
+            name="ApplyUpdateMemberRejectForm"
+            scope="request"
+            input="/Update/ApplyUpdateMemberRejectSummary.jsp"
+            validate="true">
+      <forward name="success"
+               path="/viewApplyUpdateQueue.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyOfficerRejectSummary"
+            type="org.afscme.enterprise.update.web.ViewApplyOfficerRejectSummaryAction"
+            name="ApplyUpdateOfficerRejectForm"
+            scope="request"
+            input="/Update/ApplyUpdateOfficerRejectSummary.jsp"
+            validate="true">
+      <forward name="success"
+               path="/viewApplyUpdateQueue.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyRebateRejectSummary"
+            type="org.afscme.enterprise.update.web.ViewApplyRebateRejectSummaryAction"
+            name="ApplyUpdateRebateRejectForm"
+            scope="request"
+            input="/Update/ApplyUpdateRebateRejectSummary.jsp"
+            validate="true">
+      <forward name="success"
+               path="/viewApplyUpdateQueue.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateMemberEditSummary"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateMemberEditSummaryAction"
+            scope="request"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateMemberEditSummary.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateMemberExceptionDetail"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateMemberExceptionDetailAction"
+            scope="request"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateMemberExceptionDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateMemberRejectSummary"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateMemberRejectSummaryAction"
+            scope="request"
+            input="/Update/ApplyUpdateMemberEditSummary.jsp"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateMemberRejectSummary.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateMemberReviewSummary"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateMemberReviewSummaryAction"
+            scope="request"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateMemberReviewSummary.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateOfficerEditDetailPerAffiliate"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateOfficerEditDetailPerAffiliateAction"
+            scope="request"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateOfficerEditDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateOfficerEditSummary"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateOfficerEditSummaryAction"
+            scope="request"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateOfficerEditSummary.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateOfficerExceptionDetail"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateOfficerExceptionDetailAction"
+            scope="request"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateOfficerExceptionDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateOfficerRejectSummary"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateOfficerRejectSummaryAction"
+            scope="request"
+            input="/Update/ApplyUpdateOfficerEditSummary.jsp"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateOfficerRejectSummary.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateOfficerReviewExceptionDetail"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateOfficerReviewExceptionDetailAction"
+            scope="request"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateOfficerExceptionDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateOfficerReviewSummary"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateOfficerReviewSummaryAction"
+            scope="request"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateOfficerReviewSummary.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateProcessLog"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateProcessLogAction"
+            name="processLogForm"
+            scope="request"
+            input="/Update/ApplyUpdateProcessLog.jsp"
+            validate="false">
+      <forward name="View"
+               path="/Update/ApplyUpdateProcessLog.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateQueue"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateQueueAction"
+            scope="session"
+            validate="true">
+      <forward name="View"
+               path="/Update/ApplyUpdate.jsp"
+               redirect="false">
+      </forward>
+      <forward name="DataUtilityMain"
+               path="/Common/DataUtilityMainMenu.jsp?noMain=true"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateRebateEditSummary"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateRebateEditSummaryAction"
+            scope="request"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateRebateEditSummary.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateRebateExceptionDetail"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateRebateExceptionDetailAction"
+            scope="request"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateRebateExceptionDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateRebateRejectSummary"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateRebateRejectSummaryAction"
+            scope="request"
+            input="/Update/ApplyUpdateRebateEditSummary.jsp"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateRebateRejectSummary.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateRebateReviewExceptionDetail"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateRebateReviewExceptionDetailAction"
+            scope="request"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateRebateExceptionDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateRebateReviewSummary"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateRebateReviewSummaryAction"
+            scope="request"
+            validate="true">
+      <forward name="success"
+               path="/Update/ApplyUpdateRebateReviewSummary.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewApplyUpdateSearchLog"
+            type="org.afscme.enterprise.update.web.ViewApplyUpdateSearchLogAction"
+            name="searchLogForm"
+            scope="session"
+            input="/Update/ApplyUpdateProcessLog.jsp"
+            validate="true">
+      <forward name="View"
+               path="/Update/ApplyUpdateProcessLog.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewUploadAffiliateMember"
+            type="org.afscme.enterprise.update.web.ViewUploadAffiliateMemberAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Update/UploadAffiliateMemberData.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewUploadAffiliateOfficer2"
+            type="org.afscme.enterprise.update.web.ViewUploadAffiliateOfficer2Action"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Update/UploadAffiliateOfficer2Data.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewUploadAffiliateOfficer"
+            type="org.afscme.enterprise.update.web.ViewUploadAffiliateOfficerAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Update/UploadAffiliateOfficerData.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewUploadAffiliateRebate"
+            type="org.afscme.enterprise.update.web.ViewUploadAffiliateRebateAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Update/UploadAffiliateRebateData.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewUploadParticipation"
+            type="org.afscme.enterprise.update.web.ViewUploadParticipationAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Update/UploadParticipationData.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/deleteRole"
+            type="org.afscme.enterprise.roles.web.DeleteRoleAction"
+            scope="request"
+            validate="true">
+    </action>
+    <action path="/editMemberPrivileges"
+            type="org.afscme.enterprise.roles.web.EditMemberPrivilegesAction"
+            name="memberPrivilegesForm"
+            scope="request"
+            validate="true">
+      <forward name="Edit"
+               path="/Admin/EditMemberPrivileges.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editRole"
+            type="org.afscme.enterprise.roles.web.EditRoleAction"
+            name="roleForm"
+            scope="request"
+            validate="true">
+      <forward name="Edit"
+               path="/Admin/EditRole.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Add"
+               path="/Admin/EditRole.jsp?add"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/listRoles"
+            type="org.afscme.enterprise.roles.web.ListRolesAction"
+            name="listRolesForm"
+            scope="request"
+            input="/Admin/ListRoles.jsp"
+            validate="true">
+      <forward name="View"
+               path="/Admin/ListRoles.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveMemberPrivileges"
+            type="org.afscme.enterprise.roles.web.SaveMemberPrivileges"
+            name="memberPrivilegesForm"
+            scope="request"
+            validate="true">
+    </action>
+    <action path="/saveRole"
+            type="org.afscme.enterprise.roles.web.SaveRoleAction"
+            name="roleForm"
+            scope="request"
+            input="/Admin/EditRole.jsp"
+            validate="true">
+      <forward name="SelectPrivileges"
+               path="/selectPrivileges.action"
+               redirect="false">
+      </forward>
+      <forward name="SelectReportPrivileges"
+               path="/selectReportPrivileges.action"
+               redirect="false">
+      </forward>
+      <forward name="SelectFieldPrivileges"
+               path="/selectFieldPrivileges.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/selectFieldPrivileges"
+            type="org.afscme.enterprise.roles.web.SelectFieldPrivilegesAction"
+            name="fieldPrivilegesForm"
+            scope="request"
+            input="/Admin/SelectFieldPrivileges.jsp"
+            validate="true">
+      <forward name="View"
+               path="/Admin/SelectFieldPrivileges.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Done"
+               path="/editRole.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/selectPrivileges"
+            type="org.afscme.enterprise.roles.web.SelectPrivilegesAction"
+            name="privilegesForm"
+            scope="request"
+            input="/Admin/SelectPrivileges.jsp"
+            validate="true">
+      <forward name="View"
+               path="/Admin/SelectPrivileges.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Done"
+               path="/editRole.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/selectReportPrivileges"
+            type="org.afscme.enterprise.roles.web.SelectReportPrivilegesAction"
+            name="reportPrivilegesForm"
+            scope="request"
+            input="/Admin/SelectReportPrivileges.jsp"
+            validate="true">
+      <forward name="View"
+               path="/Admin/SelectReportPrivileges.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Done"
+               path="/editRole.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/processReturnedMail"
+            type="org.afscme.enterprise.returnedmail.web.ProcessReturnedMailAction"
+            name="processReturnedMailForm"
+            scope="session"
+            input="/Membership/ProcessReturnedMail.jsp"
+            validate="true">
+      <forward name="Search"
+               path="/searchMemberBasic.action"
+               redirect="false">
+      </forward>
+      <forward name="Summary"
+               path="/Membership/ProcessReturnedMailSummary.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Reload"
+               path="/Membership/ProcessReturnedMail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/processReturnedMailSummary"
+            type="org.afscme.enterprise.returnedmail.web.ProcessReturnedMailSummaryAction"
+            scope="request"
+            input="/Membership/ProcessReturnedMailSummary.jsp"
+            validate="true">
+      <forward name="Summary"
+               path="/Membership/ProcessReturnedMailSummary.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/affiliateCounByStatusReport"
+            type="org.afscme.enterprise.reporting.specialized.web.AffiliateCountByStatusAction"
+            name="affiliateCountByStatusForm"
+            scope="request"
+            input="/Reporting/Specialized/AffiliateCountByStatus.jsp"
+            validate="true">
+    </action>
+    <action path="/enrichedDataReport"
+            type="org.afscme.enterprise.reporting.specialized.web.EnrichedDataAction"
+            name="enrichedDataForm"
+            scope="request"
+            input="/Reporting/Specialized/ViewEnrichedDataCriteria.jsp"
+            validate="true">
+    </action>
+    <action path="/enrichedDataReportOutputFormat"
+            type="org.afscme.enterprise.reporting.specialized.web.EnrichedDataReportOutputFormatAction"
+            name="enrichedDataForm"
+            scope="request"
+            input="/Reporting/Specialized/ViewEnrichedDataCriteria.jsp"
+            validate="false">
+      <forward name="Output"
+               path="/Reporting/Specialized/DownloadOutputFormat.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/invalidAddressForROReport"
+            type="org.afscme.enterprise.reporting.specialized.web.InvalidAddressForROAction"
+            name="invalidAddressForROForm"
+            scope="request"
+            input="/Reporting/Specialized/InvalidAddressForRO.jsp"
+            validate="true">
+    </action>
+    <action path="/mailingListReport"
+            type="org.afscme.enterprise.reporting.specialized.web.MailingListAction"
+            name="mailingListForm"
+            scope="request"
+            input="/Reporting/Specialized/MailingListInput.jsp"
+            validate="true">
+    </action>
+    <action path="/membershipActivityReport"
+            type="org.afscme.enterprise.reporting.specialized.web.MembershipActivityAction"
+            scope="request"
+            validate="true">
+    </action>
+    <action path="/membershipBatchUpdateReport"
+            type="org.afscme.enterprise.reporting.specialized.web.MembershipBatchUpdateAction"
+            name="membershipBatchUpdateForm"
+            scope="request"
+            validate="false">
+    </action>
+    <action path="/membershipRosterReport"
+            type="org.afscme.enterprise.reporting.specialized.web.MembershipRosterAction"
+            name="membershipRosterForm"
+            scope="request"
+            input="/Reporting/Specialized/MembershipRoster.jsp"
+            validate="true">
+    </action>
+    <action path="/nameCountReport"
+            type="org.afscme.enterprise.reporting.specialized.web.NameCountAction"
+            name="nameCountForm"
+            scope="request"
+            input="/Reporting/Specialized/NameCountReport.jsp"
+            validate="true">
+    </action>
+    <action path="/ncoaAcsReport"
+            type="org.afscme.enterprise.reporting.specialized.web.NcoaAcsAction"
+            name="ncoaAcsForm"
+            scope="request"
+            input="/Reporting/Specialized/NcoaAcs.jsp"
+            validate="true">
+    </action>
+    <action path="/nonMailableRosterReport"
+            type="org.afscme.enterprise.reporting.specialized.web.NonMailableRosterAction"
+            name="nonMailableRosterForm"
+            scope="request"
+            input="/Reporting/Specialized/NonMailableRoster.jsp"
+            validate="true">
+    </action>
+    <action path="/officerCredentialCardsReport"
+            type="org.afscme.enterprise.reporting.specialized.web.OfficerCredentialCardsAction"
+            name="officerCredentialCardsForm"
+            scope="request"
+            input="/Reporting/Specialized/OfficerCredentialCardsInput.jsp"
+            validate="true">
+    </action>
+    <action path="/officerExpirationReport"
+            type="org.afscme.enterprise.reporting.specialized.web.OfficerExpirationAction"
+            name="officerExpirationForm"
+            scope="request"
+            input="/Reporting/Specialized/OfficerExpiration.jsp"
+            validate="true">
+    </action>
+    <action path="/officerStatisticalSummaryReport"
+            type="org.afscme.enterprise.reporting.specialized.web.OfficerStatisticalSummaryAction"
+            name="officerStatisticalSummaryForm"
+            scope="request"
+            input="/Reporting/Specialized/OfficerStatisticalSummary.jsp"
+            validate="true">
+    </action>
+    <action path="/officerStatisticalSunmmaryDetailReport"
+            type="org.afscme.enterprise.reporting.specialized.web.OfficerStatisticalSunmmaryDetailAction"
+            name="officerStatisticalSunmmaryDetailForm"
+            scope="request"
+            input="/Reporting/Specialized/OfficerStatisticalSunmmaryDetail.jsp"
+            validate="true">
+    </action>
+    <action path="/orgMailingListReport"
+            type="org.afscme.enterprise.reporting.specialized.web.OrgMailingListAction"
+            name="mailingListForm"
+            scope="request"
+            input="/Reporting/Specialized/OrgMailingListInput.jsp"
+            validate="true">
+    </action>
+    <action path="/prbApplicationFileReport"
+            type="org.afscme.enterprise.reporting.specialized.web.PRBApplicationFileAction"
+            name="prbApplicationFileForm"
+            scope="request"
+            input="/Reporting/Specialized/PRBApplicationFileInput.jsp"
+            validate="true">
+    </action>
+    <action path="/preliminaryRosterReport"
+            type="org.afscme.enterprise.reporting.specialized.web.PreliminaryRosterAction"
+            name="preliminaryRosterAffiliateForm"
+            scope="request"
+            input="/Membership/PreliminaryRosterAffiliateSelection.jsp"
+            validate="false">
+      <forward name="ViewReports"
+               path="/listRegularReports.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/rebateCheckFileReport"
+            type="org.afscme.enterprise.reporting.specialized.web.RebateCheckFileAction"
+            name="rebateCheckFileForm"
+            scope="request"
+            input="/Reporting/Specialized/RebateCheckFileInput.jsp"
+            validate="true">
+    </action>
+    <action path="/recentlyElectedPresidentsReport"
+            type="org.afscme.enterprise.reporting.specialized.web.RecentlyElectedPresidentsAction"
+            name="recentlyElectedPresidentsForm"
+            scope="request"
+            validate="true">
+    </action>
+    <action path="/recentlyElectedTreasurersReport"
+            type="org.afscme.enterprise.reporting.specialized.web.RecentlyElectedTreasurersAction"
+            name="recentlyElectedTreasurersForm"
+            scope="request"
+            validate="true">
+    </action>
+    <action path="/runSpecializedReport"
+            type="org.afscme.enterprise.reporting.specialized.web.RunSpecializedReportAction"
+            scope="request"
+            validate="true">
+    </action>
+    <action path="/startSpecializedReportGeneration"
+            type="org.afscme.enterprise.reporting.specialized.web.StartSpecializedReportGenerationAction"
+            name="specializedReportForm"
+            scope="session"
+            validate="false">
+      <forward name="GenerateSave"
+               path="/specializedReportSaveAs"
+               redirect="true">
+      </forward>
+      <forward name="Return"
+               path="/showMain.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewEnrichedDataCriteria"
+            type="org.afscme.enterprise.reporting.specialized.web.ViewEnrichedDataCriteriaAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Reporting/Specialized/ViewEnrichedDataCriteria.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPreliminaryRosterAffiliate"
+            type="org.afscme.enterprise.reporting.specialized.web.ViewPreliminaryRosterAffiliateAction"
+            name="preliminaryRosterAffiliateForm"
+            scope="request"
+            validate="false">
+      <forward name="ViewAffiliates"
+               path="/Membership/PreliminaryRosterAffiliateSelection.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addCriterion"
+            type="org.afscme.enterprise.reporting.base.web.AddCriterionAction"
+            name="queryForm"
+            scope="session"
+            validate="false">
+      <forward name="SelectionCriteria"
+               path="/Reporting/SelectionCriteria.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addMailingRuntimeCriterion"
+            type="org.afscme.enterprise.reporting.base.web.AddMailingRuntimeCriterionAction"
+            name="mailingReportForm"
+            scope="session"
+            validate="false">
+      <forward name="SelectionCriteria"
+               path="/Reporting/MailingRuntimeCriteria.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addQuery"
+            type="org.afscme.enterprise.reporting.base.web.AddQueryAction"
+            name="queryForm"
+            scope="session"
+            validate="false">
+      <forward name="OutputFields"
+               path="/Reporting/OutputFields.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addRegularRuntimeCriterion"
+            type="org.afscme.enterprise.reporting.base.web.AddRegularRuntimeCriterionAction"
+            name="regularReportForm"
+            scope="session"
+            validate="false">
+      <forward name="SelectionCriteria"
+               path="/Reporting/RegularRuntimeCriteria.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/deleteQuery"
+            type="org.afscme.enterprise.reporting.base.web.DeleteQueryAction"
+            scope="request"
+            validate="false">
+      <forward name="View"
+               path="/listQueries.action"
+               redirect="false">
+      </forward>
+      <forward name="Denied"
+               path="/listQueries.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editQuery"
+            type="org.afscme.enterprise.reporting.base.web.EditQueryAction"
+            name="queryForm"
+            scope="session"
+            validate="false">
+      <forward name="OutputFields"
+               path="/Reporting/OutputFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Denied"
+               path="/listQueries.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/listMailingReports"
+            type="org.afscme.enterprise.reporting.base.web.ListMailingReportsAction"
+            scope="request"
+            validate="false">
+      <forward name="View"
+               path="/Reporting/ListMailingReports.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/listQueries"
+            type="org.afscme.enterprise.reporting.base.web.ListQueriesAction"
+            scope="request"
+            validate="false">
+      <forward name="View"
+               path="/Reporting/ListQueries.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/listRegularReports"
+            type="org.afscme.enterprise.reporting.base.web.ListRegularReportsAction"
+            scope="request"
+            validate="false">
+      <forward name="View"
+               path="/Reporting/ListRegularReports.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/mailingGenerate"
+            type="org.afscme.enterprise.reporting.base.web.MailingGenerateAction"
+            name="mailingReportForm"
+            scope="session"
+            validate="true">
+      <forward name="Generate"
+               path="/listMailingReports.action"
+               redirect="false">
+      </forward>
+      <forward name="Cancel"
+               path="/listMailingReports.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/onScreenGeneration"
+            type="org.afscme.enterprise.reporting.base.web.OnScreenGenerationAction"
+            name="regularReportForm"
+            scope="session"
+            validate="false">
+      <forward name="Return"
+               path="/listRegularReports.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/outputFields"
+            type="org.afscme.enterprise.reporting.base.web.OutputFieldsAction"
+            name="queryForm"
+            scope="session"
+            input="/Reporting/OutputFields.jsp"
+            validate="false">
+      <forward name="OutputFields"
+               path="/Reporting/OutputFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="OutputFieldsOrder"
+               path="/Reporting/OutputFieldsOrder.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteriaFields"
+               path="/Reporting/SelectionCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteria"
+               path="/Reporting/SelectionCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteriaFields"
+               path="/Reporting/SortCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteria"
+               path="/Reporting/SortCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="PreviewQuery"
+               path="/Reporting/PreviewQuery.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Cancel"
+               path="/listQueries.action"
+               redirect="false">
+      </forward>
+      <forward name="Save"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SaveAs"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/outputFieldsOrder"
+            type="org.afscme.enterprise.reporting.base.web.OutputFieldsOrderAction"
+            name="queryForm"
+            scope="session"
+            validate="false">
+      <forward name="OutputFields"
+               path="/Reporting/OutputFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="OutputFieldsOrder"
+               path="/Reporting/OutputFieldsOrder.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteriaFields"
+               path="/Reporting/SelectionCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteria"
+               path="/Reporting/SelectionCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteriaFields"
+               path="/Reporting/SortCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteria"
+               path="/Reporting/SortCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="PreviewQuery"
+               path="/Reporting/PreviewQuery.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Cancel"
+               path="/listQueries.action"
+               redirect="false">
+      </forward>
+      <forward name="Save"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SaveAs"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/previewQuery"
+            type="org.afscme.enterprise.reporting.base.web.PreviewQueryAction"
+            name="queryForm"
+            scope="session"
+            input="/Reporting/PreviewQuery.jsp"
+            validate="true">
+      <forward name="OutputFields"
+               path="/Reporting/OutputFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="OutputFieldsOrder"
+               path="/Reporting/OutputFieldsOrder.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteriaFields"
+               path="/Reporting/SelectionCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteria"
+               path="/Reporting/SelectionCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteriaFields"
+               path="/Reporting/SortCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteria"
+               path="/Reporting/SortCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="PreviewQuery"
+               path="/Reporting/PreviewQuery.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Cancel"
+               path="/listQueries.action"
+               redirect="false">
+      </forward>
+      <forward name="Save"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SaveAs"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/regularGenerate"
+            type="org.afscme.enterprise.reporting.base.web.RegularGenerateAction"
+            name="regularReportForm"
+            scope="session"
+            input="/Reporting/RegularRuntimeCriteria.jsp"
+            validate="true">
+      <forward name="Generate"
+               path="/listRegularReports.action"
+               redirect="false">
+      </forward>
+      <forward name="GenerateScreen"
+               path="/Reporting/ShowReportOnScreen.jsp"
+               redirect="false">
+      </forward>
+      <forward name="GenerateSave"
+               path="/regularReportSaveAs"
+               redirect="true">
+      </forward>
+      <forward name="Cancel"
+               path="/listRegularReports.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/removeCriterion"
+            type="org.afscme.enterprise.reporting.base.web.RemoveCriterionAction"
+            name="queryForm"
+            scope="session"
+            validate="false">
+      <forward name="SelectionCriteria"
+               path="/Reporting/SelectionCriteria.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/removeMailingRuntimeCriterion"
+            type="org.afscme.enterprise.reporting.base.web.RemoveMailingRuntimeCriterionAction"
+            name="mailingReportForm"
+            scope="session"
+            validate="false">
+      <forward name="SelectionCriteria"
+               path="/Reporting/MailingRuntimeCriteria.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/removeRegularRuntimeCriterion"
+            type="org.afscme.enterprise.reporting.base.web.RemoveRegularRuntimeCriterionAction"
+            name="regularReportForm"
+            scope="session"
+            validate="false">
+      <forward name="SelectionCriteria"
+               path="/Reporting/RegularRuntimeCriteria.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveAsGeneration"
+            type="org.afscme.enterprise.reporting.base.web.SaveAsGenerationAction"
+            name="regularReportForm"
+            scope="session"
+            validate="false">
+      <forward name="Return"
+               path="/listRegularReports.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/selectionCriteria"
+            type="org.afscme.enterprise.reporting.base.web.SelectionCriteriaAction"
+            name="queryForm"
+            scope="session"
+            input="/Reporting/SelectionCriteria.jsp"
+            validate="true">
+      <forward name="OutputFields"
+               path="/Reporting/OutputFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="OutputFieldsOrder"
+               path="/Reporting/OutputFieldsOrder.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteriaFields"
+               path="/Reporting/SelectionCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteria"
+               path="/Reporting/SelectionCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteriaFields"
+               path="/Reporting/SortCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteria"
+               path="/Reporting/SortCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="PreviewQuery"
+               path="/Reporting/PreviewQuery.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Cancel"
+               path="/listQueries.action"
+               redirect="false">
+      </forward>
+      <forward name="Save"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SaveAs"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/selectionCriteriaFields"
+            type="org.afscme.enterprise.reporting.base.web.SelectionCriteriaFieldsAction"
+            name="queryForm"
+            scope="session"
+            validate="false">
+      <forward name="OutputFields"
+               path="/Reporting/OutputFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="OutputFieldsOrder"
+               path="/Reporting/OutputFieldsOrder.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteriaFields"
+               path="/Reporting/SelectionCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteria"
+               path="/Reporting/SelectionCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteriaFields"
+               path="/Reporting/SortCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteria"
+               path="/Reporting/SortCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="PreviewQuery"
+               path="/Reporting/PreviewQuery.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Cancel"
+               path="/listQueries.action"
+               redirect="false">
+      </forward>
+      <forward name="Save"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SaveAs"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/showMailingOutputFormat"
+            type="org.afscme.enterprise.reporting.base.web.ShowMailingOutputFormatAction"
+            name="mailingReportForm"
+            scope="session"
+            input="/Reporting/ListMailingListReports.jsp"
+            validate="false">
+      <forward name="Custom"
+               path="/Reporting/MailingOutputFormat.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Specialized"
+               path="/Reporting/SpecializedOutputFormat.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Denied"
+               path="/listMailingReports.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/showRegularOutputFormat"
+            type="org.afscme.enterprise.reporting.base.web.ShowRegularOutputFormatAction"
+            name="regularReportForm"
+            scope="session"
+            validate="false">
+      <forward name="Custom"
+               path="/Reporting/RegularOutputFormat.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Specialized"
+               path="/Reporting/SpecializedOutputFormat.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/sortCriteria"
+            type="org.afscme.enterprise.reporting.base.web.SortCriteriaAction"
+            name="queryForm"
+            scope="session"
+            validate="false">
+      <forward name="OutputFields"
+               path="/Reporting/OutputFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="OutputFieldsOrder"
+               path="/Reporting/OutputFieldsOrder.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteriaFields"
+               path="/Reporting/SelectionCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteria"
+               path="/Reporting/SelectionCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteriaFields"
+               path="/Reporting/SortCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteria"
+               path="/Reporting/SortCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="PreviewQuery"
+               path="/Reporting/PreviewQuery.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Cancel"
+               path="/listQueries.action"
+               redirect="false">
+      </forward>
+      <forward name="Save"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SaveAs"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/sortCriteriaFields"
+            type="org.afscme.enterprise.reporting.base.web.SortCriteriaFieldsAction"
+            name="queryForm"
+            scope="session"
+            validate="false">
+      <forward name="OutputFields"
+               path="/Reporting/OutputFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="OutputFieldsOrder"
+               path="/Reporting/OutputFieldsOrder.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteriaFields"
+               path="/Reporting/SelectionCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SelectionCriteria"
+               path="/Reporting/SelectionCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteriaFields"
+               path="/Reporting/SortCriteriaFields.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SortCriteria"
+               path="/Reporting/SortCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="PreviewQuery"
+               path="/Reporting/PreviewQuery.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Cancel"
+               path="/listQueries.action"
+               redirect="false">
+      </forward>
+      <forward name="Save"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SaveAs"
+               path="/Reporting/SaveConfirmation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/startMailingReportGeneration"
+            type="org.afscme.enterprise.reporting.base.web.StartMailingReportGenerationAction"
+            name="mailingReportForm"
+            scope="session"
+            validate="false">
+      <forward name="RuntimeCriteria"
+               path="/Reporting/MailingRuntimeCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Generate"
+               path="/listMailingReports.action"
+               redirect="false">
+      </forward>
+      <forward name="Cancel"
+               path="/listMailingReports.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/startRegularReportGeneration"
+            type="org.afscme.enterprise.reporting.base.web.StartRegularReportGenerationAction"
+            name="regularReportForm"
+            scope="session"
+            validate="false">
+      <forward name="RuntimeCriteria"
+               path="/Reporting/RegularRuntimeCriteria.jsp"
+               redirect="false">
+      </forward>
+      <forward name="GenerateScreen"
+               path="/Reporting/ShowReportOnScreen.jsp"
+               redirect="false">
+      </forward>
+      <forward name="GenerateSave"
+               path="/regularReportSaveAs"
+               redirect="true">
+      </forward>
+      <forward name="ListReports"
+               path="/listRegularReports.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/edit12MonthRebateAmount"
+            type="org.afscme.enterprise.rebate.web.Edit12MonthRebateAmountAction"
+            name="twelveMonthRebateAmountEditForm"
+            scope="request"
+            validate="true">
+      <forward name="Edit"
+               path="/Membership/TwelveMonthRebateAmountEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editPoliticalRebateAnnualRebateInformation"
+            type="org.afscme.enterprise.rebate.web.EditPoliticalRebateAnnualRebateInformationAction"
+            name="politicalRebateAnnualRebateInformationEditForm"
+            scope="session"
+            validate="false">
+      <forward name="Edit"
+               path="/Membership/PoliticalRebateAnnualRebateInformationEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Save"
+               path="/savePoliticalRebateAnnualRebateInformation.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editPoliticalRebateApplication"
+            type="org.afscme.enterprise.rebate.web.EditPoliticalRebateApplicationAction"
+            name="politicalRebateApplicationForm"
+            scope="session"
+            validate="false">
+      <forward name="Edit"
+               path="/Membership/PoliticalRebateApplicationEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Save"
+               path="/savePoliticalRebateApplication.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editPoliticalRebateRequest"
+            type="org.afscme.enterprise.rebate.web.EditPoliticalRebateRequestAction"
+            name="politicalRebateRequestForm"
+            scope="session"
+            validate="false">
+      <forward name="Edit"
+               path="/Membership/PoliticalRebateRequestEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Save"
+               path="/savePoliticalRebateRequest.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/save12MonthRebateAmount"
+            type="org.afscme.enterprise.rebate.web.Save12MonthRebateAmountAction"
+            name="twelveMonthRebateAmountEditForm"
+            scope="request"
+            input="/Membership/TwelveMonthRebateAmountEdit.jsp"
+            validate="true">
+      <forward name="View"
+               path="/view12MonthRebateAmount.action"
+               redirect="true">
+      </forward>
+    </action>
+    <action path="/savePoliticalRebateAnnualRebateInformation"
+            type="org.afscme.enterprise.rebate.web.SavePoliticalRebateAnnualRebateInformationAction"
+            name="politicalRebateAnnualRebateInformationEditForm"
+            scope="session"
+            input="/Membership/PoliticalRebateAnnualRebateInformationEdit.jsp"
+            validate="true">
+      <forward name="View"
+               path="/viewPoliticalRebateAnnualRebateInformation.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/savePoliticalRebateApplication"
+            type="org.afscme.enterprise.rebate.web.SavePoliticalRebateApplicationAction"
+            name="politicalRebateApplicationForm"
+            scope="session"
+            input="/Membership/PoliticalRebateApplicationEdit.jsp"
+            validate="true">
+      <forward name="View"
+               path="/viewPoliticalRebateApplication.action"
+               redirect="false">
+      </forward>
+      <forward name="Summary"
+               path="/viewPoliticalRebateSummary.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/savePoliticalRebateRequest"
+            type="org.afscme.enterprise.rebate.web.SavePoliticalRebateRequestAction"
+            name="politicalRebateRequestForm"
+            scope="session"
+            input="/Membership/PoliticalRebateRequestEdit.jsp"
+            validate="true">
+      <forward name="View"
+               path="/viewPoliticalRebateRequest.action"
+               redirect="false">
+      </forward>
+      <forward name="Summary"
+               path="/viewPoliticalRebateSummary.action"
+               redirect="false">
+      </forward>
+      <forward name="SummaryByYear"
+               path="/viewPoliticalRebateSummaryByYear.action"
+               redirect="true">
+      </forward>
+    </action>
+    <action path="/view12MonthRebateAmount"
+            type="org.afscme.enterprise.rebate.web.View12MonthRebateAmountAction"
+            name="twelveMonthRebateAmountForm"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/TwelveMonthRebateAmount.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPoliticalRebateAnnualRebateInformation"
+            type="org.afscme.enterprise.rebate.web.ViewPoliticalRebateAnnualRebateInformationAction"
+            name="politicalRebateAnnualRebateInformationForm"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/PoliticalRebateAnnualRebateInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPoliticalRebateApplication"
+            type="org.afscme.enterprise.rebate.web.ViewPoliticalRebateApplicationAction"
+            name="politicalRebateApplicationForm"
+            scope="session"
+            input="/Membership/PoliticalRebateApplication.jsp"
+            validate="false">
+      <forward name="View"
+               path="/Membership/PoliticalRebateApplication.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Edit"
+               path="/editPoliticalRebateApplication.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPoliticalRebateRequest"
+            type="org.afscme.enterprise.rebate.web.ViewPoliticalRebateRequestAction"
+            name="politicalRebateRequestForm"
+            scope="request"
+            input="/Membership/PoliticalRebateRequest.jsp"
+            validate="false">
+      <forward name="View"
+               path="/Membership/PoliticalRebateRequest.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Edit"
+               path="/editPoliticalRebateRequest.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPoliticalRebateSummary"
+            type="org.afscme.enterprise.rebate.web.ViewPoliticalRebateSummaryAction"
+            name="politicalRebateSummaryForm"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/PoliticalRebateSummary.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPoliticalRebateSummaryByYear"
+            type="org.afscme.enterprise.rebate.web.ViewPoliticalRebateSummaryByYearAction"
+            name="politicalRebateSummaryByYearForm"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/PoliticalRebateSummaryByYear.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addChild"
+            type="org.afscme.enterprise.person.web.AddChildAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/AddChild.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addPersonDetail"
+            type="org.afscme.enterprise.person.web.AddPersonDetailAction"
+            name="personDetailAddForm"
+            scope="session"
+            validate="false">
+      <forward name="AddPerson"
+               path="/Membership/PersonDetailAdd.jsp"
+               redirect="false">
+      </forward>
+      <forward name="CancelEditPerson"
+               path="/Membership/PersonDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/cancelSavePerson"
+            type="org.afscme.enterprise.person.web.CancelSavePersonAction"
+            name="personDetailAddForm"
+            scope="request"
+            validate="false">
+      <forward name="PersonAdd"
+               path="/addPersonDetail.action?cancel"
+               redirect="true">
+      </forward>
+      <forward name="PersonEdit"
+               path="/editPersonDetail.action?cancel"
+               redirect="true">
+      </forward>
+      <forward name="MemberAdd"
+               path="/addMemberDetail.action?cancel"
+               redirect="true">
+      </forward>
+      <forward name="MemberAddAffiliation"
+               path="/viewMemberDetailAddAffiliation.action?cancel"
+               redirect="true">
+      </forward>
+      <forward name="MemberEdit"
+               path="/editMemberDetail.action?cancel"
+               redirect="true">
+      </forward>
+      <forward name="AssociateAdd"
+               path="/editOrganizationAssociateDetail.action?cancel"
+               redirect="true">
+      </forward>
+      <forward name="ShowMain"
+               path="/common/MainMenu.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/continueSavePerson"
+            type="org.afscme.enterprise.person.web.ContinueSavePersonAction"
+            name="phoneNumberForm"
+            scope="request"
+            validate="false">
+      <forward name="PersonView"
+               path="/viewPersonDetail.action"
+               redirect="false">
+      </forward>
+      <forward name="PersonAdd"
+               path="/savePersonDetailAdd.action?continue"
+               redirect="true">
+      </forward>
+      <forward name="PersonDetail"
+               path="/savePersonDetail.action?continue"
+               redirect="true">
+      </forward>
+      <forward name="AssociateAdd"
+               path="/saveOrganizationAssociate.action"
+               redirect="true">
+      </forward>
+      <forward name="MemberAdd"
+               path="/saveMemberDetailAdd.action?continue"
+               redirect="true">
+      </forward>
+      <forward name="MemberAddAffiliation"
+               path="/saveMemberDetailAddAffiliation.action?continue"
+               redirect="true">
+      </forward>
+      <forward name="MemberDetail"
+               path="/saveMemberDetail.action?continue"
+               redirect="true">
+      </forward>
+    </action>
+    <action path="/deleteChild"
+            type="org.afscme.enterprise.person.web.DeleteChildAction"
+            name="relationDataForm"
+            scope="request"
+            validate="false">
+      <forward name="View"
+               path="/viewDemographicData.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/deleteEmailAddresses"
+            type="org.afscme.enterprise.person.web.DeleteEmailAddressesAction"
+            name="emailAddressForm"
+            scope="request"
+            validate="false">
+      <forward name="EmailView"
+               path="/viewEmailAddresses.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/deletePhoneNumber"
+            type="org.afscme.enterprise.person.web.DeletePhoneNumberAction"
+            name="phoneNumberForm"
+            scope="request"
+            validate="false">
+      <forward name="PhoneView"
+               path="/viewPhoneNumberInformation.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editDemographicData"
+            type="org.afscme.enterprise.person.web.EditDemographicDataAction"
+            scope="request"
+            validate="true">
+      <forward name="Edit"
+               path="/Membership/GeneralDemographicInformationEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editEmailAddresses"
+            type="org.afscme.enterprise.person.web.EditEmailAddressesAction"
+            name="emailAddressForm"
+            scope="request"
+            validate="false">
+      <forward name="EditEmail"
+               path="/Membership/EmailAddressMaintenanceEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="CancelEditEmail"
+               path="/Membership/EmailAddressMaintenance.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editPersonDetail"
+            type="org.afscme.enterprise.person.web.EditPersonDetailAction"
+            name="personDetailForm"
+            scope="request"
+            validate="false">
+      <forward name="EditPerson"
+               path="/Membership/PersonDetailEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="CancelEditPerson"
+               path="/Membership/PersonDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editPhoneNumber"
+            type="org.afscme.enterprise.person.web.EditPhoneNumberAction"
+            name="phoneNumberForm"
+            scope="request"
+            validate="false">
+      <forward name="EditPhone"
+               path="/Membership/PhoneNumberMaintenanceEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="CancelEditPhone"
+               path="/Membership/PhoneNumberMaintenance.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editPoliticalData"
+            type="org.afscme.enterprise.person.web.EditPoliticalDataAction"
+            scope="request"
+            validate="true">
+      <forward name="Edit"
+               path="/Membership/EditPoliticalLegislativeInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveChild"
+            type="org.afscme.enterprise.person.web.SaveChildAction"
+            name="relationDataForm"
+            scope="request"
+            input="/Membership/AddChild.jsp"
+            validate="true">
+      <forward name="View"
+               path="/viewDemographicData.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveDemographicData"
+            type="org.afscme.enterprise.person.web.SaveDemocraticDataAction"
+            name="demographicDataForm"
+            scope="request"
+            input="/Membership/GeneralDemographicInformationEdit.jsp"
+            validate="true">
+      <forward name="View"
+               path="/viewDemographicData.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveEmailAddresses"
+            type="org.afscme.enterprise.person.web.SaveEmailAddressesAction"
+            name="emailAddressForm"
+            scope="request"
+            input="/Membership/EmailAddressMaintenanceEdit.jsp"
+            validate="false">
+      <forward name="EmailEdit"
+               path="/Membership/EditEmailAddressMaintenance.jsp"
+               redirect="false">
+      </forward>
+      <forward name="EmailView"
+               path="/viewEmailAddresses.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/savePersonDetail"
+            type="org.afscme.enterprise.person.web.SavePersonDetailAction"
+            name="personDetailForm"
+            scope="request"
+            input="/Membership/PersonDetailEdit.jsp"
+            validate="false">
+      <forward name="PersonDuplicateSSN"
+               path="/viewDuplicateSSNNotifierPerson.action"
+               redirect="false">
+      </forward>
+      <forward name="PersonEdit"
+               path="/Membership/PersonDetailEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="PersonView"
+               path="/viewPersonDetail.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/savePersonDetailAdd"
+            type="org.afscme.enterprise.person.web.SavePersonDetailAddAction"
+            name="personDetailAddForm"
+            scope="session"
+            input="/Membership/PersonDetailAdd.jsp"
+            validate="false">
+      <forward name="PersonDuplicateSSN"
+               path="/viewDuplicateSSNNotifierPerson.action"
+               redirect="false">
+      </forward>
+      <forward name="PersonAdd"
+               path="/verifyPerson.action"
+               redirect="false">
+      </forward>
+      <forward name="PersonView"
+               path="/viewPersonDetail.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/savePhoneNumber"
+            type="org.afscme.enterprise.person.web.SavePhoneNumberAction"
+            name="phoneNumberForm"
+            scope="request"
+            input="/Membership/PhoneNumberMaintenanceEdit.jsp"
+            validate="false">
+      <forward name="PhoneAdd"
+               path="/Membership/PhoneNumberMaintenanceEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="PhoneEdit"
+               path="/Membership/PhoneNumberMaintenanceEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="PhoneView"
+               path="/viewPhoneNumberInformation.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/savePoliticalData"
+            type="org.afscme.enterprise.person.web.SavePoliticalDataAction"
+            name="politicalDataForm"
+            scope="request"
+            validate="false">
+      <forward name="View"
+               path="/viewPoliticalData.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/searchPerson"
+            type="org.afscme.enterprise.person.web.SearchPersonAction"
+            name="searchPersonForm"
+            scope="session"
+            input="/Membership/BasicPersonSearch.jsp"
+            validate="true">
+      <forward name="SearchForm"
+               path="/Membership/BasicPersonSearch.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SearchResults"
+               path="/Membership/PersonSearchResults.jsp"
+               redirect="false">
+      </forward>
+      <forward name="PersonDetail"
+               path="/viewPersonDetail.action"
+               redirect="false">
+      </forward>
+      <forward name="PersonDetailAdd"
+               path="/verifyPerson.action?back=PersonAdd"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/searchPowerPerson"
+            type="org.afscme.enterprise.person.web.SearchPowerPersonAction"
+            name="searchPersonForm"
+            scope="session"
+            input="/Membership/PowerPersonSearch.jsp"
+            validate="true">
+      <forward name="SearchForm"
+               path="/Membership/PowerPersonSearch.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SearchResults"
+               path="/Membership/PersonSearchResults.jsp"
+               redirect="false">
+      </forward>
+      <forward name="PersonDetail"
+               path="/viewPersonDetail.action"
+               redirect="false">
+      </forward>
+      <forward name="PersonDetailAdd"
+               path="/verifyPerson.action?back=PersonAdd"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/verifyPerson"
+            type="org.afscme.enterprise.person.web.VerifyPersonAction"
+            name="verifyPersonForm"
+            scope="session"
+            input="/Membership/VerifyPerson.jsp"
+            validate="false">
+      <forward name="VerifyForm"
+               path="/Membership/VerifyPerson.jsp"
+               redirect="false">
+      </forward>
+      <forward name="VerifyResults"
+               path="/Membership/PersonVerifyResults.jsp"
+               redirect="false">
+      </forward>
+      <forward name="AddNew"
+               path="/Membership/PersonDetailAdd.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewBasicPersonCriteria"
+            type="org.afscme.enterprise.person.web.ViewBasicPersonCriteriaAction"
+            name="searchPersonForm"
+            scope="session"
+            validate="false">
+      <forward name="viewSearch"
+               path="/Membership/BasicPersonSearch.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewCommentHistory"
+            type="org.afscme.enterprise.person.web.ViewCommentHistoryAction"
+            name="commentHistoryForm"
+            scope="request"
+            input="/Membership/PersonDetail.jsp"
+            validate="false">
+    </action>
+    <action path="/viewDemographicData"
+            type="org.afscme.enterprise.person.web.ViewDemographicDataAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/GeneralDemographicInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewDuplicateSSNNotifierPerson"
+            type="org.afscme.enterprise.person.web.ViewDuplicateSSNNotifierPersonAction"
+            name="verifyPersonForm"
+            scope="request"
+            validate="false">
+      <forward name="ViewDetail"
+               path="/Membership/PersonDetail.jsp"
+               redirect="false">
+      </forward>
+      <forward name="ViewDuplicates"
+               path="/Membership/DuplicateSSNNotifier.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewEmailAddresses"
+            type="org.afscme.enterprise.person.web.ViewEmailAddressesAction"
+            scope="request"
+            validate="true">
+      <forward name="ViewEmailAddresses"
+               path="/Membership/EmailAddressMaintenance.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPersonDetail"
+            type="org.afscme.enterprise.person.web.ViewPersonDetailAction"
+            scope="request"
+            validate="true">
+      <forward name="ViewPersonDetail"
+               path="/Membership/PersonDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPhoneNumberInformation"
+            type="org.afscme.enterprise.person.web.ViewPhoneNumberInformationAction"
+            scope="request"
+            validate="true">
+      <forward name="ViewPhoneNumberInformation"
+               path="/Membership/PhoneNumberMaintenance.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPoliticalData"
+            type="org.afscme.enterprise.person.web.ViewPoliticalDataAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/ViewPoliticalLegislativeInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPowerPersonCriteria"
+            type="org.afscme.enterprise.person.web.ViewPowerPersonCriteriaAction"
+            name="searchPersonForm"
+            scope="session"
+            validate="false">
+      <forward name="viewSearch"
+               path="/Membership/PowerPersonSearch.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewVerifyPerson"
+            type="org.afscme.enterprise.person.web.ViewVerifyPersonAction"
+            name="verifyPersonForm"
+            scope="session"
+            validate="false">
+      <forward name="VerifyForm"
+               path="/Membership/VerifyPerson.jsp"
+               redirect="false">
+      </forward>
+      <forward name="VerifyResults"
+               path="/Membership/PersonVerifyResults.jsp"
+               redirect="false">
+      </forward>
+      <forward name="AddNewPerson"
+               path="/addPersonDetail.action"
+               redirect="false">
+      </forward>
+      <forward name="AddNewAssociate"
+               path="/editOrganizationAssociateDetail.action?newPerson=true"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addParticipationGroup"
+            type="org.afscme.enterprise.participationgroups.web.AddParticipationGroupAction"
+            name="participationCodeForm"
+            scope="request"
+            input="/Membership/ParticipationGroupAddGroup.jsp"
+            validate="true">
+    </action>
+    <action path="/addParticipationGroupDetail"
+            type="org.afscme.enterprise.participationgroups.web.AddParticipationGroupDetailAction"
+            name="participationCodeForm"
+            scope="request"
+            input="/Membership/ParticipationGroupAddDetail.jsp"
+            validate="true">
+    </action>
+    <action path="/addParticipationGroupOutcome"
+            type="org.afscme.enterprise.participationgroups.web.AddParticipationGroupOutcomeAction"
+            name="participationCodeForm"
+            scope="request"
+            input="/Membership/ParticipationGroupAddOutcome.jsp"
+            validate="true">
+    </action>
+    <action path="/addParticipationGroupType"
+            type="org.afscme.enterprise.participationgroups.web.AddParticipationGroupTypeAction"
+            name="participationCodeForm"
+            scope="request"
+            input="/Membership/ParticipationGroupAddType.jsp"
+            validate="true">
+    </action>
+    <action path="/saveExportParticipationCodes"
+            type="org.afscme.enterprise.participationgroups.web.SaveExportParticipationCodesAction"
+            name="exportParticipationCodesForm"
+            scope="request"
+            input="/Membership/ExportParticipationCodes.jsp"
+            validate="false">
+      <forward name="View"
+               path="/viewParticipationGroup.action"
+               redirect="false">
+      </forward>
+      <forward name="SaveAs"
+               path="/saveAs"
+               redirect="true">
+      </forward>
+    </action>
+    <action path="/saveParticipationGroup"
+            type="org.afscme.enterprise.participationgroups.web.SaveParticipationGroupAction"
+            name="participationCodeForm"
+            scope="request"
+            input="/Membership/ParticipationGroupAddGroup.jsp"
+            validate="false">
+      <forward name="View"
+               path="/viewParticipationGroup.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveParticipationGroupDetail"
+            type="org.afscme.enterprise.participationgroups.web.SaveParticipationGroupDetailAction"
+            name="participationCodeForm"
+            scope="request"
+            input="/Membership/ParticipationGroupAddDetail.jsp"
+            validate="true">
+      <forward name="View"
+               path="/viewParticipationGroup.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveParticipationGroupOutcome"
+            type="org.afscme.enterprise.participationgroups.web.SaveParticipationGroupOutcomeAction"
+            name="participationCodeForm"
+            scope="request"
+            input="/Membership/ParticipationGroupAddOutcome.jsp"
+            validate="true">
+      <forward name="View"
+               path="/viewParticipationGroup.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveParticipationGroupType"
+            type="org.afscme.enterprise.participationgroups.web.SaveParticipationGroupTypeAction"
+            name="participationCodeForm"
+            scope="request"
+            input="/Membership/ParticipationGroupAddType.jsp"
+            validate="true">
+      <forward name="View"
+               path="/viewParticipationGroup.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewExportParticipationCodes"
+            type="org.afscme.enterprise.participationgroups.web.ViewExportParticipationCodesAction"
+            name="exportParticipationCodesForm"
+            scope="request"
+            validate="false">
+      <forward name="View"
+               path="/Membership/ExportParticipationCodes.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewParticipationGroup"
+            type="org.afscme.enterprise.participationgroups.web.ViewParticipationGroupAction"
+            name="participationCodeForm"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/ParticipationGroupView.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewParticipationGroupMaintenance"
+            type="org.afscme.enterprise.participationgroups.web.ViewParticipationGroupMaintenanceAction"
+            name="participationCodeListForm"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/ParticipationGroupMaintenance.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addOrganizationDetail"
+            type="org.afscme.enterprise.organization.web.AddOrganizationDetailAction"
+            name="organizationDetailForm"
+            scope="request"
+            input="/Membership/OrganizationDetailAdd.jsp"
+            validate="false">
+      <forward name="AddNew"
+               path="/Membership/OrganizationDetailAdd.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Cancelled"
+               path="/showMain.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/deleteLocation"
+            type="org.afscme.enterprise.organization.web.DeleteLocationAction"
+            scope="request"
+            validate="true">
+      <forward name="Done"
+               path="/viewLocationInformation.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editLocation"
+            type="org.afscme.enterprise.organization.web.EditLocationAction"
+            name="locationForm"
+            scope="request"
+            input="/Membership/LocationMaintenanceEdit.jsp"
+            validate="false">
+      <forward name="Edit"
+               path="/Membership/LocationMaintenanceEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Cancelled"
+               path="/Membership/LocationMaintenance.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editOrganizationAssociateDetail"
+            type="org.afscme.enterprise.organization.web.EditOrganizationAssociateDetailAction"
+            name="organizationAssociateDetailForm"
+            scope="session"
+            input="/Membership/OrganizationAssociateDetailEdit.jsp"
+            validate="true">
+      <forward name="Edit"
+               path="/Membership/OrganizationAssociateDetailEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editOrganizationDetail"
+            type="org.afscme.enterprise.organization.web.EditOrganizationDetailAction"
+            name="organizationDetailForm"
+            scope="request"
+            validate="false">
+      <forward name="Edit"
+               path="/Membership/OrganizationDetailEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Cancelled"
+               path="/Membership/OrganizationDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/removeOrganizationAssociate"
+            type="org.afscme.enterprise.organization.web.RemoveOrganizationAssociateAction"
+            scope="request"
+            validate="true">
+      <forward name="Done"
+               path="/viewOrganizationAssociateList.action"
+               redirect="true">
+      </forward>
+    </action>
+    <action path="/saveLocation"
+            type="org.afscme.enterprise.organization.web.SaveLocationAction"
+            name="locationForm"
+            scope="request"
+            input="/Membership/LocationMaintenanceEdit.jsp"
+            validate="false">
+      <forward name="LocationMaintenance"
+               path="/viewLocationInformation.action"
+               redirect="false">
+      </forward>
+      <forward name="ProcessReturnedMail"
+               path="/processReturnedMailSummary.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveOrganizationAssociate"
+            type="org.afscme.enterprise.organization.web.SaveOrganizationAssociateAction"
+            name="organizationAssociateDetailForm"
+            scope="session"
+            input="/Membership/OrganizationAssociateDetailEdit.jsp"
+            validate="true">
+      <forward name="ViewAssociate"
+               path="/viewOrganizationAssociateDetail.action"
+               redirect="true">
+      </forward>
+      <forward name="ViewResults"
+               path="/viewVerifyPerson.action?back=AssociateAdd"
+               redirect="true">
+      </forward>
+      <forward name="ViewVerify"
+               path="/verifyPerson.action?cancel"
+               redirect="true">
+      </forward>
+      <forward name="PersonDuplicateSSN"
+               path="/viewDuplicateSSNNotifierPerson.action"
+               redirect="false">
+      </forward>
+      <forward name="SelectLocation"
+               path="/viewLocationSelection.action?back=AssociateDetail"
+               redirect="true">
+      </forward>
+    </action>
+    <action path="/saveOrganizationDetail"
+            type="org.afscme.enterprise.organization.web.SaveOrganizationDetailAction"
+            name="organizationDetailForm"
+            scope="request"
+            validate="false">
+      <forward name="OrgDetailAdd"
+               path="/Membership/OrganizationDetailAdd.jsp"
+               redirect="false">
+      </forward>
+      <forward name="OrgDetailEdit"
+               path="/Membership/OrganizationDetailEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="OrgDetail"
+               path="/viewOrganizationDetail.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/searchOrganizations"
+            type="org.afscme.enterprise.organization.web.SearchOrganizationsAction"
+            name="searchOrganizationsForm"
+            scope="session"
+            input="/Membership/OrganizationSearch.jsp"
+            validate="true">
+      <forward name="SearchForm"
+               path="/Membership/OrganizationSearch.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SearchResults"
+               path="/Membership/OrganizationSearchResults.jsp"
+               redirect="false">
+      </forward>
+      <forward name="OrgDetail"
+               path="/viewOrganizationDetail.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/verifyOrganization"
+            type="org.afscme.enterprise.organization.web.VerifyOrganizationAction"
+            name="verifyOrganizationForm"
+            scope="session"
+            input="/Membership/VerifyOrganization.jsp"
+            validate="true">
+      <forward name="VerifyForm"
+               path="/Membership/VerifyOrganization.jsp"
+               redirect="false">
+      </forward>
+      <forward name="VerifyResults"
+               path="/Membership/OrganizationVerifyResults.jsp"
+               redirect="false">
+      </forward>
+      <forward name="AddNew"
+               path="/addOrganizationDetail.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewLocationInformation"
+            type="org.afscme.enterprise.organization.web.ViewLocationInformationAction"
+            name="locationListForm"
+            scope="request"
+            validate="false">
+      <forward name="View"
+               path="/Membership/LocationMaintenance.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewOrganizationAssociateCommentHistory"
+            type="org.afscme.enterprise.organization.web.ViewOrganizationAssociateCommentHistoryAction"
+            name="commentHistoryForm"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/CommentHistory.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewOrganizationAssociateDetail"
+            type="org.afscme.enterprise.organization.web.ViewOrganizationAssociateDetailAction"
+            name="organizationAssociateDetailForm"
+            scope="request"
+            input="/Membership/OrganizationAssociateDetail.jsp"
+            validate="true">
+      <forward name="View"
+               path="/Membership/OrganizationAssociateDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewOrganizationAssociateList"
+            type="org.afscme.enterprise.organization.web.ViewOrganizationAssociateListAction"
+            name="organizationAssociateListForm"
+            scope="session"
+            input="/Membership/OrganizationAssociateMaintenance.jsp"
+            validate="true">
+      <forward name="OrgAssociateResults"
+               path="/Membership/OrganizationAssociateMaintenance.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewOrganizationCriteria"
+            type="org.afscme.enterprise.organization.web.ViewOrganizationCriteriaAction"
+            name="searchOrganizationsForm"
+            scope="session"
+            validate="false">
+      <forward name="viewSearch"
+               path="/Membership/OrganizationSearch.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewOrganizationDetail"
+            type="org.afscme.enterprise.organization.web.ViewOrganizationDetailAction"
+            name="organizationDetailForm"
+            scope="request"
+            input="/Membership/OrganizationDetail.jsp"
+            validate="false">
+      <forward name="View"
+               path="/Membership/OrganizationDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPersonOrgAssociateList"
+            type="org.afscme.enterprise.organization.web.ViewPersonOrgAssociateListAction"
+            name="personOrgAssociateListForm"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/PersonOrganizationAssociateList.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewVerifyOrganization"
+            type="org.afscme.enterprise.organization.web.ViewVerifyOrganizationAction"
+            name="verifyOrganizationForm"
+            scope="session"
+            validate="false">
+      <forward name="viewVerify"
+               path="/Membership/VerifyOrganization.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addPhoneNumber"
+            type="org.afscme.enterprise.myinfo.web.AddPhoneNumberAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/PersonalInformation/AddPhoneNumber.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editMyInfo"
+            type="org.afscme.enterprise.myinfo.web.EditMyInfoAction"
+            scope="request"
+            validate="true">
+      <forward name="Edit"
+               path="/PersonalInformation/EditPersonalInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveMyInfo"
+            type="org.afscme.enterprise.myinfo.web.SaveMyInfoAction"
+            name="myInfoForm"
+            scope="request"
+            input="/PersonalInformation/EditPersonalInformation.jsp"
+            validate="true">
+      <forward name="View"
+               path="/viewMyInfo.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/savePhoneNumberMyInfo"
+            type="org.afscme.enterprise.myinfo.web.SavePhoneNumberAction"
+            name="phoneNumberForm"
+            scope="request"
+            input="/PersonalInformation/AddPhoneNumber.jsp"
+            validate="true">
+      <forward name="View"
+               path="/viewMyInfo.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewMyInfo"
+            type="org.afscme.enterprise.myinfo.web.ViewMyInfoAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/PersonalInformation/ViewPersonalInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/AddDataEntry"
+            type="org.afscme.enterprise.minimumdues.web.AddDataEntryAction"
+            name="AddDataEntryForm"
+            scope="request"
+            validate="false">
+      <forward name="addDataEntry"
+               path="/Minimumdues/AddDataEntry.jsp"
+               redirect="false">
+      </forward>
+      <forward name="saveAndDataEntry"
+               path="/Minimumdues/DataEntry.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/AddEmployer"
+            type="org.afscme.enterprise.minimumdues.web.AddEmployerAction"
+            name="AddEmployerForm"
+            scope="request"
+            input="/Minimumdues/AddEmployer.jsp"
+            validate="false">
+      <forward name="addEmployer"
+               path="/Minimumdues/AddEmployer.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/AffiliateChooseAdd"
+            type="org.afscme.enterprise.minimumdues.web.AffiliateChooseAddAction"
+            name="AffiliateChooseAddForm"
+            scope="request"
+            validate="false">
+      <forward name="viewChooseAdd"
+               path="/Membership/AffiliateChooseAdd.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/DataEntry"
+            type="org.afscme.enterprise.minimumdues.web.DataEntryAction"
+            name="DataEntryForm"
+            scope="request"
+            input="/Minimumdues/DataEntry.jsp"
+            validate="false">
+      <forward name="nothing"
+               path="/Minimumdues/DataEntry.jsp"
+               redirect="false">
+      </forward>
+      <forward name="addData"
+               path="/Minimumdues/AddDataEntry.jsp"
+               redirect="false">
+      </forward>
+      <forward name="viewData"
+               path="/Minimumdues/ViewDataEntry.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/EditDataEntry"
+            type="org.afscme.enterprise.minimumdues.web.EditDataEntryAction"
+            name="EditDataEntryForm"
+            scope="request"
+            validate="false">
+      <forward name="editDataEntry"
+               path="/Minimumdues/EditDataEntry.jsp"
+               redirect="false">
+      </forward>
+      <forward name="deleteDataEntry"
+               path="/viewBasicAffiliateCriteria.action?new"
+               redirect="false">
+      </forward>
+      <forward name="updateAndView"
+               path="/Minimumdues/ViewDataEntry.jsp"
+               redirect="false">
+      </forward>
+      <forward name="backToView"
+               path="/Minimumdues/ViewDataEntry.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/EditDelEmployer"
+            type="org.afscme.enterprise.minimumdues.web.EditDelEmployerAction"
+            name="EditDelEmployerForm"
+            scope="request"
+            input="/Minimumdues/EditEmployer.jsp"
+            validate="false">
+      <forward name="editEmployer"
+               path="/Minimumdues/EditEmployer.jsp"
+               redirect="false">
+      </forward>
+      <forward name="deleteEmployer"
+               path="/viewBasicAffiliateCriteria.action?new"
+               redirect="false">
+      </forward>
+      <forward name="updateEmployer"
+               path="/AffiliateChooseAdd.action"
+               redirect="false">
+      </forward>
+      <forward name="cancelEditEmployer"
+               path="/AffiliateChooseAdd.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/ViewDataEntry"
+            type="org.afscme.enterprise.minimumdues.web.ViewDataEntryAction"
+            name="ViewDataEntryForm"
+            scope="request"
+            validate="false">
+      <forward name="viewDataEntry"
+               path="/Minimumdues/ViewDataEntry.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addMemberDetail"
+            type="org.afscme.enterprise.member.web.AddMemberDetailAction"
+            name="memberDetailAddForm"
+            scope="session"
+            validate="false">
+      <forward name="AddMember"
+               path="/Membership/MemberDetailAdd.jsp"
+               redirect="false">
+      </forward>
+      <forward name="VerifyResults"
+               path="/Membership/MemberVerifyResults.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addParticipationDetail"
+            type="org.afscme.enterprise.member.web.AddParticipationDetailAction"
+            name="participationDetailForm"
+            scope="request"
+            validate="false">
+      <forward name="Add"
+               path="/Membership/ParticipationDetailAdd.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/deleteParticipationDetail"
+            type="org.afscme.enterprise.member.web.DeleteParticipationDetailAction"
+            scope="request"
+            validate="false">
+      <forward name="NewResults"
+               path="/viewParticipationSummary.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editEmployerInformation"
+            type="org.afscme.enterprise.member.web.EditEmployerInformationAction"
+            name="employerInformationForm"
+            scope="request"
+            validate="false">
+      <forward name="EditEmployer"
+               path="/Membership/EmployerInformationEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="CancelEditEmployer"
+               path="/Membership/EmployerInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editMemberAffiliateInformation"
+            type="org.afscme.enterprise.member.web.EditMemberAffiliateInformationAction"
+            name="memberAffiliateInformationForm"
+            scope="session"
+            validate="false">
+      <forward name="EditMemberAff"
+               path="/Membership/MemberAffiliateInformationEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="CancelEditMemberAff"
+               path="/Membership/MemberAffiliateInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editMemberDetail"
+            type="org.afscme.enterprise.member.web.EditMemberDetailAction"
+            name="memberDetailForm"
+            scope="session"
+            validate="false">
+      <forward name="EditMember"
+               path="/Membership/MemberDetailEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="CancelEditMember"
+               path="/Membership/MemberDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editParticipationDetail"
+            type="org.afscme.enterprise.member.web.EditParticipationDetailAction"
+            name="participationDetailForm"
+            scope="request"
+            validate="false">
+      <forward name="Edit"
+               path="/Membership/ParticipationDetailEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/generateMbrCard"
+            type="org.afscme.enterprise.member.web.GenerateMbrCardAction"
+            scope="request"
+            validate="false">
+      <forward name="MemberAff"
+               path="/viewMemberAffiliateInformation.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveEmployerInformation"
+            type="org.afscme.enterprise.member.web.SaveEmployerInformationAction"
+            name="employerInformationForm"
+            scope="request"
+            input="/Membership/EmployerInformationEdit.jsp"
+            validate="false">
+      <forward name="EmployerEdit"
+               path="/Membership/EmployerInformationEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="EmployerView"
+               path="/viewEmployerInformation.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveMemberAffiliateInformation"
+            type="org.afscme.enterprise.member.web.SaveMemberAffiliateInformationAction"
+            name="memberAffiliateInformationForm"
+            scope="session"
+            input="/Membership/MemberAffiliateInformationEdit.jsp"
+            validate="false">
+      <forward name="MemberAffEdit"
+               path="/Membership/MemberAffiliateInformationEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="MemberAffView"
+               path="/viewMemberAffiliateInformation.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveMemberDetail"
+            type="org.afscme.enterprise.member.web.SaveMemberDetailAction"
+            name="memberDetailForm"
+            scope="session"
+            input="/Membership/MemberDetailEdit.jsp"
+            validate="false">
+      <forward name="PersonDuplicateSSN"
+               path="/viewDuplicateSSNNotifierPerson.action"
+               redirect="false">
+      </forward>
+      <forward name="MemberEdit"
+               path="/Membership/MemberDetailEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="MemberView"
+               path="/viewMemberDetail.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveMemberDetailAdd"
+            type="org.afscme.enterprise.member.web.SaveMemberDetailAddAction"
+            name="memberDetailAddForm"
+            scope="session"
+            input="/Membership/MemberDetailAdd.jsp"
+            validate="false">
+      <forward name="PersonDuplicateSSN"
+               path="/viewDuplicateSSNNotifierPerson.action"
+               redirect="false">
+      </forward>
+      <forward name="MemberAdd"
+               path="/saveMemberDetailAdd.action"
+               redirect="false">
+      </forward>
+      <forward name="VerifyMember"
+               path="/verifyMember.action"
+               redirect="false">
+      </forward>
+      <forward name="MemberView"
+               path="/viewMemberDetail.action"
+               redirect="false">
+      </forward>
+      <forward name="VerifyResults"
+               path="/Membership/MemberVerifyResults.jsp"
+               redirect="false">
+      </forward>
+      <forward name="MemberAddPage"
+               path="/Membership/MemberDetailAdd.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Basic"
+               path="/viewBasicMemberCriteria.action"
+               redirect="false">
+      </forward>
+      <forward name="Power"
+               path="/viewPowerMemberCriteria.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveMemberDetailAddAffiliation"
+            type="org.afscme.enterprise.member.web.SaveMemberDetailAddAffiliationAction"
+            name="memberDetailAddForm"
+            scope="session"
+            input="/Membership/MemberDetailAddAffiliation.jsp"
+            validate="false">
+      <forward name="PersonDuplicateSSN"
+               path="/viewDuplicateSSNNotifierPerson.action"
+               redirect="false">
+      </forward>
+      <forward name="MemberAdd"
+               path="/saveMemberDetailAddAffiliation.action"
+               redirect="false">
+      </forward>
+      <forward name="VerifyMember"
+               path="/verifyMember.action"
+               redirect="false">
+      </forward>
+      <forward name="MemberView"
+               path="/viewMemberDetail.action"
+               redirect="false">
+      </forward>
+      <forward name="VerifyResults"
+               path="/Membership/MemberVerifyResults.jsp"
+               redirect="false">
+      </forward>
+      <forward name="MemberAddPage"
+               path="/Membership/MemberDetailAddAffiliation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveParticipationDetail"
+            type="org.afscme.enterprise.member.web.SaveParticipationDetailAction"
+            name="participationDetailForm"
+            scope="request"
+            input="/Membership/ParticipationDetailEdit.jsp"
+            validate="false">
+      <forward name="View"
+               path="/viewParticipationDetail.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveParticipationDetailAdd"
+            type="org.afscme.enterprise.member.web.SaveParticipationDetailAddAction"
+            name="participationDetailForm"
+            scope="request"
+            input="/Membership/ParticipationDetailAdd.jsp"
+            validate="false">
+      <forward name="View"
+               path="/viewParticipationDetail.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/searchMembers"
+            type="org.afscme.enterprise.member.web.SearchMembersAction"
+            name="searchMembersForm"
+            scope="session"
+            validate="false">
+      <forward name="Basic"
+               path="/Membership/BasicMemberSearch.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Power"
+               path="/Membership/PowerMemberSearch.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SearchForm"
+               path="/Membership/BasicMemberSearch.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SearchResults"
+               path="/Membership/MemberSearchResults.jsp"
+               redirect="false">
+      </forward>
+      <forward name="MbrDetail"
+               path="/viewMemberDetail.action"
+               redirect="false">
+      </forward>
+      <forward name="MbrDetailAdd"
+               path="/addMemberDetail.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/searchVendorMembers"
+            type="org.afscme.enterprise.member.web.SearchVendorMembersAction"
+            name="searchVendorMembersForm"
+            scope="session"
+            input="/Common/VendorMemberSearch.jsp?noMain=true"
+            validate="true">
+      <forward name="VendorMemberSearch"
+               path="/Common/VendorMemberSearch.jsp?noMain=true"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/verifyMember"
+            type="org.afscme.enterprise.member.web.VerifyMemberAction"
+            name="verifyMemberForm"
+            scope="session"
+            input="/Membership/VerifyMember.jsp"
+            validate="false">
+      <forward name="VerifyForm"
+               path="/Membership/VerifyMember.jsp"
+               redirect="false">
+      </forward>
+      <forward name="VerifyResults"
+               path="/Membership/MemberVerifyResults.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewBasicMemberCriteria"
+            type="org.afscme.enterprise.member.web.ViewBasicMemberCriteriaAction"
+            name="searchMembersForm"
+            scope="request"
+            validate="false">
+      <forward name="viewSearch"
+               path="/Membership/BasicMemberSearch.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewEmployerInformation"
+            type="org.afscme.enterprise.member.web.ViewEmployerInformationAction"
+            name="employerInformationForm"
+            scope="request"
+            input="/Membership/EmployerInformation.jsp"
+            validate="false">
+      <forward name="ViewEmployerInfo"
+               path="/Membership/EmployerInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewMemberAffiliateInformation"
+            type="org.afscme.enterprise.member.web.ViewMemberAffiliateInformationAction"
+            name="memberAffiliateInformationForm"
+            scope="request"
+            input="/Membership/MemberAffiliateInformation.jsp"
+            validate="false">
+      <forward name="ViewMemberAffiliate"
+               path="/Membership/MemberAffiliateInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewMemberCommentHistory"
+            type="org.afscme.enterprise.member.web.ViewMemberCommentHistoryAction"
+            name="commentHistoryForm"
+            scope="request"
+            input="/Membership/MemberDetail.jsp"
+            validate="false">
+    </action>
+    <action path="/viewMemberDetail"
+            type="org.afscme.enterprise.member.web.ViewMemberDetailAction"
+            scope="request"
+            validate="true">
+      <forward name="ViewMemberDetail"
+               path="/Membership/MemberDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewMemberDetailAddAffiliation"
+            type="org.afscme.enterprise.member.web.ViewMemberDetailAddAffiliationAction"
+            name="memberDetailAddForm"
+            scope="request"
+            input="/Membership/MemberDetailAddAffiliation.jsp"
+            validate="false">
+      <forward name="ViewMemberAddAffiliation"
+               path="/Membership/MemberDetailAddAffiliation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewParticipationDetail"
+            type="org.afscme.enterprise.member.web.ViewParticipationDetailAction"
+            name="participationDetailForm"
+            scope="request"
+            validate="false">
+      <forward name="View"
+               path="/Membership/ParticipationDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewParticipationSummary"
+            type="org.afscme.enterprise.member.web.ViewParticipationSummaryAction"
+            name="participationSummaryForm"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/ParticipationSummary.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPowerMemberCriteria"
+            type="org.afscme.enterprise.member.web.ViewPowerMemberCriteriaAction"
+            name="searchMembersForm"
+            scope="request"
+            validate="false">
+      <forward name="viewSearch"
+               path="/Membership/PowerMemberSearch.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewVendorMemberCriteria"
+            type="org.afscme.enterprise.member.web.ViewVendorMemberCriteriaAction"
+            name="searchVendorMembersForm"
+            scope="request"
+            validate="false">
+      <forward name="VendorMemberSearch"
+               path="/Common/VendorMemberSearch.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewVerifyMember"
+            type="org.afscme.enterprise.member.web.ViewVerifyMemberAction"
+            name="verifyMemberForm"
+            scope="session"
+            validate="false">
+      <forward name="VerifyForm"
+               path="/Membership/VerifyMember.jsp"
+               redirect="false">
+      </forward>
+      <forward name="VerifyResults"
+               path="/Membership/MemberVerifyResults.jsp"
+               redirect="false">
+      </forward>
+      <forward name="AddNew"
+               path="/addMemberDetail.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveEnableMassChange"
+            type="org.afscme.enterprise.masschange.web.SaveEnableMassChangeAction"
+            name="massChangeForm"
+            scope="request"
+            input="/Membership/EnableMassChange.jsp"
+            validate="false">
+    </action>
+    <action path="/viewEnableMassChange"
+            type="org.afscme.enterprise.masschange.web.ViewEnableMassChangeAction"
+            name="massChangeForm"
+            scope="request"
+            validate="false">
+      <forward name="viewMassChange"
+               path="/Membership/EnableMassChange.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addMailingListsInformation"
+            type="org.afscme.enterprise.mailinglists.web.AddMailingListsInformationAction"
+            name="addMailingListsInformationForm"
+            scope="request"
+            input="/Membership/MailingListsInformationAdd.jsp"
+            validate="true">
+      <forward name="View"
+               path="/Membership/MailingListsInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/deleteMailingListsInformation"
+            type="org.afscme.enterprise.mailinglists.web.DeleteMailingListsInformationAction"
+            name="mailingListsInformationForm"
+            scope="request"
+            validate="true">
+      <forward name="Done"
+               path="/viewMailingListsInformation.action"
+               redirect="true">
+      </forward>
+    </action>
+    <action path="/editMailingListsInformation"
+            type="org.afscme.enterprise.mailinglists.web.EditMailingListsInformationAction"
+            name="editMailingListsInformationForm"
+            scope="request"
+            input="/Membership/MailingListsInformationEdit.jsp"
+            validate="false">
+      <forward name="Edit"
+               path="/Membership/MailingListsInformationEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="View"
+               path="/Membership/MailingListsInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewMailingListsAddressAssociation"
+            type="org.afscme.enterprise.mailinglists.web.ViewMailingListsAddressAssociationAction"
+            scope="request"
+            validate="true">
+      <forward name="ViewMailingLists"
+               path="/Membership/MailingListsInformation.jsp"
+               redirect="false">
+      </forward>
+      <forward name="ViewAddressAssociations"
+               path="/Membership/MailingListsAddressAssociation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewMailingListsInformation"
+            type="org.afscme.enterprise.mailinglists.web.ViewMailingListsInformationAction"
+            name="mailingListsInformationForm"
+            scope="session"
+            input="/Membership/MailingListsInformation.jsp"
+            validate="true">
+      <forward name="View"
+               path="/Membership/MailingListsInformation.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Add"
+               path="/Membership/MailingListsInformationAdd.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewCorrespondenceHistory"
+            type="org.afscme.enterprise.correspondence.web.ViewCorrespondenceHistoryAction"
+            name="correspondenceHistoryInformationForm"
+            scope="session"
+            input="/Membership/CorrespondenceHistoryInformation.jsp"
+            validate="true">
+      <forward name="View"
+               path="/Membership/CorrespondenceHistoryInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editAccountInfo"
+            type="org.afscme.enterprise.controller.web.AccountInfoAction"
+            name="accountInfoForm"
+            scope="request"
+            input="/Common/AccountInfoEdit.jsp"
+            validate="true">
+    </action>
+    <action path="/leaveDataUtility"
+            type="org.afscme.enterprise.controller.web.LeaveDataUtilityAction"
+            scope="request"
+            validate="true">
+    </action>
+    <action path="/login"
+            type="org.afscme.enterprise.controller.web.LoginAction"
+            name="loginForm"
+            scope="request"
+            input="/Common/Login.jsp"
+            validate="true">
+      <forward name="RequestPassword"
+               path="/requestPassword.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/logout"
+            type="org.afscme.enterprise.controller.web.LogoutAction"
+            scope="request"
+            validate="true">
+    </action>
+    <action path="/requestPassword"
+            type="org.afscme.enterprise.controller.web.RequestPasswordAction"
+            name="requestPasswordForm"
+            scope="request"
+            input="/Common/RequestPassword.jsp"
+            validate="true">
+      <forward name="Login"
+               path="/Common/Login.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Success"
+               path="/Common/PasswordSent.jsp"
+               redirect="false">
+      </forward>
+      <forward name="NoEmail"
+               path="/Common/NoEmail.jsp"
+               redirect="false">
+      </forward>
+      <forward name="NoChallengeQuestion"
+               path="/Common/NoChallengeQuestion.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/selectAffiliate"
+            type="org.afscme.enterprise.controller.web.SelectAffiliateAction"
+            scope="request"
+            validate="true">
+    </action>
+    <action path="/selectAffiliateSearch"
+            type="org.afscme.enterprise.controller.web.SelectAffiliateSearchAction"
+            name="selectAffiliateSearchForm"
+            scope="session"
+            input="/Common/SelectAffiliateSearch.jsp"
+            validate="true">
+      <forward name="SearchForm"
+               path="/Common/SelectAffiliateSearch.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SearchResults"
+               path="/Common/SelectAffiliateSearchResults.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/showMain"
+            type="org.afscme.enterprise.controller.web.ShowMainAction"
+            scope="request"
+            validate="true">
+      <forward name="AFSCMEMain"
+               path="/Common/MinimumDuesMainMenu.jsp?noMain=true"
+               redirect="false">
+      </forward>
+      <forward name="DataUtilityMain"
+               path="/Common/DataUtilityMainMenu.jsp?noMain=true"
+               redirect="false">
+      </forward>
+      <forward name="DataUtilityMainNoReturn"
+               path="/Common/DataUtilityMainMenu.jsp?noMain=noReturn"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/switchAffiliate"
+            type="org.afscme.enterprise.controller.web.SwitchAffiliateAction"
+            scope="request"
+            validate="true">
+    </action>
+    <action path="/viewPersonalInformation"
+            type="org.afscme.enterprise.controller.web.ViewPersonalInformationAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/PersonalInformation/ViewPersonalInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editPersonalInformation"
+            type="org.afscme.enterprise.common.web.EditPersonalInformationAction"
+            scope="request"
+            validate="true">
+      <forward name="Edit"
+               path="/Common/EditPersonalInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPersonalInformation"
+            type="org.afscme.enterprise.common.web.ViewPersonalInformationAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Common/ViewPersonalInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/deleteCode"
+            type="org.afscme.enterprise.codes.web.DeleteCodeAction"
+            name="codeForm"
+            scope="request"
+            input="/Admin/EditCode.jsp"
+            validate="true">
+      <forward name="Done"
+               path="/editCodeType.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/deleteCodeType"
+            type="org.afscme.enterprise.codes.web.DeleteCodeTypeAction"
+            name="codeTypeForm"
+            scope="request"
+            validate="false">
+    </action>
+    <action path="/editCode"
+            type="org.afscme.enterprise.codes.web.EditCodeAction"
+            name="codeForm"
+            scope="request"
+            validate="true">
+      <forward name="Edit"
+               path="/Admin/EditCode.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Add"
+               path="/Admin/EditCode.jsp?add"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editCodeType"
+            type="org.afscme.enterprise.codes.web.EditCodeTypeAction"
+            name="codeTypeForm"
+            scope="request"
+            validate="false">
+      <forward name="Edit"
+               path="/Admin/EditCodeType.jsp"
+               redirect="false">
+      </forward>
+      <forward name="Add"
+               path="/Admin/EditCodeType.jsp?add"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/listCodeTypes"
+            type="org.afscme.enterprise.codes.web.ListCodeTypesAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Admin/ListCodeTypes.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveCode"
+            type="org.afscme.enterprise.codes.web.SaveCodeAction"
+            name="codeForm"
+            scope="request"
+            input="/Admin/EditCode.jsp"
+            validate="true">
+      <forward name="AddCode"
+               path="/editCode.action?new"
+               redirect="false">
+      </forward>
+      <forward name="Done"
+               path="/editCodeType.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveCodeType"
+            type="org.afscme.enterprise.codes.web.SaveCodeTypeAction"
+            name="codeTypeForm"
+            scope="request"
+            input="/Admin/EditCodeType.jsp"
+            validate="false">
+      <forward name="ListCodeTypes"
+               path="/listCodeTypes.action"
+               redirect="true">
+      </forward>
+      <forward name="EditCodeType"
+               path="/editCodeType.action?add=false"
+               redirect="false">
+      </forward>
+      <forward name="AddCode"
+               path="/editCode.action?new=true"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addBypassedAffiliateCNRetChapAction"
+            type="org.afscme.enterprise.cards.web.AddBypassedAffiliateCNRetChapAction"
+            name="addBypassedAffiliateCNRetChapAction"
+            scope="request"
+            validate="false">
+      <forward name="Add"
+               path="/Membership/GetBypassedAffiliate.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addBypassedAffiliateLocalSubChapter"
+            type="org.afscme.enterprise.cards.web.AddBypassedAffiliateLocalSubChapterAction"
+            name="addBypassedAffiliateLocalSubChapterAction"
+            scope="request"
+            validate="false">
+      <forward name="Add"
+               path="/Membership/GetBypassedAffiliate.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addBypassedAffiliateStateNational"
+            type="org.afscme.enterprise.cards.web.AddBypassedAffiliateStateNationalAction"
+            name="addBypassedAffiliateStateNationalAction"
+            scope="request"
+            validate="false">
+      <forward name="Add"
+               path="/Membership/GetBypassedAffiliate.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addBypassedAffiliateSubUnit"
+            type="org.afscme.enterprise.cards.web.AddBypassedAffiliateSubUnitAction"
+            name="addBypassedAffiliateSubUnitAction"
+            scope="request"
+            validate="false">
+      <forward name="Add"
+               path="/Membership/GetBypassedAffiliate.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addBypassedAffiliateType"
+            type="org.afscme.enterprise.cards.web.AddBypassedAffiliateTypeAction"
+            name="addBypassedAffiliateTypeAction"
+            scope="request"
+            validate="false">
+      <forward name="Add"
+               path="/Membership/GetBypassedAffiliate.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveBypassedAffiliateAnnualCardRunTypeAction"
+            type="org.afscme.enterprise.cards.web.SaveBypassedAffilateAnnualCardRunTypeAction"
+            name="saveBypassedAffiliateAnnualCardRunTypeAction"
+            scope="request"
+            input="/Membership/GetBypassedAffiliate.jsp"
+            validate="false">
+    </action>
+    <action path="/saveBypassedAffiliateCNRetChapActon"
+            type="org.afscme.enterprise.cards.web.SaveBypassedAffiliateCNRetChapAction"
+            name="saveBypassedAffiliateCNRetChapAction"
+            scope="request"
+            input="/Membership/GetBypassedAffiliates.jsp"
+            validate="false">
+    </action>
+    <action path="/saveBypassedAffiliateLocalSubChapterAction"
+            type="org.afscme.enterprise.cards.web.SaveBypassedAffiliateLocalSubChapterAction"
+            name="saveBypassedAffiliateLocalSubChapter"
+            scope="request"
+            input="/Membership/GetBypassedAffiliates.jsp"
+            validate="false">
+    </action>
+    <action path="/saveBypassedAffiliateStateNationalAction"
+            type="org.afscme.enterprise.cards.web.SaveBypassedAffiliateStateNationalAction"
+            name="saveBypassedaffiliateStateNational"
+            scope="request"
+            input="/Membership/GetBypassedAffiliates.jsp"
+            validate="false">
+    </action>
+    <action path="/saveBypassedAffiliateSubUnitAction"
+            type="org.afscme.enterprise.cards.web.SaveBypassedAffiliateSubUnitAction"
+            name="saveBypassedaffiliateSubUnit"
+            scope="request"
+            input="/Membership/GetBypassedAffiliate.jsp"
+            validate="false">
+    </action>
+    <action path="/saveBypassedaffiliateTypeAction"
+            type="org.afscme.enterprise.cards.web.SaveBypassedAffiliateTypeAction"
+            name="saveBypassedaffiliateType"
+            scope="request"
+            input="/Membership/GetBypassedAffiliate.jsp"
+            validate="false">
+    </action>
+    <action path="/selectBypassedAffiliateAnnualCardRunType"
+            type="org.afscme.enterprise.cards.web.SelectBypassedAnnualCardRunTypeAction"
+            name="selectBypassedAffiliateAnnualCardRunTypeAction"
+            scope="request"
+            validate="false">
+      <forward name="Add"
+               path="/Membership/GetBypassedAffiliate.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addAffiliateDetail"
+            type="org.afscme.enterprise.affiliate.web.AddAffiliateDetailAction"
+            name="affiliateDetailAddForm"
+            scope="request"
+            validate="false">
+      <forward name="Add"
+               path="/Membership/AffiliateDetailAdd.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addCouncilAffiliation"
+            type="org.afscme.enterprise.affiliate.web.AddCouncilAffiliationAction"
+            name="councilAffiliationForm"
+            scope="request"
+            validate="false">
+      <forward name="viewAdd"
+               path="/Membership/CouncilAffiliationMaintenance.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/deleteCouncilAffiliation"
+            type="org.afscme.enterprise.affiliate.web.DeleteCouncilAffiliationAction"
+            scope="request"
+            validate="true">
+    </action>
+    <action path="/editAffiliateDetail"
+            type="org.afscme.enterprise.affiliate.web.EditAffiliateDetailAction"
+            name="affiliateDetailForm"
+            scope="request"
+            validate="false">
+      <forward name="Edit"
+               path="/Membership/MinimumDuesAffiliateDetailEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editCharterInformation"
+            type="org.afscme.enterprise.affiliate.web.EditCharterInformationAction"
+            name="charterForm"
+            scope="request"
+            validate="false">
+      <forward name="viewCharterEdit"
+               path="/Membership/CharterInformationEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editConstitutionInformation"
+            type="org.afscme.enterprise.affiliate.web.EditConstitutionInformationAction"
+            name="constitutionForm"
+            scope="request"
+            validate="false">
+      <forward name="viewConstitutionEdit"
+               path="/Membership/ConstitutionInformationEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editFinancialInformation"
+            type="org.afscme.enterprise.affiliate.web.EditFinancialInformationAction"
+            name="financialForm"
+            scope="request"
+            validate="false">
+      <forward name="viewFinancialEdit"
+               path="/Membership/FinancialInformationEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editMembershipReportingInformation"
+            type="org.afscme.enterprise.affiliate.web.EditMembershipReportingInformationAction"
+            name="membershipReportingInformationForm"
+            scope="request"
+            input="/Membership/MembershipReportingInformationEdit.jsp"
+            validate="true">
+      <forward name="Edit"
+               path="/Membership/MembershipReportingInformationEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveAffiliateDetailAdd"
+            type="org.afscme.enterprise.affiliate.web.SaveAffiliateDetailAddAction"
+            name="affiliateDetailAddForm"
+            scope="request"
+            input="/Membership/AffiliateDetailAdd.jsp"
+            validate="false">
+    </action>
+    <action path="/saveAffiliateDetailEdit"
+            type="org.afscme.enterprise.affiliate.web.SaveAffiliateDetailEditAction"
+            name="affiliateDetailForm"
+            scope="request"
+            input="/Membership/AffiliateDetailEdit.jsp"
+            validate="true">
+    </action>
+    <action path="/saveCharterInformation"
+            type="org.afscme.enterprise.affiliate.web.SaveCharterInformationAction"
+            name="charterForm"
+            scope="request"
+            input="/Membership/CharterInformationEdit.jsp"
+            validate="false">
+    </action>
+    <action path="/saveConstitutionInformation"
+            type="org.afscme.enterprise.affiliate.web.SaveConstitutionInformationAction"
+            name="constitutionForm"
+            scope="request"
+            input="/Membership/ConstitutionInformationEdit.jsp"
+            validate="false">
+    </action>
+    <action path="/saveCouncilAffiliation"
+            type="org.afscme.enterprise.affiliate.web.SaveCouncilAffiliationAction"
+            name="councilAffiliationForm"
+            scope="session"
+            input="/Membership/CouncilAffiliationMaintenance.jsp"
+            validate="true">
+    </action>
+    <action path="/saveFinancialInformation"
+            type="org.afscme.enterprise.affiliate.web.SaveFinancialInformationAction"
+            name="financialForm"
+            scope="request"
+            input="/Membership/FinancialInformationEdit.jsp"
+            validate="false">
+    </action>
+    <action path="/saveMembershipReportingInformation"
+            type="org.afscme.enterprise.affiliate.web.SaveMembershipReportingInformationAction"
+            name="membershipReportingInformationForm"
+            scope="request"
+            input="/Membership/MembershipReportingInformationEdit.jsp"
+            validate="false">
+      <forward name="Done"
+               path="viewMembershipReportingInformation.action"
+               redirect="true">
+      </forward>
+    </action>
+    <action path="/searchAffiliate"
+            type="org.afscme.enterprise.affiliate.web.SearchAffiliateAction"
+            name="affiliateSearchForm"
+            scope="session"
+            input="/Membership/MinimumDuesAffiliateSearchResults.jsp"
+            validate="true">
+      <forward name="search"
+               path="/Membership/MinimumDuesAffiliateSearchResults.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/searchAffiliateChangeHistory"
+            type="org.afscme.enterprise.affiliate.web.SearchAffiliateChangeHistoryAction"
+            name="changeHistorySearchForm"
+            scope="session"
+            input="/Membership/AffiliateChangeHistory.jsp"
+            validate="true">
+      <forward name="viewResults"
+               path="/Membership/AffiliateChangeHistory.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/searchAffiliateFinder"
+            type="org.afscme.enterprise.affiliate.web.SearchAffiliateFinderAction"
+            name="affiliateFinderForm"
+            scope="session"
+            validate="false">
+      <forward name="showPopup"
+               path="/Membership/AffiliateIdentifierFinderResults.jsp"
+               redirect="false">
+      </forward>
+      <forward name="noPopup"
+               path="/Membership/DuplicateAffiliateIdentifierNotifier.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/searchPowerAffiliate"
+            type="org.afscme.enterprise.affiliate.web.SearchPowerAffiliateAction"
+            name="affiliateSearchForm"
+            scope="session"
+            input="/Membership/PowerAffiliateSearch.jsp"
+            validate="true">
+      <forward name="search"
+               path="/Membership/AffiliateSearchResults.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewAffiliateChangeHistoryCriteria"
+            type="org.afscme.enterprise.affiliate.web.ViewAffiliateChangeHistoryCriteriaAction"
+            name="changeHistorySearchForm"
+            scope="session"
+            validate="false">
+      <forward name="viewSearch"
+               path="/Membership/AffiliateChangeHistory.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewAffiliateChangeHistoryDetail"
+            type="org.afscme.enterprise.affiliate.web.ViewAffiliateChangeHistoryDetailAction"
+            name="changeHistoryDetailForm"
+            scope="request"
+            validate="false">
+      <forward name="viewDetail"
+               path="/Membership/AffiliateChangeHistoryDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewAffiliateCommentHistory"
+            type="org.afscme.enterprise.affiliate.web.ViewAffiliateCommentHistoryAction"
+            name="commentHistoryForm"
+            scope="request"
+            validate="false">
+    </action>
+    <action path="/viewAffiliateDetail"
+            type="org.afscme.enterprise.affiliate.web.ViewAffiliateDetailAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/AffiliateChooseAdd.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewAffiliateHierarchy"
+            type="org.afscme.enterprise.affiliate.web.ViewAffiliateHierarchyAction"
+            scope="request"
+            validate="false">
+      <forward name="ViewHierarchy"
+               path="/Membership/AffiliateHierarchy.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewBasicAffiliateCriteria"
+            type="org.afscme.enterprise.affiliate.web.ViewBasicAffiliateCriteriaAction"
+            name="affiliateSearchForm"
+            scope="session"
+            validate="false">
+      <forward name="viewSearch"
+               path="/Membership/MinimumDuesBasicAffiliateSearch.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewCharterInformation"
+            type="org.afscme.enterprise.affiliate.web.ViewCharterInformationAction"
+            scope="request"
+            validate="true">
+      <forward name="view"
+               path="/Membership/CharterInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewConstitutionInformation"
+            type="org.afscme.enterprise.affiliate.web.ViewConstitutionInformationAction"
+            scope="request"
+            validate="true">
+      <forward name="view"
+               path="/Membership/ConstitutionInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewFinancialInformation"
+            type="org.afscme.enterprise.affiliate.web.ViewFinancialInformationAction"
+            scope="request"
+            validate="true">
+      <forward name="viewFinancial"
+               path="/Membership/FinancialInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewMembershipReportingInformation"
+            type="org.afscme.enterprise.affiliate.web.ViewMembershipReportingInformationAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/MembershipReportingInformation.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPowerAffiliateCriteria"
+            type="org.afscme.enterprise.affiliate.web.ViewPowerAffiliateCriteriaAction"
+            name="affiliateSearchForm"
+            scope="session"
+            validate="false">
+      <forward name="viewSearch"
+               path="/Membership/PowerAffiliateSearch.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addLocalServiced"
+            type="org.afscme.enterprise.affiliate.staff.web.AddLocalServicedAction"
+            name="addLocalServicedForm"
+            scope="session"
+            input="/Membership/AddLocalServiced.jsp"
+            validate="false">
+      <forward name="View"
+               path="/viewAffiliateStaff.action"
+               redirect="true">
+      </forward>
+      <forward name="Results"
+               path="/Membership/AddLocalServicedSearchResults.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editAffiliateStaff"
+            type="org.afscme.enterprise.affiliate.staff.web.EditAffiliateStaffAction"
+            name="staffForm"
+            scope="session"
+            input="/Membership/AffiliateStaffDetailEdit.jsp"
+            validate="true">
+      <forward name="Edit"
+               path="/Membership/AffiliateStaffDetailEdit.jsp"
+               redirect="false">
+      </forward>
+      <forward name="SearchResults"
+               path="/Membership/AffiliateStaffMaintainence.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/removeAffiliateStaff"
+            type="org.afscme.enterprise.affiliate.staff.web.RemoveAffiliateStaffAction"
+            scope="request"
+            validate="true">
+      <forward name="Done"
+               path="/viewStaffMaintainence.action"
+               redirect="true">
+      </forward>
+    </action>
+    <action path="/removeLocalServiced"
+            type="org.afscme.enterprise.affiliate.staff.web.RemoveLocalServicedAction"
+            scope="request"
+            validate="true">
+      <forward name="Done"
+               path="/viewAffiliateStaff.action"
+               redirect="true">
+      </forward>
+    </action>
+    <action path="/saveAffiliateStaff"
+            type="org.afscme.enterprise.affiliate.staff.web.SaveAffiliateStaffAction"
+            name="staffForm"
+            scope="session"
+            input="/Membership/AffiliateStaffDetailEdit.jsp"
+            validate="true">
+      <forward name="ViewStaff"
+               path="/viewAffiliateStaff.action"
+               redirect="true">
+      </forward>
+      <forward name="ViewLocationSelection"
+               path="/viewLocationSelection.action?back=StaffDetail"
+               redirect="false">
+      </forward>
+      <forward name="ViewAffiliate"
+               path="/viewStaffMaintainence.action"
+               redirect="true">
+      </forward>
+      <forward name="ViewDups"
+               path="/Membership/ViewDuplicateStaffSSN.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/selectLocation"
+            type="org.afscme.enterprise.affiliate.staff.web.SelectLocationAction"
+            scope="request"
+            validate="true">
+      <forward name="ViewStaff"
+               path="/viewAffiliateStaff.action"
+               redirect="true">
+      </forward>
+      <forward name="ViewAssociate"
+               path="/viewOrganizationAssociateDetail.action"
+               redirect="true">
+      </forward>
+    </action>
+    <action path="/verifyStaff"
+            type="org.afscme.enterprise.affiliate.staff.web.VerifyStaffAction"
+            name="verifyStaffForm"
+            scope="session"
+            input="/Membership/VerifyStaff.jsp"
+            validate="false">
+      <forward name="Add"
+               path="/editAffiliateStaff.action"
+               redirect="false">
+      </forward>
+      <forward name="View"
+               path="/viewAffiliateStaff.action"
+               redirect="false">
+      </forward>
+      <forward name="AddNew"
+               path="/editAffiliateStaff.action?newPerson=true"
+               redirect="false">
+      </forward>
+      <forward name="ViewMatches"
+               path="/Membership/StaffVerifyResults.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewAddLocalServiced"
+            type="org.afscme.enterprise.affiliate.staff.web.ViewAddLocalServiced"
+            name="addLocalServicedForm"
+            scope="session"
+            validate="true">
+      <forward name="View"
+               path="/Membership/AddLocalServiced.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewAffiliateStaff"
+            type="org.afscme.enterprise.affiliate.staff.web.ViewAffiliateStaffAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/AffiliateStaffDetail.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewLocationSelection"
+            type="org.afscme.enterprise.affiliate.staff.web.ViewLocationSelectionAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/LocationSelection.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewPersonStaff"
+            type="org.afscme.enterprise.affiliate.staff.web.ViewPersonStaffAction"
+            name="personStaffForm"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/PersonStaffList.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewStaffCommentHistory"
+            type="org.afscme.enterprise.affiliate.staff.web.ViewStaffCommentHistory"
+            name="commentHistoryForm"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/CommentHistory.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewStaffMaintainence"
+            type="org.afscme.enterprise.affiliate.staff.web.ViewStaffMaintainanceAction"
+            name="staffMaintainenceForm"
+            scope="request"
+            input="/Membership/AffiliateStaffMaintainence.jsp"
+            validate="true">
+      <forward name="SearchResults"
+               path="/Membership/AffiliateStaffMaintainence.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewVerifyStaff"
+            type="org.afscme.enterprise.affiliate.staff.web.ViewVerifyStaff"
+            name="verifyStaffForm"
+            scope="session"
+            validate="false">
+      <forward name="View"
+               path="/Membership/VerifyStaff.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/addOfficerTitle"
+            type="org.afscme.enterprise.affiliate.officer.web.AddOfficerTitleAction"
+            name="addOfficerTitleForm"
+            scope="request"
+            input="/Membership/OfficerTitlesAdd.jsp"
+            validate="false">
+      <forward name="View"
+               path="/viewOfficerTitles.action"
+               redirect="false">
+      </forward>
+      <forward name="Add"
+               path="/Membership/OfficerTitlesAdd.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editAffiliateOfficerMaintenance"
+            type="org.afscme.enterprise.affiliate.officer.web.EditAffiliateOfficerMaintenanceAction"
+            name="affiliateOfficerMaintenanceForm"
+            scope="session"
+            input="/viewAffiliateOfficerMaintenance"
+            validate="false">
+      <forward name="Edit"
+               path="/Membership/AffiliateOfficerMaintenanceEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editOfficerTitles"
+            type="org.afscme.enterprise.affiliate.officer.web.EditOfficerTitlesAction"
+            name="editOfficerTitlesForm"
+            scope="request"
+            validate="false">
+      <forward name="Edit"
+               path="/Membership/OfficerTitlesEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/removeOfficerTitle"
+            type="org.afscme.enterprise.affiliate.officer.web.RemoveOfficerTitleAction"
+            name="officerTitlesForm"
+            scope="request"
+            input="/Membership/OfficerTitles.jsp"
+            validate="false">
+      <forward name="Done"
+               path="/viewOfficerTitles.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/replaceOfficerResults"
+            type="org.afscme.enterprise.affiliate.officer.web.ReplaceOfficerResultsAction"
+            name="replaceOfficerResultsForm"
+            scope="session"
+            validate="false">
+      <forward name="View"
+               path="/Membership/ReplaceOfficerResults.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveAffiliateOfficerMaintenance"
+            type="org.afscme.enterprise.affiliate.officer.web.SaveAffiliateOfficerMaintenanceAction"
+            name="affiliateOfficerMaintenanceForm"
+            scope="session"
+            input="/Membership/AffiliateOfficerMaintenanceEdit.jsp"
+            validate="false">
+      <forward name="View"
+               path="/viewAffiliateOfficerMaintenance.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/saveOfficerTitles"
+            type="org.afscme.enterprise.affiliate.officer.web.SaveOfficerTitlesAction"
+            name="editOfficerTitlesForm"
+            scope="request"
+            input="/Membership/OfficerTitlesEdit.jsp"
+            validate="true">
+      <forward name="View"
+               path="/viewOfficerTitles.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewAffiliateOfficerMaintenance"
+            type="org.afscme.enterprise.affiliate.officer.web.ViewAffiliateOfficerMaintenanceAction"
+            name="affiliateOfficerMaintenanceForm"
+            scope="session"
+            validate="false">
+      <forward name="View"
+               path="/Membership/AffiliateOfficerMaintenance.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewOfficerTitles"
+            type="org.afscme.enterprise.affiliate.officer.web.ViewOfficerTitlesAction"
+            name="officerTitlesForm"
+            scope="request"
+            validate="false">
+      <forward name="View"
+               path="/Membership/OfficerTitles.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewOfficerTitlesCommentHistory"
+            type="org.afscme.enterprise.affiliate.officer.web.ViewOfficerTitlesCommentHistory"
+            name="commentHistoryForm"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/CommentHistory.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewOfficerTitlesEdit"
+            type="org.afscme.enterprise.affiliate.officer.web.ViewOfficerTitlesEditAction"
+            name="editOfficerTitlesForm"
+            scope="session"
+            validate="false">
+      <forward name="View"
+               path="/Membership/OfficerTitlesEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/deletePersonAddress"
+            type="org.afscme.enterprise.address.web.DeletePersonAddressAction"
+            scope="request"
+            validate="true">
+      <forward name="Done"
+               path="/viewAddressMaintainence.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/editPersonAddress"
+            type="org.afscme.enterprise.address.web.EditPersonAddressAction"
+            name="personAddressForm"
+            scope="request"
+            validate="true">
+      <forward name="Edit"
+               path="/Membership/AddressMaintainenceEdit.jsp"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/initiateNcoaProcessing"
+            type="org.afscme.enterprise.address.web.InitiateNcoaProcessingAction"
+            scope="request"
+            validate="true">
+    </action>
+    <action path="/savePersonAddress"
+            type="org.afscme.enterprise.address.web.SavePersonAddressAction"
+            name="personAddressForm"
+            scope="request"
+            input="/Membership/AddressMaintainenceEdit.jsp"
+            validate="false">
+      <forward name="AddressMaintainence"
+               path="/viewAddressMaintainence.action"
+               redirect="false">
+      </forward>
+      <forward name="ProcessReturnedMail"
+               path="/processReturnedMailSummary.action"
+               redirect="false">
+      </forward>
+    </action>
+    <action path="/viewAddressMaintainence"
+            type="org.afscme.enterprise.address.web.ViewAddressMaintainenceAction"
+            scope="request"
+            validate="true">
+      <forward name="View"
+               path="/Membership/AddressMaintainence.jsp"
+               redirect="false">
+      </forward>
+      <forward name="ListPersons"
+               path="/Membership/test_ListPersons.jsp"
+               redirect="false">
+      </forward>
+    </action>
+
+    <!-- If you have non XDoclet actions, define them in a file called struts-actions.xml and place it in your merge directory. -->
+  </action-mappings>
+
+</struts-config>

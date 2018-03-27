@@ -1,0 +1,41 @@
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_header.js"></script>
+
+<!-- BEGIN CHANGE -->
+<TITLE>Help: Person Mailing List by Mail Code</TITLE>
+<!-- END CHANGE -->
+
+<H1>
+<!-- BEGIN CHANGE -->
+Person Mailing List by Mail Code Help
+<!-- END CHANGE -->
+</H1>
+
+<BR/><BR/>
+This screen provides information on how to use the Person Mailing List by Mail Code screen.	   
+
+<BR/><BR/>
+When the mailing list has been completed, an email notification will be sent containing the following 
+information:
+<UL>
+<LI>Number on the Mailing List (number of members/officers assigned to the mailing list).</LI>
+<LI>Number created on the Mailing List (actual number of valid and mailable members/officer added to the file).</LI>
+<LI>Number of records evaluated (number of members/officers that belong to a mailing list).</LI>
+</UL>
+The following rule must be enforced when generating this report:
+<UL>
+<LI>For the Name field on the report, use the Alternate Mailing Name field from the Person table if it contains a value. Otherwise, use a concatenation of the First Name, Middle Initial, Last Name, and Suffix fields.</LI>
+<LI>If Deceased Flag is true, the Member cannot receive mail.</LI>
+</UL>
+
+The following <U>Action (button) are available from this screen depending on the user's privileges</U>. 
+</BR></BR>
+<TABLE class="DataFONT" align="center" width="95%">
+    <TR valign="top">
+        <TD width="34%"><B><U>Submit</U></B></TD>
+        <TD width="51%">The system generates a list of names and addresses of all persons that are 
+		on the mailing list of selected mail code.</TD>
+    </TR>
+</TABLE>
+
+<BR/><BR/>
+<SCRIPT LANGUAGE="JavaScript" src="../js/help_footer.js"></script>

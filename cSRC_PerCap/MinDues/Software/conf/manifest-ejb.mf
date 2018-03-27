@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: [basedir][appname]_util.jar [basedir]fop.jar [basedir]avalon-framework-cvs-20020906.jar [basedir]batik.jar [basedir]log4j-1.2.4.jar
+

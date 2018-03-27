@@ -1,0 +1,349 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Location Maintenance - Add</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align="center">
+			<H1> Location Maintenance - Add</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+</TABLE>
+<FORM action="LocationMaintenance.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT name="reset" type="reset" class="BUTTON" value="Reset"> <INPUT type="button" class="BUTTON" value="Cancel" onClick="parent.location='LocationMaintenance.htm'" name="button"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" value="Submit" onClick="parent.location='LocationMaintenance.htm'" name="submit"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				DC Public Library <BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD colspan="2">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH>
+							Primary
+						</TH>
+						<TH colspan="5">
+							* Title of Location
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentTD" align="center">
+							<INPUT type="checkbox" name="PrimaryAddressFlag_1" unchecked>
+						</TD>
+						<TD class="ContentTD" align="center" colspan="5">
+							<INPUT name="AddressTitle" id="label_AddressTitle" value="" size="50" maxlength="50">
+						</TD>
+					</TR>
+					<TR>
+						<TH align="left" colspan="6">
+							Address
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Attention
+						</TD>
+						<TD class="ContentTD" COLSPAN="5">
+							<INPUT type="text" name="Attention" value="" size="75" maxlength="75"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address1">Address 1</LABEL>
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="Address1" id="label_Address1" value="" size="50" maxlength="50">
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address2">Address 2</LABEL>
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							<INPUT type="text" name="Address2" id="label_Address2" value="" size="50" maxlength="50">
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD" width="11%">
+							<LABEL for="label_City">City</LABEL>
+						</TD>
+						<TD class="ContentTD" width="34%">
+							<INPUT type="text" name="City" id="label_City" value="" size="25" maxlength="25">
+						</TD>
+						<TD class="ContentHeaderTD" width="14%">
+							<LABEL for="label_state">State</LABEL>
+						</TD>
+						<TD class="ContentTD" width="18%">
+							<SELECT name="state" id="label_state">
+								<SCRIPT language="JavaScript">
+										var selected = "";
+									</SCRIPT>
+								<SCRIPT language="JavaScript" src="../js/state_select.js"></SCRIPT>
+							</SELECT> 
+						</TD>
+						<TD class="ContentHeaderTD" width="10%">
+							<LABEL for="label_ZipCode">Zip/Postal Code</LABEL>
+						</TD>
+						<TD class="ContentTD" width="13%">
+							<INPUT type="text" name="ZipCode" value="" id="label_ZipCode" size="5" maxlength="5">
+							- 
+							<INPUT type="text" name="ZipCode4" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_County">County</LABEL>
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="County" id="label_County" value="" size="25" maxlength="25">
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Province">Province</LABEL>
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="Province" id="label_Province" value="" size="25" maxlength="25">
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Country">* Country</LABEL>
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="Country" id="ContentHeaderTD">
+								<OPTION selected>USA</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_BadAddressFlag">Bad Address</LABEL>
+						</TD>
+						<TD class="ContentTD">
+							<INPUT name="BadAddress_1" type="checkbox">
+						</TD>
+						<TD class="ContentHeaderTD">
+							Date Marked Bad
+						</TD>
+						<TD class="ContentTD" colspan="3">&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TH align="left" colspan="6">
+							Ship To Address
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							Attention
+						</TD>
+						<TD class="ContentTD" COLSPAN="5">
+							<INPUT type="text" name="Attention" value="" size="75" maxlength="75"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_ShipAddress1">Address 1</LABEL>
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="ShipAddress1" id="label_ShipAddress1" value="" size="50" maxlength="50">
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_ShipAddress2">Address 2</LABEL>
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							<INPUT type="text" name="ShipAddress2" id="label_ShipAddress2" value="" size="50" maxlength="50">
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD" width="11%">
+							<LABEL for="label_ShipCity">City</LABEL>
+						</TD>
+						<TD class="ContentTD" width="34%">
+							<INPUT type="text" name="ShipCity" id="label_ShipCity" value="" size="25" maxlength="25">
+						</TD>
+						<TD class="ContentHeaderTD" width="14%">
+							<LABEL for="label_Shipstate">State</LABEL>
+						</TD>
+						<TD class="ContentTD" width="18%">
+							<SELECT name="state" id="label_Shipstate">
+								<SCRIPT language="JavaScript">
+										var selected = "";
+									</SCRIPT>
+								<SCRIPT language="JavaScript" src="../js/state_select.js"></SCRIPT>
+							</SELECT> 
+						</TD>
+						<TD class="ContentHeaderTD" width="10%">
+							<LABEL for="label_ZipCode">Zip/Postal Code</LABEL>
+						</TD>
+						<TD class="ContentTD" width="13%">
+							<INPUT type="text" name="ZipCode" value="" id="label_ZipCode" size="5" maxlength="5">
+							- 
+							<INPUT type="text" name="ZipCode4" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_ShipCounty">County</LABEL>
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="ShipCounty" id="label_ShipCounty" value="" size="25" maxlength="25">
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_ShipProvince">Province</LABEL>
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="ShipProvince" id="label_ShipProvince" value="" size="25" maxlength="25">
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_ShipCountry">Country</LABEL>
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="ShipCountry" id="ContentHeaderTD">
+								<OPTION selected>USA</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_ShipBadAddressFlag">Bad Address</LABEL>
+						</TD>
+						<TD class="ContentTD">
+							<INPUT name="ShipBadAddress_1" type="checkbox">
+						</TD>
+						<TD class="ContentHeaderTD">
+							Date Marked Bad
+						</TD>
+						<TD class="ContentTD" colspan="3">&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="6">
+							<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TH align="left" colspan="6">
+										Phone Numbers
+									</TH>
+								</TR>
+								<TR>
+									<TH width="15%" class="small">
+										Code
+									</TH>
+									<TH width="15%" class="small">
+										* Country Code
+									</TH>
+									<TH width="15%" class="small">
+										Area Code
+									</TH>
+									<TH width="25%" class="small">
+										* Number
+									</TH>
+									<TH width="10%" class="small">
+										Bad
+									</TH>
+									<TH width="20%" class="small">
+										Date Marked Bad
+									</TH>
+								</TR>
+								<TR>
+									<TD align="center">
+										Office
+									</TD>
+									<TD align="center">
+										<INPUT type="text" name="InternationalAccessCode" id="label_InternationalAccessCode" value="" size="3" maxlength="3">
+									</TD>
+									<TD align="center">
+										<INPUT type="text" name="AreaCode" id="label_AreaCode" value="" size="3" maxlength="3">
+									</TD>
+									<TD align="center">
+										<INPUT type="text" name="PhoneNumber" id="label_PhoneNumber" value="" size="7" maxlength="7">
+									</TD>
+									<TD align="center" class="ContentTD">
+										<INPUT type="checkbox" name="BadPhoneNumber_1" id="label_BadPhoneNumber_1"> 
+									</TD>
+									<TD align="center" class="ContentTD" colspan="3">&nbsp;
+									</TD>
+								</TR>
+								<TR>
+									<TD align="center">
+										Fax
+									</TD>
+									<TD align="center">
+										<INPUT type="text" name="FaxInternationalAccessCode" id="label_FaxInternationalAccessCode" value="" size="3" maxlength="3">
+									</TD>
+									<TD align="center">
+										<INPUT type="text" name="FaxAreaCode" id="label_FaxAreaCode" value="" size="3" maxlength="3">
+									</TD>
+									<TD align="center">
+										<INPUT type="text" name="FaxNumber" id="label_FaxNumber" value="" size="7" maxlength="7">
+									</TD>
+									<TD align="center" class="ContentTD">
+										<INPUT type="checkbox" name="BadFaxNumber_1" id="label_BadFaxNumber_1"> 
+									</TD>
+									<TD align="center" class="ContentTD">&nbsp;
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				<BR>
+				DC Public Library 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT name="reset2" type="reset" class="BUTTON" value="Reset"> <INPUT type="button" class="BUTTON" value="Cancel" onClick="parent.location='LocationMaintenance.htm'" name="button2"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" value="Submit" onClick="parent.location='LocationMaintenance.htm'" name="submit2"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR><B><I>* Indicates Required Fields</I></B>
+				<BR>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

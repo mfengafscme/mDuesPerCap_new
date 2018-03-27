@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Basic Affiliate Search</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+<SCRIPT language="JavaScript">
+	function pageInitialize(form) {
+		var field = initializeFocus();
+		forceTab(field);
+	}
+</SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" onLoad="pageInitialize(document.form);">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Basic Affiliate Search</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="AffiliateSearchResults.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContentNoWidth" width="80%" align="center">
+		<TR>
+			<TD class="ContentHeaderTR">
+				Fields to Search: <BR>
+				&nbsp; 
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH colspan="5" align="left">
+							Affiliate Identifier 
+						</TH>
+					</TR>
+					<TR>
+						<TH width="14%">
+							Type 
+						</TH>
+						<TH width="14%">
+							Local/Sub Chapter 
+						</TH>
+						<TH width="20%">
+							State/National Type 
+						</TH>
+						<TH width="14%">
+							Sub Unit 
+						</TH>
+						<TH width="29%">
+							Council/Retiree Chapter 
+						</TH>
+					</TR>
+					<TR>
+						<INPUT type="hidden" name="affiliateCode">
+						<TD align="center" class="ContentTD">
+							<SELECT name="affiliateType" onBlur="lockAffiliateIDFields(this.form);" onChange="lockAffiliateIDFields(this.form);">
+								<OPTION></OPTION>
+								<OPTION>C</OPTION>
+								<OPTION selected>L</OPTION>
+								<OPTION>U</OPTION>
+								<OPTION>R</OPTION>
+								<OPTION>S</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateLocal" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<SELECT name="affiliateState">
+								<SCRIPT language="JavaScript" src="../js/state.js"></SCRIPT>
+								<OPTION value="98">NT</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateSubunit" value="" size="4" maxlength="4"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="affiliateCouncil" value="" size="4" maxlength="4"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="5">
+							<HR>
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="2" class="ContentHeaderTD">
+							<LABEL for="label_IncludeSubUnits"> Include Sub-Units</LABEL> 
+						</TD>
+						<TD class="smallFont">
+							<INPUT type="radio" name="IncludeSubUnits" id="label_IncludeSubUnits" value="Yes">
+							Yes 
+							<INPUT type="radio" name="IncludeSubUnits" id="label_IncludeSubUnits" value="No	" checked>
+							No 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTableNoWidth" width="80%" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="button" class="BUTTON" value="Power Search" onClick="parent.location='PowerAffiliateSearch.htm'" name="PowerSearch"> 
+				<INPUT type="reset" class="BUTTON" value="Reset" name="ResetButton" onClick="parent.location='BasicAffiliateSearch.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="button" class="BUTTON" value="Submit" onClick="parent.location='AffiliateSearchResults.htm'" name="SubmitButton"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

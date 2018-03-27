@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: mdues_util.jar fop.jar avalon-framework-cvs-20020906.jar batik.jar log4j-1.2.4.jar
+

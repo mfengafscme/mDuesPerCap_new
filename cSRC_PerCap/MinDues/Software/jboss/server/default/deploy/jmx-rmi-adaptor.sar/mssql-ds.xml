@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+
+<!--  ===================================================================== --> 
+<!--                                                                        --> 
+<!--   JBoss Server Configuration                                           --> 
+<!--                                                                        --> 
+<!--  ===================================================================== --> 
+
+<datasources>
+	<local-tx-datasource>
+		<jndi-name>oltp</jndi-name>
+		<connection-url>jdbc:jtds:sqlserver://sql05Reports:1433;DatabaseName=MDU;tds=8.0;lastupdatecount=true</connection-url>
+		<driver-class>net.sourceforge.jtds.jdbc.Driver</driver-class>
+		<user-name>afscme</user-name>
+		<password>emcsfa</password>
+		<min-pool-size>20</min-pool-size>
+		<max-pool-size>50</max-pool-size>
+
+		<!-- sql to call when connection is created
+		<new-connection-sql>some arbitrary sql</new-connection-sql>
+		-->
+		<!-- sql to call on an existing pooled connection when it is obtained from pool - 
+		-->
+	<check-valid-connection-sql>SELECT 1</check-valid-connection-sql>
+
+	<!-- Use the security domain defined in conf/login-config.xml 
+	<security-domain>JBossRealm</security-domain>
+	-->
+	
+	<!-- Whether to check all statements are closed when the connection is returned to the pool,
+	     this is a debugging feature that should be turned off in production 
+	     <track-statements/>
+	     -->
+
+	<!-- corresponding type-mapping in the standardjbosscmp-jdbc.xml
+	
+	     types we may actually see:
+	 
+		Derby 
+		Hypersonic SQL 
+		MS SQLSERVER		(7.0,6.5,?) 
+		MS SQLSERVER2000	(2000,2005,2008?) 
+		mySQL 
+		PostgreSQL 
+		PostgreSQL 7.2 
+		PostgreSQL 8.0		(newest) 
+	-->
+	<metadata>
+		<type-mapping>MS SQLSERVER2000</type-mapping>
+	</metadata>
+  </local-tx-datasource>
+</datasources>

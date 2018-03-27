@@ -1,0 +1,334 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0201.0210"
+    charSet    	0)
+
+(object Class_Category "Reports"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    attributes 	(list Attribute_Set
+	(object Attribute
+	    tool       	"sc"
+	    name       	"SourceControlSpec"
+	    value      	"Framework"))
+    quid       	"3E7762E902E4"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "MembershipActivityReport"
+	    quid       	"3E821AEA0006"
+	    documentation 	"This report displays the changes in Membership by month as the year progresses.  The months are progressive but the data is not cumulative and only reflects the actions that took place during that month."
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3E821B3300AC"
+		    supplier   	"Logical View::Reports::ReportGenerator"
+		    quidu      	"3E821AFC0387")))
+	(object Class "ReportGenerator"
+	    quid       	"3E821AFC0387"
+	    stereotype 	"Interface"
+	    operations 	(list Operations
+		(object Operation "generate"
+		    quid       	"3E821B1C02B1"
+		    parameters 	(list Parameters
+			(object Parameter "stream"
+			    quid       	"3E821B26037E"
+			    type       	"OutputStream"))
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)))
+	(object Class "MembershipBatchUpdateErrorReport"
+	    quid       	"3E821C0200BD"
+	    documentation 	"This report captures the members that failed to be updated during the Apply Update process."
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3E821C0B0305"
+		    supplier   	"Logical View::Reports::ReportGenerator"
+		    quidu      	"3E821AFC0387")))
+	(object Class "OfficerCredentialCardsReport"
+	    quid       	"3E82330A0282"
+	    documentation 	"This report displays the Officer Cards that were generated for a given time frame."
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3E82335301E6"
+		    supplier   	"Logical View::Reports::ReportGenerator"
+		    quidu      	"3E821AFC0387"))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "startDt"
+		    quid       	"3E8233330245"
+		    type       	"Date"
+		    exportControl 	"Public")
+		(object ClassAttribute "endDt"
+		    quid       	"3E82333C02CA"
+		    type       	"Date"
+		    exportControl 	"Public")))
+	(object Class "MailingListSpecialized"
+	    quid       	"3E83596302E7"
+	    documentation 	
+|The Mailing Lists is a generic file that contains an extract of members participating in a specific mailing list.  This file is the result of generating a specialized mailing list.
+|
+|Specialized: A report with a query written in the code, installed as part of the system, which everyone can be granted or not granted access to.
+|
+|Currently supported specialized mailing lists include:
+|01 - Area Directors
+|02 - International Vice-Presidents
+|03 - International Field Staff
+|04 - Judicial Panel
+|05 - Council Directors/Presidents
+|06 - Directors/Presidents-Lg. Unaffil. Local
+|07 - Council & Local Staff
+|25 - Council Presidents
+|08 - CSEA (NY Local 1000) Statewide Officers
+|24 - Bus. Mgrs/Controllers - Cn & Lrg Unaffil.
+|29 - CSEA (NY Local 1000) Local Presidents
+|31 - CSEA (NY Local 1000) Field Staff
+|85 - AFSCME Leader
+|97 - HGEA (Hawaii Local 152) Stewards
+	    
+	    superclasses 	(list inheritance_relationship_list
+		(object Inheritance_Relationship
+		    quid       	"3E8359EE0016"
+		    supplier   	"Logical View::Reports::ReportGenerator"
+		    quidu      	"3E821AFC0387"))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"3E7762F40041"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Reports::MembershipActivityReport" @1
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(320, 768)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@1
+			location   	(27, 716)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	586
+			justify    	0
+			label      	"MembershipActivityReport")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E821AEA0006"
+		    width      	604
+		    height     	128
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Reports::ReportGenerator" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1200, 336)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(966, 296)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	468
+			justify    	0
+			label      	"ReportGenerator")
+		    icon       	"Interface"
+		    icon_style 	"Decoration"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E821AFC0387"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(966, 357)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	2
+			max_width  	240)
+		    width      	486
+		    height     	280
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Reports::MembershipBatchUpdateErrorReport" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(800, 944)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(392, 893)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	816
+			justify    	0
+			label      	"MembershipBatchUpdateErrorReport")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E821C0200BD"
+		    width      	834
+		    height     	126
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritTreeView "" @4
+		    location   	(1136, 609)
+		    line_color 	3342489
+		    fill_color 	13434879
+		    supplier   	@2
+		    vertices   	(list Points
+			(1136, 609)
+			(1136, 476)))
+		(object InheritView "" @5
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3E821B3300AC"
+		    client     	@1
+		    supplier   	@2
+		    line_style 	3
+		    origin_attachment 	(350, 703)
+		    terminal_attachment 	(350, 609)
+		    drawSupplier 	@4)
+		(object ClassView "Class" "Logical View::Reports::OfficerCredentialCardsReport" @6
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1888, 784)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@6
+			location   	(1619, 684)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	538
+			justify    	0
+			label      	"OfficerCredentialCardsReport")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E82330A0282"
+		    compartment 	(object Compartment
+			Parent_View 	@6
+			location   	(1619, 745)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	3
+			max_width  	303)
+		    width      	556
+		    height     	225
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @7
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3E821C0B0305"
+		    client     	@3
+		    supplier   	@2
+		    line_style 	3
+		    origin_attachment 	(803, 881)
+		    terminal_attachment 	(803, 609)
+		    drawSupplier 	@4)
+		(object ClassView "Class" "Logical View::Reports::MailingListSpecialized" @8
+		    ShowCompartmentStereotypes 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(1264, 752)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@8
+			location   	(1017, 698)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	495
+			justify    	0
+			label      	"MailingListSpecialized")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3E83596302E7"
+		    width      	513
+		    height     	132
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object InheritView "" @9
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3E8359EE0016"
+		    client     	@8
+		    supplier   	@2
+		    line_style 	3
+		    origin_attachment 	(1269, 686)
+		    terminal_attachment 	(1269, 609)
+		    drawSupplier 	@4)
+		(object InheritView "" @10
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    quidu      	"3E82335301E6"
+		    client     	@6
+		    supplier   	@2
+		    line_style 	3
+		    origin_attachment 	(1888, 672)
+		    terminal_attachment 	(1888, 609)
+		    drawSupplier 	@4)))))

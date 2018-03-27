@@ -1,0 +1,2487 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0201.0210"
+    charSet    	0)
+
+(object Class_Category "Logging"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3D1A2E6D0047"
+    documentation 	"Package for logging."
+    visible_categories 	(list visibility_relationship_list
+	(object Visibility_Relationship
+	    quid       	"3D21FCA702F6"
+	    supplier   	"Logical View::3rd Party::Jakarta::Log4J"
+	    quidu      	"3D1B6131005C"))
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class "SystemLog"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"BodyDanglingComment"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFinalizer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateStaticInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateInstanceInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateDefaultConstructor"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"ReadOnly"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Final"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Static"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Strictfp"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedExtends"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedImplements"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateCode"
+		    value      	TRUE))
+	    quid       	"3D21EC1700AA"
+	    documentation 	
+|Contains static methods for loggin system events.
+|Comments in each method describe the interface to that method, there may be additional calculated information that is logged.
+|See Framework Complex and Background Processing docuemnt for the output format of each logged event.
+|We use Log4J.  And the log message level is at "INFO".
+	    
+	    operations 	(list Operations
+		(object Operation "logAFLCIOExtractSent"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3D21EF610155"
+		    documentation 	
+|Logged whenever a generated AFLCIO extract is sent via FTP.
+|@param bytesSent The number of bytes sent 
+|@param startTime The time the transmission was started
+|@param elapsedTime The number of seconds the transfer took.
+|@param destinationHost The URI the file was transferred to.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "bytesSent"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D3002A"
+			    type       	"int")
+			(object Parameter "startTime"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D3005C"
+			    type       	"Timestamp")
+			(object Parameter "elapsedTime"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D3008E"
+			    type       	"int")
+			(object Parameter "destinationHost"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D300B6"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "logUpdateApplied"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3D21F11D033E"
+		    documentation 	
+|Logged whenever the system completes the 'Apply Update' specification.
+|@param additions The number of additions made in the update.
+|@param changes The number of changes made in the update.
+|@param deletions The number of deletions made in the update.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "additions"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D30323"
+			    type       	"int")
+			(object Parameter "changes"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D30355"
+			    type       	"int")
+			(object Parameter "deletions"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D30391"
+			    type       	"int"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "logApplyUpdateError"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3D21F16B037C"
+		    documentation 	
+|Logged when the 'Apply Update' specification cannot be completed because of an error.
+|@param fieldName Name of the field being updated
+|@param reason Reason for the failure.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "fieldName"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D40112"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "reason"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D4014E"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "logMailingListGenerated"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE69D200DD"
+		    documentation 	
+|Logged whenever a user requests generation of a mailing list
+|@param name The name of the mailing list generated 
+|@param format The output format requested 
+|@param userId ID of the user that performed the generation
+|@param requestedTime The time the generation was requested.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D20105"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "format"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D2012D"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "userId"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D2015F"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "requestedTime"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D20187"
+			    type       	"Timestamp"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "logReportGenerated"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE69D201B9"
+		    documentation 	
+|Logged whenever a user requests generation of a report
+|@param name The name of the mailing list generated 
+|@param format The output format requested 
+|@param userId ID of the user that performed the generation
+|@param requestedTime The time the generation was requested.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "name"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D201E1"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "format"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D20209"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "userId"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D20231"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "requestedTime"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D20259"
+			    type       	"Timestamp"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "logAFLCIOExtractGenerated"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE69D2028C"
+		    documentation 	
+|Logged whenever a user requests generation of an AFLCIO Extract
+|@param requestedTime The time the generation was requested
+|@param runDate The time the generation began
+|@param fileName The name of the output file generated
+|@param recordCount The number of records in the output file
+|@param userId ID of the user that performed the generation
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "requestedTime"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D202B4"
+			    type       	"Timestamp")
+			(object Parameter "runDate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D202DC"
+			    type       	"Timestamp")
+			(object Parameter "completionTime"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D2030E"
+			    type       	"Timestamp")
+			(object Parameter "fileName"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D20340"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "recordCount"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D2037C"
+			    type       	"int")
+			(object Parameter "userId"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D203A4"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "logAffiliateDataProcessed"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE69D300F2"
+		    documentation 	
+|Logged when an affiliate Member or Officer file is successfully processed and queued for update.
+|@param affiliateName The name of the affiliate providing the file
+|@param creationDate Creation date of the import file
+|@param recordCount Number of records processed
+|@param elapsedTime The number of seconds the input processing took
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affiliateName"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D3011A"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "creationDate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D3014C"
+			    type       	"Timestamp")
+			(object Parameter "recordCount"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D30175"
+			    type       	"int")
+			(object Parameter "elapsedTime"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D301A7"
+			    type       	"int"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "logAffiliateFileError"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE69D301E3"
+		    documentation 	
+|Logged if the system detects an error in an affiliate update file prior to processing.
+|This would indicate no records could be processed, due to a general formatting or other error in the file.
+|@param affiliateName Name of the affiliate the submitted the file
+|@param description Description of the error
+|@param fileName Name of the file being imported
+|@param time Time the error occurred
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affiliateName"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D30201"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "description"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D30247"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "fileName"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D30279"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D302AB"
+			    type       	"Timestamp"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "logUpdateCancelled"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE69D303CD"
+		    documentation 	
+|Logged when a user cancels an update in the 'Apply Update' specification
+|@param additions The number of additions that would have been made in the update.
+|@param changes The number of changes that would have been made in the update.
+|@param deletions The number of deletions that would have been made in the update.
+|@param String fileName Name of the original update file.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "additions"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D40003"
+			    type       	"int")
+			(object Parameter "changes"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D40040"
+			    type       	"int")
+			(object Parameter "deletions"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D4007C"
+			    type       	"int")
+			(object Parameter "fileName"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D400AE"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "logRecordUpdateError"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE69D4018A"
+		    documentation 	
+|Logged for each record that cannot be updated during the 'Apply Update' specification.
+|@param fieldName Name of the field being updated
+|@param time Time at which the error occurred.
+|@param description Description of the error that occurred
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "fieldName"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D401B2"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "time"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D401EE"
+			    type       	"Timestamp")
+			(object Parameter "description"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D40220"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "logDataMatchingPerformed"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE69D40266"
+		    documentation 	
+|Logged during the processing of an affiliate update file.
+|Records information about matching performed between the file and existing database data.
+|@param affiliateName Name of the affiliate that provided the file
+|@param matched The number of records matched.
+|@param notMatched The number of records that were not matched.
+|@param creationDate The date the update file was created.
+|@param elapsedTime The number of seconds elapsed during the matching process
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "affiliateName"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D4028E"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "matched"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D402D4"
+			    type       	"int")
+			(object Parameter "notMatched"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D4031B"
+			    type       	"int")
+			(object Parameter "creationDate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D40357"
+			    type       	"Timestamp")
+			(object Parameter "elapsedTime"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D403A7"
+			    type       	"int"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "logApplicationError"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE69D403E3"
+		    documentation 	
+|Logged when the framework catches an Exception.
+|@param ex The associated exception, if available.
+|@param URI The URI that was being accessed, if available.
+|@param userId ID of the user that initiated the exception, if available
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "e"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D5002D"
+			    type       	"Exception")
+			(object Parameter "URI"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D50069"
+			    type       	"Logical View::java::lang::String")
+			(object Parameter "userId"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D500A5"
+			    type       	"Logical View::java::lang::String"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "setUpJMSQueue"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE69D500F5"
+		    result     	"QueueInfo"
+		    exceptions 	"Logical View::javax::naming::NamingException,Logical View::javax::jms::JMSException"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Private"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "RT"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE69D20051"
+		    type       	"Logical View::java::lang::String"
+		    initv      	
+|System.getProperty("line.separator")
+		    
+		    static     	TRUE)
+		(object ClassAttribute "INDENT"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE69D20097"
+		    type       	"Logical View::java::lang::String"
+		    initv      	
+|"    "
+		    
+		    static     	TRUE))
+	    language   	"Java"
+	    nestedClasses 	(list nestedClasses
+		(object Class "QueueInfo"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"BodyDanglingComment"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFinalizer"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateStaticInitializer"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateInstanceInitializer"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateDefaultConstructor"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"ReadOnly"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	TRUE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedExtends"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedImplements"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateCode"
+			    value      	TRUE))
+		    quid       	"3DDE69D5011D"
+		    documentation 	"four spaces"
+		    exportControl 	"Private"
+		    operations 	(list Operations
+			(object Operation "QueueInfo"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedThrows"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Abstract"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Static"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Final"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Native"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Synchronized"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Strictfp"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedArgument"
+				    value      	""))
+			    quid       	"3DDE69D50394"
+			    parameters 	(list Parameters
+				(object Parameter "con"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"IsFinal"
+					    value      	"false"))
+				    quid       	"3DDE69D5039E"
+				    type       	"QueueConnection")
+				(object Parameter "session"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"IsFinal"
+					    value      	"false"))
+				    quid       	"3DDE69D503A8"
+				    type       	"QueueSession")
+				(object Parameter "sender"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"IsFinal"
+					    value      	"false"))
+				    quid       	"3DDE69D503A9"
+				    type       	"QueueSender"))
+			    concurrency 	"Sequential"
+			    opExportControl 	"Private"
+			    uid        	0)))))
+	(object Class "SystemEventReceiverBean"
+	    attributes 	(list Attribute_Set
+		(object Attribute
+		    tool       	"Java"
+		    name       	"BodyDanglingComment"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFinalizer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateStaticInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateInstanceInitializer"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateDefaultConstructor"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"ReadOnly"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Final"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Static"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"Strictfp"
+		    value      	FALSE)
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedExtends"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateFullyQualifiedImplements"
+		    value      	"")
+		(object Attribute
+		    tool       	"Java"
+		    name       	"GenerateCode"
+		    value      	TRUE))
+	    quid       	"3DDE69D70036"
+	    documentation 	
+|Receives log events from a JMS queue and logs them to the system log file.
+|
+	    
+	    stereotype 	"EJBMessage"
+	    operations 	(list Operations
+		(object Operation "ejbCreate"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE69D70094"
+		    result     	"void"
+		    exceptions 	"Logical View::javax::ejb::EJBException"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0)
+		(object Operation "onMessage"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedReturn"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedThrows"
+			    value      	"")
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Abstract"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Static"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Native"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Synchronized"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Strictfp"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedArgument"
+			    value      	""))
+		    quid       	"3DDE69D70102"
+		    documentation 	
+|Called by the bean's container when a message has arrived for the bean to service.
+|It contains the business logic that handles the processing of the message. Only
+|message-driven beans can asynchronously receive messages. Session and entity beans
+|are not permitted to be JMS MessageListener.
+|Called by the container when a log message arrives.
+|
+		    
+		    parameters 	(list Parameters
+			(object Parameter "message"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"IsFinal"
+				    value      	"false"))
+			    quid       	"3DDE69D70116"
+			    type       	"Message"))
+		    result     	"void"
+		    concurrency 	"Sequential"
+		    opExportControl 	"Public"
+		    uid        	0))
+	    class_attributes 	(list class_attribute_list
+		(object ClassAttribute "LOGGER_NAME"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE69D70076"
+		    type       	"Logical View::java::lang::String"
+		    initv      	
+|"AfscmeEvent"
+		    
+		    static     	TRUE)
+		(object ClassAttribute "DEBUG_LOG"
+		    attributes 	(list Attribute_Set
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Final"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Transient"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"Volatile"
+			    value      	FALSE)
+			(object Attribute
+			    tool       	"Java"
+			    name       	"GenerateFullyQualifiedTypes"
+			    value      	FALSE))
+		    quid       	"3DDE69D70080"
+		    type       	"Logical View::java::lang::String"
+		    initv      	
+|"AfscmeDebug"
+		    
+		    static     	TRUE))
+	    language   	"Java")
+	(object Mechanism @1
+	    logical_models 	(list unit_reference_list
+		(object Object "$UNNAMED$0"
+		    quid       	"3D1B626603B3"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3D21F30B0140"
+			    supplier   	"$UNNAMED$1"
+			    quidu      	"3D1B627101BA"
+			    messages   	(list Messages
+				(object Message "place message"
+				    quid       	"3D21F30B0141"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1.1"
+				    ordinal    	1
+				    quidu      	"000000000000"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3D21F314034C"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"2"
+				    ordinal    	2
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::Logging::SystemLog"
+		    quidu      	"3D21EC1700AA"
+		    persistence 	"Transient"
+		    creationObj 	TRUE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$1"
+		    quid       	"3D1B627101BA"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3D1B81550248"
+			    supplier   	"$UNNAMED$2"
+			    quidu      	"3D1B627C02A6"
+			    messages   	(list Messages
+				(object Message "onMessage( )"
+				    quid       	"3D1B89D002E0"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3"
+				    ordinal    	4
+				    Operation  	"onMessage(Message)"
+				    quidu      	"3DDE69D70102"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3D21F38C0145"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"3.2"
+				    ordinal    	9
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::3rd Party::Java::JMS::Queue"
+		    quidu      	"3D1B87EC01B7"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$2"
+		    quid       	"3D1B627C02A6"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3D1B817A03A9"
+			    supplier   	"$UNNAMED$0"
+			    quidu      	"3D1B626603B3")
+			(object Link
+			    quid       	"3D1B833B007A"
+			    supplier   	"$UNNAMED$3"
+			    quidu      	"3D1B830C032F"
+			    messages   	(list Messages
+				(object Message "info( )"
+				    quid       	"3D1B833B007B"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3.1"
+				    ordinal    	5
+				    quidu      	"3D1B8AF003D4"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3D21F3890015"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"3.1.2"
+				    ordinal    	8
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::Logging::SystemEventReceiverBean"
+		    quidu      	"3DDE69D70036"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$4"
+		    quid       	"3D1B8003007F"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3D1B80460035"
+			    supplier   	"$UNNAMED$0"
+			    quidu      	"3D1B626603B3"
+			    messages   	(list Messages
+				(object Message "logApplicationError(String, String, String, Integer)"
+				    quid       	"3D1B805201F5"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"1"
+				    ordinal    	0
+				    Operation  	"logApplicationError"
+				    quidu      	"3D21F22800C1"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3D2DCCEB00D3"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"2.1"
+				    ordinal    	3
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::AccessControl::AccessControlBean"
+		    quidu      	"3DDE697600AB"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$3"
+		    quid       	"3D1B830C032F"
+		    collaborators 	(list link_list
+			(object Link
+			    quid       	"3D1B87A2003E"
+			    supplier   	"$UNNAMED$5"
+			    quidu      	"3D1B878F0380"
+			    messages   	(list Messages
+				(object Message "write( )"
+				    quid       	"3D21F37E0394"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Simple"
+				    dir        	"FromClientToSupplier"
+				    sequence   	"3.1.1"
+				    ordinal    	6
+				    quidu      	"3D1B879A0250"
+				    creation   	FALSE)
+				(object Message ""
+				    quid       	"3D21F3850131"
+				    frequency  	"Aperiodic"
+				    synchronization 	"Return"
+				    dir        	"ToClientFromSupplier"
+				    sequence   	"3.1.1.1"
+				    ordinal    	7
+				    quidu      	"000000000000"
+				    creation   	FALSE))))
+		    class      	"Logical View::3rd Party::Jakarta::Log4J::Logger"
+		    quidu      	"3D1B8AEB017E"
+		    persistence 	"Transient"
+		    creationObj 	TRUE
+		    multi      	FALSE)
+		(object Object "$UNNAMED$5"
+		    quid       	"3D1B878F0380"
+		    class      	"Logical View::3rd Party::Java::IO::File"
+		    quidu      	"3D1B85A700C1"
+		    persistence 	"Transient"
+		    creationObj 	FALSE
+		    multi      	FALSE))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Participating Objects"
+	    quid       	"3D1B610202E9"
+	    title      	"Participating Objects"
+	    zoom       	85
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object ClassView "Class" "Logical View::Logging::SystemLog" @2
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(528, 992)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@2
+			location   	(144, 601)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	768
+			justify    	0
+			label      	"SystemLog")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3D21EC1700AA"
+		    compartment 	(object Compartment
+			Parent_View 	@2
+			location   	(144, 667)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	16777215
+			anchor     	2
+			nlines     	13
+			max_width  	651)
+		    width      	786
+		    height     	808
+		    annotation 	8
+		    autoResize 	TRUE)
+		(object ClassView "Class" "Logical View::Logging::SystemEventReceiverBean" @3
+		    ShowCompartmentStereotypes 	TRUE
+		    SuppressAttribute 	TRUE
+		    IncludeAttribute 	TRUE
+		    IncludeOperation 	TRUE
+		    location   	(528, 240)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@3
+			location   	(180, 192)
+			fill_color 	13434879
+			nlines     	1
+			max_width  	696
+			justify    	0
+			label      	"SystemEventReceiverBean")
+		    icon       	"EJBMessage"
+		    icon_style 	"Decoration"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DDE69D70036"
+		    compartment 	(object Compartment
+			Parent_View 	@3
+			location   	(180, 258)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			icon_style 	"Icon"
+			fill_color 	13434879
+			anchor     	2
+			nlines     	2
+			max_width  	327)
+		    width      	714
+		    height     	298
+		    annotation 	8
+		    autoResize 	TRUE)))
+	(object InteractionDiagram "Logging to System Log"
+	    mechanism_ref 	@1
+	    quid       	"3D1B624303C7"
+	    title      	"Logging to System Log"
+	    zoom       	75
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object InterObjView "$UNNAMED$4" @4
+		    location   	(192, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@4
+			location   	(192, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	358
+			justify    	0
+			label      	"")
+		    icon       	"EJBSession"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3D1B8003007F"
+		    width      	312
+		    height     	1406
+		    icon_height 	237
+		    icon_width 	237
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @5
+			location   	(192, 544)
+			line_color 	3342489
+			InterObjView 	@4
+			height     	410
+			y_coord    	350
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @6
+			location   	(192, 768)
+			line_color 	3342489
+			InterObjView 	@4
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$0" @7
+		    location   	(1296, 384)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@7
+			location   	(1296, 384)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	357
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3D1B626603B3"
+		    width      	375
+		    height     	1246
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @8
+			location   	(1296, 444)
+			InterObjView 	@7
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @9
+			location   	(1296, 544)
+			line_color 	3342489
+			InterObjView 	@7
+			height     	350
+			y_coord    	290
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @10
+			location   	(1296, 720)
+			line_color 	3342489
+			InterObjView 	@7
+			height     	168
+			y_coord    	108
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$1" @11
+		    location   	(1856, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@11
+			location   	(1856, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3D1B627101BA"
+		    width      	662
+		    height     	1406
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @12
+			location   	(1856, 312)
+			line_color 	3342489
+			InterObjView 	@11
+			height     	408
+			y_coord    	348
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @13
+			location   	(1856, 608)
+			line_color 	3342489
+			InterObjView 	@11
+			height     	60
+			y_coord    	0
+			Nested     	TRUE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @14
+			location   	(1856, 1040)
+			line_color 	3342489
+			InterObjView 	@11
+			height     	500
+			y_coord    	440
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @15
+			location   	(1856, 1360)
+			line_color 	3342489
+			InterObjView 	@11
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$2" @16
+		    location   	(2416, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@16
+			location   	(2416, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	497
+			justify    	0
+			label      	"")
+		    icon       	"EJBMessage"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3D1B627C02A6"
+		    width      	312
+		    height     	1406
+		    icon_height 	237
+		    icon_width 	237
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @17
+			location   	(2416, 1040)
+			line_color 	3342489
+			InterObjView 	@16
+			height     	440
+			y_coord    	380
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @18
+			location   	(2416, 1280)
+			line_color 	3342489
+			InterObjView 	@16
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$3" @19
+		    location   	(2912, 416)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@19
+			location   	(2912, 416)
+			fill_color 	13434879
+			anchor_loc 	1
+			nlines     	2
+			max_width  	407
+			justify    	0
+			label      	"")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3D1B830C032F"
+		    width      	425
+		    height     	1214
+		    icon_height 	0
+		    icon_width 	0
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @20
+			location   	(2912, 476)
+			InterObjView 	@19
+			height     	60
+			y_coord    	0
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @21
+			location   	(2912, 1104)
+			line_color 	3342489
+			InterObjView 	@19
+			height     	296
+			y_coord    	236
+			Nested     	FALSE)
+		    Focus_Of_Control 	(object Focus_Of_Control "" @22
+			location   	(2912, 1200)
+			line_color 	3342489
+			InterObjView 	@19
+			height     	60
+			y_coord    	0
+			Nested     	FALSE))
+		(object InterObjView "$UNNAMED$5" @23
+		    location   	(3360, 224)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	TRUE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@23
+			location   	(3360, 250)
+			anchor_loc 	1
+			nlines     	2
+			max_width  	687
+			justify    	0
+			label      	"")
+		    icon       	"boundary"
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3D1B878F0380"
+		    width      	662
+		    height     	1406
+		    icon_height 	153
+		    icon_width 	229
+		    icon_y_offset 	0
+		    annotation 	1
+		    Focus_Of_Control 	(object Focus_Of_Control "" @24
+			location   	(3360, 1168)
+			line_color 	3342489
+			InterObjView 	@23
+			height     	152
+			y_coord    	92
+			Nested     	FALSE))
+		(object InterMessView "" @25
+		    location   	(752, 544)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @26
+			Parent_View 	@25
+			location   	(743, 500)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3D1B805201F5"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	977
+			justify    	0
+			label      	"logApplicationError(String, String, String, Integer)"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@4
+		    supplier   	@7
+		    Focus_Src  	@5
+		    Focus_Entry 	@9
+		    origin     	(207, 544)
+		    terminus   	(1280, 544)
+		    ordinal    	0)
+		(object InterMessView "" @27
+		    location   	(2160, 1104)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @28
+			Parent_View 	@27
+			location   	(2663, 1060)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3D1B833B007B"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	114
+			justify    	0
+			label      	"info( )"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@16
+		    supplier   	@19
+		    Focus_Src  	@17
+		    Focus_Entry 	@21
+		    origin     	(2431, 1104)
+		    terminus   	(2896, 1104)
+		    ordinal    	5)
+		(object InterMessView "" @29
+		    location   	(1728, 1040)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @30
+			Parent_View 	@29
+			location   	(2135, 996)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3D1B89D002E0"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	268
+			justify    	0
+			label      	"onMessage( )"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@11
+		    supplier   	@16
+		    Focus_Src  	@14
+		    Focus_Entry 	@17
+		    origin     	(1871, 1040)
+		    terminus   	(2400, 1040)
+		    ordinal    	4)
+		(object NoteView @31
+		    location   	(896, 176)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@31
+			location   	(549, 73)
+			nlines     	4
+			max_width  	659
+			label      	"AccessControl component is shown here, but this could be any client of the logging mechanism")
+		    line_color 	3342489
+		    fill_color 	16777215
+		    width      	719
+		    height     	218)
+		(object AttachView "" @32
+		    stereotype 	TRUE
+		    line_color 	3342489
+		    client     	@31
+		    supplier   	@4
+		    line_style 	0)
+		(object InterMessView "" @33
+		    location   	(16, 608)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @34
+			Parent_View 	@33
+			location   	(1575, 564)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3D21F30B0141"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	311
+			justify    	0
+			label      	"place message"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@7
+		    supplier   	@11
+		    Focus_Src  	@9
+		    Focus_Entry 	@13
+		    origin     	(1311, 608)
+		    terminus   	(1840, 608)
+		    ordinal    	1)
+		(object InterMessView "" @35
+		    location   	(1584, 720)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @36
+			Parent_View 	@35
+			location   	(1576, 676)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3D21F314034C"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@11
+		    supplier   	@7
+		    Focus_Src  	@12
+		    Focus_Entry 	@10
+		    origin     	(1840, 720)
+		    terminus   	(1312, 720)
+		    ordinal    	2)
+		(object InterMessView "" @37
+		    location   	(16, 1168)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @38
+			Parent_View 	@37
+			location   	(3135, 1124)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3D21F37E0394"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	139
+			justify    	0
+			label      	"write( )"
+			pctDist    	0.500000
+			height     	45
+			orientation 	0)
+		    line_color 	3342489
+		    client     	@19
+		    supplier   	@23
+		    Focus_Src  	@21
+		    Focus_Entry 	@24
+		    origin     	(2927, 1168)
+		    terminus   	(3344, 1168)
+		    ordinal    	6)
+		(object InterMessView "" @39
+		    location   	(16, 1200)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @40
+			Parent_View 	@39
+			location   	(3136, 1156)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3D21F3850131"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@23
+		    supplier   	@19
+		    Focus_Src  	@24
+		    Focus_Entry 	@22
+		    origin     	(3344, 1200)
+		    terminus   	(2928, 1200)
+		    ordinal    	7)
+		(object InterMessView "" @41
+		    location   	(16, 1280)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @42
+			Parent_View 	@41
+			location   	(2664, 1236)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3D21F3890015"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@19
+		    supplier   	@16
+		    Focus_Src  	@21
+		    Focus_Entry 	@18
+		    origin     	(2896, 1280)
+		    terminus   	(2432, 1280)
+		    ordinal    	8)
+		(object InterMessView "" @43
+		    location   	(16, 1360)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @44
+			Parent_View 	@43
+			location   	(2136, 1316)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3D21F38C0145"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@16
+		    supplier   	@11
+		    Focus_Src  	@17
+		    Focus_Entry 	@15
+		    origin     	(2400, 1360)
+		    terminus   	(1872, 1360)
+		    ordinal    	9)
+		(object InterMessView "" @45
+		    location   	(16, 768)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object SegLabel @46
+			Parent_View 	@45
+			location   	(744, 724)
+			font       	(object Font
+			    size       	10
+			    face       	"Arial"
+			    bold       	FALSE
+			    italics    	FALSE
+			    underline  	FALSE
+			    strike     	FALSE
+			    color      	0
+			    default_color 	TRUE)
+			quidu      	"3D2DCCEB00D3"
+			anchor_loc 	1
+			nlines     	1
+			max_width  	0
+			justify    	0
+			label      	""
+			pctDist    	0.500000
+			height     	45
+			orientation 	1)
+		    line_color 	3342489
+		    client     	@7
+		    supplier   	@4
+		    Focus_Src  	@10
+		    Focus_Entry 	@6
+		    origin     	(1280, 768)
+		    terminus   	(208, 768)
+		    ordinal    	3)))))

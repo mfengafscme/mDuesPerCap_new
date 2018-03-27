@@ -1,0 +1,832 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+    <head>
+        <meta name="generator" content="HTML Tidy, see www.w3.org">
+        <title>Select Privileges</title>
+        <link rel="stylesheet" href="../css/afscme.css" type="text/css">
+<script type="text/javascript" language="JavaScript" src="../js/checkbox.js">
+</script>
+    </head>
+
+    <body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+        <!-- IMPORT HEADER --><!-- IMPORT HEADER -->
+<script type="text/javascript" language="JavaScript" src="../js/header.js">
+</script>
+        <!-- INSERT TITLE --><!-- INSERT TITLE -->
+
+        <form name="privileges" id="privileges" action="Role.htm">
+            <table valign="TOP" align="Center" cellpadding="0" cellspacing="0" border="0" class="ContentTable" width="95%">
+                <tbody>
+                    <tr>
+                        <td nowrap>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" align="Right"><b><a href="../Common/AfscmeMainMenu.htm" title="Return to AFSCME Main Menu">Main Menu</a></b> &nbsp;|&nbsp;<a href="#">Need Help with this page?</a> <br>
+                         <br>
+                         </td>
+                    </tr>
+
+                    <tr>
+                        <td nowrap><input type="button" class="BUTTON" name="cancel" value="Cancel" onclick="window.location = 'Role.htm'"> <input type="button" class="BUTTON" name="reset" value="Reset" onclick="javascript:alert('Not implemented in Prototype')"> </td>
+
+                        <td align="Right"><input type="submit" class="BUTTON" name="submit" value="Submit"> </td>
+                    </tr>
+
+                    <tr>
+                        <td nowrap>&nbsp;</td>
+
+                        <td nowrap>&nbsp;</td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2">
+                            <table width="100%" align="Center" border="3" class="InnerContentTable">
+                                <tbody>
+                                    <tr>
+                                        <td colspan="5" align="Center">
+                                            <h1>Select Privileges</h1>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="5" class="ContentHeaderTD">Main Privileges</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="Top">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="3" class="ContentHeaderTR"><a href="javascript:toggleCheckBoxes('privileges', 'member');syncCheckBoxes('privileges', 'member', 'Edit', 'View')">Member</a> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2" class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'memberSearch')">Search</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2"><input type="checkbox" name="memberSearchBasic"> </td>
+
+                                                        <td nowrap>Basic</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2"><input type="checkbox" name="memberSearchPower"> </td>
+
+                                                        <td nowrap>Power</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'memberEdit');syncCheckBoxes('privileges', 'member', 'Edit', 'View')">Edit</a> </td>
+
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'memberView')">View</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="memberEditDetail" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="memberViewDetail"> </td>
+
+                                                        <td nowrap>Detail</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="memberEditEmployerInfo" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="memberViewEmployerInfo"> </td>
+
+                                                        <td nowrap>EmployerInfo</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="memberEditCouncilDirectory" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="memberViewCouncilDirectory"> </td>
+
+                                                        <td nowrap>Council Directory</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="memberEditPoliticalRebate" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="memberViewPoliticalRebate"> </td>
+
+                                                        <td nowrap>Political Rebate</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="memberEditDemographics" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="memberViewDemographics"> </td>
+
+                                                        <td nowrap>Demographics</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="memberEditLegislativeInfo" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="memberViewLegislativeInfo"> </td>
+
+                                                        <td nowrap>Legislative Info</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="memberEditParticipation" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="memberViewParticipation"> </td>
+
+                                                        <td nowrap>Participation</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap>&nbsp;</td>
+
+                                                        <td nowrap><input type="checkbox" name="memberViewCorrespondenceHistory"> </td>
+
+                                                        <td nowrap>Correspondence History</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap>&nbsp;</td>
+
+                                                        <td nowrap><input type="checkbox" name="memberViewOfficerHistory"> </td>
+
+                                                        <td nowrap>Officer History</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input name="memberEditMailFlag" type="checkbox"> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+
+                                                        <td nowrap>Mail Flag</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+                                        <td valign="Top">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="32" class="ContentHeaderTR"><a href="javascript:toggleCheckBoxes('privileges', 'officer');syncCheckBoxes('privileges', 'officer', 'Edit', 'View')">Officer</a> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2" class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'officerSearch')">Search</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2"><input type="checkbox" name="officerSearchBasic"> </td>
+
+                                                        <td nowrap>Basic</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2"><input type="checkbox" name="officerSearchPower"> </td>
+
+                                                        <td nowrap>Power</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'officerEdit');syncCheckBoxes('privileges', 'officer', 'Edit', 'View')">Edit</a> </td>
+
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'officerView')">View</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="officerEditDetail" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="officerViewDetail"> </td>
+
+                                                        <td nowrap>Detail</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="officerEditAddressAssocation"> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+
+                                                        <td nowrap>Address Assocation</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+                                        <td valign="Top">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="3" class="ContentHeaderTR"><a href="javascript:toggleCheckBoxes('privileges', 'affiliate');syncCheckBoxes('privileges', 'affiliate', 'Edit', 'View')">Affiliate</a> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2" class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'affiliateSearch')">Search</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2"><input type="checkbox" name="affiliateSearchBasic"> </td>
+
+                                                        <td nowrap>Basic</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2"><input type="checkbox" name="affiliateSearchPower"> </td>
+
+                                                        <td nowrap>Power</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'affiliateEdit');syncCheckBoxes('privileges', 'affiliate', 'Edit', 'View')">Edit</a> </td>
+
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'affiliateView')">View</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="affiliateEditDetail" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="affiliateViewDetail"> </td>
+
+                                                        <td nowrap>Detail</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="affiliateEditConstitution" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="affiliateViewConstitution"> </td>
+
+                                                        <td nowrap>Constitution</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="affiliateEditCharter" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="affiliateViewCharter"> </td>
+
+                                                        <td nowrap>Charter</td>
+                                                    </tr>
+
+
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="affiliateEditFinancialInfo" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="affiliateViewFinancialInfo"> </td>
+
+                                                        <td nowrap>FinancialInfo</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="affiliateEditMembershipReporting" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="affiliateViewMembershipReporting"> </td>
+
+                                                        <td nowrap>Membership Reporting</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap>&nbsp;</td>
+
+                                                        <td nowrap><input type="checkbox" name="affiliateViewChangeHistory"> </td>
+
+                                                        <td nowrap>Change History</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap>&nbsp;</td>
+
+                                                        <td nowrap><input type="checkbox" name="affiliateViewOfficerHistory"> </td>
+
+                                                        <td nowrap>Officer History</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+                                        <td valign="Top">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="ContentHeaderTR"><a href="javascript:toggleCheckBoxes('privileges', 'general');syncCheckBoxes('privileges', 'general', 'Edit', 'View')">General</a> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'generalEdit');syncCheckBoxes('privileges', 'general', 'Edit', 'View')">Edit</a> </td>
+
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'generalView')">View</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="generalEditAddresses" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="generalViewAddresses"> </td>
+
+                                                        <td nowrap>Addresses</td>
+                                                    </tr>
+
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="generalEditPhoneNumbers" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="generalViewPhoneNumbers"> </td>
+
+                                                        <td nowrap>Phone Numbers</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="generalEditEmail" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="generalViewEmail"> </td>
+
+                                                        <td nowrap>Email Addresses</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+                                        <td valign="Top">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="ContentHeaderTR"><a href="javascript:toggleCheckBoxes('privileges', 'system')">System</a> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemMaintainQueries"> </td>
+
+                                                        <td nowrap>MaintainQueries</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemPerformGlobalSubstitution"> </td>
+
+                                                        <td nowrap>Perform Global Substitution</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemResolveDuplicates"> </td>
+
+                                                        <td nowrap>Resolve Duplicates</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemGenerateMailingList"> </td>
+
+                                                        <td nowrap>Generate Mailing List</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemGenerateMembershipCards"> </td>
+
+                                                        <td nowrap>Generate Membership Cards</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemAFLCIOExtract"> </td>
+
+                                                        <td >Generate Union Privilege Member Benefits Tape</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemGenerateOfficerCards"> </td>
+
+                                                        <td nowrap>Generate Officer Cards</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemApplyUpdate"> </td>
+
+                                                        <td nowrap>Apply Update</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemImportBadAddresses"> </td>
+
+                                                        <td nowrap>Import Bad Addresses</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemImportCertifiedMailNumbers"> </td>
+
+                                                        <td nowrap>Import Certified Mail Numbers</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemExtractLookupTables"> </td>
+
+                                                        <td nowrap>Extract Lookup Tables</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemMaintainUsers"> </td>
+
+                                                        <td nowrap>Maintain Users</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemMaintainPrivileges"> </td>
+
+                                                        <td nowrap>Maintain Privileges</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemMaintainCodes"> </td>
+
+                                                        <td nowrap>Maintain Codes</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemApplyMassChange"> </td>
+
+                                                        <td nowrap>Apply Mass Change</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemMaintain12MonthRebateAmount"> </td>
+
+                                                        <td nowrap>Maintain 12 Month Rebate Amount</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemImportAffiliateRebate"> </td>
+
+                                                        <td nowrap>Import Affiliate Rebate</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemImportAffiliateMemberData"> </td>
+
+                                                        <td nowrap>Import Affiliate Member Data</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="systemImportAffiliateOfficerData"> </td>
+
+                                                        <td nowrap>Import Affiliate Officer Data</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td colspan="5" class="ContentHeaderTD">Data Utility Privileges</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td valign="Top">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="3" class="ContentHeaderTR"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityMember');syncCheckBoxes('privileges', 'dataUtilityMember', 'Edit', 'View')">Member</a> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2" class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityMemberSearch')">Search</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2"><input type="checkbox" name="dataUtilityMemberSearch"> </td>
+
+                                                        <td nowrap>Search</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityMemberEdit');syncCheckBoxes('privileges', 'dataUtilityMember', 'Edit', 'View')">Edit</a> </td>
+
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityMemberView')">View</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberEditDetail" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberViewDetail"> </td>
+
+                                                        <td nowrap>Detail</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberEditEmployerInfo" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberViewEmployerInfo"> </td>
+
+                                                        <td nowrap>Employer Info</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberEditCouncilDirectory" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberViewCouncilDirectory"> </td>
+
+                                                        <td nowrap>Council Directory</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberEditPoliticalRebate" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberViewPoliticalRebate"> </td>
+
+                                                        <td nowrap>Political Rebate</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberEditDemographics" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberViewDemographics"> </td>
+
+                                                        <td nowrap>Demographics</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberEditLegislativeInfo" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberViewLegislativeInfo"> </td>
+
+                                                        <td nowrap>Legislative Info</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap>&nbsp;</td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberViewCorrespondenceHistory"> </td>
+
+                                                        <td nowrap>Correspondence History</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap>&nbsp;</td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityMemberViewOfficerHistory"> </td>
+
+                                                        <td nowrap>Officer History</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input name="dataUtilityMemberEditMailFlag" type="checkbox"> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+
+                                                        <td nowrap>MailFlag</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+                                        <td valign="Top">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="32" class="ContentHeaderTR"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityOfficer');syncCheckBoxes('privileges', 'dataUtilityOfficer', 'Edit', 'View')">Officer</a> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2" class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityOfficerSearch')">Search</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2"><input type="checkbox" name="dataUtilityOfficerSearchBasic"> </td>
+
+                                                        <td nowrap>Basic</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2"><input type="checkbox" name="dataUtilityOfficerSearchPower"> </td>
+
+                                                        <td nowrap>Power</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap>
+                                                        </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityOfficerEdit');syncCheckBoxes('privileges', 'dataUtilityOfficer', 'Edit', 'View')">Edit</a> </td>
+
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityOfficerView')">View</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityOfficerEditDetail" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityOfficerViewDetail"> </td>
+
+                                                        <td nowrap>Detail</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityOfficerEditAddressAssocation"> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+
+                                                        <td nowrap>Address Assocation</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+                                        <td valign="Top">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="3" class="ContentHeaderTR"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityAffiliate');syncCheckBoxes('privileges', 'dataUtilityAffiliate', 'Edit', 'View')">Affiliate</a> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2" class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityAffiliateSearch')">Search</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td colspan="2"><input type="checkbox" name="dataUtilityAffiliateSearchHeirarchy"> </td>
+
+                                                        <td nowrap>View Heirarchy</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityAffiliateEdit');syncCheckBoxes('privileges', 'dataUtilityAffiliate', 'Edit', 'View')">Edit</a> </td>
+
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityAffiliateView')">View</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityAffiliateEditDetail" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityAffiliateViewDetail"> </td>
+
+                                                        <td nowrap>Detail</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityAffiliateEditConstitution" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityAffiliateViewConstitution"> </td>
+
+                                                        <td nowrap>Constitution</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityAffiliateEditCharter" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityAffiliateViewCharter"> </td>
+
+                                                        <td nowrap>Charter</td>
+                                                    </tr>
+
+
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityAffiliateEditFinancialInfo" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityAffiliateViewFinancialInfo"> </td>
+
+                                                        <td nowrap>Financial Info</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityAffiliateEditMembershipReporting" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityAffiliateViewMembershipReporting"> </td>
+
+                                                        <td nowrap>Membership Reporting</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap>&nbsp;</td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityAffiliateViewChangeHistory"> </td>
+
+                                                        <td nowrap>Change History</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap>&nbsp;</td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityAffiliateViewOfficerHistory"> </td>
+
+                                                        <td nowrap>Officer History</td>
+                                                    </tr>
+
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+                                        <td valign="Top">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="ContentHeaderTR"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityGeneral');syncCheckBoxes('privileges', 'dataUtilityGeneral', 'Edit', 'View')">General</a> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityGeneralEdit');syncCheckBoxes('privileges', 'dataUtilityGeneral', 'Edit', 'View')">Edit</a> </td>
+
+                                                        <td class="ContentHeaderTD"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilityGeneralView')">View</a> </td>
+
+                                                        <td nowrap>&nbsp;</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityGeneralEditAddresses" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityGeneralViewAddresses"> </td>
+
+                                                        <td nowrap>Addresses</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityGeneralEditPhoneNumbers" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityGeneralViewPhoneNumbers"> </td>
+
+                                                        <td nowrap>Phone Numbers</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilityGeneralEditEmail" onclick="changeNext(this)"> </td>
+
+                                                        <td nowrap><input type="checkbox" name="dataUtilityGeneralViewEmail"> </td>
+
+                                                        <td nowrap>Email Addresses</td>
+                                                    </tr>
+
+
+                                                </tbody>
+                                            </table>
+                                        </td>
+
+                                        <td valign="Top">
+                                            <table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td colspan="2" class="ContentHeaderTR"><a href="javascript:toggleCheckBoxes('privileges', 'dataUtilitySystem')">System</a> </td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilitySystemMaintainQueries"> </td>
+
+                                                        <td nowrap>Maintain Queries</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilitySystemDownloadFile"> </td>
+
+                                                        <td nowrap>Download File</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td nowrap><input type="checkbox" name="dataUtilitySystemMaintainMemberPrivileges"> </td>
+
+                                                        <td nowrap>Maintain Member Privileges</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td nowrap><br>
+                         <input type="button" class="BUTTON" name="Submit" value="Cancel" onclick="window.location = 'Role.htm'"> <input type="button" class="BUTTON" name="reset" value="Reset" onclick="javascript:alert('Not implemented in Prototype')"> </td>
+
+                        <td align="Right"><br>
+                         <input type="submit" class="BUTTON" name="Submit3" value="Submit"> </td>
+                    </tr>
+
+                    <tr>
+                        <td align="Right">&nbsp;</td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+        <br>
+         
+<script type="text/javascript" language="JavaScript" src="../js/footer.js">
+                    
+</script>
+    <br>
+    </body>
+</html>
+
+

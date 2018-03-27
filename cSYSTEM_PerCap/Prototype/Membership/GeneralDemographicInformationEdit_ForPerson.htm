@@ -1,0 +1,633 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>General Demographic Information - Edit</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>General Demographic Information - Edit</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD >
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="#" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT name="ResetButton" type="reset" class="BUTTON" value="Reset"> 
+				<INPUT name="CancelButton" type="button" class="BUTTON" value="Cancel" onClick="parent.location='GeneralDemographicInformation_ForPerson.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT name="SubmitButton" type="button" class="BUTTON" value="Submit" onClick="parent.location='GeneralDemographicInformation_ForPerson.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				John Michael Doe - 12345678<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD width="45%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD width="30%" class="ContentHeaderTD">
+							<LABEL for="label_BirthDate"> Birth Date</LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="BirthDate" value="01/01/1960" id="label_BirthDate" size="20" maxlength="10"> 
+							<A href="javascript:show_calendar('form.BirthDate');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"><IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></A> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_deceasedDate"> Deceased Date </LABEL> 
+						</TD>
+						<TD>
+							<INPUT type="text" name="deceasedDate" value="" id="label_deceasedDate" size="20" maxlength="10"> 
+							<A href="javascript:show_calendar('form.deceasedDate');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"> 
+							<IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></A> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_gender"> Gender </LABEL> 
+						</TD>
+						<TD class="smallFont">
+							<INPUT type="radio" name="gender" id="label_gender" value="male" checked>
+							Male 
+							<INPUT type="radio" name="gender" id="label_gender" value="female">
+							Female 
+							<INPUT type="radio" name="gender" id="label_gender" value="unknown">
+							Unknown 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_ethnicOrigin"> Ethnic Origin </LABEL> 
+						</TD>
+						<TD>
+							<SELECT name=ethnicOrigin id="label_ethnicOrigin">
+								<OPTION value="">[Select]</OPTION>
+								<OPTION>African-American</OPTION>
+								<OPTION>Asian-American</OPTION>
+								<OPTION>European-American</OPTION>
+								<OPTION>Latino-American</OPTION>
+								<OPTION>Native-American</OPTION>
+								<OPTION>Asian</OPTION>
+								<OPTION>Hispanic</OPTION>
+								<OPTION>Caucasian</OPTION>
+								<OPTION>Foreign</OPTION>
+								<OPTION>Mixed</OPTION>
+								<OPTION selected>Others</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_citizenship"> Citizenship</LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="citizenship" id="label_citizenship" size=1>
+								<OPTION value='AD'>AD-Andorra 
+								<OPTION value='AE'>AE-United Arab Emirates 
+								<OPTION value='AG'>AG-Antigua and Barbuda 
+								<OPTION value='AI'>AI-Anguilla 
+								<OPTION value='AN'>AN-Netherlands Antilles 
+								<OPTION value='AQ'>AQ-Antarctica 
+								<OPTION value='AR'>AR-Argentina 
+								<OPTION value='AS'>AS-American Samoa 
+								<OPTION value='AT'>AT-Austria 
+								<OPTION value='AU'>AU-Australia 
+								<OPTION value='BB'>BB-Barbados 
+								<OPTION value='BE'>BE-Belgium 
+								<OPTION value='BH'>BH-Bahrain 
+								<OPTION value='BM'>BM-Bermuda 
+								<OPTION value='BN'>BN-Brunei Darussalam 
+								<OPTION value='BO'>BO-Bolivia 
+								<OPTION value='BR'>BR-Brazil 
+								<OPTION value='BS'>BS-Bahamas 
+								<OPTION value='BT'>BT-Bhutan 
+								<OPTION value='BZ'>BZ-Belize 
+								<OPTION value='CA'>CA-Canada 
+								<OPTION value='CC'>CC-Cocos (Keeling) Islands 
+								<OPTION value='CH'>CH-Switzerland 
+								<OPTION value='CK'>CK-Cook Islands 
+								<OPTION value='CL'>CL-Chile 
+								<OPTION value='CR'>CR-Costa Rica 
+								<OPTION value='CV'>CV-Cape Verde 
+								<OPTION value='CX'>CX-Christmas Island 
+								<OPTION value='CY'>CY-Cyprus 
+								<OPTION value='CZ'>CZ-Czech Republic 
+								<OPTION value='DE'>DE-Germany 
+								<OPTION value='DK'>DK-Denmark 
+								<OPTION value='DM'>DM-Dominica 
+								<OPTION value='DO'>DO-Dominican Republic 
+								<OPTION value='DX'>DX-Daxland 
+								<OPTION value='EG'>EG-Egypt 
+								<OPTION value='EH'>EH-Western Sahara 
+								<OPTION value='ES'>ES-Spain 
+								<OPTION value='FI'>FI-Finland 
+								<OPTION value='FJ'>FJ-Fiji 
+								<OPTION value='KL'>FK-Falkland Islands 
+								<OPTION value='FM'>FM-Micronesia 
+								<OPTION value='FO'>FO-Faroe Islands 
+								<OPTION value='FR'>FR-France 
+								<OPTION value='FX'>FX-France, Metropolitan 
+								<OPTION value='GB'>GB-Great Britain/United Kingdom 
+								<OPTION value='GD'>GD-Grenada 
+								<OPTION value='GF'>GF-French Guiana 
+								<OPTION value='GI'>GI-Gibraltar 
+								<OPTION value='GL'>GL-Greenland 
+								<OPTION value='GP'>GP-Guadeloupe 
+								<OPTION value='GR'>GR-Greece 
+								<OPTION value='GS'>GS-S. Georgia and S. Sandwich Islands 
+								<OPTION value='GT'>GT-Guatemala 
+								<OPTION value='GU'>GU-Guam 
+								<OPTION value='GY'>GY-Guyana 
+								<OPTION value='HK'>HK-Hong Kong 
+								<OPTION value='HM'>HM-Heard and McDonald Islands 
+								<OPTION value='HN'>HN-Honduras 
+								<OPTION value='HT'>HT-Haiti 
+								<OPTION value='HU'>HU-Hungary 
+								<OPTION value='IE'>IE-Ireland 
+								<OPTION value='IL'>IL-Israel 
+								<OPTION value='IO'>IO-British Indian Ocean Territory 
+								<OPTION value='IS'>IS-Iceland 
+								<OPTION value='IT'>IT-Italy 
+								<OPTION value='JM'>JM-Jamaica 
+								<OPTION value='JO'>JO-Jordan 
+								<OPTION value='JP'>JP-Japan 
+								<OPTION value='KE'>KE-Kenya 
+								<OPTION value='KN'>KN-Saint Kitts and Nevis 
+								<OPTION value='KR'>KR-Korea Republic of 
+								<OPTION value='KW'>KW-Kuwait 
+								<OPTION value='KY'>KY-Cayman Islands 
+								<OPTION value='LA'>LA-Lao People's Democratic Republic 
+								<OPTION value='LB'>LB-Lebanon 
+								<OPTION value='LC'>LC-Saint Lucia 
+								<OPTION value='LI'>LI-Liechtenstein 
+								<OPTION value='LU'>LU-Luxembourg 
+								<OPTION value='MC'>MC-Monaco 
+								<OPTION value='MH'>MH-Marshall Islands 
+								<OPTION value='MP'>MP-Northern Mariana Islands 
+								<OPTION value='MQ'>MQ-Martinique 
+								<OPTION value='MS'>MS-Montserrat 
+								<OPTION value='MT'>MT-Malta 
+								<OPTION value='MU'>MU-Mauritius 
+								<OPTION value='MV'>MV-Maldives 
+								<OPTION value='MX'>MX-Mexico 
+								<OPTION value='MY'>MY-Malaysia 
+								<OPTION value='NC'>NC-New Caledonia 
+								<OPTION value='NF'>NF-Norfolk Island 
+								<OPTION value='NI'>NI-Nicaragua 
+								<OPTION value='NL'>NL-Netherlands 
+								<OPTION value='NO'>NO-Norway 
+								<OPTION value='NR'>NR-Nauru 
+								<OPTION value='NU'>NU-Niue 
+								<OPTION value='NZ'>NZ-New Zealand 
+								<OPTION value='OM'>OM-Oman 
+								<OPTION value='PA'>PA-Panama 
+								<OPTION value='PE'>PE-Peru 
+								<OPTION value='PF'>PF-French Polynesia 
+								<OPTION value='PG'>PG-Papau New Guinea 
+								<OPTION value='PH'>PH-Philippines 
+								<OPTION value='PL'>PL-Poland 
+								<OPTION value='PM'>PM-St. Pierre and Miquelon 
+								<OPTION value='PN'>PN-Pitcairn 
+								<OPTION value='PR'>PR-Puerto Rico 
+								<OPTION value='PT'>PT-Portugal 
+								<OPTION value='PW'>PW-Palau 
+								<OPTION value='PY'>PY-Paraguay 
+								<OPTION value='QA'>QA-Qatar 
+								<OPTION value='RE'>RE-Reunion 
+								<OPTION value='SA'>SA-Saudi Arabia 
+								<OPTION value='SB'>SB-Solomon Islands 
+								<OPTION value='SC'>SC-Seychelles 
+								<OPTION value='SE'>SE-Sweden 
+								<OPTION value='SG'>SG-Singapore 
+								<OPTION value='SH'>SH-St. Helena 
+								<OPTION value='SJ'>SJ-Svalbard and Jan Mayen Islands 
+								<OPTION value='SK'>SK-Slovakia 
+								<OPTION value='SM'>SM-San Marino 
+								<OPTION value='SR'>SR-Suriname 
+								<OPTION value='ST'>ST-Sao Tome and Principe 
+								<OPTION value='SV'>SV-El Salvador 
+								<OPTION value='TC'>TC-Turks and Caicos Islands 
+								<OPTION value='TF'>TF-French Southern Territories 
+								<OPTION value='TH'>TH-Thailand 
+								<OPTION value='TK'>TK-Tokelau 
+								<OPTION value='TO'>TO-Tonga 
+								<OPTION value='TR'>TR-Turkey 
+								<OPTION value='TT'>TT-Trinidad and Tobago 
+								<OPTION value='TV'>TV-Tuvalu 
+								<OPTION value='TW'>TW-Taiwan 
+								<OPTION value='UM'>UM-United States Minor Outlying Is. 
+								<OPTION value='US' selected>US-United States 
+								<OPTION value='UY'>UY-Uruguay 
+								<OPTION value='VA'>VA-Vatican City State 
+								<OPTION value='VC'>VC-Saint Vincent and the Grenadines 
+								<OPTION value='VE'>VE-Venezuela 
+								<OPTION value='VG'>VG-Virgin Islands (British) 
+								<OPTION value='VI'>VI-Virgin Islands (U.S.) 
+								<OPTION value='VN'>VN-Vietnam 
+								<OPTION value='VU'>VU-Vanuatu 
+								<OPTION value='WF'>WF-Wallis and Futuna Islands 
+								<OPTION value='WS'>WS-Samoa 
+								<OPTION value='YE'>YE-Yemen 
+								<OPTION value='YT'>YT-Mayotte 
+								<OPTION value='ZA'>ZA-South Africa </SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_maritalStatus"> Marital Status </LABEL> 
+						</TD>
+						<TD>
+							<SELECT name=maritalStatus id="label_maritalStatus">
+								<OPTION value="">[Select]</OPTION>
+								<OPTION>Single</OPTION>
+								<OPTION selected>Married</OPTION>
+								<OPTION>Separated</OPTION>
+								<OPTION>Divorced</OPTION>
+								<OPTION>Domestic Partnership</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD>
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD WIDTH="35%" class="ContentHeaderTD">
+							<LABEL for="label_DisabilityCode">Disabilities<BR>
+							(multiple select)</LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="DisabilityCode" ID="label_DisabilityCode" multiple size="3">
+								<OPTION value="">[Select]</OPTION>
+								<OPTION>Musculoskeletal</OPTION>
+								<OPTION>Blood Serum Disorders</OPTION>
+								<OPTION>Cardiovascular/Circulatory</OPTION>
+								<OPTION>Respiratory</OPTION>
+								<OPTION SELECTED>Diabetes</OPTION>
+								<OPTION>Epilepsy</OPTION>
+								<OPTION>Speech</OPTION>
+								<OPTION>Language</OPTION>
+								<OPTION SELECTED>Hearing</OPTION>
+								<OPTION>Mental</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Accommodation">Accommodation<BR>
+							(multiple select)</LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="Accommodation" ID="label_Accommodation" multiple size="3">
+								<OPTION value="">[Select]</OPTION>
+								<OPTION>Wheelchair accessibility</OPTION>
+								<OPTION SELECTED>Refrigeration for medication</OPTION>
+								<OPTION>Materials: Braille</OPTION>
+								<OPTION>Materials: Cassette</OPTION>
+								<OPTION>Materials: Large Type</OPTION>
+								<OPTION>ASL Interpreter</OPTION>
+								<OPTION SELECTED>Assisted Listening Device</OPTION>
+								<OPTION>Telecommunications Device</OPTION>
+								<OPTION>Handicap Rest/Bathroom</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_PrimaryLanguage"> Primary Language </LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="PrimaryLanguage" id="label_PrimaryLanguage">
+								<OPTION value="">[Select]</OPTION>
+								<OPTION SELECTED>English</OPTION>
+								<OPTION>Spanish or Spanish Creole</OPTION>
+								<OPTION>French or French Creole</OPTION>
+								<OPTION>German</OPTION>
+								<OPTION>Chinese</OPTION>
+								<OPTION>Italian</OPTION>
+								<OPTION>Indic</OPTION>
+								<OPTION>Vietnamese</OPTION>
+								<OPTION>Portuguese or Portuguese Creole</OPTION>
+								<OPTION>Japanese</OPTION>
+								<OPTION>Greek</OPTION>
+								<OPTION>Native North American languages</OPTION>
+								<OPTION>Tagalog</OPTION>
+								<OPTION>Polish</OPTION>
+								<OPTION>Other Indo-European language</OPTION>
+								<OPTION>Korean</OPTION>
+								<OPTION>Russian</OPTION>
+								<OPTION>Yiddish</OPTION>
+								<OPTION>Scandanavian</OPTION>
+								<OPTION>South Slavic</OPTION>
+								<OPTION>Mon-Khmer</OPTION>
+								<OPTION>Other-Western Germanic language</OPTION>
+								<OPTION>Unspecified</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_OtherLanguages"> Other Languages<BR>
+							(multiple select) </LABEL> 
+						</TD>
+						<TD>
+							<SELECT multiple name="OtherLanguages" id="label_OtherLanguages" size="3">
+								<OPTION value="" SELECTED>[Select]</OPTION>
+								<OPTION>English</OPTION>
+								<OPTION>Spanish or Spanish Creole</OPTION>
+								<OPTION>French or French Creole</OPTION>
+								<OPTION>German</OPTION>
+								<OPTION>Chinese</OPTION>
+								<OPTION>Italian</OPTION>
+								<OPTION>Indic</OPTION>
+								<OPTION>Vietnamese</OPTION>
+								<OPTION>Portuguese or Portuguese Creole</OPTION>
+								<OPTION>Japanese</OPTION>
+								<OPTION>Greek</OPTION>
+								<OPTION>Native North American languages</OPTION>
+								<OPTION>Tagalog</OPTION>
+								<OPTION>Polish</OPTION>
+								<OPTION>Other Indo-European language</OPTION>
+								<OPTION>Korean</OPTION>
+								<OPTION>Russian</OPTION>
+								<OPTION>Yiddish</OPTION>
+								<OPTION>Scandanavian</OPTION>
+								<OPTION>South Slavic</OPTION>
+								<OPTION>Mon-Khmer</OPTION>
+								<OPTION>Other-Western Germanic language</OPTION>
+								<OPTION>Unspecified</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_religion"> Religion </LABEL> 
+						</TD>
+						<TD>
+							<SELECT name="religion">
+								<OPTION value="">[Select]</OPTION>
+								<OPTION>Catholic</OPTION>
+								<OPTION>Baptist</OPTION>
+								<OPTION>Methodist</OPTION>
+								<OPTION>Lutheran</OPTION>
+								<OPTION>Pentecostal/Charismatic/Foursquare</OPTION>
+								<OPTION>Presbyterian</OPTION>
+								<OPTION>Mormon/Church of Jesus Christ Latter-day Saints</OPTION>
+								<OPTION>Non-denominational Christians</OPTION>
+								<OPTION>Church of Christ</OPTION>
+								<OPTION>Episcopal/Angelican</OPTION>
+								<OPTION>Assemblies of God</OPTION>
+								<OPTION>Congregational/United Church of Christ</OPTION>
+								<OPTION>Seventh-Day Adventist</OPTION>
+								<OPTION>Jewish</OPTION>
+								<OPTION>Islamic</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TH align="left" colspan="2">
+				Spouse/Domestic Partner Name 
+			</TH>
+		</TR>
+		<TR align="center">
+			<TD colspan="2">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="28%">
+							First Name 
+						</TH>
+						<TH width="28%">
+							Middle Name 
+						</TH>
+						<TH width="28%">
+							Last Name 
+						</TH>
+						<TH width="16%">
+							Suffix 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="SpouseFirstName" value="Jane" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="SpouseMiddleName" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<INPUT type="text" name="SpouseLastName" value="Doe" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center" class="ContentTD">
+							<SELECT name="SpouseSuffix">
+								<OPTION></OPTION>
+								<OPTION>Jr.</OPTION>
+								<OPTION>Sr.</OPTION>
+								<OPTION>I</OPTION>
+								<OPTION>II</OPTION>
+								<OPTION selected>III</OPTION>
+								<OPTION>IV</OPTION>
+								<OPTION>V</OPTION>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TH align="left" colspan="2">
+				Children Information 
+			</TH>
+		</TR>
+		<TR align="center">
+			<TD colspan="2">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH>
+							First Name 
+						</TH>
+						<TH>
+							Middle Name 
+						</TH>
+						<TH>
+							Last Name 
+						</TH>
+						<TH>
+							Suffix 
+						</TH>
+						<TH>
+							Birth Date 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center">
+							<INPUT type="text" name="ChildFirstName_1" value="Robert" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ChildMiddleName_1" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ChildLastName_1" value="Doe" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<SELECT name="ChildSuffix_1">
+								<OPTION></OPTION>
+								<OPTION>Jr.</OPTION>
+								<OPTION>Sr.</OPTION>
+								<OPTION>I</OPTION>
+								<OPTION>II</OPTION>
+								<OPTION>III</OPTION>
+								<OPTION>IV</OPTION>
+								<OPTION>V</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ChildBirthDate_1" value="01/01/1980" size="10" maxlength="10"> 
+							<A href="javascript:show_calendar('form.ChildBirthDate_1');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"><IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></A> 
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center">
+							<INPUT type="text" name="ChildFirstName_2" value="Jennifer" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ChildMiddleName_2" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ChildLastName_2" value="Doe" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<SELECT name="ChildSuffix_2">
+								<OPTION></OPTION>
+								<OPTION>Jr.</OPTION>
+								<OPTION>Sr.</OPTION>
+								<OPTION>I</OPTION>
+								<OPTION>II</OPTION>
+								<OPTION>III</OPTION>
+								<OPTION>IV</OPTION>
+								<OPTION>V</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ChildBirthDate_2" value="01/01/1981" size="10" maxlength="10"> 
+							<A href="javascript:show_calendar('form.ChildBirthDate_2');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"><IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></A> 
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center">
+							<INPUT type="text" name="ChildFirstName_3" value="Terry" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ChildMiddleName_3" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ChildLastName_3" value="Doe" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<SELECT name="ChildSuffix_3">
+								<OPTION></OPTION>
+								<OPTION>Jr.</OPTION>
+								<OPTION>Sr.</OPTION>
+								<OPTION>I</OPTION>
+								<OPTION>II</OPTION>
+								<OPTION>III</OPTION>
+								<OPTION>IV</OPTION>
+								<OPTION>V</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ChildBirthDate_3" value="01/01/1982" size="10" maxlength="10"> 
+							<A href="javascript:show_calendar('form.ChildBirthDate_3');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"><IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></A> 
+						</TD>
+					</TR>
+					<TR>
+						<TD align="center">
+							<INPUT type="text" name="ChildFirstName_4" value="John" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ChildMiddleName_4" value="" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ChildLastName_4" value="Doe" size="25" maxlength="25"> 
+						</TD>
+						<TD align="center">
+							<SELECT name="ChildSuffix_4">
+								<OPTION></OPTION>
+								<OPTION>Jr.</OPTION>
+								<OPTION>Sr.</OPTION>
+								<OPTION>I</OPTION>
+								<OPTION>II</OPTION>
+								<OPTION>III</OPTION>
+								<OPTION selected>IV</OPTION>
+								<OPTION>V</OPTION>
+							</SELECT> 
+						</TD>
+						<TD align="center">
+							<INPUT type="text" name="ChildBirthDate_4" value="01/01/1983" size="10" maxlength="10"> 
+							<A href="javascript:show_calendar('form.ChildBirthDate_4');" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;"><IMG src="../images/calendar.gif" width=24 height=22 border=0 alt="Calendar"></A> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR align="center">
+			<TD>
+				<TABLE width="100%" cellpadding="2" cellspacing="0" border="0" class="InnerContentTable">
+					<TR>
+						<TD class="ContentHeaderTR">
+							<BR>
+							John Michael Doe - 12345678 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT name="reset2" type="reset" class="BUTTON" value="Reset"> <INPUT name="CancelButton2" type="button" class="BUTTON" value="Cancel" onClick="parent.location='GeneralDemographicInformation_ForPerson.htm'"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT name="SubmitButton2" type="button" class="BUTTON" value="Submit" onClick="parent.location='GeneralDemographicInformation_ForPerson.htm'"> 
+				<BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

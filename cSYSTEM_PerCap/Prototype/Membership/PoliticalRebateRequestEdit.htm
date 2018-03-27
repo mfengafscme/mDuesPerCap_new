@@ -1,0 +1,387 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Political Rebate - Request Edit</TITLE><LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+<SCRIPT language="JavaScript">function pageInitialize(form) {
+		// initialize js vars for Request Denied info
+		DateDeniedJS = form.DateDenied.value;
+		ReasonDeniedJS = form.ReasonDenied.selectedIndex;
+		validateRebateDenial(form);
+		
+		// initialize js vars for Resubmit Denied info
+		DateResubmitDeniedJS = form.DateResubmitDenied.value;
+		ReasonResubmitDeniedJS = form.ResubmissionDenied.selectedIndex;
+		validateRebateResubmitDenial(form);
+		initializeFocus();
+	}
+</SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="pageInitialize(document.form);">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<H1>Political Rebate - Request Edit</H1>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<BR>
+			</TD>
+		</TR>
+		<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+	</TABLE>
+	<FORM action="#" name="form">
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+			<TR valign="top">
+				<TD class="ContentHeaderTR">
+					John Michael Doe - 12345678
+					<BR>
+					<BR>
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+			<TR valign="top">
+				<TD>
+					<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TD width="16%" class="ContentHeaderTD">
+								* Rebate Year
+							</TD>
+							<TD width="10%" class="ContentTD">
+								<INPUT type="text" name="RebateYear" value="2001" id="label_RebateYear" size="4" maxlength="4">
+							</TD>
+							<TD width="18%" class="ContentHeaderTD">
+								* Request Date
+							</TD>
+							<TD width="20%" class="ContentTD">
+								<INPUT type="text" name="RequestDate" value="04/03/2002" id="label_RequestDate" size="10" maxlength="10">
+								<A name="RequestCalendar" href="javascript:show_calendar('form.RequestDate');" onClick="if (disabled) return false;" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;">
+									<IMG src="../images/calendar.gif" width="24" height="22" border="0" alt="Calendar"></A>
+							</TD>
+							<TD width="18%" class="ContentHeaderTD">
+								Certified Mail Number
+							</TD>
+							<TD width="18%" class="ContentTD">
+								<INPUT type="text" name="CertifiedMailNumber" value="GZ19839 " id="label_CertifiedMailNumber" size="20" maxlength="20">
+							</TD>
+						</TR>
+						<TR>
+							<TD class="ContentHeaderTD">
+								Request Denied
+							</TD>
+							<TD class="smallFont">
+								<INPUT type="checkbox" name="RequestDenied" id="label_RequestDenied" onClick="validateRebateDenial(form);" checked>
+							</TD>
+							<TD class="ContentHeaderTD">
+								Reason Denied
+							</TD>
+							<TD class="ContentTD">
+								<SELECT name="ReasonDenied" id="label_ReasonDenied" disabled>
+									<OPTION></OPTION>
+									<OPTION value="NT" selected>Not Timely</OPTION>
+									<OPTION value="NC">Not Certified</OPTION>
+									<OPTION value="M">Multiple Submissions</OPTION>
+									<OPTION value="P">Prior Years Invalid</OPTION>
+									<OPTION value="NM">Not an AFSCME Member</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentHeaderTD">
+								Date Denied
+							</TD>
+							<TD class="ContentTD">
+								<INPUT type="text" name="DateDenied" value="04/01/2002" id="label_DateDenied" size="10" maxlength="10">
+								<A name="DeniedCalendar" href="javascript:show_calendar('form.DateDenied');" onClick="if (disabled) return false;" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;">
+									<IMG src="../images/calendar.gif" width="24" height="22" border="0" alt="Calendar"></A>
+							</TD>
+						</TR>
+						<TR>
+							<TD class="ContentHeaderTD">
+								Request Re-submitted
+							</TD>
+							<TD class="smallFont">
+								<INPUT type="checkbox" name="RequestResubmitted" id="label_RequestResubmitted" onClick="validateRebateResubmitDenial(form);">
+							</TD>
+							<TD class="ContentHeaderTD">
+								Re-submission Denied
+							</TD>
+							<TD class="ContentTD">
+								<SELECT name="ResubmissionDenied" id="label_ResubmissionDenied" onChange="validateRebateResubmitDenial(form);">
+									<OPTION valule="">[Select]</OPTION>
+									<OPTION value="NT">Not Timely</OPTION>
+									<OPTION value="NC">Not Certified</OPTION>
+									<OPTION value="M">Multiple Submissions</OPTION>
+									<OPTION value="P">Prior Years Invalid</OPTION>
+									<OPTION value="NM">Not an AFSCME Member</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentHeaderTD">
+								Date Denied
+							</TD>
+							<TD class="ContentTD">
+								<INPUT type="text" name="DateResubmitDenied" value="" id="label_DateResubmitDenied" size="10" maxlength="10">
+								<A name="ResubmitDeniedCalendar" href="javascript:show_calendar('form.DateResubmitDenied');" onClick="if (disabled) return false;" onMouseOver="window.status='Date Picker';return true;" onMouseOut="window.status='';return true;">
+									<IMG src="../images/calendar.gif" width="24" height="22" border="0" alt="Calendar"></A>
+							</TD>
+						</TR>
+						<TR>
+							<TD class="ContentHeaderTD">
+								Keyed Date
+							</TD>
+							<TD class="ContentTD">
+								05/01/2002
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR>
+				<TD>
+					<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TH colspan="5">
+								Dues Paid To
+							</TH>
+							<TH>
+								Duration
+							</TH>
+							<TH>
+								Filed With
+							</TH>
+						</TR>
+						<TR>
+							<TH class="small">
+								Finder
+							</TH>
+							<TH class="small">
+								* Type
+							</TH>
+							<TH class="small">
+								* Loc/Sub Chap
+							</TH>
+							<TH class="small">
+								* State/Nat'l
+							</TH>
+							<TH class="small">
+								* CN/Ret Chap
+							</TH>
+							<TD>
+								&nbsp;
+							</TD>
+							<TD>
+								&nbsp;
+							</TD>
+						</TR>
+						<TR>
+							<TD align="center">
+								<INPUT type="hidden" name="affiliateCode_1" value="" size="1" maxlength="1">
+								<A name="Finder1" href="javascript:showAffiliateIDResults(form.affiliateType_1, form.affiliateLocal_1, form.affiliateState_1, form.affiliateSubunit_1, form.affiliateCouncil_1);" class="action" title="Retrieve your Affilitate Identifier">Finder</A>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="affiliateType_1" onBlur="lockAffiliateIDFieldsByFields(affiliateType_1, affiliateLocal_1, affiliateState_1, affiliateSubunit_1, affiliateCouncil_1);" onChange="lockAffiliateIDFieldsByFields(affiliateType_1, affiliateLocal_1, affiliateState_1, affiliateSubunit_1, affiliateCouncil_1);">
+									<OPTION></OPTION>
+									<OPTION selected>L</OPTION>
+									<OPTION>R</OPTION>
+									<OPTION>S</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="affiliateLocal_1" value="1111" size="4" maxlength="4">
+									<INPUT type="hidden" name="affiliateSubunit_1" value="0000">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="affiliateState_1">								
+								<SCRIPT language="JavaScript">								var selected = "DC";
+																</SCRIPT>								
+								<SCRIPT language="JavaScript" src="../js/state_select.js">								</SCRIPT>
+									<OPTION value="98">NT</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="affiliateCouncil_1" value="0100" size="2" maxlength="4">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="Duration_1">
+									<OPTION value="0"></OPTION>
+									<OPTION value="1">1 months</OPTION>
+									<OPTION value="2">2 months</OPTION>
+									<OPTION value="3">3 months</OPTION>
+									<OPTION value="4">4 months</OPTION>
+									<OPTION value="5">5 months</OPTION>
+									<OPTION value="6">6 months</OPTION>
+									<OPTION value="7">7 months</OPTION>
+									<OPTION value="8">8 months</OPTION>
+									<OPTION value="9">9 months</OPTION>
+									<OPTION value="10">10 months</OPTION>
+									<OPTION value="11">11 months</OPTION>
+									<OPTION value="12" selected>1 year</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="FiledWith_1">
+									<OPTION></OPTION>
+									<OPTION selected>Local</OPTION>
+									<OPTION>Council</OPTION>
+									<OPTION>Both</OPTION>
+								</SELECT>
+							</TD>
+						</TR>
+						<TR>
+							<TD align="center">
+								<INPUT type="hidden" name="affiliateCode_2" value="" size="1" maxlength="1">
+								<A name="Finder2" href="javascript:showAffiliateIDResults(form.affiliateType_2, form.affiliateLocal_2, form.affiliateState_2, form.affiliateSubunit_2, form.affiliateCouncil_2);" class="action" title="Retrieve your Affilitate Identifier">Finder</A>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="affiliateType_2" onBlur="lockAffiliateIDFieldsByFields(affiliateType_2, affiliateLocal_2, affiliateState_2, affiliateSubunit_2, affiliateCouncil_2);" onChange="lockAffiliateIDFieldsByFields(affiliateType_2, affiliateLocal_2, affiliateState_2, affiliateSubunit_2, affiliateCouncil_2);">
+									<OPTION></OPTION>
+									<OPTION>L</OPTION>
+									<OPTION>R</OPTION>
+									<OPTION>S</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="affiliateLocal_2" value="" size="4" maxlength="4">
+									<INPUT type="hidden" name="affiliateSubunit_2" value="">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="affiliateState_2">								
+								<SCRIPT language="JavaScript" src="../js/state.js">								</SCRIPT>
+									<OPTION value="98">NT</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="affiliateCouncil_2" value="" size="2" maxlength="4">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="Duration_2">
+									<OPTION value="0"></OPTION>
+									<OPTION value="1">1 months</OPTION>
+									<OPTION value="2">2 months</OPTION>
+									<OPTION value="3">3 months</OPTION>
+									<OPTION value="4">4 months</OPTION>
+									<OPTION value="5">5 months</OPTION>
+									<OPTION value="6">6 months</OPTION>
+									<OPTION value="7">7 months</OPTION>
+									<OPTION value="8">8 months</OPTION>
+									<OPTION value="9">9 months</OPTION>
+									<OPTION value="10">10 months</OPTION>
+									<OPTION value="11">11 months</OPTION>
+									<OPTION value="12">1 year</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="FiledWith_2">
+									<OPTION></OPTION>
+									<OPTION>Local</OPTION>
+									<OPTION>Council</OPTION>
+									<OPTION>Both</OPTION>
+								</SELECT>
+							</TD>
+						</TR>
+						<TR>
+							<TD align="center">
+								<INPUT type="hidden" name="affiliateCode_3" value="" size="1" maxlength="1">
+								<A href="javascript:showAffiliateIDResults(form.affiliateType_3, form.affiliateLocal_3, form.affiliateState_3, form.affiliateSubunit_3, form.affiliateCouncil_3);" class="action" title="Retrieve your Affilitate Identifier">Finder</A>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="affiliateType_3" onBlur="lockAffiliateIDFieldsByFields(affiliateType_3, affiliateLocal_3, affiliateState_3, affiliateSubunit_3, affiliateCouncil_3);" onChange="lockAffiliateIDFieldsByFields(affiliateType_3, affiliateLocal_3, affiliateState_3, affiliateSubunit_3, affiliateCouncil_3);">
+									<OPTION></OPTION>
+									<OPTION>L</OPTION>
+									<OPTION>R</OPTION>
+									<OPTION>S</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="affiliateLocal_3" value="" size="4" maxlength="4">
+									<INPUT type="hidden" name="affiliateSubunit_3" value="">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="affiliateState_3">								
+								<SCRIPT language="JavaScript" src="../js/state.js">								</SCRIPT>
+									<OPTION value="98">NT</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<INPUT type="text" name="affiliateCouncil_3" value="" size="2" maxlength="4">
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="Duration_3">
+									<OPTION value="0"></OPTION>
+									<OPTION value="1">1 months</OPTION>
+									<OPTION value="2">2 months</OPTION>
+									<OPTION value="3">3 months</OPTION>
+									<OPTION value="4">4 months</OPTION>
+									<OPTION value="5">5 months</OPTION>
+									<OPTION value="6">6 months</OPTION>
+									<OPTION value="7">7 months</OPTION>
+									<OPTION value="8">8 months</OPTION>
+									<OPTION value="9">9 months</OPTION>
+									<OPTION value="10">10 months</OPTION>
+									<OPTION value="11">11 months</OPTION>
+									<OPTION value="12">1 year</OPTION>
+								</SELECT>
+							</TD>
+							<TD class="ContentTD" align="center">
+								<SELECT name="FiledWith_3">
+									<OPTION></OPTION>
+									<OPTION>Local</OPTION>
+									<OPTION>Council</OPTION>
+									<OPTION>Both</OPTION>
+								</SELECT>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR>
+				<TD class="ContentTD">
+					<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TD>
+								<LABEL for="label_ApplicationComments">Enter New Comments</LABEL>
+							</TD>
+						</TR>
+						<TR>
+							<TD class="ContentTD">
+								<TEXTAREA name="ApplicationComments" cols="115" rows="3" onKeyUp="validateComments(this);"></TEXTAREA>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+			<TR valign="top">
+				<TD align="left">
+					<BR>
+					<INPUT type="reset" name="ResetButton" class="BUTTON" value="Reset" onClick="parent.location='PoliticalRebateRequestEdit.htm'">
+						<INPUT type="button" name="CancelButton" class="BUTTON" value="Cancel" onClick="parent.location='PoliticalRebateRequest.htm'">
+				</TD>
+				<TD align="right">
+					<BR>
+					<INPUT type="button" name="SubmitButton2" class="BUTTON" value="Submit" onClick="parent.location='PoliticalRebateRequest.htm'">
+						<BR>
+						<BR>
+				</TD>
+			</TR>
+		</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR><B><I>* Indicates Required Fields</I></B>
+				<BR>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

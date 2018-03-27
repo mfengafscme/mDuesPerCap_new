@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Page Title</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+</HEAD>
+
+<SCRIPT language="JavaScript">
+    function disableOtherOptions() {
+	optionTab.checked = false;
+	optionComma.checked = false;
+	optionSemicolon.checked = false;
+	optionTab.disabled = true;
+	optionComma.disabled = true;
+	optionSemicolon.disabled = true;
+    }
+
+    function enableOtherOptions() {
+	optionTab.checked = true;
+	optionTab.disabled = false;
+	optionComma.disabled = false;
+	optionSemicolon.disabled = false;
+    }
+
+    function viewReport() {
+ 	if (optionScreen.checked) {
+	        var reportFile = window.location.hash.substr(1);
+        	window.open(reportFile);
+	}
+    }
+</SCRIPT>
+
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+	
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+
+<TABLE width="95%" align="CENTER" valign=TOP cellpadding="0" cellspacing="0" border="0" class="ContentTable">
+  <TR> 
+    <TD align=center> 
+      <H1>Select Output Format</H1>
+    </TD>
+  </TR>
+  <TR> 
+    <TD align="right"><BR><B>
+	<A href="../Common/DataUtilityMainMenu.htm" title="Return to Main Menu">Main Menu</A>&nbsp;|&nbsp;
+	<A href="#">Need Help with this page?</A></B><BR>
+      <BR><BR>
+    </TD>
+  </TR>
+
+  <TR> 
+    <TD>
+      <TABLE width="45%" align="center" border=3 class="InnerContentTable">
+        <tr> 
+	  <td colspan=2><B>Select</B></td>
+	</tr>
+        <tr> 
+	  <td><input type="radio" name="OutputFormat" id="optionScreen" onClick="javascript:disableOtherOptions();" checked></input></td>
+	  <td><label for="optionScreen">Send Report To Screen</label></td>
+	</tr>
+	
+	<tr>
+	  <td valign=top><input type="radio" name="OutputFormat" id="optionSaveAs" onClick="javascript:enableOtherOptions();"></input></td>
+	  <td><label for="optionSaveAs">Save Report As</label>
+              	<TABLE align="center" border="0" class="InnerContentTable">
+              	<TR>
+			<TD><INPUT type="radio" id="optionTab" name="OutputFormat2" disabled></TD>
+			<TD><LABEL for="optionTab">Tab Delimited</LABEL></TD>
+
+		</TR>
+              	<TR>
+			<TD><INPUT type="radio" id="optionComma" name="OutputFormat2" disabled></TD>
+			<TD><LABEL for="optionComma">Comma Delimited</LABEL></TD>
+
+		</TR>
+              	<TR>
+			<TD><INPUT type="radio" id="optionSemicolon" name="OutputFormat2" disabled></TD>
+			<TD><LABEL for="optionSemicolon">Semicolon Delimited</LABEL></TD>
+
+		</TR>
+		</TABLE>
+	  </td>
+	</tr>
+
+      </TABLE>
+    </TD>
+  </TR>
+</TABLE>
+
+<table width="74%" cellpadding="0" cellspacing="0" border="0" class="InnerContentTable">
+	<tr>
+		<td align="right"><br>
+			<label for="label_actions">
+			<input type="button" class="BUTTON" name="Submit" value="Generate Report" onClick="javascript:viewReport();">
+			<input type="button" class="BUTTON" name="Submit" value="Cancel" onClick="window.location='AffiliateGenerateReports.htm'">
+			</label> 
+		</td>
+	</tr>
+</table>
+<p>
+    <SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+</p>
+</BODY>
+</HTML>

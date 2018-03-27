@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+    <login maxAttempts="3" lockoutTime="30"/>
+    <reportQueue fromEmail="afscme-test@grci.com" fromName="AFSCME Test Email Account" toEmail="afscme-test@grci.com" toName="Report Queue"/>
+    <smtp server="smtp.grci.com"/>
+    <temp dir="../tmp"/>
+    <aflcioExtract destination="ftp://localhost"/>
+    <requestPassword fromEmail="afscme-test@grci.com" fromName="AFSCME Test Email Account"/>
+    <searchResults pageSize="100"/>
+    <challengeQuestion defaultPk="1001"/>
+    <upload	minFileSize="75" 
+		afscmeDir="../afscme_uploads" 
+		affiliateDir="../affiliate_uploads"
+    />
+    <yearConversion cutoff="35"/>
+	<jndi clusterURL="localhost:1100"/>
+    <jms	factoryName="java:/ConnectionFactory" 
+		reportQueue="queue/ReportGeneratorMD" 
+		systemLogQueue="queue/SystemEventReceiver"
+		updateQueue="queue/UpdateMessage"
+    />
+</config>
+

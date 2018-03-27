@@ -1,0 +1,374 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Person Detail</TITLE><LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<H1>Person Detail</H1>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<BR>
+			</TD>
+		</TR>
+		<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+	</TABLE>
+	<FORM action="#" name="form">	
+		<SCRIPT language="JavaScript">	
+			var screen = "PersonDetail";
+			var imageType = "top";
+		</SCRIPT>
+		<SCRIPT language="JavaScript" src="../js/person_tabmenu.js"></SCRIPT>
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+			<TR valign="top">
+				<TD class="ContentHeaderTR">
+					John Michael Doe
+					<BR>
+					<BR>
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+			<TR>
+				<TD>
+					<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR valign="top">
+							<TD class="ContentHeaderTD" width="8%">
+								Persona
+							</TD>
+							<TD class="ContentTD">
+								<A href="MemberDetail.htm" class="action">Member</A><BR>
+								<A href="PersonStaffList.htm" class="action">Affiliate Staff</A><BR>
+								<A href="PersonOrganizationAssociateList.htm" class="action">Organization Associate</A><BR>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR align="center">
+				<TD>
+					<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TH width="14%">
+								Prefix
+							</TH>
+							<TH width="24%">
+								First Name
+							</TH>
+							<TH width="24%">
+								Middle Name
+							</TH>
+							<TH width="24%">
+								Last Name
+							</TH>
+							<TH width="14%">
+								Suffix
+							</TH>
+						</TR>
+						<TR>
+							<TD align="center">
+								Mr.
+							</TD>
+							<TD align="center">
+								John
+							</TD>
+							<TD align="center">
+								Michael
+							</TD>
+							<TD align="center">
+								Doe
+							</TD>
+							<TD align="center">
+								III
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR align="center">
+				<TD>
+					<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TD width="15%" class="ContentHeaderTD">
+								Nickname
+							</TD>
+							<TD width="20%" class="ContentTD">
+								Johnny
+							</TD>
+							<TD width="5%" class="ContentHeaderTD">
+								SSN
+							</TD>
+							<TD width="20%" class="ContentTD">
+								000-00-0000
+							</TD>
+							<TD width="15%" class="ContentHeaderTD">
+								Valid SSN
+							</TD>
+							<TD width="5%">
+								<INPUT type="checkbox" name="ValidSSN" id="label_ValidSSN" disabled>
+							</TD>
+							<TD width="15%" class="ContentHeaderTD">
+								Duplicate SSN
+							</TD>
+							<TD width="5%">
+								<INPUT type="checkbox" name="dupSSN" value="" id="label_dupSSN" disabled>
+							</TD>
+						</TR>
+						<TR>
+							<TD class="ContentHeaderTD">
+								<LABEL for="label_AlternateMailingName">Alt Mail Name</LABEL>
+							</TD>
+							<TD class="ContentTD" colspan="7">
+								John Doe
+							</TD>
+						</TR>
+						<TR>
+							<TD CLASS="ContentHeaderTD">Marked for Deletion</TD>
+							<TD CLASS="ContentTD">
+								<INPUT type="Checkbox" name="Deletion" DISABLED>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR align="center">
+				<TD>
+					<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TH align="left" colspan="6">
+							<A href="AddressMaintenance_ForPerson.htm" class="TH" title="Maintain Addresses">Maintain Addresses</A>
+							</TH>
+						</TR>
+						<TR>
+							<TH align="left" colspan="6">
+								Primary Address
+							</TH>
+						</TR>
+						<TR>
+							<TD class="ContentHeaderTD">
+								<LABEL for="label_Address1">Address 1</LABEL>
+							</TD>
+							<TD class="ContentTD">
+								111 Some Street
+							</TD>
+							<TD class="ContentHeaderTD">
+								<LABEL for="label_Address2">Address 2</LABEL>
+							</TD>
+							<TD class="ContentTD" colspan="3">
+								Apt. 1
+							</TD>
+						</TR>
+						<TR>
+							<TD width="11%" class="ContentHeaderTD">
+								<LABEL for="label_City">City</LABEL>
+							</TD>
+							<TD width="29%">
+								Vienna
+							</TD>
+							<TD width="15%" class="ContentHeaderTD">
+								<LABEL for="label_state">State</LABEL>
+							</TD>
+							<TD width="25%">
+								VA
+							</TD>
+							<TD width="10%" class="ContentHeaderTD">
+								<LABEL for="label_ZipCode">Zip/Postal Code</LABEL>
+							</TD>
+							<TD width="15%">
+								00000-0000
+							</TD>
+						</TR>
+						<TR>
+							<TD class="ContentHeaderTD">
+								<LABEL for="label_County">County</LABEL>
+							</TD>
+							<TD class="ContentTD">
+								Fairfax
+							</TD>
+							<TD class="ContentHeaderTD">
+								<LABEL for="label_Province">Province</LABEL>
+							</TD>
+							<TD class="ContentTD">
+								&nbsp;
+							</TD>
+							<TD class="ContentHeaderTD">
+								<LABEL for="label_Country">Country</LABEL>
+							</TD>
+							<TD class="ContentTD">
+								USA
+							</TD>
+						</TR>
+						<TR>
+							<TD class="ContentHeaderTD">
+								<LABEL for="label_BadAddressFlag">Bad Address</LABEL>
+							</TD>
+							<TD class="ContentTD">
+								<INPUT type="checkbox" name="BadAddress" id="label_BadAddress" disabled>
+							</TD>
+							<TD class="ContentHeaderTD">
+								Date Marked Bad
+							</TD>
+							<TD class="ContentTD" colspan="3">
+								&nbsp;
+							</TD>
+						</TR>
+						<TR>
+							<TD class="ContentHeaderTD">
+								Last Updated
+							</TD>
+							<TD class="ContentTD">
+								03/25/2002
+							</TD>
+							<TD class="ContentHeaderTD">
+								Updated By
+							</TD>
+							<TD class="ContentTD" colspan="3">
+								username
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR align="center">
+				<TD>
+					<TABLE cellpadding="0" cellspacing="0" border="0" class="InnerContentTable">
+						<TR>
+							<TD width="35%" valign="top">
+								<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+									<TR>
+										<TH colspan="4" align="left">
+										<A href="PhoneNumberMaintenance_ForPerson.htm" class="TH" title="Maintain Phone Numbers">Maintain 
+														Phone Numbers</A>
+										</TH>
+									</TR>
+									<TR>
+										<TH align="left" width="20%" class="small">
+											Type
+										</TH>
+										<TH align="left" width="25%" class="small">
+											Country Code
+										</TH>
+										<TH align="left" width="20%" class="small">
+											Area Code
+										</TH>
+										<TH align="left" width="35%" class="small">
+											Number
+										</TH>
+									</TR>
+									<TR>
+										<TD>
+											Home
+										</TD>
+										<TD>
+											&nbsp;
+										</TD>
+										<TD>
+											703
+										</TD>
+										<TD>
+											555-1212
+										</TD>
+									</TR>
+									<TR>
+										<TD>
+											Work
+										</TD>
+										<TD>
+											55
+										</TD>
+										<TD>
+											555
+										</TD>
+										<TD>
+											555-1234
+										</TD>
+									</TR>
+									<TR>
+										<TD>
+											Cell
+										</TD>
+										<TD>
+											&nbsp;
+										</TD>
+										<TD>
+											703
+										</TD>
+										<TD>
+											555-6789
+										</TD>
+									</TR>
+								</TABLE>
+							</TD>
+							<TD width="65%" valign="top">
+								<TABLE cellpadding="2" cellspacing="1" border="0" class="InnerContentTable">
+									<TR>
+										<TH colspan="2" align="left">
+										<A href="EmailAddressMaintenance_ForPerson.htm" class="TH" title="Maintain Email Addresses">Maintain 
+														Email Addresses</A>
+										</TH>
+									</TR>
+									<TR>
+										<TD width="20%">
+											Primary
+										</TD>
+										<TD width="80%">
+											some.user@home.com
+										</TD>
+									</TR>
+									<TR>
+										<TD>
+											Alternate
+										</TD>
+										<TD>
+											some.user@work.com
+										</TD>
+									</TR>
+								</TABLE>
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+			<TR align="center">
+				<TD>
+					<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+						<TR>
+							<TH align="left">
+							<A href="CommentHistory_ForPerson.htm" class="TH" title="View More Comments">View More Comments</A>
+							</TH>
+						</TR>
+						<TR>
+							<TD>
+								This is the last comment entered by a user.
+							</TD>
+						</TR>
+					</TABLE>
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+			<TR>
+				<TD class="ContentHeaderTR">
+					<BR>John Michael Doe
+				</TD>
+			</TR>
+		</TABLE>
+		<SCRIPT language="JavaScript">var imageType = "bottom";</SCRIPT>	
+		<SCRIPT language="JavaScript" src="../js/person_tabmenu.js"></SCRIPT>
+		<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+			<TR>
+				<TD valign="TOP" align="center">
+					<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+				</TD>
+			</TR>
+		</TABLE>
+	</FORM>
+</BODY>
+</HTML>

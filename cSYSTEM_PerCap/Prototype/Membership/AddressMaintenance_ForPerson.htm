@@ -1,0 +1,507 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Address Maintenance</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js">
+</SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		
+	</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>Address Maintenance</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js">
+		</SCRIPT>
+</TABLE>
+<FORM action="AddressMaintenance_ForPerson.htm" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="BUTTON" class="BUTTON" name="ReturnButton" onClick="parent.location='PersonDetail.htm'" value="Return"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="BUTTON" class="BUTTON" value="Add" name="AddButton" onClick="parent.location='AddressMaintenanceAdd_ForPerson.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				John Michael Doe<BR><BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD class="ContentHeaderTD" colspan="2">
+				System Mailing Address 
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD width="8%">
+				&nbsp;
+			</TD>
+			<TD>
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="40%">
+							Source
+						</TH>
+						<TH width="20%">
+							Code
+						</TH>
+						<TH width="20%">
+							Bad
+						</TH>
+						<TH width="20%">
+							Date Marked Bad
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentTD" align="center">
+							Membership
+						</TD>
+						<TD class="ContentTD" align="center">
+							Home
+						</TD>
+						<TD class="ContentTD" align="center">
+							<INPUT name="BadAddress" type="checkbox" id="label_BadAddressFlag" disabled>
+						</TD>
+						<TD class="ContentTD" align="center">&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="5">
+							<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TD class="ContentHeaderTD">
+										Address 1
+									</TD>
+									<TD class="ContentTD">
+										111 Some Street 
+									</TD>
+									<TD class="ContentHeaderTD">
+										Address 2
+									</TD>
+									<TD class="ContentTD" colspan="3">
+										Apt. 1
+									</TD>
+								</TR>
+								<TR>
+									<TD width="10%" class="ContentHeaderTD">
+										City
+									</TD>
+									<TD width="40%" class="ContentTD">
+										Vienna 
+									</TD>
+									<TD width="10%" class="ContentHeaderTD">
+										State
+									</TD>
+									<TD width="20%" class="ContentTD">
+										VA 
+									</TD>
+									<TD width="10%" class="ContentHeaderTD">
+										Zip/Postal Code 
+									</TD>
+									<TD width="10%" class="ContentTD">
+										00000-0000 
+									</TD>
+								</TR>
+								<TR>
+									<TD class="ContentHeaderTD">
+										County 
+									</TD>
+									<TD class="ContentTD">
+										Fairfax 
+									</TD>
+									<TD class="ContentHeaderTD">
+										Province
+									</TD>
+									<TD class="ContentTD">&nbsp;
+									</TD>
+									<TD class="ContentHeaderTD">
+										Country 
+									</TD>
+									<TD class="ContentTD">
+										USA 
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="5">
+							<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TD colspan="8">
+										<HR>
+									</TD>
+								</TR>
+								<TR>
+									<TD width="15%" class="ContentHeaderTD">
+										Date Created
+									</TD>
+									<TD width="11%" class="ContentTD">
+										01/01/2000
+									</TD>
+									<TD width="12%" class="ContentHeaderTD">
+										<LABEL for="label_CreatedByID_1">Created By</LABEL>
+									</TD>
+									<TD width="9%" class="ContentTD">
+										staff1111
+									</TD>
+									<TD width="14%" class="ContentHeaderTD">
+										<LABEL for="label_LastUpdate_1">Last Updated</LABEL>
+									</TD>
+									<TD width="11%" class="ContentTD">
+										03/25/2002
+									</TD>
+									<TD width="13%" class="ContentHeaderTD">
+										<LABEL for="label_LastUpdateUserID_1">Updated By</LABEL>
+									</TD>
+									<TD width="15%" class="ContentTD">
+										CindyLouWho
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD class="ContentHeaderTD" colspan="2">
+				Membership Department 
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD width="8%">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TD class="ContentHeaderTD">
+							<A href="AddressMaintenanceEdit_ForPerson.htm" class="action" title="Edit this Address">Edit</A> 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<A href="AddressMaintenance_ForPerson.htm" class="action"  title="Delete this Address" onClick="return confirm('Are you sure you want to delete this Address?');">Delete</A> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD>
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="20%">
+							Primary
+						</TH>
+						<TH width="20%">
+							Code
+						</TH>
+						<TH width="20%">
+							Private
+						</TH>
+						<TH width="20%">
+							Bad
+						</TH>
+						<TH width="20%">
+							Date Marked Bad
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentTD" align="center">
+							<INPUT type="checkbox" name="PrimaryAddressFlag_12" id="PrimaryAddressFlag_12" checked disabled>
+						</TD>
+						<TD class="ContentTD" align="center">
+							Home
+						</TD>
+						<TD class="ContentTD" align="center">
+							<INPUT type="checkbox" name="PrivateFlag_1" id="PrivateFlag_14" disabled>
+						</TD>
+						<TD class="ContentTD" align="center">
+							<INPUT name="BadAddress" type="checkbox" id="label_BadAddressFlag" disabled>
+						</TD>
+						<TD class="ContentTD" align="center">&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="5">
+							<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TD class="ContentHeaderTD">
+										Address 1
+									</TD>
+									<TD class="ContentTD">
+										111 Some Street 
+									</TD>
+									<TD class="ContentHeaderTD">
+										Address 2
+									</TD>
+									<TD class="ContentTD" colspan="3">
+										Apt. 1
+									</TD>
+								</TR>
+								<TR>
+									<TD width="10%" class="ContentHeaderTD">
+										City
+									</TD>
+									<TD width="40%" class="ContentTD">
+										Vienna 
+									</TD>
+									<TD width="10%" class="ContentHeaderTD">
+										State
+									</TD>
+									<TD width="20%" class="ContentTD">
+										VA 
+									</TD>
+									<TD width="10%" class="ContentHeaderTD">
+										Zip/Postal Code 
+									</TD>
+									<TD width="10%" class="ContentTD">
+										00000-0000 
+									</TD>
+								</TR>
+								<TR>
+									<TD class="ContentHeaderTD">
+										County 
+									</TD>
+									<TD class="ContentTD">
+										Fairfax 
+									</TD>
+									<TD class="ContentHeaderTD">
+										Province
+									</TD>
+									<TD class="ContentTD">&nbsp;
+									</TD>
+									<TD class="ContentHeaderTD">
+										Country 
+									</TD>
+									<TD class="ContentTD">
+										USA 
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="5">
+							<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TD colspan="8">
+										<HR>
+									</TD>
+								</TR>
+								<TR>
+									<TD width="15%" class="ContentHeaderTD">
+										Date Created
+									</TD>
+									<TD width="11%" class="ContentTD">
+										01/01/2000
+									</TD>
+									<TD width="12%" class="ContentHeaderTD">
+										<LABEL for="label_CreatedByID_1">Created By</LABEL>
+									</TD>
+									<TD width="9%" class="ContentTD">
+										staff1111
+									</TD>
+									<TD width="14%" class="ContentHeaderTD">
+										<LABEL for="label_LastUpdate_1">Last Updated</LABEL>
+									</TD>
+									<TD width="11%" class="ContentTD">
+										03/25/2002
+									</TD>
+									<TD width="13%" class="ContentHeaderTD">
+										<LABEL for="label_LastUpdateUserID_1">Updated By</LABEL>
+									</TD>
+									<TD width="15%" class="ContentTD">
+										CindyLouWho
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD class="ContentHeaderTD" colspan="2">
+				PAC Department 
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD>&nbsp;
+			</TD>
+			<TD>
+				<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+					<TR>
+						<TH width="20%">
+							Primary
+						</TH>
+						<TH width="20%">
+							Code
+						</TH>
+						<TH width="20%">
+							Private
+						</TH>
+						<TH width="20%">
+							Bad
+						</TH>
+						<TH width="20%">
+							Date Marked Bad
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentTD" align="center">
+							<INPUT type="checkbox" name="PrimaryAddressFlag_12" id="PrimaryAddressFlag_12" checked disabled>
+						</TD>
+						<TD class="ContentTD" align="center">
+							Work
+						</TD>
+						<TD class="ContentTD" align="center">
+							<INPUT type="checkbox" name="PrivateFlag_1" id="PrivateFlag_14" disabled>
+						</TD>
+						<TD class="ContentTD" align="center">
+							<INPUT name="BadAddress" type="checkbox" id="label_BadAddressFlag" checked disabled>
+						</TD>
+						<TD class="ContentTD" align="center">
+							03/25/2002
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="5">
+							<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TD class="ContentHeaderTD">
+										Address 1
+									</TD>
+									<TD class="ContentTD">
+										1111 Pennsylvania Ave. 
+									</TD>
+									<TD class="ContentHeaderTD">
+										Address 2 
+									</TD>
+									<TD class="ContentTD" colspan="3">
+										Suite 1 
+									</TD>
+								</TR>
+								<TR>
+									<TD width="10%" class="ContentHeaderTD">
+										City
+									</TD>
+									<TD width="40%" class="ContentTD">
+										Washington 
+									</TD>
+									<TD width="10%" class="ContentHeaderTD">
+										State
+									</TD>
+									<TD width="20%" class="ContentTD">
+										DC 
+									</TD>
+									<TD width="10%" class="ContentHeaderTD">
+										Zip/Postal Code 
+									</TD>
+									<TD width="10%" class="ContentTD">
+										11111-1111 
+									</TD>
+								</TR>
+								<TR>
+									<TD class="ContentHeaderTD">
+										County 
+									</TD>
+									<TD class="ContentTD">&nbsp;
+									</TD>
+									<TD class="ContentHeaderTD">
+										Province
+									</TD>
+									<TD class="ContentTD">&nbsp;
+									</TD>
+									<TD class="ContentHeaderTD">
+										Country 
+									</TD>
+									<TD class="ContentTD">
+										USA 
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD colspan="5">
+							<TABLE cellpadding="1" cellspacing="1" border="0" class="InnerContentTable">
+								<TR>
+									<TD colspan="8">
+										<HR>
+									</TD>
+								</TR>
+								<TR>
+									<TD width="15%" class="ContentHeaderTD">
+										Date Created
+									</TD>
+									<TD width="11%" class="ContentTD">
+										01/01/2000
+									</TD>
+									<TD width="12%" class="ContentHeaderTD">
+										<LABEL for="label_CreatedByID_1">Created By</LABEL>
+									</TD>
+									<TD width="9%" class="ContentTD">
+										staff2222
+									</TD>
+									<TD width="14%" class="ContentHeaderTD">
+										<LABEL for="label_LastUpdate_1">Last Updated</LABEL>
+									</TD>
+									<TD width="11%" class="ContentTD">&nbsp;
+									</TD>
+									<TD width="13%" class="ContentHeaderTD">
+										<LABEL for="label_LastUpdateUserID_1">Updated By</LABEL>
+									</TD>
+									<TD width="15%" class="ContentTD">&nbsp;
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD class="ContentHeaderTR">
+				<BR>
+				John Michael Doe
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR> <INPUT type="BUTTON" class="BUTTON" name="ReturnButton2" onClick="parent.location='PersonDetail.htm'" value="Return"> 
+			</TD>
+			<TD align="right">
+				<BR> <INPUT type="BUTTON" class="BUTTON" value="Add" name="AddButton2" onClick="parent.location='AddressMaintenanceAdd_ForPerson.htm'"> 
+				<BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>

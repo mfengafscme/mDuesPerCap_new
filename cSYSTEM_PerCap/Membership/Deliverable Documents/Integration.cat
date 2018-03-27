@@ -1,0 +1,2335 @@
+
+(object Petal
+    version    	45
+    _written   	"Rose 7.6.0109.2314"
+    charSet    	0)
+
+(object Class_Category "Integration"
+    is_unit    	TRUE
+    is_loaded  	TRUE
+    quid       	"3DF8B81E015D"
+    documentation 	"Contains the integration packages (Democracy and NCOA)"
+    exportControl 	"Public"
+    logical_models 	(list unit_reference_list
+	(object Class_Category "NCOA"
+	    quid       	"3DF8B7EF01BA"
+	    documentation 	"Components that hande NCOA integration"
+	    exportControl 	"Public"
+	    logical_models 	(list unit_reference_list
+		(object Class "NCOABean"
+		    quid       	"3E4CEF900205"
+		    stereotype 	"EJBSession"
+		    operations 	(list Operations
+			(object Operation "scheduleNCOAUpdate"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedThrows"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"OpFormerName"
+				    value      	"scheduleNCOAUpdate")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Final"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Static"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Abstract"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Native"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Synchronized"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Strictfp"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedArgument"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedReturn"
+				    value      	FALSE))
+			    quid       	"3E76427E018C"
+			    documentation 	
+|Updates the nightly run table indicating that the NCOA file has been uploaded and should be run.
+|
+			    
+			    parameters 	(list Parameters
+				(object Parameter "userID"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"IsFinal"
+					    value      	"false"))
+				    quid       	"3E822BE002A0"
+				    type       	"String"))
+			    result     	"Boolean"
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0))
+		    language   	"Java")
+		(object Class "StoredProcNCOAIntegration"
+		    quid       	"3E4CF23D0322"
+		    documentation 	"SQL Server Stored Procedure that processes all the records in the NCOA Transaction table, evaluates them against the current addresses, and updates the Person Address table accordingly. Also performs the System Mailing Address checks and updates that accordingly."
+		    stereotype 	"boundary"
+		    operations 	(list Operations
+			(object Operation "performSystemAddressCheck"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedThrows"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"OpFormerName"
+				    value      	"performSystemAddressCheck")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Final"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Static"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Abstract"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Native"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Synchronized"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Strictfp"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedArgument"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedReturn"
+				    value      	FALSE))
+			    quid       	"3E4CF34C0282"
+			    documentation 	
+|Duplicate of all the rules associated with the System Mailing Address.
+|
+			    
+			    parameters 	(list Parameters
+				(object Parameter "addressPK"
+				    attributes 	(list Attribute_Set
+					(object Attribute
+					    tool       	"Java"
+					    name       	"IsFinal"
+					    value      	"false"))
+				    quid       	"3E7799090302"
+				    type       	"Integer"))
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0)
+			(object Operation "initiateNCOAIntegration"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedThrows"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"OpFormerName"
+				    value      	"initiateNCOAIntegration")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Final"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Static"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Abstract"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Native"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Synchronized"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Strictfp"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedArgument"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedReturn"
+				    value      	FALSE))
+			    quid       	"3E4CF674003F"
+			    documentation 	
+|The main method that is called to start the integration process. This method 
+|will check if there is an entry in the nightly run table. If there is, it will 
+|use the processAddressBatch method to process parts of the NCOA Transaction 
+|table at a time.
+|
+			    
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0)
+			(object Operation "processAddressBatch"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedThrows"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"OpFormerName"
+				    value      	"processAddressBatch")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Final"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Static"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Abstract"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Native"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Synchronized"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Strictfp"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedArgument"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedReturn"
+				    value      	FALSE))
+			    quid       	"3E4CF4F700EB"
+			    documentation 	
+|Processes a group of addresses in the NCOA Transaction table. Performs a commit at the end of the batch. Used to process groups at a time, so that the whole table will not rollback in case of an error. Deletes the group from the table upon completion.
+|
+|Note: The number of addresses to process as a group will be a configurable size that can be retrieved as follows: 
+|
+|SELECT variable_value 
+|FROM COM_App_Config_Data 
+|WHERE variable_name = 'ncoaAddressBatchCount'
+|
+|
+			    
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0)
+			(object Operation "logActivity"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedThrows"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"OpFormerName"
+				    value      	"logActivity")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Final"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Static"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Abstract"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Native"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Synchronized"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Strictfp"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedArgument"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedReturn"
+				    value      	FALSE))
+			    quid       	"3E4D11FD0230"
+			    documentation 	
+|Logs the appropriate activity to the log tables for each address.
+|
+			    
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0)
+			(object Operation "logErrorActivity"
+			    attributes 	(list Attribute_Set
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedThrows"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"OpFormerName"
+				    value      	"opname")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Final"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Static"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Abstract"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Native"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Synchronized"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"Strictfp"
+				    value      	FALSE)
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedArgument"
+				    value      	"")
+				(object Attribute
+				    tool       	"Java"
+				    name       	"GenerateFullyQualifiedReturn"
+				    value      	FALSE))
+			    quid       	"3E4D172700BE"
+			    documentation 	"Logs the appropriate error to the log tables for each address that could not be processed."
+			    concurrency 	"Sequential"
+			    opExportControl 	"Public"
+			    uid        	0))
+		    language   	"Java")
+		(object Mechanism @1
+		    logical_models 	(list unit_reference_list
+			(object Object "$UNNAMED$0"
+			    quid       	"3E4D0CE8033D"
+			    collaborators 	(list link_list
+				(object Link
+				    quid       	"3E4D0E500345"
+				    supplier   	"$UNNAMED$1"
+				    quidu      	"3E4D0E3900B7"
+				    messages   	(list Messages
+					(object Message "Request to run NCOA Integration"
+					    quid       	"3E4D0E500346"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"1"
+					    ordinal    	0
+					    quidu      	"000000000000"
+					    creation   	FALSE)
+					(object Message "Display Confirmation screen"
+					    quid       	"3E4D0EF5007B"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Return"
+					    dir        	"ToClientFromSupplier"
+					    sequence   	"1.1.1.1.1.1"
+					    ordinal    	5
+					    quidu      	"000000000000"
+					    creation   	FALSE))))
+			    class      	"Use Case View::User"
+			    quidu      	"3E1B076E007E"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Object "$UNNAMED$1"
+			    quid       	"3E4D0E3900B7"
+			    collaborators 	(list link_list
+				(object Link
+				    quid       	"3E76420703B2"
+				    supplier   	"$UNNAMED$2"
+				    quidu      	"3E7640E10048"
+				    messages   	(list Messages
+					(object Message "scheduleNCOAUpdate(String)"
+					    quid       	"3E76420703B3"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"1.1"
+					    ordinal    	1
+					    quidu      	"3E76427E018C"
+					    creation   	FALSE)
+					(object Message ""
+					    quid       	"3E7737F700A7"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Return"
+					    dir        	"ToClientFromSupplier"
+					    sequence   	"1.1.1.1.1"
+					    ordinal    	4
+					    quidu      	"000000000000"
+					    creation   	FALSE))))
+			    class      	"Logical View::3rd Party::Struts::Action"
+			    quidu      	"3E1B0B53038F"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Object "$UNNAMED$2"
+			    quid       	"3E7640E10048"
+			    collaborators 	(list link_list
+				(object Link
+				    quid       	"3E7737770338"
+				    supplier   	"$UNNAMED$3"
+				    quidu      	"3E764115007F"
+				    messages   	(list Messages
+					(object Message "INSERT INTO NCOA_Activity"
+					    quid       	"3E7737770339"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"1.1.1"
+					    ordinal    	2
+					    quidu      	"000000000000"
+					    creation   	FALSE)
+					(object Message ""
+					    quid       	"3E7737D800E8"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Return"
+					    dir        	"ToClientFromSupplier"
+					    sequence   	"1.1.1.1"
+					    ordinal    	3
+					    quidu      	"000000000000"
+					    creation   	FALSE))))
+			    class      	"Logical View::Integration::NCOA::NCOABean"
+			    quidu      	"3E4CEF900205"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Object "$UNNAMED$3"
+			    quid       	"3E764115007F"
+			    class      	"Logical View::3rd Party::JDBC::JDBC"
+			    quidu      	"3E1B3DBC02F5"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)))
+		(object Mechanism @2
+		    logical_models 	(list unit_reference_list
+			(object Object "$UNNAMED$4"
+			    quid       	"3E4D107D020F"
+			    collaborators 	(list link_list
+				(object Link
+				    quid       	"3E4D10B202E8"
+				    supplier   	"$UNNAMED$4"
+				    quidu      	"3E4D107D020F"
+				    messages   	(list Messages
+					(object Message "processAddressBatch( )"
+					    quid       	"3E7738C90117"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"2.1"
+					    ordinal    	3
+					    quidu      	"3E4CF4F700EB"
+					    creation   	FALSE))))
+			    class      	"Logical View::Integration::NCOA::StoredProcNCOAIntegration"
+			    quidu      	"3E4CF23D0322"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Object "$UNNAMED$5"
+			    quid       	"3E7642F800D3"
+			    collaborators 	(list link_list
+				(object Link
+				    quid       	"3E77383C0287"
+				    supplier   	"$UNNAMED$4"
+				    quidu      	"3E4D107D020F"
+				    messages   	(list Messages
+					(object Message "initiateNCOAIntegration( )"
+					    quid       	"3E77383C0288"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"2"
+					    ordinal    	2
+					    quidu      	"3E4CF674003F"
+					    creation   	FALSE)
+					(object Message ""
+					    quid       	"3E77392F00C3"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Return"
+					    dir        	"ToClientFromSupplier"
+					    sequence   	"2.1.1"
+					    ordinal    	4
+					    quidu      	"000000000000"
+					    creation   	FALSE)))
+				(object Link
+				    quid       	"3E77397D0166"
+				    supplier   	"SQL Server Mail Utility"
+				    quidu      	"3E77394C0075"
+				    messages   	(list Messages
+					(object Message "Send Email to User that requested the process"
+					    quid       	"3E77397D0167"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"3"
+					    ordinal    	5
+					    quidu      	"000000000000"
+					    creation   	FALSE)))
+				(object Link
+				    quid       	"3E8CBE970045"
+				    supplier   	"$UNNAMED$6"
+				    quidu      	"3E8CBE2F012C"
+				    messages   	(list Messages
+					(object Message "SELECT activity FROM NCOA_Activity WHERE ncoa_trans_run_dt = GETDATE()"
+					    quid       	"3E8CBE970046"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"1"
+					    ordinal    	0
+					    quidu      	"000000000000"
+					    creation   	FALSE)
+					(object Message "Return ncoa_activity_pk"
+					    quid       	"3E8CBF3C0241"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Return"
+					    dir        	"ToClientFromSupplier"
+					    sequence   	"1.1"
+					    ordinal    	1
+					    quidu      	"000000000000"
+					    creation   	FALSE))))
+			    class      	"Logical View::3rd Party::Database::SQL Server Scheduler"
+			    quidu      	"3E763F4903B2"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Object "SQL Server Mail Utility"
+			    quid       	"3E77394C0075"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Object "$UNNAMED$6"
+			    quid       	"3E8CBE2F012C"
+			    class      	"Logical View::3rd Party::Database::Database"
+			    quidu      	"3E778D0F0191"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)))
+		(object Mechanism @3
+		    logical_models 	(list unit_reference_list
+			(object Object "$UNNAMED$7"
+			    quid       	"3E4D1FA20331"
+			    class      	"Logical View::3rd Party::Database::Database"
+			    quidu      	"3E778D0F0191"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE)
+			(object Object "$UNNAMED$8"
+			    quid       	"3E4D203F01DE"
+			    collaborators 	(list link_list
+				(object Link
+				    quid       	"3E4D2065026F"
+				    supplier   	"$UNNAMED$7"
+				    quidu      	"3E4D1FA20331"
+				    messages   	(list Messages
+					(object Message "UPDATE NCOA Source Address"
+					    quid       	"3E4D20650270"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"1"
+					    ordinal    	0
+					    quidu      	"000000000000"
+					    creation   	FALSE)
+					(object Message "UPDATE System Mailing Address"
+					    quid       	"3E4D20F80085"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"3.1"
+					    ordinal    	3
+					    quidu      	"000000000000"
+					    creation   	FALSE)
+					(object Message "COMMIT"
+					    quid       	"3E4D22AD0192"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"5"
+					    ordinal    	5
+					    quidu      	"000000000000"
+					    creation   	FALSE)
+					(object Message "ROLLBACK"
+					    quid       	"3E4D22C30389"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"6"
+					    ordinal    	6
+					    quidu      	"000000000000"
+					    creation   	FALSE)
+					(object Message "UPDATE original source Address with Zip+4 data"
+					    quid       	"3E8CC1A70274"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"2"
+					    ordinal    	1
+					    quidu      	"000000000000"
+					    creation   	FALSE)))
+				(object Link
+				    quid       	"3E4D20760237"
+				    supplier   	"$UNNAMED$8"
+				    quidu      	"3E4D203F01DE"
+				    messages   	(list Messages
+					(object Message "performSystemAddressCheck(Integer)"
+					    quid       	"3E4D20760238"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"3"
+					    ordinal    	2
+					    quidu      	"3E4CF34C0282"
+					    creation   	FALSE)
+					(object Message "logActivity( )"
+					    quid       	"3E4D227603C4"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"4"
+					    ordinal    	4
+					    quidu      	"3E4D11FD0230"
+					    creation   	FALSE)
+					(object Message "logErrorActivity( )"
+					    quid       	"3E4D22D503DF"
+					    frequency  	"Aperiodic"
+					    synchronization 	"Simple"
+					    dir        	"FromClientToSupplier"
+					    sequence   	"7"
+					    ordinal    	7
+					    quidu      	"3E4D172700BE"
+					    creation   	FALSE))))
+			    class      	"Logical View::Integration::NCOA::StoredProcNCOAIntegration"
+			    quidu      	"3E4CF23D0322"
+			    persistence 	"Transient"
+			    creationObj 	FALSE
+			    multi      	FALSE))))
+	    logical_presentations 	(list unit_reference_list
+		(object ClassDiagram "NCOA Integration"
+		    quid       	"3E4BFCBB03BF"
+		    title      	"NCOA Integration"
+		    zoom       	100
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object ClassView "Class" "Logical View::Integration::NCOA::NCOABean" @4
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(848, 224)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@4
+				location   	(10, 184)
+				fill_color 	13434879
+				nlines     	1
+				max_width  	1676
+				justify    	0
+				label      	"NCOABean")
+			    icon       	"EJBSession"
+			    icon_style 	"Decoration"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"3E4CEF900205"
+			    compartment 	(object Compartment
+				Parent_View 	@4
+				location   	(10, 245)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				icon_style 	"Icon"
+				fill_color 	16777215
+				anchor     	2
+				nlines     	2
+				max_width  	1828)
+			    width      	1694
+			    height     	280
+			    annotation 	8
+			    autoResize 	TRUE)
+			(object ClassView "Class" "Logical View::Integration::NCOA::StoredProcNCOAIntegration" @5
+			    ShowCompartmentStereotypes 	TRUE
+			    IncludeAttribute 	TRUE
+			    IncludeOperation 	TRUE
+			    ShowOperationSignature 	TRUE
+			    location   	(864, 800)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@5
+				location   	(863, 956)
+				anchor_loc 	1
+				nlines     	1
+				max_width  	1440
+				justify    	0
+				label      	"StoredProcNCOAIntegration")
+			    icon       	"boundary"
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"3E4CF23D0322"
+			    compartment 	(object Compartment
+				Parent_View 	@5
+				location   	(74, 997)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				icon_style 	"Icon"
+				anchor     	2
+				nlines     	6
+				max_width  	1072
+				justify    	0)
+			    width      	230
+			    height     	154
+			    annotation 	8
+			    autoResize 	TRUE)))
+		(object InteractionDiagram "1: User initiates NCOA Integration Process"
+		    mechanism_ref 	@1
+		    quid       	"3E4D0CB8029E"
+		    title      	"1: User initiates NCOA Integration Process"
+		    documentation 	"Illistrates how a user notifies the system that an NCOA file has been migrated into the NCOA_Transactions table and is ready for processing."
+		    zoom       	75
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object InterObjView "$UNNAMED$0" @6
+			    location   	(64, 224)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	TRUE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@6
+				location   	(64, 249)
+				anchor_loc 	1
+				nlines     	2
+				max_width  	360
+				justify    	0
+				label      	"")
+			    icon       	"Actor"
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"3E4D0CE8033D"
+			    width      	336
+			    height     	798
+			    icon_height 	162
+			    icon_width 	120
+			    icon_y_offset 	0
+			    annotation 	1
+			    Focus_Of_Control 	(object Focus_Of_Control "" @7
+				location   	(64, 336)
+				line_color 	3342489
+				InterObjView 	@6
+				height     	596
+				y_coord    	536
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @8
+				location   	(64, 512)
+				line_color 	3342489
+				InterObjView 	@6
+				height     	60
+				y_coord    	0
+				Nested     	FALSE))
+			(object InterObjView "$UNNAMED$1" @9
+			    location   	(832, 224)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	TRUE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@9
+				location   	(832, 250)
+				anchor_loc 	1
+				nlines     	2
+				max_width  	687
+				justify    	0
+				label      	"")
+			    icon       	"boundary"
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"3E4D0E3900B7"
+			    width      	662
+			    height     	798
+			    icon_height 	153
+			    icon_width 	229
+			    icon_y_offset 	0
+			    annotation 	1
+			    Focus_Of_Control 	(object Focus_Of_Control "" @10
+				location   	(832, 336)
+				line_color 	3342489
+				InterObjView 	@9
+				height     	536
+				y_coord    	476
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @11
+				location   	(832, 480)
+				line_color 	3342489
+				InterObjView 	@9
+				height     	152
+				y_coord    	92
+				Nested     	FALSE))
+			(object InterObjView "$UNNAMED$2" @12
+			    location   	(1776, 224)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	TRUE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@12
+				location   	(1776, 224)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	282
+				justify    	0
+				label      	"")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"3E7640E10048"
+			    width      	300
+			    height     	798
+			    icon_height 	0
+			    icon_width 	0
+			    icon_y_offset 	0
+			    annotation 	1
+			    Focus_Of_Control 	(object Focus_Of_Control "" @13
+				location   	(1776, 368)
+				line_color 	3342489
+				InterObjView 	@12
+				height     	444
+				y_coord    	384
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @14
+				location   	(1776, 448)
+				line_color 	3342489
+				InterObjView 	@12
+				height     	244
+				y_coord    	184
+				Nested     	FALSE))
+			(object InterObjView "$UNNAMED$3" @15
+			    location   	(2608, 224)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	TRUE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@15
+				location   	(2608, 250)
+				anchor_loc 	1
+				nlines     	2
+				max_width  	687
+				justify    	0
+				label      	"")
+			    icon       	"boundary"
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"3E764115007F"
+			    width      	662
+			    height     	798
+			    icon_height 	153
+			    icon_width 	229
+			    icon_y_offset 	0
+			    annotation 	1
+			    Focus_Of_Control 	(object Focus_Of_Control "" @16
+				location   	(2608, 384)
+				line_color 	3342489
+				InterObjView 	@15
+				height     	368
+				y_coord    	308
+				Nested     	FALSE))
+			(object InterMessView "" @17
+			    location   	(352, 336)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @18
+				Parent_View 	@17
+				location   	(447, 292)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E4D0E500346"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	659
+				justify    	0
+				label      	"Request to run NCOA Integration"
+				pctDist    	0.500000
+				height     	45
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@6
+			    supplier   	@9
+			    Focus_Src  	@7
+			    Focus_Entry 	@10
+			    origin     	(79, 336)
+			    terminus   	(816, 336)
+			    ordinal    	0)
+			(object InterMessView "" @19
+			    location   	(448, 512)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @20
+				Parent_View 	@19
+				location   	(448, 468)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E4D0EF5007B"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	574
+				justify    	0
+				label      	"Display Confirmation screen"
+				pctDist    	0.500000
+				height     	45
+				orientation 	1)
+			    line_color 	3342489
+			    client     	@9
+			    supplier   	@6
+			    Focus_Src  	@11
+			    Focus_Entry 	@8
+			    origin     	(816, 512)
+			    terminus   	(80, 512)
+			    ordinal    	5)
+			(object InterMessView "" @21
+			    location   	(1136, 368)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @22
+				Parent_View 	@21
+				location   	(1303, 324)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E76420703B3"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	589
+				justify    	0
+				label      	"scheduleNCOAUpdate(String)"
+				pctDist    	0.500000
+				height     	45
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@9
+			    supplier   	@12
+			    Focus_Src  	@10
+			    Focus_Entry 	@13
+			    origin     	(847, 368)
+			    terminus   	(1760, 368)
+			    ordinal    	1)
+			(object InterMessView "" @23
+			    location   	(16, 384)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @24
+				Parent_View 	@23
+				location   	(2191, 340)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E7737770339"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	585
+				justify    	0
+				label      	"INSERT INTO NCOA_Activity"
+				pctDist    	0.500000
+				height     	45
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@12
+			    supplier   	@15
+			    Focus_Src  	@13
+			    Focus_Entry 	@16
+			    origin     	(1791, 384)
+			    terminus   	(2592, 384)
+			    ordinal    	2)
+			(object InterMessView "" @25
+			    location   	(16, 448)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @26
+				Parent_View 	@25
+				location   	(2192, 404)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E7737D800E8"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	0
+				justify    	0
+				label      	""
+				pctDist    	0.500000
+				height     	45
+				orientation 	1)
+			    line_color 	3342489
+			    client     	@15
+			    supplier   	@12
+			    Focus_Src  	@16
+			    Focus_Entry 	@14
+			    origin     	(2592, 448)
+			    terminus   	(1792, 448)
+			    ordinal    	3)
+			(object InterMessView "" @27
+			    location   	(1136, 480)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @28
+				Parent_View 	@27
+				location   	(1304, 436)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E7737F700A7"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	0
+				justify    	0
+				label      	""
+				pctDist    	0.500000
+				height     	45
+				orientation 	1)
+			    line_color 	3342489
+			    client     	@12
+			    supplier   	@9
+			    Focus_Src  	@14
+			    Focus_Entry 	@11
+			    origin     	(1760, 480)
+			    terminus   	(848, 480)
+			    ordinal    	4)
+			(object Label @29
+			    location   	(450, 1842)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    nlines     	4
+			    max_width  	925
+			    label      	"Illistrates how a user notifies the system that an NCOA file has been migrated into the NCOA_Transactions table and is ready for processing.")))
+		(object InteractionDiagram "2: System performs the NCOA Integration"
+		    mechanism_ref 	@2
+		    quid       	"3E4D0F18000D"
+		    title      	"2: System performs the NCOA Integration"
+		    documentation 	"Illistrates the steps the system performs to process the NCOA data from the NCOA_Transactions table to the NCOA_Activity table."
+		    zoom       	85
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	500
+		    items      	(list diagram_item_list
+			(object InterObjView "$UNNAMED$5" @30
+			    location   	(256, 224)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	TRUE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@30
+				location   	(256, 249)
+				anchor_loc 	1
+				nlines     	2
+				max_width  	471
+				justify    	0
+				label      	"")
+			    icon       	"business worker"
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"3E7642F800D3"
+			    width      	446
+			    height     	1410
+			    icon_height 	164
+			    icon_width 	157
+			    icon_y_offset 	0
+			    annotation 	1
+			    Focus_Of_Control 	(object Focus_Of_Control "" @31
+				location   	(256, 432)
+				line_color 	3342489
+				InterObjView 	@30
+				height     	292
+				y_coord    	232
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @32
+				location   	(256, 544)
+				line_color 	3342489
+				InterObjView 	@30
+				height     	60
+				y_coord    	0
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @33
+				location   	(256, 784)
+				line_color 	3342489
+				InterObjView 	@30
+				height     	760
+				y_coord    	700
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @34
+				location   	(256, 1008)
+				line_color 	3342489
+				InterObjView 	@30
+				height     	232
+				y_coord    	172
+				Nested     	FALSE))
+			(object InterObjView "$UNNAMED$4" @35
+			    location   	(848, 224)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	TRUE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@35
+				location   	(848, 250)
+				anchor_loc 	1
+				nlines     	2
+				max_width  	687
+				justify    	0
+				label      	"")
+			    icon       	"boundary"
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"3E4D107D020F"
+			    width      	662
+			    height     	1410
+			    icon_height 	153
+			    icon_width 	229
+			    icon_y_offset 	0
+			    annotation 	1
+			    Focus_Of_Control 	(object Focus_Of_Control "" @36
+				location   	(848, 784)
+				line_color 	3342489
+				InterObjView 	@35
+				height     	576
+				y_coord    	516
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @37
+				location   	(848, 960)
+				line_color 	3342489
+				InterObjView 	@35
+				height     	340
+				y_coord    	280
+				Nested     	TRUE))
+			(object InterObjView "SQL Server Mail Utility" @38
+			    location   	(2336, 224)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	TRUE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@38
+				location   	(2336, 224)
+				fill_color 	13434879
+				anchor_loc 	1
+				nlines     	2
+				max_width  	282
+				justify    	0
+				label      	"SQL Server Mail Utility")
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"3E77394C0075"
+			    width      	300
+			    height     	1410
+			    icon_height 	0
+			    icon_width 	0
+			    icon_y_offset 	0
+			    annotation 	1
+			    Focus_Of_Control 	(object Focus_Of_Control "" @39
+				location   	(2336, 1424)
+				line_color 	3342489
+				InterObjView 	@38
+				height     	60
+				y_coord    	0
+				Nested     	FALSE))
+			(object InterObjView "$UNNAMED$6" @40
+			    location   	(1824, 224)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	TRUE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@40
+				location   	(1824, 250)
+				anchor_loc 	1
+				nlines     	2
+				max_width  	687
+				justify    	0
+				label      	"")
+			    icon       	"boundary"
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"3E8CBE2F012C"
+			    width      	662
+			    height     	1410
+			    icon_height 	153
+			    icon_width 	229
+			    icon_y_offset 	0
+			    annotation 	1
+			    Focus_Of_Control 	(object Focus_Of_Control "" @41
+				location   	(1824, 432)
+				line_color 	3342489
+				InterObjView 	@40
+				height     	232
+				y_coord    	172
+				Nested     	FALSE))
+			(object NoteView @42
+			    location   	(1360, 1840)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@42
+				location   	(914, 1680)
+				fill_color 	13434879
+				nlines     	6
+				max_width  	857
+				label      	
+|Continue until all NCOA entries without errors are processed.
+|
+|See Sequence Diagram 3: 
+|"System updates a batch of addresses" for description of processing.
+				)
+			    line_color 	3342489
+			    fill_color 	13434879
+			    width      	917
+			    height     	333)
+			(object InterMessView "" @43
+			    location   	(544, 784)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @44
+				Parent_View 	@43
+				location   	(551, 740)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E77383C0288"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	518
+				justify    	0
+				label      	"initiateNCOAIntegration( )"
+				pctDist    	0.500000
+				height     	45
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@30
+			    supplier   	@35
+			    Focus_Src  	@33
+			    Focus_Entry 	@36
+			    origin     	(271, 784)
+			    terminus   	(832, 784)
+			    ordinal    	2)
+			(object SelfMessView "" @45
+			    location   	(16, 960)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @46
+				Parent_View 	@45
+				location   	(1201, 929)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E7738C90117"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	489
+				justify    	0
+				label      	"processAddressBatch( )"
+				pctDist    	2.246667
+				height     	32
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@35
+			    supplier   	@35
+			    Focus_Src  	@36
+			    Focus_Entry 	@37
+			    origin     	(864, 960)
+			    terminus   	(1014, 960)
+			    ordinal    	3)
+			(object InterMessView "" @47
+			    location   	(816, 1008)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @48
+				Parent_View 	@47
+				location   	(552, 964)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E77392F00C3"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	0
+				justify    	0
+				label      	""
+				pctDist    	0.500000
+				height     	45
+				orientation 	1)
+			    line_color 	3342489
+			    client     	@35
+			    supplier   	@30
+			    Focus_Src  	@37
+			    Focus_Entry 	@34
+			    origin     	(832, 1008)
+			    terminus   	(272, 1008)
+			    ordinal    	4)
+			(object InterMessView "" @49
+			    location   	(1280, 1424)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @50
+				Parent_View 	@49
+				location   	(878, 1375)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E77397D0167"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	945
+				justify    	0
+				label      	"Send Email to User that requested the process"
+				pctDist    	0.296453
+				height     	50
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@30
+			    supplier   	@38
+			    Focus_Src  	@33
+			    Focus_Entry 	@39
+			    origin     	(271, 1424)
+			    terminus   	(2320, 1424)
+			    ordinal    	5)
+			(object AttachView "" @51
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    client     	@42
+			    supplier   	@45
+			    line_style 	0)
+			(object InterMessView "" @52
+			    location   	(16, 432)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @53
+				Parent_View 	@52
+				location   	(1039, 388)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E8CBE970046"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	1598
+				justify    	0
+				label      	"SELECT activity FROM NCOA_Activity WHERE ncoa_trans_run_dt = GETDATE()"
+				pctDist    	0.500000
+				height     	45
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@30
+			    supplier   	@40
+			    Focus_Src  	@31
+			    Focus_Entry 	@41
+			    origin     	(271, 432)
+			    terminus   	(1808, 432)
+			    ordinal    	0)
+			(object InterMessView "" @54
+			    location   	(1040, 544)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @55
+				Parent_View 	@54
+				location   	(1040, 500)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E8CBF3C0241"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	511
+				justify    	0
+				label      	"Return ncoa_activity_pk"
+				pctDist    	0.500000
+				height     	45
+				orientation 	1)
+			    line_color 	3342489
+			    client     	@40
+			    supplier   	@30
+			    Focus_Src  	@41
+			    Focus_Entry 	@32
+			    origin     	(1808, 544)
+			    terminus   	(272, 544)
+			    ordinal    	1)
+			(object Label @56
+			    location   	(224, 2174)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    nlines     	2
+			    max_width  	1743
+			    label      	"Illistrates the steps the system performs to process the NCOA data from the NCOA_Transactions table to the NCOA_Activity table.")))
+		(object InteractionDiagram "3: System updates a batch of addresses"
+		    mechanism_ref 	@3
+		    quid       	"3E4D1F5903E6"
+		    title      	"3: System updates a batch of addresses"
+		    documentation 	"Illistrates the processing of the individual addresses within the batch of addresses."
+		    zoom       	70
+		    max_height 	28350
+		    max_width  	21600
+		    origin_x   	0
+		    origin_y   	0
+		    items      	(list diagram_item_list
+			(object InterObjView "$UNNAMED$7" @57
+			    location   	(1680, 224)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	TRUE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@57
+				location   	(1680, 250)
+				anchor_loc 	1
+				nlines     	2
+				max_width  	687
+				justify    	0
+				label      	"")
+			    icon       	"boundary"
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"3E4D1FA20331"
+			    width      	662
+			    height     	2130
+			    icon_height 	153
+			    icon_width 	229
+			    icon_y_offset 	0
+			    annotation 	1
+			    Focus_Of_Control 	(object Focus_Of_Control "" @58
+				location   	(1680, 368)
+				line_color 	3342489
+				InterObjView 	@57
+				height     	60
+				y_coord    	0
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @59
+				location   	(1680, 672)
+				line_color 	3342489
+				InterObjView 	@57
+				height     	60
+				y_coord    	0
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @60
+				location   	(1680, 1200)
+				line_color 	3342489
+				InterObjView 	@57
+				height     	60
+				y_coord    	0
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @61
+				location   	(1680, 1824)
+				line_color 	3342489
+				InterObjView 	@57
+				height     	60
+				y_coord    	0
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @62
+				location   	(1680, 2016)
+				line_color 	3342489
+				InterObjView 	@57
+				height     	60
+				y_coord    	0
+				Nested     	FALSE))
+			(object InterObjView "$UNNAMED$8" @63
+			    location   	(624, 224)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	TRUE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@63
+				location   	(624, 250)
+				anchor_loc 	1
+				nlines     	2
+				max_width  	687
+				justify    	0
+				label      	"")
+			    icon       	"boundary"
+			    icon_style 	"Icon"
+			    line_color 	3342489
+			    fill_color 	13434879
+			    quidu      	"3E4D203F01DE"
+			    width      	662
+			    height     	2130
+			    icon_height 	153
+			    icon_width 	229
+			    icon_y_offset 	0
+			    annotation 	1
+			    Focus_Of_Control 	(object Focus_Of_Control "" @64
+				location   	(624, 368)
+				line_color 	3342489
+				InterObjView 	@63
+				height     	120
+				y_coord    	60
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @65
+				location   	(624, 672)
+				line_color 	3342489
+				InterObjView 	@63
+				height     	120
+				y_coord    	60
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @66
+				location   	(624, 1008)
+				line_color 	3342489
+				InterObjView 	@63
+				height     	372
+				y_coord    	312
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @67
+				location   	(624, 1008)
+				line_color 	3342489
+				InterObjView 	@63
+				height     	312
+				y_coord    	252
+				Nested     	TRUE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @68
+				location   	(624, 1504)
+				line_color 	3342489
+				InterObjView 	@63
+				height     	120
+				y_coord    	60
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @69
+				location   	(624, 1504)
+				line_color 	3342489
+				InterObjView 	@63
+				height     	60
+				y_coord    	0
+				Nested     	TRUE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @70
+				location   	(624, 1824)
+				line_color 	3342489
+				InterObjView 	@63
+				height     	120
+				y_coord    	60
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @71
+				location   	(624, 2016)
+				line_color 	3342489
+				InterObjView 	@63
+				height     	248
+				y_coord    	188
+				Nested     	FALSE)
+			    Focus_Of_Control 	(object Focus_Of_Control "" @72
+				location   	(624, 2144)
+				line_color 	3342489
+				InterObjView 	@63
+				height     	60
+				y_coord    	0
+				Nested     	TRUE))
+			(object NoteView @73
+			    location   	(2112, 2224)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@73
+				location   	(1933, 2157)
+				fill_color 	13434879
+				nlines     	2
+				max_width  	322
+				label      	"If errors occured")
+			    line_color 	3342489
+			    fill_color 	13434879
+			    width      	382
+			    height     	147)
+			(object NoteView @74
+			    location   	(2224, 1904)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@74
+				location   	(1991, 1816)
+				fill_color 	13434879
+				nlines     	3
+				max_width  	431
+				label      	"Only if the batch completes with no errors")
+			    line_color 	3342489
+			    fill_color 	13434879
+			    width      	491
+			    height     	188)
+			(object InterMessView "" @75
+			    location   	(16, 368)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @76
+				Parent_View 	@75
+				location   	(1151, 324)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E4D20650270"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	657
+				justify    	0
+				label      	"UPDATE NCOA Source Address"
+				pctDist    	0.500000
+				height     	45
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@63
+			    supplier   	@57
+			    Focus_Src  	@64
+			    Focus_Entry 	@58
+			    origin     	(639, 368)
+			    terminus   	(1664, 368)
+			    ordinal    	0)
+			(object SelfMessView "" @77
+			    location   	(16, 1008)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @78
+				Parent_View 	@77
+				location   	(1055, 961)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E4D20760238"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	776
+				justify    	0
+				label      	"performSystemAddressCheck(Integer)"
+				pctDist    	2.766667
+				height     	48
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@63
+			    supplier   	@63
+			    Focus_Src  	@66
+			    Focus_Entry 	@67
+			    origin     	(640, 1008)
+			    terminus   	(790, 1008)
+			    ordinal    	2)
+			(object InterMessView "" @79
+			    location   	(848, 1200)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @80
+				Parent_View 	@79
+				location   	(1151, 1156)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E4D20F80085"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	683
+				justify    	0
+				label      	"UPDATE System Mailing Address"
+				pctDist    	0.500000
+				height     	45
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@63
+			    supplier   	@57
+			    Focus_Src  	@67
+			    Focus_Entry 	@60
+			    origin     	(639, 1200)
+			    terminus   	(1664, 1200)
+			    ordinal    	3)
+			(object SelfMessView "" @81
+			    location   	(16, 1504)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @82
+				Parent_View 	@81
+				location   	(767, 1472)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E4D227603C4"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	242
+				justify    	0
+				label      	"logActivity( )"
+				pctDist    	0.853333
+				height     	33
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@63
+			    supplier   	@63
+			    Focus_Src  	@68
+			    Focus_Entry 	@69
+			    origin     	(640, 1504)
+			    terminus   	(790, 1504)
+			    ordinal    	4)
+			(object InterMessView "" @83
+			    location   	(896, 1824)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @84
+				Parent_View 	@83
+				location   	(1151, 1780)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E4D22AD0192"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	179
+				justify    	0
+				label      	"COMMIT"
+				pctDist    	0.500000
+				height     	45
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@63
+			    supplier   	@57
+			    Focus_Src  	@70
+			    Focus_Entry 	@61
+			    origin     	(639, 1824)
+			    terminus   	(1664, 1824)
+			    ordinal    	5)
+			(object AttachView "" @85
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    client     	@74
+			    supplier   	@83
+			    line_style 	0)
+			(object InterMessView "" @86
+			    location   	(880, 2016)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @87
+				Parent_View 	@86
+				location   	(1151, 1972)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E4D22C30389"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	245
+				justify    	0
+				label      	"ROLLBACK"
+				pctDist    	0.500000
+				height     	45
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@63
+			    supplier   	@57
+			    Focus_Src  	@71
+			    Focus_Entry 	@62
+			    origin     	(639, 2016)
+			    terminus   	(1664, 2016)
+			    ordinal    	6)
+			(object SelfMessView "" @88
+			    location   	(16, 2144)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @89
+				Parent_View 	@88
+				location   	(828, 2112)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E4D22D503DF"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	341
+				justify    	0
+				label      	"logErrorActivity( )"
+				pctDist    	1.260000
+				height     	33
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@63
+			    supplier   	@63
+			    Focus_Src  	@71
+			    Focus_Entry 	@72
+			    origin     	(640, 2144)
+			    terminus   	(790, 2144)
+			    ordinal    	7)
+			(object NoteView @90
+			    location   	(224, 528)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@90
+				location   	(27, 332)
+				fill_color 	13434879
+				nlines     	7
+				max_width  	359
+				label      	
+|Batch Process start point: 
+|Following steps performed for each address in the batch.
+				)
+			    line_color 	3342489
+			    fill_color 	13434879
+			    width      	419
+			    height     	405)
+			(object AttachView "" @91
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    client     	@90
+			    supplier   	@75
+			    line_style 	0)
+			(object AttachView "" @92
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    client     	@73
+			    supplier   	@86
+			    line_style 	0)
+			(object AttachView "" @93
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    client     	@73
+			    supplier   	@88
+			    line_style 	0)
+			(object InterMessView "" @94
+			    location   	(16, 672)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object SegLabel @95
+				Parent_View 	@94
+				location   	(1151, 628)
+				font       	(object Font
+				    size       	10
+				    face       	"Arial"
+				    bold       	FALSE
+				    italics    	FALSE
+				    underline  	FALSE
+				    strike     	FALSE
+				    color      	0
+				    default_color 	TRUE)
+				quidu      	"3E8CC1A70274"
+				anchor_loc 	1
+				nlines     	1
+				max_width  	995
+				justify    	0
+				label      	"UPDATE original source Address with Zip+4 data"
+				pctDist    	0.500000
+				height     	45
+				orientation 	0)
+			    line_color 	3342489
+			    client     	@63
+			    supplier   	@57
+			    Focus_Src  	@65
+			    Focus_Entry 	@59
+			    origin     	(639, 672)
+			    terminus   	(1664, 672)
+			    ordinal    	1)
+			(object NoteView @96
+			    location   	(240, 1552)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    label      	(object ItemLabel
+				Parent_View 	@96
+				location   	(50, 1485)
+				fill_color 	13434879
+				nlines     	2
+				max_width  	344
+				label      	"Batch Process ending point.")
+			    line_color 	3342489
+			    fill_color 	13434879
+			    width      	404
+			    height     	147)
+			(object AttachView "" @97
+			    stereotype 	TRUE
+			    line_color 	3342489
+			    client     	@96
+			    supplier   	@81
+			    line_style 	0)
+			(object Label @98
+			    location   	(210, 2495)
+			    font       	(object Font
+				size       	10
+				face       	"Arial"
+				bold       	FALSE
+				italics    	FALSE
+				underline  	FALSE
+				strike     	FALSE
+				color      	0
+				default_color 	TRUE)
+			    nlines     	4
+			    max_width  	1142
+			    label      	"Illistrates the processing of the individual addresses within the batch of addresses."))))))
+    logical_presentations 	(list unit_reference_list
+	(object ClassDiagram "Main"
+	    quid       	"3E4BFCA70149"
+	    title      	"Main"
+	    zoom       	100
+	    max_height 	28350
+	    max_width  	21600
+	    origin_x   	0
+	    origin_y   	0
+	    items      	(list diagram_item_list
+		(object CategoryView "Logical View::Integration::NCOA" @99
+		    location   	(800, 256)
+		    font       	(object Font
+			size       	10
+			face       	"Arial"
+			bold       	FALSE
+			italics    	FALSE
+			underline  	FALSE
+			strike     	FALSE
+			color      	0
+			default_color 	TRUE)
+		    label      	(object ItemLabel
+			Parent_View 	@99
+			location   	(656, 172)
+			fill_color 	13434879
+			nlines     	2
+			max_width  	288
+			justify    	0
+			label      	"NCOA")
+		    icon_style 	"Icon"
+		    line_color 	3342489
+		    fill_color 	13434879
+		    quidu      	"3DF8B7EF01BA"
+		    width      	300
+		    height     	180)))))

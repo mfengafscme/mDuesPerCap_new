@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  JBoss Server Configuration                                           -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+
+<datasources>
+	<local-tx-datasource>
+		<jndi-name>oltp</jndi-name>
+		<connection-url>jdbc:microsoft:sqlserver://sql05Reports:1433;DatabaseName=MDU;SelectMethod=cursor</connection-url>
+		<driver-class>com.microsoft.jdbc.sqlserver.SQLServerDriver</driver-class>
+		<user-name>afscme</user-name>
+		<password>emcsfa</password>
+		<min-pool-size>30</min-pool-size>
+		<max-pool-size>50</max-pool-size>
+	</local-tx-datasource>
+</datasources>

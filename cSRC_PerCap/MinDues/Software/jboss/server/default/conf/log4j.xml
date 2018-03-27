@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!-- ===================================================================== -->
+<!--                                                                       -->
+<!--  Log4j Configuration                                                  -->
+<!--                                                                       -->
+<!-- ===================================================================== -->
+
+<!-- $Id: log4j.xml,v 1.13.2.3 2003/05/02 00:53:12 slaboure Exp $ -->
+
+<!--
+   | For more configuration infromation and examples see the Jakarta Log4j
+   | owebsite: http://jakarta.apache.org/log4j
+ -->
+
+ <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
+
+  <!-- ================================= -->
+  <!-- Preserve messages in a local file -->
+  <!-- ================================= -->
+
+  <!-- A time/date based rolling appender -->
+  <appender name="FILE" class="org.jboss.logging.appender.DailyRollingFileAppender">
+    <param name="File" value="${jboss.server.home.dir}/log/server.log"/>
+    <param name="Append" value="false"/>
+
+    <!-- Rollover at midnight each day -->
+    <param name="DatePattern" value="'.'yyyy-MM-dd"/>
+
+    <layout class="org.apache.log4j.PatternLayout">
+      <!-- The default pattern: Date Priority [Category] Message\n -->
+      <param name="ConversionPattern" value="%d %-5p [%c] %m%n"/>
+
+      <!-- The full pattern: Date MS Priority [Category] (Thread:NDC) Message\n
+      <param name="ConversionPattern" value="%d %-5r %-5p [%c] (%t:%x) %m%n"/>
+       -->
+    </layout>	    
+  </appender>
+
+  <!-- ============================== -->
+  <!-- Append messages to the console -->
+  <!-- ============================== -->
+
+  <appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+    <param name="Target" value="System.out"/>
+
+    <layout class="org.apache.log4j.PatternLayout">
+      <!-- The default pattern: Date Priority [Category] Message\n -->
+      <param name="ConversionPattern" value="%d{ABSOLUTE} %-5p [%c{1}] %m%n"/>
+    </layout>
+  </appender>
+
+  <appender name="JSR77" class="org.apache.log4j.FileAppender">
+    <param name="Append" value="false"/>
+    <param name="File" value="${jboss.server.home.dir}/log/jsr77.log"/>
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="%d{ABSOLUTE} %-5p [%c{1}] %m%n"/>
+    </layout>
+  </appender>
+
+  <!-- ======================= -->
+  <!-- Setup the Root category -->
+  <!-- ======================= -->
+
+    <appender name="SYSTEM_EVENTS.SIZEROLLOVER" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="../server/default/log/system_events.log"/>
+        <param name="MaxFileSize" value="10MB"/>
+        <param name="MaxBackupIndex" value="1"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p - %m%n"/>
+        </layout>
+    </appender>
+
+	<appender name="SYSTEM_EVENTS.DAILYROLLOVER" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="File" value="../server/default/log/system_events.log"/>
+		<param name="DatePattern" value="'.'yyyy-MM-dd"/>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p - %m%n"/>
+		</layout>
+    </appender>
+	
+    <logger name="afscme.events" additivity="false">
+        <level value="info"/>
+		<appender-ref ref="SYSTEM_EVENTS.SIZEROLLOVER"/>
+    </logger>
+
+    <logger name="org.afscme.enterprise" additivity="false">
+        <level value="debug"/>
+   		<appender-ref ref="CONSOLE"/>
+   		<appender-ref ref="FILE"/>
+    </logger>
+	
+    <root>
+	    <priority value ="info"/>
+   		<appender-ref ref="CONSOLE"/>
+   		<appender-ref ref="FILE"/>
+    </root>
+
+</log4j:configuration>

@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Page Title</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+</HEAD>
+<SCRIPT language="JavaScript">
+    function disableOtherOptions() {
+	optionTab.checked = false;
+	optionComma.checked = false;
+	optionSemicolon.checked = false;
+	optionPDF.checked = false;
+	optionTab.disabled = true;
+	optionComma.disabled = true;
+	optionSemicolon.disabled = true;
+	optionPDF.disabled = true;
+    }
+
+    function enableOtherOptions() {
+	optionTab.checked = true;
+	optionTab.disabled = false;
+	optionComma.disabled = false;
+	optionSemicolon.disabled = false;
+	optionPDF.disabled = false;
+    }
+
+    function viewReport() {
+		if (optionScreen.checked) {
+			var reportFile = window.location.hash.substr(1);
+			window.open(reportFile);
+			} else {
+			window.location='GenerateReports.htm';
+		}
+    }
+</SCRIPT>
+
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+	
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+<TABLE valign=TOP cellpadding="0" cellspacing="0" border="0" class="ContentTable">
+  <TR> 
+    <TD align=center> 
+      <H1>Select Output Format</H1>
+    </TD>
+  </TR>
+  <TR> 
+    <TD align="right"><BR><B>
+	<A href="../Common/AfscmeMainMenu.htm" title="Return to Main Menu">Main Menu</A>&nbsp;|&nbsp;
+	<A href="#">Need Help with this page?</A></B><BR>
+      <BR><BR>
+    </TD>
+  </TR>
+
+  <TR> 
+    <TD>
+      <TABLE width="60%" align="center" border=3 class="InnerContentTable">
+        <tr> 
+	  <td colspan=2><B>Select</B></td>
+	</tr>
+        <tr> 
+	  <td colspan=2>
+              	<TABLE border="0" class="InnerContentTable">
+              	<TR>
+			<TD>&nbsp;&nbsp;<input type="radio" name="OutputFormat" id="optionScreen" onClick="javascript:disableOtherOptions();" checked></input></TD>
+			<TD>&nbsp;&nbsp;<label for="optionScreen">Send Report To Screen</label></TD>
+
+		</TR>
+		</TABLE>
+	  </td>
+	</tr>	
+	<tr>
+	  <td>
+              	<TABLE border="0" class="InnerContentTable">
+              	<TR>
+			<TD>&nbsp;&nbsp;<input type="radio" name="OutputFormat" id="optionPrint" onClick="javascript:enableOtherOptions();"></input></TD>
+			<TD>&nbsp;&nbsp;<label for="optionPrint">Print Report on Paper</label></TD>
+
+		</TR>
+              	<TR>
+			<TD>&nbsp;&nbsp;<input type="radio" name="OutputFormat" id="optionCD" onClick="javascript:enableOtherOptions();"></input></TD>
+			<TD>&nbsp;&nbsp;<label for="optionCD">Extract Report to CD</label></TD>
+
+		</TR>
+              	<TR>
+			<TD>&nbsp;&nbsp;<input type="radio" name="OutputFormat" id="optionDisc" onClick="javascript:enableOtherOptions();"></input></TD>
+			<TD>&nbsp;&nbsp;<label for="optionDisc">Extract Report to Diskette</label></TD>
+
+		</TR>
+              	<TR>
+			<TD>&nbsp;&nbsp;<input type="radio" name="OutputFormat" id="optionTaoe" onClick="javascript:enableOtherOptions();"></input></TD>
+			<TD>&nbsp;&nbsp;<label for="optionTape">Extract Report to Tape</label></TD>
+
+		</TR>
+		</TABLE>
+	 </td>
+	 <td>
+              	<TABLE border="0" class="InnerContentTable">
+	        <tr> 
+			<td colspan=2><B>Select&nbsp;&nbsp;<I>(format to be used for extracting report)</I></B></td>
+		</tr>
+              	<TR>
+			<TD>&nbsp;&nbsp;<INPUT type="radio" id="optionTab" name="OutputFormat2" disabled></TD>
+			<TD>&nbsp;&nbsp;<LABEL for="optionTab">Tab Delimited</LABEL></TD>
+
+		</TR>
+              	<TR>
+			<TD>&nbsp;&nbsp;<INPUT type="radio" id="optionComma" name="OutputFormat2" disabled></TD>
+			<TD>&nbsp;&nbsp;<LABEL for="optionComma">Comma Delimited</LABEL></TD>
+
+		</TR>
+              	<TR>
+			<TD>&nbsp;&nbsp;<INPUT type="radio" id="optionSemicolon" name="OutputFormat2" disabled></TD>
+			<TD>&nbsp;&nbsp;<LABEL for="optionSemicolon">Semicolon Delimited</LABEL></TD>
+
+		</TR>
+              	<TR>
+			<TD>&nbsp;&nbsp;<INPUT type="radio" id="optionPDF" name="OutputFormat2" disabled></TD>
+			<TD>&nbsp;&nbsp;<LABEL for="optionPDF">PDF</LABEL></TD>
+
+		</TR>
+		</TABLE>
+	  </td>
+	</tr>
+</TABLE>
+
+<table width="80%" cellpadding="0" cellspacing="0" border="0" class="InnerContentTable">
+	<tr>
+		<td align="right"><br>
+			<label for="label_actions">
+			<input type="button" class="BUTTON" name="Submit" value="Generate Report" onClick="javascript:viewReport();">
+			<input type="button" class="BUTTON" name="Submit" value="Cancel" onClick="window.location='GenerateReports.htm'">
+			</label> 
+		</td>
+	</tr>
+</table>
+
+<p>
+    <SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+</p>
+</BODY>
+</HTML>

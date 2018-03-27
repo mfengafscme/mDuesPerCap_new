@@ -1,0 +1,463 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>My Personal Information - Edit</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js">
+</SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+    </SCRIPT>
+<!-- Begin Page Description -->
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>My Personal Information - Edit</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<SCRIPT language="JavaScript" src="../js/menu_help_row.js"></SCRIPT>
+</TABLE>
+<FORM action="#" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD>
+				<BR>
+				<INPUT type="button" class="BUTTON" name="SubmitButton" value="Submit" onClick="parent.location='MyPersonalInformation_CorrectedAddress.htm'"> 
+				<BR> <BR> 
+			</TD>
+			<TD align="right">
+				<BR>
+				<INPUT type="reset" class="BUTTON" name="ResetButton" value="Reset"> 
+				<INPUT type="button" class="BUTTON" name="CancelButton" value="Cancel" onClick="parent.location='MyPersonalInformation_CorrectedAddress.htm'"> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR>
+			<TD class="ContentTD" colspan="3">
+				<LABEL for="label_MbrNumber">Member Number</LABEL> &nbsp;&nbsp;&nbsp;12345678 <BR> <BR> 
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="3">
+				<TABLE cellpadding="1" cellspacing="1" class="InnerContentTable">
+					<TR>
+						<TH>
+							Prefix 
+						</TH>
+						<TH>
+							First Name 
+						</TH>
+						<TH>
+							Middle Name 
+						</TH>
+						<TH>
+							Last Name 
+						</TH>
+						<TH>
+							Suffix 
+						</TH>
+					</TR>
+					<TR>
+						<TD align="center" width="3%">
+							Mr. 
+						</TD>
+						<TD align="center" width="10%">
+							John 
+						</TD>
+						<TD align="center" width="5%">
+							Michael 
+						</TD>
+						<TD align="center" width="15%">
+							Doe 
+						</TD>
+						<TD align="center" width="3%">
+							III 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD colspan="3">
+				<TABLE width="100%" cellpadding="1" cellspacing="1" class="InnerContentTable">
+					<TR>
+						<TH colspan="6" align="left">
+							Primary Mailing Address 
+						</TH>
+					</TR>
+					<TR>
+						<TH ALIGN="left" COLSPAN="6">
+							Incorrect Address
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address1"> Address 1 </LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							111 Some Street 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address2"> Address 2 </LABEL> 
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							Apt. 1 
+						</TD>
+					</TR>
+					<TR>
+						<TD width="11%" class="ContentHeaderTD">
+							<LABEL for="label_City"> City</LABEL> 
+						</TD>
+						<TD width="30%">
+							Vienna 
+						</TD>
+						<TD width="14%" class="ContentHeaderTD">
+							<LABEL for="label_state"> State </LABEL> 
+						</TD>
+						<TD width="20%">
+							VA 
+						</TD>
+						<TD width="10%" class="ContentHeaderTD">
+							<LABEL for="label_ZipCode"> Zip/Postal Code </LABEL> 
+						</TD>
+						<TD width="15%">
+							00000-0000 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_County"> County </LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							Fairfax 
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Province">Province</LABEL> 
+						</TD>
+						<TD class="ContentTD">&nbsp;
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Country"> Country </LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							US
+						</TD>
+					</TR>
+					<TR>
+						<TD COLSPAN="6">
+							&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TH ALIGN="left" COLSPAN="6">
+							Corrected Address
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address1"> Address 1 </LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="Address1" id="label_Address1" value="222 Some Street" size="50" maxlength="50">
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Address2"> Address 2 </LABEL> 
+						</TD>
+						<TD class="ContentTD" colspan="3">
+							<INPUT type="text" name="Address2" id="label_Address2" value="Apt. 2" size="50" maxlength="50">
+						</TD>
+					</TR>
+					<TR>
+						<TD width="11%" class="ContentHeaderTD">
+							<LABEL for="label_City"> City</LABEL> 
+						</TD>
+						<TD width="30%">
+							<INPUT type="text" name="City" id="label_City" value="Vienna" size="25" maxlength="25">
+						</TD>
+						<TD width="14%" class="ContentHeaderTD">
+							<LABEL for="label_state"> State </LABEL> 
+						</TD>
+						<TD width="20%">
+							<SELECT name="state" id="label_state">
+								<SCRIPT language="JavaScript">
+									var selected = "VA";
+								</SCRIPT>
+								<SCRIPT language="JavaScript" src="../js/state_select.js"></SCRIPT>
+							</SELECT> 
+						</TD>
+						<TD width="10%" class="ContentHeaderTD">
+							<LABEL for="label_ZipCode"> Zip/Postal Code </LABEL> 
+						</TD>
+						<TD width="15%">
+							<INPUT type="text" name="ZipCode" value="00000" id="label_ZipCode" size="5" maxlength="5">
+							-
+							<INPUT type="text" name="ZipCode4" value="0000" size="4" maxlength="4">
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_County"> County </LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="County" id="label_County" value="Fairfax" size="25" maxlength="25">
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Province">Province</LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="Province" id="label_Province" value="" size="25" maxlength="25">
+						</TD>
+						<TD class="ContentHeaderTD">
+							<LABEL for="label_Country"> Country </LABEL> 
+						</TD>
+						<TD class="ContentTD">
+							<SELECT name="Country" id="label_Country">											
+								<SCRIPT LANGUAGE="JavaScript" SRC="../js/country_options.js"></SCRIPT>
+							</SELECT> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR>
+			<TD width="50%">
+				<TABLE cellpadding="1" cellspacing="1" class="InnerContentTable">
+					<TR>
+						<TH colspan="5">
+							Phone Numbers 
+						</TH>
+					</TR>
+					<TR>
+						<TH class="small">
+							Incorrect 
+						</TH>
+						<TH width="20%" class="small">
+							Type 
+						</TH>
+						<TH width="20%" class="small">
+							Country Code 
+						</TH>
+						<TH width="20%" class="small">
+							Area Code 
+						</TH>
+						<TH width="25%" class="small">
+							Number 
+						</TH>
+					</TR>
+					<TR align="center">
+						<TD class="ContentTD" align="center">
+							<INPUT type="checkbox" name="HomePhoneBad"> 
+						</TD>
+						<TD class="ContentTD">
+							Home 
+						</TD>
+						<TD class="ContentTD">&nbsp;
+						</TD>
+						<TD class="ContentTD">
+							703 
+						</TD>
+						<TD class="ContentTD">
+							555-1212 
+						</TD>
+					</TR>
+					<TR align="center">
+						<TD class="ContentTD" align="center">
+							<INPUT type="checkbox" name="WorkPhoneBad"> 
+						</TD>
+						<TD class="ContentTD">
+							Work 
+						</TD>
+						<TD class="ContentTD">&nbsp;
+						</TD>
+						<TD class="ContentTD">
+							202 
+						</TD>
+						<TD class="ContentTD">
+							111-1111 
+						</TD>
+					</TR>
+					<TR align="center">
+						<TD class="ContentTD" align="center">
+							<INPUT type="checkbox" name="CellPhoneBad"> 
+						</TD>
+						<TD class="ContentTD">
+							Cell 
+						</TD>
+						<TD class="ContentTD">&nbsp;
+						</TD>
+						<TD class="ContentTD">&nbsp;
+						</TD>
+						<TD class="ContentTD">&nbsp;
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+			<TD valign="top" width="50%">
+				<TABLE cellpadding="1" cellspacing="1" class="InnerContentTable">
+					<TR>
+						<TH colspan=2>
+							Email Addresses 
+						</TH>
+					</TR>
+					<TR>
+						<TH align="left" class="small">
+							Type 
+						</TH>
+						<TH align="left" class="small">
+							Address 
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentTD" width="15%">
+							Primary 
+						</TD>
+						<TD class="ContentTD" width="85%">
+							<INPUT type="text" name="email" value="john.doe@work.com" id="label_email" size="50"> 
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentTD">
+							Alternate 
+						</TD>
+						<TD class="ContentTD">
+							<INPUT type="text" name="email2" value="john.doe@home.com" id="email" size="50"> 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+		<TR valign="top">
+			<TD width="100%" colspan="2">
+				<TABLE cellpadding="1" cellspacing="1" class="InnerContentTable">
+					<TR>
+						<TH colspan="7">
+							Affiliate Associations 
+						</TH>
+					</TR>
+					<TR>
+						<TH class="small">
+							Name
+						</TH>
+						<TH WIDTH="5%" class="small">
+							Type 
+						</TH>
+						<TH WIDTH="10%" class="small">
+							Local/Sub Chapter 
+						</TH>
+						<TH WIDTH="8%" class="small">
+							State/National 
+						</TH>
+						<TH WIDTH="5%" class="small">
+							Sub Unit 
+						</TH>
+						<TH WIDTH="12%" class="small">
+							Council/Retiree Chapter 
+						</TH>
+						<TH width="4%">&nbsp;
+						</TH>
+					</TR>
+					<TR>
+						<TD class="ContentTD" align="middle">
+							New York Local 100
+						</TD>
+						<TD class="ContentTD" align="middle">
+							L 
+						</TD>
+						<TD class="ContentTD" align="middle">
+							100 
+						</TD>
+						<TD class="ContentTD" align="middle">
+							NY 
+						</TD>
+						<TD class="ContentTD" align="middle">
+							&nbsp;
+						</TD>
+						<TD class="ContentTD" align="middle">
+							10
+						</TD>
+						<TD class="smallFONT">&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentTD" align="middle">
+							Virginia Local 30
+						</TD>
+						<TD class="ContentTD" align="middle">
+							L
+						</TD>
+						<TD class="ContentTD" align="middle">
+							30
+						</TD>
+						<TD class="ContentTD" align="middle">
+							VA 
+						</TD>
+						<TD class="ContentTD" align="middle">
+							&nbsp;
+						</TD>
+						<TD class="ContentTD" align="middle">
+							100 
+						</TD>
+						<TD class="smallFONT">&nbsp;
+						</TD>
+					</TR>
+					<TR>
+						<TD class="ContentTD" align="middle">
+							Local 500, PB Sub-Local
+						</TD>
+						<TD class="ContentTD" align="middle">
+							U
+						</TD>
+						<TD class="ContentTD" align="middle">
+							500
+						</TD>
+						<TD class="ContentTD" align="middle">
+							NT 
+						</TD>
+						<TD class="ContentTD" align="middle">
+							PB
+						</TD>
+						<TD class="ContentTD" align="middle">
+							3
+						</TD>
+						<TD class="smallFONT" align="middle">
+							(Past) 
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD>
+				<BR>
+				<INPUT type="button" class="BUTTON" name="SubmitButton" value="Submit" onClick="parent.location='MyPersonalInformation_CorrectedAddress.htm'"> 
+				<BR> <BR> 
+			</TD>
+			<TD align="right">
+				<BR>
+				<INPUT type="reset" class="BUTTON" name="ResetButton" value="Reset"> 
+				<INPUT type="button" class="BUTTON" name="CancelButton" value="Cancel" onClick="parent.location='MyPersonalInformation_CorrectedAddress.htm'"> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js">
+          			</SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+	<!-- End Action Bar and footer -->
+</FORM>
+</BODY>
+</HTML>

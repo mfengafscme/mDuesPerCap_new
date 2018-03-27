@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+    <TITLE>Change Password</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="document.forms[0].elements[1].focus()">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		</SCRIPT>
+<TABLE valign=TOP cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR> 
+		<TD align=center> 
+			<H1>Account Info</H1>
+		</TD>
+	</TR>
+	<TR> 
+		<TD > <BR>
+		</TD>
+	</TR>
+	<TR> 
+		<TD align="right" class="ContentHeaderTD"> <A href="#">Need Help with this page?</A><BR>
+			<BR>
+		</TD>
+	</TR>
+</TABLE>
+<FORM action="../Membership/MyPersonalInformation.htm" name="form">
+	<TABLE valign=TOP cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR align="center"> 
+			<TD> 
+                <table><tr><td colspan="2">
+                            <table border=1 cellpadding=3 cellspacing=3><tr><td>
+				<TABLE width="40%" align="center" cellpadding="2" cellspacing="0" class="InnerContentTable">
+					<TR> 
+                        <TD align="left" nowrap><label for="password">Current Password</label></TD>
+						<TD align="left">
+                            <INPUT type="password" id="currentPassword" size=10 value="password">
+							</TD>
+					</TR>
+					<TR> 
+                        <TD align="left" nowrap><label for="password">Choose a new password</label></TD>
+						<TD align="left">
+							<INPUT type="password" id="password" size=10>
+							</TD>
+					</TR>
+					<TR> 
+                        <TD align="left" nowrap><label for="password2">Re-Enter new password</label></TD>
+                        <TD align="left">
+                            <INPUT type="password" id="password2" size=10>
+                        </TD>
+					</TR>
+					<TR> 
+                        <TD align="left" nowrap><label for="challengeQuestion">Challenge Question</label></TD>
+						<TD align="left">
+                            <select id="challengeQuestion">
+                                <option value="" selected>[select a challenge question]</option>
+                                <option value="0">Mother's Maiden Name</option>
+                                <option value="1">Pet's name</option>
+                                <option value="2">City where you were born</option>
+                            </select>
+							</TD>
+					</TR>
+					<TR> 
+                        <TD align="left" nowrap><label for="response">Challenge Response</label></TD>
+						<TD align="left">
+                            <INPUT id="response" size="50">
+							</TD>
+					</TR>
+				</TABLE>
+</tr></td></table>
+                </td></tr>
+					<TR> 
+                        <TD class="FieldCaptionTD"><br>
+                            <INPUT type="reset" class="BUTTON" value="Reset">
+                            <INPUT type="button" class="BUTTON" value="Cancel" onClick="history.go(-1);">
+						</TD>
+                        <TD align="right"><br>
+							<INPUT type="submit" class="BUTTON" value="Submit">
+						</TD>
+					</TR>
+            </table>
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+	<TABLE valign=TOP cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR> 
+			<TD valign="TOP" align="center"> 
+				<SCRIPT language="JavaScript" src="../js/footer.js">
+					</SCRIPT>
+			</TD>
+		</TR>
+	</TABLE>
+</BODY>
+</HTML>

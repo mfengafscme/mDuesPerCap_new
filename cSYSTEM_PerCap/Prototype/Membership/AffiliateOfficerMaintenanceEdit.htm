@@ -1,0 +1,673 @@
+<!DOCTYPE html public "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>Affiliate Officer Maintenance - Edit</TITLE><LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js"></SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js"></SCRIPT>
+<SCRIPT language="JavaScript">
+	
+	function setDisableValueForFieldsEndingWith(form, endValues, disableValue) {
+		for (var i = 0; i < form.length; i++) {
+			var element = form.elements[i];
+			for (var j = 0; j < endValues.length; j++) {
+				if (endsWith(element.name, endValues[j])) {
+					element.disabled = disableValue;
+				}
+			}
+		}
+	}
+	
+	function disableAllFieldsContaining(form, containValue) {
+		for (var i = 0; i < form.length; i++) {
+			var element = form.elements[i];
+			if (element.name.indexOf(containValue) > -1) {
+				element.disabled = true;
+			}
+		}
+	}
+	
+	function resetFieldsEndingWith(form, endValues) {
+		for (var i = 0; i < form.length; i++) {
+			var element = form.elements[i];
+			for (var j = 0; j < endValues.length; j++) {
+				if (endsWith(element.name, endValues[j])) {
+					element.disabled = true;
+					if (element.type == "select-one") {
+						element.selectedIndex = getDefaultSelectedIndex(element);
+					} else if (element.type == "radio") {
+						element.checked = false;
+					} else {
+						element.value = element.defaultValue;
+					}
+				}
+			}
+		}
+	}
+	
+	function clearRadioButtonSet(form, setName) {
+		for (var i = 0; i < form.elements.length; i++) {
+			var element = form.elements[i];
+			if ( (element.type == "radio") && (element.name == setName) ) {
+				element.checked = false;
+			}
+		}
+	}
+	
+</SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js"></SCRIPT>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<H1>Affiliate Officer Maintenance - Edit</H1>
+			</TD>
+		</TR>
+		<TR>
+			<TD>
+				<BR>
+			</TD>
+		</TR>
+		<SCRIPT language="JavaScript" src="../js/menu_help_row.js">	</SCRIPT>
+	</TABLE>
+	<FORM action="#" name="form">
+		<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+			<TR valign="top">
+				<TD align="left">
+					<BR>
+					<INPUT type="button" name="SubmitButton" class="BUTTON" value="Submit" onClick="parent.location='AffiliateOfficerMaintenanceEdit_MultipleResults.htm'">
+					<BR>
+					<BR>
+				</TD>
+				<TD align="right">
+					<BR>
+					<INPUT type="reset" name="ResetButton" class="BUTTON" value="Reset" onClick="disableAllFieldsContaining(this.form, 'Name_');">
+					<INPUT type="button" name="CancelButton" class="BUTTON" value="Cancel" onClick="parent.location='AffiliateOfficerMaintenance.htm'">
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+			<TR valign="top">
+				<TD class="ContentHeaderTR">
+					Virginia - PD Local 100 - Council 10
+					<BR>
+					<BR>
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+			<TR>
+				<TD colspan="20" class="ContentHeaderTR">
+					Officers
+				</TD>
+			</TR>
+			<TR>
+				<TH colspan="4">Select</TH>
+				<TH width="20%">Officer Title</TH>
+				<TH width="8%">End Term</TH>
+				<!--TH width="3%">Susp</TH>
+				<TH width="2%">T</TH-->
+				<TH colspan="4">Name</TH>
+				<!--TH width="2%">RO</TH-->
+				<TH width="3%">Stwd</TH>
+				<!--TH width="4%">E-Bd</TH-->
+			</TR>
+			<TR>
+				<TH CLASS="small">&nbsp;</TH>
+				<TH class="small">Renew</TH>
+				<TH class="small">Vacate</TH>
+				<TH class="small">Replace</TH>
+				<TD colspan="2">&nbsp;</TD>
+				<TH class="small">First</TH>
+				<TH class="small">Middle</TH>
+				<TH class="small">Last</TH>
+				<TH class="small">Suffix</TH>
+				<TD>&nbsp;</TD>
+			</TR>
+			<TR align="center">
+				<TD>
+					<A HREF="javascript:resetFieldsEndingWith(this.form, ['Name_1', 'Year_1']);clearRadioButtonSet(this.form, 'officer_1');" class="actionSMALL">Reset</A>
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_1" value="renew_1" onClick="this.form.EndTermYear_1.value=this.form.NextEndTermYear_1.value;setDisableValueForFieldsEndingWith(this.form, ['Name_1', 'Year_1'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_1" value="vacate_1" onClick="this.form.EndTermYear_1.value=this.form.EndTermYear_1.defaultValue;setDisableValueForFieldsEndingWith(this.form, ['Name_1', 'Year_1'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_1" value="replace_1" onClick="this.form.EndTermYear_1.value=this.form.NextEndTermYear_1.value;setDisableValueForFieldsEndingWith(this.form, ['Name_1', 'Year_1'], false);forceTab(this);">
+				</TD>
+				<TD>
+					President
+				</TD>
+				<TD>
+					01/<INPUT TYPE="Text" name="EndTermYear_1" value="2003" SIZE="3" MAXLENGTH="4" disabled>
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="Susp_1">
+				</TD>
+				<TD>
+					<INPUT type="checkbox" name="T_1">
+				</TD-->
+				<TD align="center"><!--STYLE="border:none;font-size:7pt" -->
+					<INPUT type="text" name="FirstName_1" value="John" size="25"  maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="MiddleName_1" value="Michael" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="LastName_1" value="Doe" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<SELECT name="SuffixName_1" DISABLED>
+						<OPTION></OPTION>
+						<OPTION>Jr.</OPTION>
+						<OPTION>Sr.</OPTION>
+						<OPTION>I</OPTION>
+						<OPTION>II</OPTION>
+						<OPTION selected>III</OPTION>
+						<OPTION>IV</OPTION>
+						<OPTION>V</OPTION>
+					</SELECT>
+				</TD>
+				<!--TD>
+					<INPUT type="radio" name="ReportingOfficer" checked>
+				</TD-->
+				<TD>
+					<INPUT type="checkbox" name="Steward_1">
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="XB_1" checked>
+				</TD-->
+			</TR>
+			<TR align="center">
+				<TD>
+					<A HREF="javascript:resetFieldsEndingWith(this.form, ['Name_2', 'Year_2']);clearRadioButtonSet(this.form, 'officer_2');" class="actionSMALL">Reset</A>
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_2" value="renew_2" onClick="this.form.EndTermYear_2.value=this.form.NextEndTermYear_2.value;setDisableValueForFieldsEndingWith(this.form, ['Name_2', 'Year_2'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_2" value="vacate_2" onClick="this.form.EndTermYear_2.value=this.form.EndTermYear_2.defaultValue;setDisableValueForFieldsEndingWith(this.form, ['Name_2', 'Year_2'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_2" value="replace_2" onClick="this.form.EndTermYear_2.value=this.form.NextEndTermYear_2.value;setDisableValueForFieldsEndingWith(this.form, ['Name_2', 'Year_2'], false);forceTab(this);">
+				</TD>
+				<TD>
+					Vice President
+				</TD>
+				<TD>
+					01/<INPUT TYPE="Text" name="EndTermYear_2" value="2003" SIZE="3" MAXLENGTH="4" disabled>
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="Susp_2">
+				</TD>
+				<TD>
+					<INPUT type="checkbox" name="T_2">
+				</TD-->
+				<TD align="center">
+					<INPUT type="text" name="FirstName_2" value="Srinivasan" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="MiddleName_2" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="LastName_2" value="Chowdhury" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<SELECT name="SuffixName_2" DISABLED>
+						<OPTION></OPTION>
+						<OPTION>Jr.</OPTION>
+						<OPTION>Sr.</OPTION>
+						<OPTION>I</OPTION>
+						<OPTION>II</OPTION>
+						<OPTION>III</OPTION>
+						<OPTION>IV</OPTION>
+						<OPTION>V</OPTION>
+					</SELECT>
+				</TD>
+				<!--TD>
+					<INPUT type="radio" name="ReportingOfficer">
+				</TD-->
+				<TD>
+					<INPUT type="checkbox" name="Steward_2">
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="XB_2" checked>
+				</TD-->
+			</TR>
+			<TR align="center">
+				<TD>
+					<A HREF="javascript:resetFieldsEndingWith(this.form, ['Name_3', 'Year_3']);clearRadioButtonSet(this.form, 'officer_3');" class="actionSMALL">Reset</A>
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_3" value="renew_3" onClick="this.form.EndTermYear_3.value=this.form.NextEndTermYear_3.value;setDisableValueForFieldsEndingWith(this.form, ['Name_3', 'Year_3'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_3" value="vacate_3" onClick="this.form.EndTermYear_3.value=this.form.EndTermYear_3.defaultValue;setDisableValueForFieldsEndingWith(this.form, ['Name_3', 'Year_3'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_3" value="replace_3" onClick="setDisableValueForFieldsEndingWith(this.form, ['Name_3', 'Year_3'], false);forceTab(this);">
+				</TD>
+				<TD>
+					Vice President
+				</TD>
+				<TD>
+					01/<INPUT TYPE="Text" name="EndTermYear_3" value="2003" SIZE="3" MAXLENGTH="4" disabled>
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="Susp_3">
+				</TD>
+				<TD>
+					<INPUT type="checkbox" name="T_3">
+				</TD-->
+				<TD align="center">
+					<INPUT type="text" name="FirstName_3" value="William" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="MiddleName_3" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="LastName_3" value="Smith" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<SELECT name="SuffixName_3" DISABLED>
+						<OPTION></OPTION>
+						<OPTION>Jr.</OPTION>
+						<OPTION>Sr.</OPTION>
+						<OPTION>I</OPTION>
+						<OPTION>II</OPTION>
+						<OPTION>III</OPTION>
+						<OPTION>IV</OPTION>
+						<OPTION>V</OPTION>
+					</SELECT>
+				</TD>
+				<!--TD>
+					<INPUT type="radio" name="ReportingOfficer">
+				</TD-->
+				<TD>
+					<INPUT type="checkbox" name="Steward_3">
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="XB_3" checked>
+				</TD-->
+			</TR>
+			<TR align="center">
+				<TD>
+					<A HREF="javascript:resetFieldsEndingWith(this.form, ['Name_4', 'Year_4']);clearRadioButtonSet(this.form, 'officer_4');" class="actionSMALL">Reset</A>
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_4" value="renew_4" onClick="this.form.EndTermYear_4.value=this.form.NextEndTermYear_4.value;setDisableValueForFieldsEndingWith(this.form, ['Name_4', 'Year_4'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_4" value="vacate_4" onClick="this.form.EndTermYear_4.value=this.form.EndTermYear_4.defaultValue;setDisableValueForFieldsEndingWith(this.form, ['Name_4', 'Year_4'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_4" value="replace_4" onClick="this.form.EndTermYear_4.value=this.form.NextEndTermYear_4.value;setDisableValueForFieldsEndingWith(this.form, ['Name_4', 'Year_4'], false);forceTab(this);">
+				</TD>
+				<TD>
+					Vice President
+				</TD>
+				<TD>
+					01/<INPUT TYPE="Text" name="EndTermYear_4" value="2003" SIZE="3" MAXLENGTH="4" disabled>
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="Susp_4">
+				</TD>
+				<TD>
+					<INPUT type="checkbox" name="T_4">
+				</TD-->
+				<TD align="center">
+					<INPUT type="text" name="FirstName_4" value="Robert" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="MiddleName_4" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="LastName_4" value="Jones" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<SELECT name="SuffixName_4" DISABLED>
+						<OPTION></OPTION>
+						<OPTION selected>Jr.</OPTION>
+						<OPTION>Sr.</OPTION>
+						<OPTION>I</OPTION>
+						<OPTION>II</OPTION>
+						<OPTION>III</OPTION>
+						<OPTION>IV</OPTION>
+						<OPTION>V</OPTION>
+					</SELECT>
+				</TD>
+				<!--TD>
+					<INPUT type="radio" name="ReportingOfficer">
+				</TD-->
+				<TD>
+					<INPUT type="checkbox" name="Steward_4">
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="XB_4" checked>
+				</TD-->
+			</TR>
+			<TR align="center">
+				<TD>
+					<A HREF="javascript:resetFieldsEndingWith(this.form, ['Name_5', 'Year_5']);clearRadioButtonSet(this.form, 'officer_5');" class="actionSMALL">Reset</A>
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_5" value="renew_5" onClick="this.form.EndTermYear_5.value=this.form.NextEndTermYear_5.value;setDisableValueForFieldsEndingWith(this.form, ['Name_5', 'Year_5'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_5" value="vacate_5" onClick="this.form.EndTermYear_5.value=this.form.EndTermYear_5.defaultValue;setDisableValueForFieldsEndingWith(this.form, ['Name_5', 'Year_5'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_5" value="replace_5" onClick="this.form.EndTermYear_5.value=this.form.NextEndTermYear_5.value;setDisableValueForFieldsEndingWith(this.form, ['Name_5', 'Year_5'], false);forceTab(this);">
+				</TD>
+				<TD>
+					Vice President
+				</TD>
+				<TD>
+					01/<INPUT TYPE="Text" name="EndTermYear_5" value="2003" SIZE="3" MAXLENGTH="4" disabled>
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="Susp_5">
+				</TD>
+				<TD>
+					<INPUT type="checkbox" name="T_5">
+				</TD-->
+				<TD align="center">
+					<INPUT type="text" name="FirstName_5" value="Stephanie" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="MiddleName_5" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="LastName_5" value="Abramson-Baszczewski" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<SELECT name="SuffixName_5" DISABLED>
+						<OPTION></OPTION>
+						<OPTION>Jr.</OPTION>
+						<OPTION>Sr.</OPTION>
+						<OPTION>I</OPTION>
+						<OPTION selected>II</OPTION>
+						<OPTION>III</OPTION>
+						<OPTION>IV</OPTION>
+						<OPTION>V</OPTION>
+					</SELECT>
+				</TD>
+				<!--TD>
+					<INPUT type="radio" name="ReportingOfficer">
+				</TD-->
+				<TD>
+					<INPUT type="checkbox" name="Steward_5">
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="XB_5" checked>
+				</TD-->
+			</TR>
+			<TR align="center">
+				<TD>
+					<A HREF="javascript:resetFieldsEndingWith(this.form, ['Name_6', 'Year_6']);clearRadioButtonSet(this.form, 'officer_6');" class="actionSMALL">Reset</A>
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_6" value="renew_6" onClick="this.form.EndTermYear_6.value=this.form.NextEndTermYear_6.value;setDisableValueForFieldsEndingWith(this.form, ['Name_6', 'Year_6'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_6" value="vacate_6" onClick="this.form.EndTermYear_6.value=this.form.EndTermYear_6.defaultValue;setDisableValueForFieldsEndingWith(this.form, ['Name_6', 'Year_6'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_6" value="replace_6" onClick="this.form.EndTermYear_6.value=this.form.NextEndTermYear_6.value;setDisableValueForFieldsEndingWith(this.form, ['Name_6', 'Year_6'], false);forceTab(this);">
+				</TD>
+				<TD>
+					Vice President
+				</TD>
+				<TD>
+					01/<INPUT TYPE="Text" name="EndTermYear_6" value="2003" SIZE="3" MAXLENGTH="4" disabled>
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="Susp_6">
+				</TD>
+				<TD>
+					<INPUT type="checkbox" name="T_6">
+				</TD-->
+				<TD align="center">
+					<INPUT type="text" name="FirstName_6" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="MiddleName_6" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="LastName_6" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<SELECT name="SuffixName_6" DISABLED>
+						<OPTION></OPTION>
+						<OPTION>Jr.</OPTION>
+						<OPTION>Sr.</OPTION>
+						<OPTION>I</OPTION>
+						<OPTION>II</OPTION>
+						<OPTION>III</OPTION>
+						<OPTION>IV</OPTION>
+						<OPTION>V</OPTION>
+					</SELECT>
+				</TD>
+				<!--TD>
+					<INPUT type="radio" name="ReportingOfficer">
+				</TD-->
+				<TD>
+					<INPUT type="checkbox" name="Steward_6" checked>
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="XB_6" checked>
+				</TD-->
+			</TR>
+			<TR align="center">
+				<TD>
+					<A HREF="javascript:resetFieldsEndingWith(this.form, ['Name_7', 'Year_7']);clearRadioButtonSet(this.form, 'officer_7');" class="actionSMALL">Reset</A>
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_7" value="renew_7" onClick="this.form.EndTermYear_7.value=this.form.NextEndTermYear_7.value;setDisableValueForFieldsEndingWith(this.form, ['Name_7', 'Year_7'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_7" value="vacate_7" onClick="this.form.EndTermYear_7.value=this.form.EndTermYear_7.defaultValue;setDisableValueForFieldsEndingWith(this.form, ['Name_7', 'Year_7'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_7" value="replace_7" onClick="this.form.EndTermYear_7.value=this.form.NextEndTermYear_7.value;setDisableValueForFieldsEndingWith(this.form, ['Name_7', 'Year_7'], false);forceTab(this);">
+				</TD>
+				<TD>
+					Board Member
+				</TD>
+				<TD>
+					01/<INPUT TYPE="Text" name="EndTermYear_7" value="2003" SIZE="3" MAXLENGTH="4" disabled>
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="Susp_7">
+				</TD>
+				<TD>
+					<INPUT type="checkbox" name="T_7">
+				</TD-->
+				<TD align="center">
+					<INPUT type="text" name="FirstName_7" value="Michael" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="MiddleName_7" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="LastName_7" value="Evans" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<SELECT name="SuffixName_7" DISABLED>
+						<OPTION></OPTION>
+						<OPTION>Jr.</OPTION>
+						<OPTION selected>Sr.</OPTION>
+						<OPTION>I</OPTION>
+						<OPTION>II</OPTION>
+						<OPTION>III</OPTION>
+						<OPTION>IV</OPTION>
+						<OPTION>V</OPTION>
+					</SELECT>
+				</TD>
+				<!--TD>
+					<INPUT type="radio" name="ReportingOfficer">
+				</TD-->
+				<TD>
+					<INPUT type="checkbox" name="Steward_7">
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="XB_7" checked>
+				</TD-->
+			</TR>
+			<TR align="center">
+				<TD>
+					<A HREF="javascript:resetFieldsEndingWith(this.form, ['Name_8', 'Year_8']);clearRadioButtonSet(this.form, 'officer_8');" class="actionSMALL">Reset</A>
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_8" value="renew_8" onClick="this.form.EndTermYear_8.value=this.form.NextEndTermYear_8.value;setDisableValueForFieldsEndingWith(this.form, ['Name_8', 'Year_8'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_8" value="vacate_8" onClick="this.form.EndTermYear_8.value=this.form.EndTermYear_8.defaultValue;setDisableValueForFieldsEndingWith(this.form, ['Name_8', 'Year_8'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_8" value="replace_8" onClick="this.form.EndTermYear_8.value=this.form.NextEndTermYear_8.value;setDisableValueForFieldsEndingWith(this.form, ['Name_8', 'Year_8'], false);forceTab(this);">
+				</TD>
+				<TD>
+					Board Member
+				</TD>
+				<TD>
+					01/<INPUT TYPE="Text" name="EndTermYear_8" value="2003" SIZE="3" MAXLENGTH="4" disabled>
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="Susp_8">
+				</TD>
+				<TD>
+					<INPUT type="checkbox" name="T_8">
+				</TD-->
+				<TD align="center">
+					<INPUT type="text" name="FirstName_8" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="MiddleName_8" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="LastName_8" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<SELECT name="SuffixName_8" DISABLED>
+						<OPTION></OPTION>
+						<OPTION>Jr.</OPTION>
+						<OPTION>Sr.</OPTION>
+						<OPTION>I</OPTION>
+						<OPTION>II</OPTION>
+						<OPTION>III</OPTION>
+						<OPTION>IV</OPTION>
+						<OPTION>V</OPTION>
+					</SELECT>
+				</TD>
+				<!--TD>
+					<INPUT type="radio" name="ReportingOfficer">
+				</TD-->
+				<TD>
+					<INPUT type="checkbox" name="Steward_8">
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="XB_8" checked>
+				</TD-->
+			</TR>
+			<TR align="center">
+				<TD>
+					<A HREF="javascript:resetFieldsEndingWith(this.form, ['Name_9', 'Year_9']);clearRadioButtonSet(this.form, 'officer_9');" class="actionSMALL">Reset</A>
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_9" value="renew_9" onClick="this.form.EndTermYear_9.value=this.form.NextEndTermYear_9.value;setDisableValueForFieldsEndingWith(this.form, ['Name_9', 'Year_9'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_9" value="vacate_9" onClick="this.form.EndTermYear_9.value=this.form.EndTermYear_9.defaultValue;setDisableValueForFieldsEndingWith(this.form, ['Name_9', 'Year_9'], true);">
+				</TD>
+				<TD>
+					<INPUT type="Radio" name="officer_9" value="replace_9" onClick="this.form.EndTermYear_9.value=this.form.NextEndTermYear_9.value;setDisableValueForFieldsEndingWith(this.form, ['Name_9', 'Year_9'], false);forceTab(this);">
+				</TD>
+				<TD>
+					Board Member
+				</TD>
+				<TD>
+					01/<INPUT TYPE="Text" name="EndTermYear_9" value="2003" SIZE="3" MAXLENGTH="4" DISABLED>
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="Susp_9">
+				</TD>
+				<TD>
+					<INPUT type="checkbox" name="T_9">
+				</TD-->
+				<TD align="center">
+					<INPUT type="text" name="FirstName_9" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="MiddleName_9" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<INPUT type="text" name="LastName_9" value="" size="25" maxlength="25" class="noBorder" DISABLED>
+				</TD>
+				<TD align="center">
+					<SELECT name="SuffixName_9" DISABLED>
+						<OPTION></OPTION>
+						<OPTION>Jr.</OPTION>
+						<OPTION>Sr.</OPTION>
+						<OPTION>I</OPTION>
+						<OPTION>II</OPTION>
+						<OPTION>III</OPTION>
+						<OPTION>IV</OPTION>
+						<OPTION>V</OPTION>
+					</SELECT>
+				</TD>
+				<!--TD>
+					<INPUT type="radio" name="ReportingOfficer">
+				</TD-->
+				<TD>
+					<INPUT type="checkbox" name="Steward_9">
+				</TD>
+				<!--TD>
+					<INPUT type="checkbox" name="XB_9" checked>
+				</TD-->
+			</TR>
+		</TABLE>
+		<INPUT TYPE="Hidden" NAME="NextEndTermYear_1" value="2005">
+		<INPUT TYPE="Hidden" NAME="NextEndTermYear_2" value="2005">
+		<INPUT TYPE="Hidden" NAME="NextEndTermYear_3" value="2005">
+		<INPUT TYPE="Hidden" NAME="NextEndTermYear_4" value="2005">
+		<INPUT TYPE="Hidden" NAME="NextEndTermYear_5" value="2005">
+		<INPUT TYPE="Hidden" NAME="NextEndTermYear_6" value="2005">
+		<INPUT TYPE="Hidden" NAME="NextEndTermYear_7" value="2005">
+		<INPUT TYPE="Hidden" NAME="NextEndTermYear_8" value="2005">
+		<INPUT TYPE="Hidden" NAME="NextEndTermYear_9" value="2005">
+		<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+			<TR>
+				<TD class="ContentHeaderTR">
+					<BR>Virginia - PD Local 100 - Council 10
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+			<TR valign="top">
+				<TD align="left">
+					<BR>
+					<INPUT type="button" name="SubmitButton" class="BUTTON" value="Submit" onClick="parent.location='AffiliateOfficerMaintenanceEdit_MultipleResults.htm'">
+					<BR>
+					<BR>
+				</TD>
+				<TD align="right">
+					<BR>
+					<INPUT type="reset" name="ResetButton" class="BUTTON" value="Reset" onClick="disableAllFieldsContaining(this.form, 'Name_');">
+					<INPUT type="button" name="CancelButton" class="BUTTON" value="Cancel" onClick="parent.location='AffiliateOfficerMaintenance.htm'">
+				</TD>
+			</TR>
+		</TABLE>
+		<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+			<TR>
+				<TD valign="TOP" align="center">
+					<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT>
+				</TD>
+			</TR>
+		</TABLE>
+	</FORM>
+</BODY>
+</HTML>

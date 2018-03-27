@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML>
+<HEAD>
+<TITLE>My Personal Information - Add Phone Number</TITLE>
+<LINK rel="stylesheet" href="../css/afscme.css" type="text/css">
+<SCRIPT language="JavaScript" src="../js/date.js">
+</SCRIPT>
+<SCRIPT language="JavaScript" src="../js/membership.js">
+</SCRIPT>
+</HEAD>
+<BODY topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" class="BodyContent" onLoad="initializeFocus();">
+<!-- IMPORT HEADER -->
+<SCRIPT language="JavaScript" src="../js/header.js">
+		
+	</SCRIPT>
+<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+	<TR>
+		<TD align=center>
+			<H1>My Personal Information - Add Phone Number</H1>
+		</TD>
+	</TR>
+	<TR>
+		<TD>
+			<BR> 
+		</TD>
+	</TR>
+	<TR>
+		<TD align="right" class="ContentHeaderTD">
+			<A href="#">Need Help with this page?</A><BR> <BR> 
+		</TD>
+	</TR>
+</TABLE>
+<FORM action="#" name="form">
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TD class="ContentHeaderTR">
+				John Michael Doe - 12345678 <BR> <BR> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="1" class="BodyContent" align="center">
+		<TR valign="top">
+			<TH width="20%">
+				Primary 
+			</TH>
+			<TH width="20%">
+				* Type 
+			</TH>
+			<TH width="20%">
+				* Country Code 
+			</TH>
+			<TH width="20%">
+				Area Code 
+			</TH>
+			<TH width="25%">
+				* Number 
+			</TH>
+		</TR>
+		<TR>
+			<TD align="middle" class="ContentTD">
+				<INPUT type="checkbox" name="PrimaryPhoneNumber" id="label_PrimaryPhoneNumber"> 
+			</TD>
+			<TD align="middle" class="ContentTD">
+				<SELECT name="PhoneNumberCode" id="label_PhoneNumberCode">
+					<OPTION></OPTION>
+					<OPTION>Home</OPTION>
+					<OPTION>Work</OPTION>
+					<OPTION>Cell</OPTION>
+					<OPTION>Fax</OPTION>
+					<OPTION>Other</OPTION>
+				</SELECT> 
+			</TD>
+			<TD align="middle" class="ContentTD">
+							<SELECT name="countryCode">
+								<OPTION selected>1 - United States</OPTION>
+								<OPTION>44 - United Kingdom</OPTION>
+								<OPTION>1+340 - U.S. Virgin Islands</OPTION>
+								<OPTION>1+787 - Puerto Rico</OPTION>
+								<OPTION>1+939 - Puerto Rico</OPTION>
+							</SELECT>
+			</TD>
+			<TD align="middle" class="ContentTD">
+				<INPUT type="text" name="AreaCode" id="label_AreaCode" value="" size ="3" maxlength="3"> 
+			</TD>
+			<TD align="middle" class="ContentTD">
+				<INPUT type="text" name="PhoneNumber" id="label_PhoneNumber" value="" size ="7" maxlength="7"> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR valign="top">
+			<TD align="left">
+				<BR>
+				<INPUT type="button" class="BUTTON" value="Submit" name="SubmitButton" onClick="parent.location='MyPersonalInformation_MembersOnly.htm'" tabindex="7"> 
+				<BR>
+				<BR> 
+			</TD>
+			<TD align="right">
+				<BR>
+				<INPUT name="ResetButton" type="reset" class="BUTTON" value="Reset" tabindex="8"> 
+				<INPUT name="CancelButton" type="button" class="BUTTON" onClick="parent.location='MyPersonalInformation_MembersOnly.htm'" value="Cancel" tabindex="9"> 
+			</TD>
+		</TR>
+	</TABLE>
+	<TABLE cellpadding="0" cellspacing="0" border="0" class="ContentTable" align="center">
+		<TR>
+			<TD align="center">
+				<BR><B><I>* Indicates Required Fields</I></B>
+				<BR>
+			</TD>
+		</TR>
+		<TR>
+			<TD valign="TOP" align="center">
+				<SCRIPT language="JavaScript" src="../js/footer.js"></SCRIPT> 
+			</TD>
+		</TR>
+	</TABLE>
+</FORM>
+</BODY>
+</HTML>
